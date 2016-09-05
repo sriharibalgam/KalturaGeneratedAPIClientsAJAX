@@ -1,0 +1,87 @@
+
+/**
+ *Class definition for the Kaltura service: scheduleResource.
+ **/
+var KalturaScheduleResourceService = {
+	/**
+	 * Allows you to add a new KalturaScheduleResource object.
+	 * @param	scheduleResource	KalturaScheduleResource		 (optional)
+	 * @return	KalturaScheduleResource.
+	 **/
+	add: function(scheduleResource){
+		var kparams = new Object();
+		kparams.scheduleResource = scheduleResource;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "add", kparams);
+	},
+	
+	/**
+	 * Retrieve a KalturaScheduleResource object by ID.
+	 * @param	scheduleResourceId	int		 (optional)
+	 * @return	KalturaScheduleResource.
+	 **/
+	get: function(scheduleResourceId){
+		var kparams = new Object();
+		kparams.scheduleResourceId = scheduleResourceId;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "get", kparams);
+	},
+	
+	/**
+	 * Update an existing KalturaScheduleResource object.
+	 * @param	scheduleResourceId	int		 (optional)
+	 * @param	scheduleResource	KalturaScheduleResource		Id (optional)
+	 * @return	KalturaScheduleResource.
+	 **/
+	update: function(scheduleResourceId, scheduleResource){
+		var kparams = new Object();
+		kparams.scheduleResourceId = scheduleResourceId;
+		kparams.scheduleResource = scheduleResource;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "update", kparams);
+	},
+	
+	/**
+	 * Mark the KalturaScheduleResource object as deleted.
+	 * @param	scheduleResourceId	int		 (optional)
+	 * @return	KalturaScheduleResource.
+	 **/
+	deleteAction: function(scheduleResourceId){
+		var kparams = new Object();
+		kparams.scheduleResourceId = scheduleResourceId;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "delete", kparams);
+	},
+	
+	/**
+	 * List KalturaScheduleResource objects.
+	 * @param	filter	KalturaScheduleResourceFilter		 (optional, default: null)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
+	 * @return	KalturaScheduleResourceListResponse.
+	 **/
+	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
+		var kparams = new Object();
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "list", kparams);
+	},
+	
+	/**
+	 * Add new bulk upload batch job.
+	 * @param	fileData	file		 (optional)
+	 * @param	bulkUploadData	KalturaBulkUploadCsvJobData		 (optional, default: null)
+	 * @return	KalturaBulkUpload.
+	 **/
+	addFromBulkUpload: function(fileData, bulkUploadData){
+		if(!bulkUploadData)
+			bulkUploadData = null;
+		var kparams = new Object();
+		kfiles = new Object();
+		kfiles.fileData = fileData;
+		if (bulkUploadData != null)
+			kparams.bulkUploadData = bulkUploadData;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "addFromBulkUpload", kparams, kfiles);
+	}
+}
