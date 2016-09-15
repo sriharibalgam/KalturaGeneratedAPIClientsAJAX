@@ -105,5 +105,18 @@ var KalturaCuePointService = {
 		kparams.id = id;
 		kparams.status = status;
 		return new KalturaRequestBuilder("cuepoint_cuepoint", "updateStatus", kparams);
+	},
+	
+	/**
+	 * Clone cuePoint with id to given entry.
+	 * @param	id	string		 (optional)
+	 * @param	entryId	string		 (optional)
+	 * @return	KalturaCuePoint.
+	 **/
+	cloneAction: function(id, entryId){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("cuepoint_cuepoint", "clone", kparams);
 	}
 }

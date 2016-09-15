@@ -105,5 +105,18 @@ var KalturaAnnotationService = {
 		kparams.id = id;
 		kparams.status = status;
 		return new KalturaRequestBuilder("annotation_annotation", "updateStatus", kparams);
+	},
+	
+	/**
+	 * Clone cuePoint with id to given entry.
+	 * @param	id	string		 (optional)
+	 * @param	entryId	string		 (optional)
+	 * @return	KalturaCuePoint.
+	 **/
+	cloneAction: function(id, entryId){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("annotation_annotation", "clone", kparams);
 	}
 }
