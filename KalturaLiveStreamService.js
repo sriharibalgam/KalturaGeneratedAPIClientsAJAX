@@ -178,6 +178,17 @@ var KalturaLiveStreamService = {
 	},
 	
 	/**
+	 * Regenerate new secure token for liveStream.
+	 * @param	entryId	string		Live stream entry id to regenerate secure token for (optional)
+	 * @return	.
+	 **/
+	regenrateSecureToken: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("livestream", "regenrateSecureToken", kparams);
+	},
+	
+	/**
 	 * Append recorded video to live entry.
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	assetId	string		Live asset id (optional)
