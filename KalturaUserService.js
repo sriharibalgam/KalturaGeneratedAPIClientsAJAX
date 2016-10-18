@@ -127,21 +127,25 @@ var KalturaUserService = {
 	 * @param	partnerId	int		The identifier of the partner account (optional, default: null)
 	 * @param	expiry	int		The requested time (in seconds) before the generated KS expires (By default, a KS expires after 24 hours). (optional, default: 86400)
 	 * @param	privileges	string		Special privileges (optional, default: *)
+	 * @param	otp	string		the user's one-time password (optional, default: null)
 	 * @return	string.
 	 **/
-	loginByLoginId: function(loginId, password, partnerId, expiry, privileges){
+	loginByLoginId: function(loginId, password, partnerId, expiry, privileges, otp){
 		if(!partnerId)
 			partnerId = null;
 		if(!expiry)
 			expiry = 86400;
 		if(!privileges)
 			privileges = "*";
+		if(!otp)
+			otp = null;
 		var kparams = new Object();
 		kparams.loginId = loginId;
 		kparams.password = password;
 		kparams.partnerId = partnerId;
 		kparams.expiry = expiry;
 		kparams.privileges = privileges;
+		kparams.otp = otp;
 		return new KalturaRequestBuilder("user", "loginByLoginId", kparams);
 	},
 	
