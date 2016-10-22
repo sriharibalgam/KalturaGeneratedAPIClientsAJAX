@@ -182,10 +182,10 @@ var KalturaLiveStreamService = {
 	 * @param	entryId	string		Live stream entry id to regenerate secure token for (optional)
 	 * @return	.
 	 **/
-	regenrateSecureToken: function(entryId){
+	regenerateStreamToken: function(entryId){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("livestream", "regenrateSecureToken", kparams);
+		return new KalturaRequestBuilder("livestream", "regenerateStreamToken", kparams);
 	},
 	
 	/**
