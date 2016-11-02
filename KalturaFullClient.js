@@ -1882,7 +1882,7 @@ var KalturaFlavorAssetService = {
 	 * @param	assetId	string		 (optional)
 	 * @param	ffprobeJson	string		 (optional, default: null)
 	 * @param	duration	string		 (optional, default: null)
-	 * @return	.
+	 * @return	string.
 	 **/
 	serveAdStitchCmd: function(assetId, ffprobeJson, duration){
 		if(!ffprobeJson)
@@ -2281,6 +2281,23 @@ var KalturaLiveChannelService = {
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		return new KalturaRequestBuilder("livechannel", "validateRegisteredMediaServers", kparams);
+	},
+	
+	/**
+	 * Sey recorded video to live entry.
+	 * @param	entryId	string		Live entry id (optional)
+	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
+	 * @param	resource	KalturaDataCenterContentResource		 (optional)
+	 * @param	duration	float		in seconds (optional)
+	 * @return	KalturaLiveEntry.
+	 **/
+	setRecordedContent: function(entryId, mediaServerIndex, resource, duration){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.mediaServerIndex = mediaServerIndex;
+		kparams.resource = resource;
+		kparams.duration = duration;
+		return new KalturaRequestBuilder("livechannel", "setRecordedContent", kparams);
 	}
 }
 
@@ -2631,6 +2648,23 @@ var KalturaLiveStreamService = {
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		return new KalturaRequestBuilder("livestream", "validateRegisteredMediaServers", kparams);
+	},
+	
+	/**
+	 * Sey recorded video to live entry.
+	 * @param	entryId	string		Live entry id (optional)
+	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
+	 * @param	resource	KalturaDataCenterContentResource		 (optional)
+	 * @param	duration	float		in seconds (optional)
+	 * @return	KalturaLiveEntry.
+	 **/
+	setRecordedContent: function(entryId, mediaServerIndex, resource, duration){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.mediaServerIndex = mediaServerIndex;
+		kparams.resource = resource;
+		kparams.duration = duration;
+		return new KalturaRequestBuilder("livestream", "setRecordedContent", kparams);
 	},
 	
 	/**
@@ -9245,7 +9279,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:16-11-01');
+	this.setClientTag('ajax:16-11-02');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);

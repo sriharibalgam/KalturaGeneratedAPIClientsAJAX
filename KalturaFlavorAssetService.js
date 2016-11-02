@@ -234,7 +234,7 @@ var KalturaFlavorAssetService = {
 	 * @param	assetId	string		 (optional)
 	 * @param	ffprobeJson	string		 (optional, default: null)
 	 * @param	duration	string		 (optional, default: null)
-	 * @return	.
+	 * @return	string.
 	 **/
 	serveAdStitchCmd: function(assetId, ffprobeJson, duration){
 		if(!ffprobeJson)

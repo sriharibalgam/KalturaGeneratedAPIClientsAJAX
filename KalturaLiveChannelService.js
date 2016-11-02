@@ -149,5 +149,22 @@ var KalturaLiveChannelService = {
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		return new KalturaRequestBuilder("livechannel", "validateRegisteredMediaServers", kparams);
+	},
+	
+	/**
+	 * Sey recorded video to live entry.
+	 * @param	entryId	string		Live entry id (optional)
+	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
+	 * @param	resource	KalturaDataCenterContentResource		 (optional)
+	 * @param	duration	float		in seconds (optional)
+	 * @return	KalturaLiveEntry.
+	 **/
+	setRecordedContent: function(entryId, mediaServerIndex, resource, duration){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.mediaServerIndex = mediaServerIndex;
+		kparams.resource = resource;
+		kparams.duration = duration;
+		return new KalturaRequestBuilder("livechannel", "setRecordedContent", kparams);
 	}
 }

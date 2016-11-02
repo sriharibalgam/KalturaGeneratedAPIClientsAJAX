@@ -261,6 +261,23 @@ var KalturaLiveStreamService = {
 	},
 	
 	/**
+	 * Sey recorded video to live entry.
+	 * @param	entryId	string		Live entry id (optional)
+	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
+	 * @param	resource	KalturaDataCenterContentResource		 (optional)
+	 * @param	duration	float		in seconds (optional)
+	 * @return	KalturaLiveEntry.
+	 **/
+	setRecordedContent: function(entryId, mediaServerIndex, resource, duration){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.mediaServerIndex = mediaServerIndex;
+		kparams.resource = resource;
+		kparams.duration = duration;
+		return new KalturaRequestBuilder("livestream", "setRecordedContent", kparams);
+	},
+	
+	/**
 	 * Creates perioding metadata sync-point events on a live stream.
 	 * @param	entryId	string		Kaltura live-stream entry id (optional)
 	 * @param	interval	int		Events interval in seconds (optional)
