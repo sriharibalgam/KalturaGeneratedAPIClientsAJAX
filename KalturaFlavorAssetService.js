@@ -8,6 +8,8 @@ var KalturaFlavorAssetService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	flavorAsset	KalturaFlavorAsset		 (optional)
 	 * @return	KalturaFlavorAsset.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(entryId, flavorAsset){
 		var kparams = new Object();
@@ -21,6 +23,7 @@ var KalturaFlavorAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	flavorAsset	KalturaFlavorAsset		 (optional)
 	 * @return	KalturaFlavorAsset.
+	 * @return	.
 	 **/
 	update: function(id, flavorAsset){
 		var kparams = new Object();
@@ -34,6 +37,13 @@ var KalturaFlavorAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
 	 * @return	KalturaFlavorAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	setContent: function(id, contentResource){
 		var kparams = new Object();
@@ -140,6 +150,8 @@ var KalturaFlavorAssetService = {
 	 * @param	forceProxy	bool		 (optional, default: false)
 	 * @param	options	KalturaFlavorAssetUrlOptions		 (optional, default: null)
 	 * @return	string.
+	 * @return	.
+	 * @return	.
 	 **/
 	getUrl: function(id, storageId, forceProxy, options){
 		if(!storageId)
@@ -161,6 +173,8 @@ var KalturaFlavorAssetService = {
 	 * Get remote storage existing paths for the asset.
 	 * @param	id	string		 (optional)
 	 * @return	KalturaRemotePathListResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	getRemotePaths: function(id){
 		var kparams = new Object();
@@ -199,6 +213,9 @@ var KalturaFlavorAssetService = {
 	 * @param	assetId	string		 (optional)
 	 * @param	storageProfileId	int		 (optional)
 	 * @return	KalturaFlavorAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	exportAction: function(assetId, storageProfileId){
 		var kparams = new Object();
@@ -210,6 +227,7 @@ var KalturaFlavorAssetService = {
 	/**
 	 * Set a given flavor as the original flavor.
 	 * @param	assetId	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	setAsSource: function(assetId){

@@ -30,6 +30,8 @@ var KalturaAccessControlService = {
 	 * @param	id	int		 (optional)
 	 * @param	accessControl	KalturaAccessControl		 (optional)
 	 * @return	KalturaAccessControl.
+	 * @return	.
+	 * @return	.
 	 **/
 	update: function(id, accessControl){
 		var kparams = new Object();

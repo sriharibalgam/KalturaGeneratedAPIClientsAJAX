@@ -7,6 +7,7 @@ var KalturaDistributionProfileService = {
 	 * Add new Distribution Profile.
 	 * @param	distributionProfile	KalturaDistributionProfile		 (optional)
 	 * @return	KalturaDistributionProfile.
+	 * @return	.
 	 **/
 	add: function(distributionProfile){
 		var kparams = new Object();
@@ -18,6 +19,7 @@ var KalturaDistributionProfileService = {
 	 * Get Distribution Profile by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaDistributionProfile.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +32,7 @@ var KalturaDistributionProfileService = {
 	 * @param	id	int		 (optional)
 	 * @param	distributionProfile	KalturaDistributionProfile		 (optional)
 	 * @return	KalturaDistributionProfile.
+	 * @return	.
 	 **/
 	update: function(id, distributionProfile){
 		var kparams = new Object();
@@ -43,6 +46,7 @@ var KalturaDistributionProfileService = {
 	 * @param	id	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaDistributionProfileStatus)
 	 * @return	KalturaDistributionProfile.
+	 * @return	.
 	 **/
 	updateStatus: function(id, status){
 		var kparams = new Object();
@@ -54,6 +58,7 @@ var KalturaDistributionProfileService = {
 	/**
 	 * Delete Distribution Profile by id.
 	 * @param	id	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){

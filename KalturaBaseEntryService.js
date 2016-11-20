@@ -8,6 +8,7 @@ var KalturaBaseEntryService = {
 	 * @param	entry	KalturaBaseEntry		 (optional)
 	 * @param	type	string		 (optional, enum: KalturaEntryType, default: null)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
 	 **/
 	add: function(entry, type){
 		if(!type)
@@ -23,6 +24,7 @@ var KalturaBaseEntryService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	resource	KalturaResource		 (optional)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
 	 **/
 	addContent: function(entryId, resource){
 		var kparams = new Object();
@@ -67,6 +69,8 @@ var KalturaBaseEntryService = {
 	 * Get remote storage existing paths for the asset..
 	 * @param	entryId	string		 (optional)
 	 * @return	KalturaRemotePathListResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	getRemotePaths: function(entryId){
 		var kparams = new Object();
@@ -79,6 +83,7 @@ var KalturaBaseEntryService = {
 	 * @param	entryId	string		Entry id to update (optional)
 	 * @param	baseEntry	KalturaBaseEntry		Base entry metadata to update (optional)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
 	 **/
 	update: function(entryId, baseEntry){
 		var kparams = new Object();
@@ -94,6 +99,7 @@ var KalturaBaseEntryService = {
 	 * @param	conversionProfileId	int		The conversion profile id to be used on the entry (optional, default: null)
 	 * @param	advancedOptions	KalturaEntryReplacementOptions		Additional update content options (optional, default: null)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
 	 **/
 	updateContent: function(entryId, resource, conversionProfileId, advancedOptions){
 		if(!conversionProfileId)
@@ -155,6 +161,7 @@ var KalturaBaseEntryService = {
 	 * @param	refId	string		Entry Reference ID (optional)
 	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
 	 * @return	KalturaBaseEntryListResponse.
+	 * @return	.
 	 **/
 	listByReferenceId: function(refId, pager){
 		if(!pager)
@@ -197,6 +204,8 @@ var KalturaBaseEntryService = {
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	fileData	file		Jpeg file data (optional)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateThumbnailJpeg: function(entryId, fileData){
 		var kparams = new Object();
@@ -211,6 +220,8 @@ var KalturaBaseEntryService = {
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	url	string		file url (optional)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateThumbnailFromUrl: function(entryId, url){
 		var kparams = new Object();
@@ -225,6 +236,8 @@ var KalturaBaseEntryService = {
 	 * @param	sourceEntryId	string		Media entry id (optional)
 	 * @param	timeOffset	int		Time offset (in seconds) (optional)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateThumbnailFromSourceEntry: function(entryId, sourceEntryId, timeOffset){
 		var kparams = new Object();
@@ -238,6 +251,7 @@ var KalturaBaseEntryService = {
 	 * Flag inappropriate entry for moderation..
 	 * @param	moderationFlag	KalturaModerationFlag		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	flag: function(moderationFlag){
 		var kparams = new Object();
@@ -249,6 +263,7 @@ var KalturaBaseEntryService = {
 	 * Reject the entry and mark the pending flags (if any) as moderated (this will make the entry non-playable)..
 	 * @param	entryId	string		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	reject: function(entryId){
 		var kparams = new Object();
@@ -259,6 +274,7 @@ var KalturaBaseEntryService = {
 	/**
 	 * Approve the entry and mark the pending flags (if any) as moderated (this will make the entry playable)..
 	 * @param	entryId	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	approve: function(entryId){
@@ -314,6 +330,8 @@ var KalturaBaseEntryService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	storageProfileId	int		 (optional)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	exportAction: function(entryId, storageProfileId){
 		var kparams = new Object();
@@ -342,6 +360,7 @@ var KalturaBaseEntryService = {
 	 * @param	entryId	string		Id of entry to clone (optional)
 	 * @param	cloneOptions	array		 (optional, default: null)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
 	 **/
 	cloneAction: function(entryId, cloneOptions){
 		if(!cloneOptions)

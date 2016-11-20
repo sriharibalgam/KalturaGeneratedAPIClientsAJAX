@@ -7,6 +7,10 @@ var KalturaCategoryEntryService = {
 	 * Add new CategoryEntry.
 	 * @param	categoryEntry	KalturaCategoryEntry		 (optional)
 	 * @return	KalturaCategoryEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(categoryEntry){
 		var kparams = new Object();
@@ -18,6 +22,10 @@ var KalturaCategoryEntryService = {
 	 * Delete CategoryEntry.
 	 * @param	entryId	string		 (optional)
 	 * @param	categoryId	int		 (optional)
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(entryId, categoryId){
@@ -32,6 +40,8 @@ var KalturaCategoryEntryService = {
 	 * @param	filter	KalturaCategoryEntryFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 * @return	KalturaCategoryEntryListResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -52,6 +62,7 @@ var KalturaCategoryEntryService = {
 	 * @param	categoryId	int		 (optional)
 	 * @param	shouldUpdate	bool		 (optional, default: true)
 	 * @return	int.
+	 * @return	.
 	 **/
 	index: function(entryId, categoryId, shouldUpdate){
 		if(!shouldUpdate)
@@ -68,6 +79,10 @@ var KalturaCategoryEntryService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	categoryId	int		 (optional)
 	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	activate: function(entryId, categoryId){
 		var kparams = new Object();
@@ -81,6 +96,10 @@ var KalturaCategoryEntryService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	categoryId	int		 (optional)
 	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	reject: function(entryId, categoryId){
 		var kparams = new Object();
@@ -93,6 +112,9 @@ var KalturaCategoryEntryService = {
 	 * update privacy context from the category.
 	 * @param	entryId	string		 (optional)
 	 * @param	categoryId	int		 (optional)
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 * @return	.
 	 **/
 	syncPrivacyContext: function(entryId, categoryId){

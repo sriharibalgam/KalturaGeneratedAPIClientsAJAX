@@ -18,6 +18,7 @@ var KalturaLiveChannelSegmentService = {
 	 * Get live channel segment by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaLiveChannelSegment.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaLiveChannelSegmentService = {
 	 * @param	id	int		 (optional)
 	 * @param	liveChannelSegment	KalturaLiveChannelSegment		 (optional)
 	 * @return	KalturaLiveChannelSegment.
+	 * @return	.
 	 **/
 	update: function(id, liveChannelSegment){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaLiveChannelSegmentService = {
 	/**
 	 * Delete live channel segment by id.
 	 * @param	id	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){

@@ -8,6 +8,14 @@ var KalturaCaptionAssetService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	captionAsset	KalturaCaptionAsset		 (optional)
 	 * @return	KalturaCaptionAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(entryId, captionAsset){
 		var kparams = new Object();
@@ -21,6 +29,13 @@ var KalturaCaptionAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
 	 * @return	KalturaCaptionAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	setContent: function(id, contentResource){
 		var kparams = new Object();
@@ -34,6 +49,7 @@ var KalturaCaptionAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	captionAsset	KalturaCaptionAsset		 (optional)
 	 * @return	KalturaCaptionAsset.
+	 * @return	.
 	 **/
 	update: function(id, captionAsset){
 		var kparams = new Object();
@@ -47,6 +63,8 @@ var KalturaCaptionAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	storageId	int		 (optional, default: null)
 	 * @return	string.
+	 * @return	.
+	 * @return	.
 	 **/
 	getUrl: function(id, storageId){
 		if(!storageId)
@@ -61,6 +79,8 @@ var KalturaCaptionAssetService = {
 	 * Get remote storage existing paths for the asset.
 	 * @param	id	string		 (optional)
 	 * @return	KalturaRemotePathListResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	getRemotePaths: function(id){
 		var kparams = new Object();
@@ -71,6 +91,7 @@ var KalturaCaptionAssetService = {
 	/**
 	 * Markss the caption as default and removes that mark from all other caption assets of the entry..
 	 * @param	captionAssetId	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	setAsDefault: function(captionAssetId){
@@ -83,6 +104,7 @@ var KalturaCaptionAssetService = {
 	 * .
 	 * @param	captionAssetId	string		 (optional)
 	 * @return	KalturaCaptionAsset.
+	 * @return	.
 	 **/
 	get: function(captionAssetId){
 		var kparams = new Object();
@@ -112,6 +134,7 @@ var KalturaCaptionAssetService = {
 	/**
 	 * .
 	 * @param	captionAssetId	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(captionAssetId){

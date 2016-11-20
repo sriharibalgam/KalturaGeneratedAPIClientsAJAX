@@ -18,6 +18,7 @@ var KalturaExternalMediaService = {
 	 * Get external media entry by ID..
 	 * @param	id	string		External media entry id (optional)
 	 * @return	KalturaExternalMediaEntry.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaExternalMediaService = {
 	 * @param	id	string		External media entry id to update (optional)
 	 * @param	entry	KalturaExternalMediaEntry		External media entry object to update (optional)
 	 * @return	KalturaExternalMediaEntry.
+	 * @return	.
 	 **/
 	update: function(id, entry){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaExternalMediaService = {
 	/**
 	 * Delete a external media entry..
 	 * @param	id	string		External media entry id to delete (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){

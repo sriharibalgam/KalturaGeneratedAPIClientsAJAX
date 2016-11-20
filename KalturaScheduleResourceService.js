@@ -18,6 +18,7 @@ var KalturaScheduleResourceService = {
 	 * Retrieve a KalturaScheduleResource object by ID.
 	 * @param	scheduleResourceId	int		 (optional)
 	 * @return	KalturaScheduleResource.
+	 * @return	.
 	 **/
 	get: function(scheduleResourceId){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaScheduleResourceService = {
 	 * @param	scheduleResourceId	int		 (optional)
 	 * @param	scheduleResource	KalturaScheduleResource		Id (optional)
 	 * @return	KalturaScheduleResource.
+	 * @return	.
 	 **/
 	update: function(scheduleResourceId, scheduleResource){
 		var kparams = new Object();
@@ -42,6 +44,7 @@ var KalturaScheduleResourceService = {
 	 * Mark the KalturaScheduleResource object as deleted.
 	 * @param	scheduleResourceId	int		 (optional)
 	 * @return	KalturaScheduleResource.
+	 * @return	.
 	 **/
 	deleteAction: function(scheduleResourceId){
 		var kparams = new Object();

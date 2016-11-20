@@ -8,6 +8,8 @@ var KalturaSearchService = {
 	 * @param	search	KalturaSearch		A KalturaSearch object contains the search keywords, media provider and media type (optional)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 * @return	KalturaSearchResultResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	search: function(search, pager){
 		if(!pager)
@@ -24,6 +26,8 @@ var KalturaSearchService = {
  *		 Some providers return only part of the fields needed to create entry from, use this action to get the rest of the fields..
 	 * @param	searchResult	KalturaSearchResult		KalturaSearchResult object extends KalturaSearch and has all fields required for media:add (optional)
 	 * @return	KalturaSearchResult.
+	 * @return	.
+	 * @return	.
 	 **/
 	getMediaInfo: function(searchResult){
 		var kparams = new Object();
@@ -38,6 +42,7 @@ var KalturaSearchService = {
 	 * @param	mediaType	int		 (optional, enum: KalturaMediaType)
 	 * @param	url	string		 (optional)
 	 * @return	KalturaSearchResult.
+	 * @return	.
 	 **/
 	searchUrl: function(mediaType, url){
 		var kparams = new Object();

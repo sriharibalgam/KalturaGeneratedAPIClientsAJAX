@@ -37,6 +37,7 @@ var KalturaVirusScanProfileService = {
 	 * Retrieve an virus scan profile object by id.
 	 * @param	virusScanProfileId	int		 (optional)
 	 * @return	KalturaVirusScanProfile.
+	 * @return	.
 	 **/
 	get: function(virusScanProfileId){
 		var kparams = new Object();
@@ -49,6 +50,7 @@ var KalturaVirusScanProfileService = {
 	 * @param	virusScanProfileId	int		 (optional)
 	 * @param	virusScanProfile	KalturaVirusScanProfile		Id (optional)
 	 * @return	KalturaVirusScanProfile.
+	 * @return	.
 	 **/
 	update: function(virusScanProfileId, virusScanProfile){
 		var kparams = new Object();
@@ -61,6 +63,7 @@ var KalturaVirusScanProfileService = {
 	 * Mark the virus scan profile as deleted.
 	 * @param	virusScanProfileId	int		 (optional)
 	 * @return	KalturaVirusScanProfile.
+	 * @return	.
 	 **/
 	deleteAction: function(virusScanProfileId){
 		var kparams = new Object();
@@ -73,6 +76,9 @@ var KalturaVirusScanProfileService = {
 	 * @param	flavorAssetId	string		 (optional)
 	 * @param	virusScanProfileId	int		 (optional, default: null)
 	 * @return	int.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	scan: function(flavorAssetId, virusScanProfileId){
 		if(!virusScanProfileId)

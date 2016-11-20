@@ -8,6 +8,14 @@ var KalturaUserService = {
  *		 Input param $id is the unique identifier in the partner's system..
 	 * @param	user	KalturaUser		The new user (optional)
 	 * @return	KalturaUser.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(user){
 		var kparams = new Object();
@@ -21,6 +29,10 @@ var KalturaUserService = {
 	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
 	 * @param	user	KalturaUser		Id The user's unique identifier in the partner's system (optional)
 	 * @return	KalturaUser.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	update: function(userId, user){
 		var kparams = new Object();
@@ -33,6 +45,7 @@ var KalturaUserService = {
 	 * Retrieves a user object for a specified user ID..
 	 * @param	userId	string		The user's unique identifier in the partner's system (optional, default: null)
 	 * @return	KalturaUser.
+	 * @return	.
 	 **/
 	get: function(userId){
 		if(!userId)
@@ -47,6 +60,8 @@ var KalturaUserService = {
  *		 A login ID is the email address used by a user to log into the system..
 	 * @param	loginId	string		The user's email address that identifies the user for login (optional)
 	 * @return	KalturaUser.
+	 * @return	.
+	 * @return	.
 	 **/
 	getByLoginId: function(loginId){
 		var kparams = new Object();
@@ -58,6 +73,7 @@ var KalturaUserService = {
 	 * Deletes a user from a partner account..
 	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
 	 * @return	KalturaUser.
+	 * @return	.
 	 **/
 	deleteAction: function(userId){
 		var kparams = new Object();
@@ -90,6 +106,7 @@ var KalturaUserService = {
 	 * Notifies that a user is banned from an account..
 	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	notifyBan: function(userId){
 		var kparams = new Object();
@@ -105,6 +122,13 @@ var KalturaUserService = {
 	 * @param	expiry	int		The requested time (in seconds) before the generated KS expires (By default, a KS expires after 24 hours). (optional, default: 86400)
 	 * @param	privileges	string		Special privileges (optional, default: *)
 	 * @return	string.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	login: function(partnerId, userId, password, expiry, privileges){
 		if(!expiry)
@@ -129,6 +153,13 @@ var KalturaUserService = {
 	 * @param	privileges	string		Special privileges (optional, default: *)
 	 * @param	otp	string		the user's one-time password (optional, default: null)
 	 * @return	string.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	loginByLoginId: function(loginId, password, partnerId, expiry, privileges, otp){
 		if(!partnerId)
@@ -158,6 +189,12 @@ var KalturaUserService = {
 	 * @param	newFirstName	string		Optional, The user's new first name (optional, default: null)
 	 * @param	newLastName	string		Optional, The user's new last name (optional, default: null)
 	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateLoginData: function(oldLoginId, password, newLoginId, newPassword, newFirstName, newLastName){
 		if(!newLoginId)
@@ -182,6 +219,11 @@ var KalturaUserService = {
 	 * Reset user's password and send the user an email to generate a new one..
 	 * @param	email	string		The user's email address (login email) (optional)
 	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	resetPassword: function(email){
 		var kparams = new Object();
@@ -193,6 +235,12 @@ var KalturaUserService = {
 	 * Set initial users password.
 	 * @param	hashKey	string		The hash key used to identify the user (retrieved by email) (optional)
 	 * @param	newPassword	string		The new password to set for the user (optional)
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 * @return	.
 	 **/
 	setInitialPassword: function(hashKey, newPassword){
@@ -208,6 +256,11 @@ var KalturaUserService = {
 	 * @param	loginId	string		The user's email address that identifies the user for login (optional)
 	 * @param	password	string		The user's password (optional, default: null)
 	 * @return	KalturaUser.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	enableLogin: function(userId, loginId, password){
 		if(!password)
@@ -225,6 +278,10 @@ var KalturaUserService = {
 	 * @param	userId	string		The user's unique identifier in the partner's system (optional, default: null)
 	 * @param	loginId	string		The user's email address that identifies the user for login (optional, default: null)
 	 * @return	KalturaUser.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	disableLogin: function(userId, loginId){
 		if(!userId)
@@ -242,6 +299,7 @@ var KalturaUserService = {
 	 * @param	id	string		 (optional)
 	 * @param	shouldUpdate	bool		 (optional, default: true)
 	 * @return	string.
+	 * @return	.
 	 **/
 	index: function(id, shouldUpdate){
 		if(!shouldUpdate)

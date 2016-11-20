@@ -18,6 +18,7 @@ var KalturaLiveChannelService = {
 	 * Get live channel by ID..
 	 * @param	id	string		Live channel id (optional)
 	 * @return	KalturaLiveChannel.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaLiveChannelService = {
 	 * @param	id	string		Live channel id to update (optional)
 	 * @param	liveChannel	KalturaLiveChannel		Live channel metadata to update (optional)
 	 * @return	KalturaLiveChannel.
+	 * @return	.
 	 **/
 	update: function(id, liveChannel){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaLiveChannelService = {
 	/**
 	 * Delete a live channel..
 	 * @param	id	string		Live channel id to delete (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -72,6 +75,7 @@ var KalturaLiveChannelService = {
 	 * Delivering the status of a live channel (on-air/offline).
 	 * @param	id	string		ID of the live channel (optional)
 	 * @return	bool.
+	 * @return	.
 	 **/
 	isLive: function(id){
 		var kparams = new Object();
@@ -88,6 +92,7 @@ var KalturaLiveChannelService = {
 	 * @param	duration	float		in seconds (optional)
 	 * @param	isLastChunk	bool		Is this the last recorded chunk in the current session (i.e. following a stream stop event) (optional, default: false)
 	 * @return	KalturaLiveEntry.
+	 * @return	.
 	 **/
 	appendRecording: function(entryId, assetId, mediaServerIndex, resource, duration, isLastChunk){
 		if(!isLastChunk)
@@ -110,6 +115,9 @@ var KalturaLiveChannelService = {
 	 * @param	applicationName	string		the application to which entry is being broadcast (optional, default: null)
 	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus, default: 1)
 	 * @return	KalturaLiveEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	registerMediaServer: function(entryId, hostname, mediaServerIndex, applicationName, liveEntryStatus){
 		if(!applicationName)
@@ -131,6 +139,9 @@ var KalturaLiveChannelService = {
 	 * @param	hostname	string		Media server host name (optional)
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
 	 * @return	KalturaLiveEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	unregisterMediaServer: function(entryId, hostname, mediaServerIndex){
 		var kparams = new Object();
@@ -158,6 +169,7 @@ var KalturaLiveChannelService = {
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
 	 * @return	KalturaLiveEntry.
+	 * @return	.
 	 **/
 	setRecordedContent: function(entryId, mediaServerIndex, resource, duration){
 		var kparams = new Object();

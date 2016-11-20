@@ -7,6 +7,7 @@ var KalturaThumbParamsOutputService = {
 	 * Get thumb params output object by ID.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaThumbParamsOutput.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();

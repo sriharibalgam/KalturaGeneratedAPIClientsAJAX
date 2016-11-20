@@ -18,6 +18,7 @@ var KalturaFileAssetService = {
 	 * Get file asset by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaFileAsset.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaFileAssetService = {
 	 * @param	id	int		 (optional)
 	 * @param	fileAsset	KalturaFileAsset		 (optional)
 	 * @return	KalturaFileAsset.
+	 * @return	.
 	 **/
 	update: function(id, fileAsset){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaFileAssetService = {
 	/**
 	 * Delete file asset by id.
 	 * @param	id	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -54,6 +57,10 @@ var KalturaFileAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
 	 * @return	KalturaFileAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	setContent: function(id, contentResource){
 		var kparams = new Object();

@@ -8,6 +8,8 @@ var KalturaPermissionItemService = {
  *		 This action is available only to Kaltura system administrators..
 	 * @param	permissionItem	KalturaPermissionItem		The new permission item (optional)
 	 * @return	KalturaPermissionItem.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(permissionItem){
 		var kparams = new Object();
@@ -19,6 +21,7 @@ var KalturaPermissionItemService = {
 	 * Retrieves a permission item object using its ID..
 	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
 	 * @return	KalturaPermissionItem.
+	 * @return	.
 	 **/
 	get: function(permissionItemId){
 		var kparams = new Object();
@@ -32,6 +35,7 @@ var KalturaPermissionItemService = {
 	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
 	 * @param	permissionItem	KalturaPermissionItem		Id The permission item's unique identifier (optional)
 	 * @return	KalturaPermissionItem.
+	 * @return	.
 	 **/
 	update: function(permissionItemId, permissionItem){
 		var kparams = new Object();
@@ -45,6 +49,7 @@ var KalturaPermissionItemService = {
  *		 This action is available only to Kaltura system administrators..
 	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
 	 * @return	KalturaPermissionItem.
+	 * @return	.
 	 **/
 	deleteAction: function(permissionItemId){
 		var kparams = new Object();

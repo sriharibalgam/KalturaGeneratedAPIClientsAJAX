@@ -18,6 +18,7 @@ var KalturaScheduleEventService = {
 	 * Retrieve a KalturaScheduleEvent object by ID.
 	 * @param	scheduleEventId	int		 (optional)
 	 * @return	KalturaScheduleEvent.
+	 * @return	.
 	 **/
 	get: function(scheduleEventId){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaScheduleEventService = {
 	 * @param	scheduleEventId	int		 (optional)
 	 * @param	scheduleEvent	KalturaScheduleEvent		Id (optional)
 	 * @return	KalturaScheduleEvent.
+	 * @return	.
 	 **/
 	update: function(scheduleEventId, scheduleEvent){
 		var kparams = new Object();
@@ -42,6 +44,8 @@ var KalturaScheduleEventService = {
 	 * Mark the KalturaScheduleEvent object as deleted.
 	 * @param	scheduleEventId	int		 (optional)
 	 * @return	KalturaScheduleEvent.
+	 * @return	.
+	 * @return	.
 	 **/
 	deleteAction: function(scheduleEventId){
 		var kparams = new Object();
@@ -53,6 +57,7 @@ var KalturaScheduleEventService = {
 	 * Mark the KalturaScheduleEvent object as cancelled.
 	 * @param	scheduleEventId	int		 (optional)
 	 * @return	KalturaScheduleEvent.
+	 * @return	.
 	 **/
 	cancel: function(scheduleEventId){
 		var kparams = new Object();

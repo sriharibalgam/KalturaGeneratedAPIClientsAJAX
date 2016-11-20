@@ -18,6 +18,8 @@ var KalturaCuePointService = {
 	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions.
 	 * @param	fileData	file		 (optional)
 	 * @return	KalturaCuePointListResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromBulk: function(fileData){
 		var kparams = new Object();
@@ -30,6 +32,7 @@ var KalturaCuePointService = {
 	 * Retrieve an CuePoint object by id.
 	 * @param	id	string		 (optional)
 	 * @return	KalturaCuePoint.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -75,6 +78,7 @@ var KalturaCuePointService = {
 	 * @param	id	string		 (optional)
 	 * @param	cuePoint	KalturaCuePoint		 (optional)
 	 * @return	KalturaCuePoint.
+	 * @return	.
 	 **/
 	update: function(id, cuePoint){
 		var kparams = new Object();
@@ -87,6 +91,7 @@ var KalturaCuePointService = {
 	 * delete cue point by id, and delete all children cue points.
 	 * @param	id	string		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -98,6 +103,7 @@ var KalturaCuePointService = {
 	 * Update cuePoint status by id.
 	 * @param	id	string		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaCuePointStatus)
+	 * @return	.
 	 * @return	.
 	 **/
 	updateStatus: function(id, status){
@@ -112,6 +118,8 @@ var KalturaCuePointService = {
 	 * @param	id	string		 (optional)
 	 * @param	entryId	string		 (optional)
 	 * @return	KalturaCuePoint.
+	 * @return	.
+	 * @return	.
 	 **/
 	cloneAction: function(id, entryId){
 		var kparams = new Object();

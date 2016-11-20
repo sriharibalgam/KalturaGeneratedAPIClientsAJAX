@@ -7,6 +7,7 @@ var KalturaCaptionAssetItemService = {
 	 * Parse content of caption asset and index it.
 	 * @param	captionAssetId	string		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	parse: function(captionAssetId){
 		var kparams = new Object();

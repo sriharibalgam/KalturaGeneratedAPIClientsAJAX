@@ -18,6 +18,7 @@ var KalturaSyndicationFeedService = {
 	 * Get Syndication Feed by ID.
 	 * @param	id	string		 (optional)
 	 * @return	KalturaBaseSyndicationFeed.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaSyndicationFeedService = {
 	 * @param	id	string		 (optional)
 	 * @param	syndicationFeed	KalturaBaseSyndicationFeed		 (optional)
 	 * @return	KalturaBaseSyndicationFeed.
+	 * @return	.
 	 **/
 	update: function(id, syndicationFeed){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaSyndicationFeedService = {
 	/**
 	 * Delete Syndication Feed by ID.
 	 * @param	id	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -72,6 +75,7 @@ var KalturaSyndicationFeedService = {
 	 * get entry count for a syndication feed.
 	 * @param	feedId	string		 (optional)
 	 * @return	KalturaSyndicationFeedEntryCount.
+	 * @return	.
 	 **/
 	getEntryCount: function(feedId){
 		var kparams = new Object();
@@ -84,6 +88,7 @@ var KalturaSyndicationFeedService = {
  *		 returns a comma-separated ids of conversion jobs.
 	 * @param	feedId	string		 (optional)
 	 * @return	string.
+	 * @return	.
 	 **/
 	requestConversion: function(feedId){
 		var kparams = new Object();

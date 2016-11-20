@@ -90,6 +90,7 @@ var KalturaCategoryUserService = {
 	 * @param	filter	KalturaCategoryUserFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 * @return	KalturaCategoryUserListResponse.
+	 * @return	.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -121,6 +122,7 @@ var KalturaCategoryUserService = {
 	 * @param	categoryId	int		 (optional)
 	 * @param	shouldUpdate	bool		 (optional, default: true)
 	 * @return	int.
+	 * @return	.
 	 **/
 	index: function(userId, categoryId, shouldUpdate){
 		if(!shouldUpdate)

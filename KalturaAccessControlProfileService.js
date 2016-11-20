@@ -18,6 +18,7 @@ var KalturaAccessControlProfileService = {
 	 * Get access control profile by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaAccessControlProfile.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaAccessControlProfileService = {
 	 * @param	id	int		 (optional)
 	 * @param	accessControlProfile	KalturaAccessControlProfile		 (optional)
 	 * @return	KalturaAccessControlProfile.
+	 * @return	.
 	 **/
 	update: function(id, accessControlProfile){
 		var kparams = new Object();
@@ -41,6 +43,8 @@ var KalturaAccessControlProfileService = {
 	/**
 	 * Delete access control profile by id.
 	 * @param	id	int		 (optional)
+	 * @return	.
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){

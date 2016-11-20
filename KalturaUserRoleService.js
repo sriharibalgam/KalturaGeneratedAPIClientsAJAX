@@ -7,6 +7,9 @@ var KalturaUserRoleService = {
 	 * Adds a new user role object to the account..
 	 * @param	userRole	KalturaUserRole		A new role (optional)
 	 * @return	KalturaUserRole.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(userRole){
 		var kparams = new Object();
@@ -18,6 +21,7 @@ var KalturaUserRoleService = {
 	 * Retrieves a user role object using its ID..
 	 * @param	userRoleId	int		The user role's unique identifier (optional)
 	 * @return	KalturaUserRole.
+	 * @return	.
 	 **/
 	get: function(userRoleId){
 		var kparams = new Object();
@@ -30,6 +34,8 @@ var KalturaUserRoleService = {
 	 * @param	userRoleId	int		The user role's unique identifier (optional)
 	 * @param	userRole	KalturaUserRole		Id The user role's unique identifier (optional)
 	 * @return	KalturaUserRole.
+	 * @return	.
+	 * @return	.
 	 **/
 	update: function(userRoleId, userRole){
 		var kparams = new Object();
@@ -42,6 +48,8 @@ var KalturaUserRoleService = {
 	 * Deletes an existing user role object..
 	 * @param	userRoleId	int		The user role's unique identifier (optional)
 	 * @return	KalturaUserRole.
+	 * @return	.
+	 * @return	.
 	 **/
 	deleteAction: function(userRoleId){
 		var kparams = new Object();
@@ -74,6 +82,7 @@ var KalturaUserRoleService = {
 	 * Creates a new user role object that is a duplicate of an existing role..
 	 * @param	userRoleId	int		The user role's unique identifier (optional)
 	 * @return	KalturaUserRole.
+	 * @return	.
 	 **/
 	cloneAction: function(userRoleId){
 		var kparams = new Object();

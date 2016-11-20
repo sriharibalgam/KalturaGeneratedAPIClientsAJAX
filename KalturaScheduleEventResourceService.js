@@ -19,6 +19,7 @@ var KalturaScheduleEventResourceService = {
 	 * @param	scheduleEventId	int		 (optional)
 	 * @param	scheduleResourceId	int		 (optional)
 	 * @return	KalturaScheduleEventResource.
+	 * @return	.
 	 **/
 	get: function(scheduleEventId, scheduleResourceId){
 		var kparams = new Object();
@@ -33,6 +34,7 @@ var KalturaScheduleEventResourceService = {
 	 * @param	scheduleResourceId	int		 (optional)
 	 * @param	scheduleEventResource	KalturaScheduleEventResource		 (optional)
 	 * @return	KalturaScheduleEventResource.
+	 * @return	.
 	 **/
 	update: function(scheduleEventId, scheduleResourceId, scheduleEventResource){
 		var kparams = new Object();
@@ -46,6 +48,7 @@ var KalturaScheduleEventResourceService = {
 	 * Mark the KalturaScheduleEventResource object as deleted.
 	 * @param	scheduleEventId	int		 (optional)
 	 * @param	scheduleResourceId	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(scheduleEventId, scheduleResourceId){

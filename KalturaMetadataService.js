@@ -10,6 +10,10 @@ var KalturaMetadataService = {
 	 * @param	objectId	string		 (optional)
 	 * @param	xmlData	string		XML metadata (optional)
 	 * @return	KalturaMetadata.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(metadataProfileId, objectType, objectId, xmlData){
 		var kparams = new Object();
@@ -27,6 +31,9 @@ var KalturaMetadataService = {
 	 * @param	objectId	string		 (optional)
 	 * @param	xmlFile	file		XML metadata (optional)
 	 * @return	KalturaMetadata.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromFile: function(metadataProfileId, objectType, objectId, xmlFile){
 		var kparams = new Object();
@@ -77,6 +84,7 @@ var KalturaMetadataService = {
 	 * Retrieve a metadata object by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaMetadata.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -90,6 +98,10 @@ var KalturaMetadataService = {
 	 * @param	xmlData	string		XML metadata (optional, default: null)
 	 * @param	version	int		Enable update only if the metadata object version did not change by other process (optional, default: null)
 	 * @return	KalturaMetadata.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	update: function(id, xmlData, version){
 		if(!xmlData)
@@ -108,6 +120,9 @@ var KalturaMetadataService = {
 	 * @param	id	int		 (optional)
 	 * @param	xmlFile	file		XML metadata (optional, default: null)
 	 * @return	KalturaMetadata.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateFromFile: function(id, xmlFile){
 		if(!xmlFile)
@@ -142,6 +157,7 @@ var KalturaMetadataService = {
 	 * Delete an existing metadata.
 	 * @param	id	int		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -154,6 +170,8 @@ var KalturaMetadataService = {
  *		 Used by batch metadata transform.
 	 * @param	id	int		 (optional)
 	 * @param	version	int		Enable update only if the metadata object version did not change by other process (optional, default: null)
+	 * @return	.
+	 * @return	.
 	 * @return	.
 	 **/
 	invalidate: function(id, version){
@@ -183,6 +201,9 @@ var KalturaMetadataService = {
 	 * @param	id	int		 (optional)
 	 * @param	xslFile	file		 (optional)
 	 * @return	KalturaMetadata.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateFromXSL: function(id, xslFile){
 		var kparams = new Object();

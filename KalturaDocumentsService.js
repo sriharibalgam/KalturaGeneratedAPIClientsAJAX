@@ -8,6 +8,9 @@ var KalturaDocumentsService = {
 	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata (optional)
 	 * @param	uploadTokenId	string		Upload token id (optional)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromUploadedFile: function(documentEntry, uploadTokenId){
 		var kparams = new Object();
@@ -22,6 +25,10 @@ var KalturaDocumentsService = {
 	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata (optional, default: null)
 	 * @param	sourceFlavorParamsId	int		The flavor to be used as the new entry source, source flavor will be used if not specified (optional, default: null)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromEntry: function(sourceEntryId, documentEntry, sourceFlavorParamsId){
 		if(!documentEntry)
@@ -41,6 +48,9 @@ var KalturaDocumentsService = {
 	 * @param	sourceFlavorAssetId	string		Flavor asset id to be used as the new entry source (optional)
 	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata (optional, default: null)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromFlavorAsset: function(sourceFlavorAssetId, documentEntry){
 		if(!documentEntry)
@@ -58,6 +68,9 @@ var KalturaDocumentsService = {
 	 * @param	conversionProfileId	int		 (optional, default: null)
 	 * @param	dynamicConversionAttributes	array		 (optional, default: null)
 	 * @return	bigint.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	convert: function(entryId, conversionProfileId, dynamicConversionAttributes){
 		if(!conversionProfileId)
@@ -76,6 +89,7 @@ var KalturaDocumentsService = {
 	 * @param	entryId	string		Document entry id (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
 	 **/
 	get: function(entryId, version){
 		if(!version)
@@ -91,6 +105,7 @@ var KalturaDocumentsService = {
 	 * @param	entryId	string		Document entry id to update (optional)
 	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata to update (optional)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
 	 **/
 	update: function(entryId, documentEntry){
 		var kparams = new Object();
@@ -102,6 +117,7 @@ var KalturaDocumentsService = {
 	/**
 	 * Delete a document entry..
 	 * @param	entryId	string		Document entry id to delete (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(entryId){
@@ -159,6 +175,9 @@ var KalturaDocumentsService = {
 	 * @param	resource	KalturaResource		Resource to be used to replace entry doc content (optional)
 	 * @param	conversionProfileId	int		The conversion profile id to be used on the entry (optional, default: null)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateContent: function(entryId, resource, conversionProfileId){
 		if(!conversionProfileId)
@@ -174,6 +193,7 @@ var KalturaDocumentsService = {
 	 * Approves document replacement.
 	 * @param	entryId	string		document entry id to replace (optional)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
 	 **/
 	approveReplace: function(entryId){
 		var kparams = new Object();
@@ -185,6 +205,7 @@ var KalturaDocumentsService = {
 	 * Cancels document replacement.
 	 * @param	entryId	string		Document entry id to cancel (optional)
 	 * @return	KalturaDocumentEntry.
+	 * @return	.
 	 **/
 	cancelReplace: function(entryId){
 		var kparams = new Object();

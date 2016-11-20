@@ -8,6 +8,14 @@ var KalturaThumbAssetService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	thumbAsset	KalturaThumbAsset		 (optional)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(entryId, thumbAsset){
 		var kparams = new Object();
@@ -21,6 +29,13 @@ var KalturaThumbAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	setContent: function(id, contentResource){
 		var kparams = new Object();
@@ -34,6 +49,7 @@ var KalturaThumbAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	thumbAsset	KalturaThumbAsset		 (optional)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
 	 **/
 	update: function(id, thumbAsset){
 		var kparams = new Object();
@@ -47,6 +63,7 @@ var KalturaThumbAssetService = {
  *		 Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync..
 	 * @param	thumbAssetId	string		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	setAsDefault: function(thumbAssetId){
 		var kparams = new Object();
@@ -59,6 +76,12 @@ var KalturaThumbAssetService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	destThumbParamsId	int		indicate the id of the ThumbParams to be generate this thumbnail by (optional)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	generateByEntryId: function(entryId, destThumbParamsId){
 		var kparams = new Object();
@@ -73,6 +96,12 @@ var KalturaThumbAssetService = {
 	 * @param	thumbParams	KalturaThumbParams		 (optional)
 	 * @param	sourceAssetId	string		id of the source asset (flavor or thumbnail) to be used as source for the thumbnail generation (optional, default: null)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	generate: function(entryId, thumbParams, sourceAssetId){
 		if(!sourceAssetId)
@@ -88,6 +117,11 @@ var KalturaThumbAssetService = {
 	 * .
 	 * @param	thumbAssetId	string		 (optional)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	regenerate: function(thumbAssetId){
 		var kparams = new Object();
@@ -99,6 +133,7 @@ var KalturaThumbAssetService = {
 	 * .
 	 * @param	thumbAssetId	string		 (optional)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
 	 **/
 	get: function(thumbAssetId){
 		var kparams = new Object();
@@ -110,6 +145,7 @@ var KalturaThumbAssetService = {
 	 * .
 	 * @param	entryId	string		 (optional)
 	 * @return	array.
+	 * @return	.
 	 **/
 	getByEntryId: function(entryId){
 		var kparams = new Object();
@@ -154,6 +190,7 @@ var KalturaThumbAssetService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	fileData	file		 (optional)
 	 * @return	KalturaThumbAsset.
+	 * @return	.
 	 **/
 	addFromImage: function(entryId, fileData){
 		var kparams = new Object();
@@ -166,6 +203,7 @@ var KalturaThumbAssetService = {
 	/**
 	 * .
 	 * @param	thumbAssetId	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(thumbAssetId){
@@ -180,6 +218,8 @@ var KalturaThumbAssetService = {
 	 * @param	storageId	int		 (optional, default: null)
 	 * @param	thumbParams	KalturaThumbParams		 (optional, default: null)
 	 * @return	string.
+	 * @return	.
+	 * @return	.
 	 **/
 	getUrl: function(id, storageId, thumbParams){
 		if(!storageId)
@@ -198,6 +238,8 @@ var KalturaThumbAssetService = {
 	 * Get remote storage existing paths for the asset.
 	 * @param	id	string		 (optional)
 	 * @return	KalturaRemotePathListResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	getRemotePaths: function(id){
 		var kparams = new Object();
@@ -210,6 +252,9 @@ var KalturaThumbAssetService = {
 	 * @param	assetId	string		 (optional)
 	 * @param	storageProfileId	int		 (optional)
 	 * @return	KalturaFlavorAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	exportAction: function(assetId, storageProfileId){
 		var kparams = new Object();

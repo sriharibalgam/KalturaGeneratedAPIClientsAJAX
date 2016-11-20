@@ -20,6 +20,8 @@ var KalturaMediaService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	resource	KalturaResource		 (optional, default: null)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	addContent: function(entryId, resource){
 		if(!resource)
@@ -39,6 +41,8 @@ var KalturaMediaService = {
 	 * @param	url	string		An HTTP or FTP URL (optional)
 	 * @param	bulkUploadId	int		The id of the bulk upload job (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromBulk: function(mediaEntry, url, bulkUploadId){
 		var kparams = new Object();
@@ -54,6 +58,8 @@ var KalturaMediaService = {
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
 	 * @param	url	string		An HTTP or FTP URL (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromUrl: function(mediaEntry, url){
 		var kparams = new Object();
@@ -68,6 +74,8 @@ var KalturaMediaService = {
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional, default: null)
 	 * @param	searchResult	KalturaSearchResult		Result object from search service (optional, default: null)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromSearchResult: function(mediaEntry, searchResult){
 		if(!mediaEntry)
@@ -87,6 +95,9 @@ var KalturaMediaService = {
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
 	 * @param	uploadTokenId	string		Upload token id (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromUploadedFile: function(mediaEntry, uploadTokenId){
 		var kparams = new Object();
@@ -100,6 +111,9 @@ var KalturaMediaService = {
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
 	 * @param	webcamTokenId	string		Token id for the recored webcam file (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromRecordedWebcam: function(mediaEntry, webcamTokenId){
 		var kparams = new Object();
@@ -114,6 +128,10 @@ var KalturaMediaService = {
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional, default: null)
 	 * @param	sourceFlavorParamsId	int		The flavor to be used as the new entry source, source flavor will be used if not specified (optional, default: null)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromEntry: function(sourceEntryId, mediaEntry, sourceFlavorParamsId){
 		if(!mediaEntry)
@@ -133,6 +151,9 @@ var KalturaMediaService = {
 	 * @param	sourceFlavorAssetId	string		Flavor asset id to be used as the new entry source (optional)
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional, default: null)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	addFromFlavorAsset: function(sourceFlavorAssetId, mediaEntry){
 		if(!mediaEntry)
@@ -150,6 +171,9 @@ var KalturaMediaService = {
 	 * @param	conversionProfileId	int		 (optional, default: null)
 	 * @param	dynamicConversionAttributes	array		 (optional, default: null)
 	 * @return	bigint.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	convert: function(entryId, conversionProfileId, dynamicConversionAttributes){
 		if(!conversionProfileId)
@@ -168,6 +192,7 @@ var KalturaMediaService = {
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
 	 **/
 	get: function(entryId, version){
 		if(!version)
@@ -185,6 +210,7 @@ var KalturaMediaService = {
 	 * @param	extendingItemsArray	array		 (optional, default: null)
 	 * @param	features	string		 (optional, default: null)
 	 * @return	string.
+	 * @return	.
 	 **/
 	getMrss: function(entryId, extendingItemsArray, features){
 		if(!extendingItemsArray)
@@ -203,6 +229,7 @@ var KalturaMediaService = {
 	 * @param	entryId	string		Media entry id to update (optional)
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata to update (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
 	 **/
 	update: function(entryId, mediaEntry){
 		var kparams = new Object();
@@ -218,6 +245,9 @@ var KalturaMediaService = {
 	 * @param	conversionProfileId	int		The conversion profile id to be used on the entry (optional, default: null)
 	 * @param	advancedOptions	KalturaEntryReplacementOptions		Additional update content options (optional, default: null)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateContent: function(entryId, resource, conversionProfileId, advancedOptions){
 		if(!conversionProfileId)
@@ -237,6 +267,7 @@ var KalturaMediaService = {
 	 * Delete a media entry..
 	 * @param	entryId	string		Media entry id to delete (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	deleteAction: function(entryId){
 		var kparams = new Object();
@@ -248,6 +279,7 @@ var KalturaMediaService = {
 	 * Approves media replacement.
 	 * @param	entryId	string		Media entry id to replace (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
 	 **/
 	approveReplace: function(entryId){
 		var kparams = new Object();
@@ -259,6 +291,7 @@ var KalturaMediaService = {
 	 * Cancels media replacement.
 	 * @param	entryId	string		Media entry id to cancel (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
 	 **/
 	cancelReplace: function(entryId){
 		var kparams = new Object();
@@ -318,6 +351,8 @@ var KalturaMediaService = {
 	 * @param	timeOffset	int		Time offset (in seconds) (optional)
 	 * @param	flavorParamsId	int		The flavor params id to be used (optional, default: null)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateThumbnail: function(entryId, timeOffset, flavorParamsId){
 		if(!flavorParamsId)
@@ -337,6 +372,8 @@ var KalturaMediaService = {
 	 * @param	timeOffset	int		Time offset (in seconds) (optional)
 	 * @param	flavorParamsId	int		The flavor params id to be used (optional, default: null)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateThumbnailFromSourceEntry: function(entryId, sourceEntryId, timeOffset, flavorParamsId){
 		if(!flavorParamsId)
@@ -354,6 +391,8 @@ var KalturaMediaService = {
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	fileData	file		Jpeg file data (optional)
 	 * @return	KalturaMediaEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateThumbnailJpeg: function(entryId, fileData){
 		var kparams = new Object();
@@ -368,6 +407,8 @@ var KalturaMediaService = {
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	url	string		file url (optional)
 	 * @return	KalturaBaseEntry.
+	 * @return	.
+	 * @return	.
 	 **/
 	updateThumbnailFromUrl: function(entryId, url){
 		var kparams = new Object();
@@ -381,6 +422,7 @@ var KalturaMediaService = {
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	fileFormat	string		Format to convert (optional)
 	 * @return	int.
+	 * @return	.
 	 **/
 	requestConversion: function(entryId, fileFormat){
 		var kparams = new Object();
@@ -393,6 +435,7 @@ var KalturaMediaService = {
 	 * Flag inappropriate media entry for moderation.
 	 * @param	moderationFlag	KalturaModerationFlag		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	flag: function(moderationFlag){
 		var kparams = new Object();
@@ -404,6 +447,7 @@ var KalturaMediaService = {
 	 * Reject the media entry and mark the pending flags (if any) as moderated (this will make the entry non playable).
 	 * @param	entryId	string		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	reject: function(entryId){
 		var kparams = new Object();
@@ -414,6 +458,7 @@ var KalturaMediaService = {
 	/**
 	 * Approve the media entry and mark the pending flags (if any) as moderated (this will make the entry playable).
 	 * @param	entryId	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	approve: function(entryId){

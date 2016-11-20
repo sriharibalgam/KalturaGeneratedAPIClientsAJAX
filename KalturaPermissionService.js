@@ -7,6 +7,8 @@ var KalturaPermissionService = {
 	 * Adds a new permission object to the account..
 	 * @param	permission	KalturaPermission		The new permission (optional)
 	 * @return	KalturaPermission.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(permission){
 		var kparams = new Object();
@@ -18,6 +20,7 @@ var KalturaPermissionService = {
 	 * Retrieves a permission object using its ID..
 	 * @param	permissionName	string		The name assigned to the permission (optional)
 	 * @return	KalturaPermission.
+	 * @return	.
 	 **/
 	get: function(permissionName){
 		var kparams = new Object();
@@ -30,6 +33,7 @@ var KalturaPermissionService = {
 	 * @param	permissionName	string		The name assigned to the permission (optional)
 	 * @param	permission	KalturaPermission		Name The name assigned to the permission (optional)
 	 * @return	KalturaPermission.
+	 * @return	.
 	 **/
 	update: function(permissionName, permission){
 		var kparams = new Object();
@@ -42,6 +46,7 @@ var KalturaPermissionService = {
 	 * Deletes an existing permission object..
 	 * @param	permissionName	string		The name assigned to the permission (optional)
 	 * @return	KalturaPermission.
+	 * @return	.
 	 **/
 	deleteAction: function(permissionName){
 		var kparams = new Object();

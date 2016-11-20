@@ -18,6 +18,7 @@ var KalturaGenericDistributionProviderService = {
 	 * Get Generic Distribution Provider by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaGenericDistributionProvider.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaGenericDistributionProviderService = {
 	 * @param	id	int		 (optional)
 	 * @param	genericDistributionProvider	KalturaGenericDistributionProvider		 (optional)
 	 * @return	KalturaGenericDistributionProvider.
+	 * @return	.
 	 **/
 	update: function(id, genericDistributionProvider){
 		var kparams = new Object();
@@ -41,6 +43,8 @@ var KalturaGenericDistributionProviderService = {
 	/**
 	 * Delete Generic Distribution Provider by id.
 	 * @param	id	int		 (optional)
+	 * @return	.
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){

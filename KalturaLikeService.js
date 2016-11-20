@@ -7,6 +7,8 @@ var KalturaLikeService = {
 	 * .
 	 * @param	entryId	string		 (optional)
 	 * @return	bool.
+	 * @return	.
+	 * @return	.
 	 **/
 	like: function(entryId){
 		var kparams = new Object();

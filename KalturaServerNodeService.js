@@ -18,6 +18,7 @@ var KalturaServerNodeService = {
 	 * Get server node by id.
 	 * @param	serverNodeId	int		 (optional)
 	 * @return	KalturaServerNode.
+	 * @return	.
 	 **/
 	get: function(serverNodeId){
 		var kparams = new Object();
@@ -42,6 +43,7 @@ var KalturaServerNodeService = {
 	 * delete server node by id.
 	 * @param	serverNodeId	string		 (optional)
 	 * @return	.
+	 * @return	.
 	 **/
 	deleteAction: function(serverNodeId){
 		var kparams = new Object();
@@ -53,6 +55,7 @@ var KalturaServerNodeService = {
 	 * Disable server node by id.
 	 * @param	serverNodeId	string		 (optional)
 	 * @return	KalturaServerNode.
+	 * @return	.
 	 **/
 	disable: function(serverNodeId){
 		var kparams = new Object();
@@ -64,6 +67,7 @@ var KalturaServerNodeService = {
 	 * Enable server node by id.
 	 * @param	serverNodeId	string		 (optional)
 	 * @return	KalturaServerNode.
+	 * @return	.
 	 **/
 	enable: function(serverNodeId){
 		var kparams = new Object();

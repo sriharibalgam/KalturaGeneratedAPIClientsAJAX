@@ -8,6 +8,13 @@ var KalturaAttachmentAssetService = {
 	 * @param	entryId	string		 (optional)
 	 * @param	attachmentAsset	KalturaAttachmentAsset		 (optional)
 	 * @return	KalturaAttachmentAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(entryId, attachmentAsset){
 		var kparams = new Object();
@@ -21,6 +28,13 @@ var KalturaAttachmentAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
 	 * @return	KalturaAttachmentAsset.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	setContent: function(id, contentResource){
 		var kparams = new Object();
@@ -34,6 +48,7 @@ var KalturaAttachmentAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	attachmentAsset	KalturaAttachmentAsset		 (optional)
 	 * @return	KalturaAttachmentAsset.
+	 * @return	.
 	 **/
 	update: function(id, attachmentAsset){
 		var kparams = new Object();
@@ -47,6 +62,8 @@ var KalturaAttachmentAssetService = {
 	 * @param	id	string		 (optional)
 	 * @param	storageId	int		 (optional, default: null)
 	 * @return	string.
+	 * @return	.
+	 * @return	.
 	 **/
 	getUrl: function(id, storageId){
 		if(!storageId)
@@ -61,6 +78,8 @@ var KalturaAttachmentAssetService = {
 	 * Get remote storage existing paths for the asset.
 	 * @param	id	string		 (optional)
 	 * @return	KalturaRemotePathListResponse.
+	 * @return	.
+	 * @return	.
 	 **/
 	getRemotePaths: function(id){
 		var kparams = new Object();
@@ -72,6 +91,7 @@ var KalturaAttachmentAssetService = {
 	 * .
 	 * @param	attachmentAssetId	string		 (optional)
 	 * @return	KalturaAttachmentAsset.
+	 * @return	.
 	 **/
 	get: function(attachmentAssetId){
 		var kparams = new Object();
@@ -101,6 +121,7 @@ var KalturaAttachmentAssetService = {
 	/**
 	 * .
 	 * @param	attachmentAssetId	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(attachmentAssetId){

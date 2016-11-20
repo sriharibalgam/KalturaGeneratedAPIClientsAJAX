@@ -19,6 +19,7 @@ var KalturaUiConfService = {
 	 * @param	id	int		 (optional)
 	 * @param	uiConf	KalturaUiConf		 (optional)
 	 * @return	KalturaUiConf.
+	 * @return	.
 	 **/
 	update: function(id, uiConf){
 		var kparams = new Object();
@@ -31,6 +32,7 @@ var KalturaUiConfService = {
 	 * Retrieve a UIConf by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaUiConf.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaUiConfService = {
 	/**
 	 * Delete an existing UIConf.
 	 * @param	id	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -53,6 +56,7 @@ var KalturaUiConfService = {
 	 * Clone an existing UIConf.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaUiConf.
+	 * @return	.
 	 **/
 	cloneAction: function(id){
 		var kparams = new Object();

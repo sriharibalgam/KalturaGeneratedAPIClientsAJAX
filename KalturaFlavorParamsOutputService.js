@@ -7,6 +7,7 @@ var KalturaFlavorParamsOutputService = {
 	 * Get flavor params output object by ID.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaFlavorParamsOutput.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();

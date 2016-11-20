@@ -18,6 +18,7 @@ var KalturaAppTokenService = {
 	 * Get application authentication token by id.
 	 * @param	id	string		 (optional)
 	 * @return	KalturaAppToken.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaAppTokenService = {
 	 * @param	id	string		 (optional)
 	 * @param	appToken	KalturaAppToken		 (optional)
 	 * @return	KalturaAppToken.
+	 * @return	.
 	 **/
 	update: function(id, appToken){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaAppTokenService = {
 	/**
 	 * Delete application authentication token by id.
 	 * @param	id	string		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -76,6 +79,7 @@ var KalturaAppTokenService = {
 	 * @param	type	int		session type, will be ignored if a different session type already defined on the application token (optional, enum: KalturaSessionType, default: null)
 	 * @param	expiry	int		session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token (optional, default: null)
 	 * @return	KalturaSessionInfo.
+	 * @return	.
 	 **/
 	startSession: function(id, tokenHash, userId, type, expiry){
 		if(!userId)

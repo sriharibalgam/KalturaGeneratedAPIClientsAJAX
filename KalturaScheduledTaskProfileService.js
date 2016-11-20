@@ -18,6 +18,7 @@ var KalturaScheduledTaskProfileService = {
 	 * Retrieve a scheduled task profile by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaScheduledTaskProfile.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,6 +31,7 @@ var KalturaScheduledTaskProfileService = {
 	 * @param	id	int		 (optional)
 	 * @param	scheduledTaskProfile	KalturaScheduledTaskProfile		 (optional)
 	 * @return	KalturaScheduledTaskProfile.
+	 * @return	.
 	 **/
 	update: function(id, scheduledTaskProfile){
 		var kparams = new Object();
@@ -41,6 +43,7 @@ var KalturaScheduledTaskProfileService = {
 	/**
 	 * Delete a scheduled task profile.
 	 * @param	id	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -73,6 +76,7 @@ var KalturaScheduledTaskProfileService = {
 	 * @param	scheduledTaskProfileId	int		 (optional)
 	 * @param	maxResults	int		 (optional, default: 500)
 	 * @return	int.
+	 * @return	.
 	 **/
 	requestDryRun: function(scheduledTaskProfileId, maxResults){
 		if(!maxResults)
@@ -87,6 +91,7 @@ var KalturaScheduledTaskProfileService = {
 	 * .
 	 * @param	requestId	int		 (optional)
 	 * @return	KalturaObjectListResponse.
+	 * @return	.
 	 **/
 	getDryRunResults: function(requestId){
 		var kparams = new Object();

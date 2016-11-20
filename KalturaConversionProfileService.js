@@ -7,6 +7,7 @@ var KalturaConversionProfileService = {
 	 * Set Conversion Profile to be the partner default.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaConversionProfile.
+	 * @return	.
 	 **/
 	setAsDefault: function(id){
 		var kparams = new Object();
@@ -31,6 +32,7 @@ var KalturaConversionProfileService = {
 	 * Add new Conversion Profile.
 	 * @param	conversionProfile	KalturaConversionProfile		 (optional)
 	 * @return	KalturaConversionProfile.
+	 * @return	.
 	 **/
 	add: function(conversionProfile){
 		var kparams = new Object();
@@ -42,6 +44,7 @@ var KalturaConversionProfileService = {
 	 * Get Conversion Profile by ID.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaConversionProfile.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -54,6 +57,8 @@ var KalturaConversionProfileService = {
 	 * @param	id	int		 (optional)
 	 * @param	conversionProfile	KalturaConversionProfile		 (optional)
 	 * @return	KalturaConversionProfile.
+	 * @return	.
+	 * @return	.
 	 **/
 	update: function(id, conversionProfile){
 		var kparams = new Object();
@@ -65,6 +70,8 @@ var KalturaConversionProfileService = {
 	/**
 	 * Delete Conversion Profile by ID.
 	 * @param	id	int		 (optional)
+	 * @return	.
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){

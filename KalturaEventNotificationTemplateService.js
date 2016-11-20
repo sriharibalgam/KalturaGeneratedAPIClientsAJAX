@@ -19,6 +19,9 @@ var KalturaEventNotificationTemplateService = {
 	 * @param	id	int		source template to clone (optional)
 	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		overwrite configuration object (optional, default: null)
 	 * @return	KalturaEventNotificationTemplate.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	cloneAction: function(id, eventNotificationTemplate){
 		if(!eventNotificationTemplate)
@@ -34,6 +37,7 @@ var KalturaEventNotificationTemplateService = {
 	 * Retrieve an event notification template object by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaEventNotificationTemplate.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -46,6 +50,7 @@ var KalturaEventNotificationTemplateService = {
 	 * @param	id	int		 (optional)
 	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		 (optional)
 	 * @return	KalturaEventNotificationTemplate.
+	 * @return	.
 	 **/
 	update: function(id, eventNotificationTemplate){
 		var kparams = new Object();
@@ -59,6 +64,7 @@ var KalturaEventNotificationTemplateService = {
 	 * @param	id	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaEventNotificationTemplateStatus)
 	 * @return	KalturaEventNotificationTemplate.
+	 * @return	.
 	 **/
 	updateStatus: function(id, status){
 		var kparams = new Object();
@@ -70,6 +76,7 @@ var KalturaEventNotificationTemplateService = {
 	/**
 	 * Delete an event notification template object.
 	 * @param	id	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -121,6 +128,9 @@ var KalturaEventNotificationTemplateService = {
 	 * @param	id	int		 (optional)
 	 * @param	scope	KalturaEventNotificationScope		 (optional)
 	 * @return	int.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	dispatch: function(id, scope){
 		var kparams = new Object();

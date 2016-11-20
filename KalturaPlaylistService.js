@@ -24,6 +24,8 @@ var KalturaPlaylistService = {
 	 * @param	id	string		 (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
 	 * @return	KalturaPlaylist.
+	 * @return	.
+	 * @return	.
 	 **/
 	get: function(id, version){
 		if(!version)
@@ -41,6 +43,8 @@ var KalturaPlaylistService = {
 	 * @param	playlist	KalturaPlaylist		 (optional)
 	 * @param	updateStats	bool		 (optional, default: false)
 	 * @return	KalturaPlaylist.
+	 * @return	.
+	 * @return	.
 	 **/
 	update: function(id, playlist, updateStats){
 		if(!updateStats)
@@ -56,6 +60,8 @@ var KalturaPlaylistService = {
 	 * Delete existing playlist.
 	 * @param	id	string		 (optional)
 	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -68,6 +74,8 @@ var KalturaPlaylistService = {
 	 * @param	id	string		Id of the playlist to clone (optional)
 	 * @param	newPlaylist	KalturaPlaylist		Parameters defined here will override the ones in the cloned playlist (optional, default: null)
 	 * @return	KalturaPlaylist.
+	 * @return	.
+	 * @return	.
 	 **/
 	cloneAction: function(id, newPlaylist){
 		if(!newPlaylist)

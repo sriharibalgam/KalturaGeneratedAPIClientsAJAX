@@ -7,6 +7,9 @@ var KalturaEntryDistributionService = {
 	 * Add new Entry Distribution.
 	 * @param	entryDistribution	KalturaEntryDistribution		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	add: function(entryDistribution){
 		var kparams = new Object();
@@ -18,6 +21,7 @@ var KalturaEntryDistributionService = {
 	 * Get Entry Distribution by id.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -29,6 +33,9 @@ var KalturaEntryDistributionService = {
 	 * Validates Entry Distribution by id for submission.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	validate: function(id){
 		var kparams = new Object();
@@ -41,6 +48,7 @@ var KalturaEntryDistributionService = {
 	 * @param	id	int		 (optional)
 	 * @param	entryDistribution	KalturaEntryDistribution		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
 	 **/
 	update: function(id, entryDistribution){
 		var kparams = new Object();
@@ -52,6 +60,7 @@ var KalturaEntryDistributionService = {
 	/**
 	 * Delete Entry Distribution by id.
 	 * @param	id	int		 (optional)
+	 * @return	.
 	 * @return	.
 	 **/
 	deleteAction: function(id){
@@ -84,6 +93,10 @@ var KalturaEntryDistributionService = {
 	 * @param	id	int		 (optional)
 	 * @param	submitWhenReady	bool		 (optional, default: false)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	submitAdd: function(id, submitWhenReady){
 		if(!submitWhenReady)
@@ -98,6 +111,10 @@ var KalturaEntryDistributionService = {
 	 * Submits Entry Distribution changes to the remote destination.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	submitUpdate: function(id){
 		var kparams = new Object();
@@ -109,6 +126,10 @@ var KalturaEntryDistributionService = {
 	 * Submits Entry Distribution report request.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	submitFetchReport: function(id){
 		var kparams = new Object();
@@ -120,6 +141,10 @@ var KalturaEntryDistributionService = {
 	 * Deletes Entry Distribution from the remote destination.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	submitDelete: function(id){
 		var kparams = new Object();
@@ -131,6 +156,9 @@ var KalturaEntryDistributionService = {
 	 * Retries last submit action.
 	 * @param	id	int		 (optional)
 	 * @return	KalturaEntryDistribution.
+	 * @return	.
+	 * @return	.
+	 * @return	.
 	 **/
 	retrySubmit: function(id){
 		var kparams = new Object();
