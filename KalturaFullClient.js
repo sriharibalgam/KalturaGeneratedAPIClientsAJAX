@@ -721,6 +721,20 @@ var KalturaBaseEntryService = {
 		kparams.entryId = entryId;
 		kparams.cloneOptions = cloneOptions;
 		return new KalturaRequestBuilder("baseentry", "clone", kparams);
+	},
+	
+	/**
+	 * This action delivers all data relevant for player.
+	 * @param	entryId	string		 (optional)
+	 * @param	contextDataParams	KalturaEntryContextDataParams		 (optional)
+	 * @return	KalturaPlaybackContextResult.
+	 * @return	.
+	 **/
+	getPlaybackContext: function(entryId, contextDataParams){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.contextDataParams = contextDataParams;
+		return new KalturaRequestBuilder("baseentry", "getPlaybackContext", kparams);
 	}
 }
 
@@ -2423,15 +2437,19 @@ var KalturaLiveChannelService = {
 	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
+	 * @param	recordedEntryId	string		Recorded entry Id (optional, default: null)
 	 * @return	KalturaLiveEntry.
 	 * @return	.
 	 **/
-	setRecordedContent: function(entryId, mediaServerIndex, resource, duration){
+	setRecordedContent: function(entryId, mediaServerIndex, resource, duration, recordedEntryId){
+		if(!recordedEntryId)
+			recordedEntryId = null;
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		kparams.mediaServerIndex = mediaServerIndex;
 		kparams.resource = resource;
 		kparams.duration = duration;
+		kparams.recordedEntryId = recordedEntryId;
 		return new KalturaRequestBuilder("livechannel", "setRecordedContent", kparams);
 	}
 }
@@ -2813,15 +2831,19 @@ var KalturaLiveStreamService = {
 	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
+	 * @param	recordedEntryId	string		Recorded entry Id (optional, default: null)
 	 * @return	KalturaLiveEntry.
 	 * @return	.
 	 **/
-	setRecordedContent: function(entryId, mediaServerIndex, resource, duration){
+	setRecordedContent: function(entryId, mediaServerIndex, resource, duration, recordedEntryId){
+		if(!recordedEntryId)
+			recordedEntryId = null;
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		kparams.mediaServerIndex = mediaServerIndex;
 		kparams.resource = resource;
 		kparams.duration = duration;
+		kparams.recordedEntryId = recordedEntryId;
 		return new KalturaRequestBuilder("livestream", "setRecordedContent", kparams);
 	},
 	

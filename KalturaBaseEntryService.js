@@ -369,5 +369,19 @@ var KalturaBaseEntryService = {
 		kparams.entryId = entryId;
 		kparams.cloneOptions = cloneOptions;
 		return new KalturaRequestBuilder("baseentry", "clone", kparams);
+	},
+	
+	/**
+	 * This action delivers all data relevant for player.
+	 * @param	entryId	string		 (optional)
+	 * @param	contextDataParams	KalturaEntryContextDataParams		 (optional)
+	 * @return	KalturaPlaybackContextResult.
+	 * @return	.
+	 **/
+	getPlaybackContext: function(entryId, contextDataParams){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.contextDataParams = contextDataParams;
+		return new KalturaRequestBuilder("baseentry", "getPlaybackContext", kparams);
 	}
 }
