@@ -726,8 +726,8 @@ var KalturaBaseEntryService = {
 	/**
 	 * This action delivers all data relevant for player.
 	 * @param	entryId	string		 (optional)
-	 * @param	contextDataParams	KalturaEntryContextDataParams		 (optional)
-	 * @return	KalturaPlaybackContextResult.
+	 * @param	contextDataParams	KalturaPlaybackContextOptions		 (optional)
+	 * @return	KalturaPlaybackContextOptions.
 	 * @return	.
 	 **/
 	getPlaybackContext: function(entryId, contextDataParams){
@@ -9921,7 +9921,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:16-12-13');
+	this.setClientTag('ajax:16-12-14');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
