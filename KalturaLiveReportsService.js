@@ -8,7 +8,6 @@ var KalturaLiveReportsService = {
 	 * @param	reportType	string		 (optional, enum: KalturaLiveReportType)
 	 * @param	filter	KalturaLiveReportInputFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	array.
 	 **/
 	getEvents: function(reportType, filter, pager){
 		if(!filter)
@@ -29,7 +28,6 @@ var KalturaLiveReportsService = {
 	 * @param	reportType	string		 (optional, enum: KalturaLiveReportType)
 	 * @param	filter	KalturaLiveReportInputFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaLiveStatsListResponse.
 	 **/
 	getReport: function(reportType, filter, pager){
 		if(!filter)
@@ -49,7 +47,6 @@ var KalturaLiveReportsService = {
 	 * .
 	 * @param	reportType	int		 (optional, enum: KalturaLiveReportExportType)
 	 * @param	params	KalturaLiveReportExportParams		 (optional)
-	 * @return	KalturaLiveReportExportResponse.
 	 **/
 	exportToCsv: function(reportType, params){
 		var kparams = new Object();
@@ -61,7 +58,6 @@ var KalturaLiveReportsService = {
 	/**
 	 * Will serve a requested report.
 	 * @param	id	string		- the requested id (optional)
-	 * @return	string.
 	 **/
 	serveReport: function(id){
 		var kparams = new Object();

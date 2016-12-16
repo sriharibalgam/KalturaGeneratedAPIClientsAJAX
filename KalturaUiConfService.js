@@ -6,7 +6,6 @@ var KalturaUiConfService = {
 	/**
 	 * UIConf Add action allows you to add a UIConf to Kaltura DB.
 	 * @param	uiConf	KalturaUiConf		Mandatory input parameter of type KalturaUiConf (optional)
-	 * @return	KalturaUiConf.
 	 **/
 	add: function(uiConf){
 		var kparams = new Object();
@@ -18,8 +17,6 @@ var KalturaUiConfService = {
 	 * Update an existing UIConf.
 	 * @param	id	int		 (optional)
 	 * @param	uiConf	KalturaUiConf		 (optional)
-	 * @return	KalturaUiConf.
-	 * @return	.
 	 **/
 	update: function(id, uiConf){
 		var kparams = new Object();
@@ -31,8 +28,6 @@ var KalturaUiConfService = {
 	/**
 	 * Retrieve a UIConf by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaUiConf.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -43,8 +38,6 @@ var KalturaUiConfService = {
 	/**
 	 * Delete an existing UIConf.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -55,8 +48,6 @@ var KalturaUiConfService = {
 	/**
 	 * Clone an existing UIConf.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaUiConf.
-	 * @return	.
 	 **/
 	cloneAction: function(id){
 		var kparams = new Object();
@@ -68,7 +59,6 @@ var KalturaUiConfService = {
 	 * retrieve a list of available template UIConfs.
 	 * @param	filter	KalturaUiConfFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaUiConfListResponse.
 	 **/
 	listTemplates: function(filter, pager){
 		if(!filter)
@@ -87,7 +77,6 @@ var KalturaUiConfService = {
 	 * Retrieve a list of available UIConfs.
 	 * @param	filter	KalturaUiConfFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaUiConfListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -104,7 +93,6 @@ var KalturaUiConfService = {
 	
 	/**
 	 * Retrieve a list of all available versions by object type.
-	 * @return	array.
 	 **/
 	getAvailableTypes: function(){
 		var kparams = new Object();

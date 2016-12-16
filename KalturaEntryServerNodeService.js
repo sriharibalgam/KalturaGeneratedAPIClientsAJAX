@@ -7,7 +7,6 @@ var KalturaEntryServerNodeService = {
 	 * .
 	 * @param	id	int		 (optional)
 	 * @param	entryServerNode	KalturaEntryServerNode		 (optional)
-	 * @return	KalturaEntryServerNode.
 	 **/
 	update: function(id, entryServerNode){
 		var kparams = new Object();
@@ -20,7 +19,6 @@ var KalturaEntryServerNodeService = {
 	 * .
 	 * @param	filter	KalturaEntryServerNodeFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaEntryServerNodeListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -38,7 +36,6 @@ var KalturaEntryServerNodeService = {
 	/**
 	 * .
 	 * @param	id	string		 (optional)
-	 * @return	KalturaEntryServerNode.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -49,7 +46,6 @@ var KalturaEntryServerNodeService = {
 	/**
 	 * Validates server node still registered on entry.
 	 * @param	id	int		entry server node id (optional)
-	 * @return	.
 	 **/
 	validateRegisteredEntryServerNode: function(id){
 		var kparams = new Object();

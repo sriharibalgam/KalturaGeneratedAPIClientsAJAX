@@ -6,7 +6,6 @@ var KalturaCaptionParamsService = {
 	/**
 	 * Add new Caption Params.
 	 * @param	captionParams	KalturaCaptionParams		 (optional)
-	 * @return	KalturaCaptionParams.
 	 **/
 	add: function(captionParams){
 		var kparams = new Object();
@@ -17,7 +16,6 @@ var KalturaCaptionParamsService = {
 	/**
 	 * Get Caption Params by ID.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaCaptionParams.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -29,7 +27,6 @@ var KalturaCaptionParamsService = {
 	 * Update Caption Params by ID.
 	 * @param	id	int		 (optional)
 	 * @param	captionParams	KalturaCaptionParams		 (optional)
-	 * @return	KalturaCaptionParams.
 	 **/
 	update: function(id, captionParams){
 		var kparams = new Object();
@@ -41,7 +38,6 @@ var KalturaCaptionParamsService = {
 	/**
 	 * Delete Caption Params by ID.
 	 * @param	id	int		 (optional)
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -53,7 +49,6 @@ var KalturaCaptionParamsService = {
 	 * List Caption Params by filter with paging support (By default - all system default params will be listed too).
 	 * @param	filter	KalturaCaptionParamsFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaCaptionParamsListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

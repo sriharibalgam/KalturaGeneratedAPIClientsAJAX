@@ -6,7 +6,6 @@ var KalturaAccessControlService = {
 	/**
 	 * Add new Access Control Profile.
 	 * @param	accessControl	KalturaAccessControl		 (optional)
-	 * @return	KalturaAccessControl.
 	 **/
 	add: function(accessControl){
 		var kparams = new Object();
@@ -17,7 +16,6 @@ var KalturaAccessControlService = {
 	/**
 	 * Get Access Control Profile by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaAccessControl.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -29,9 +27,6 @@ var KalturaAccessControlService = {
 	 * Update Access Control Profile by id.
 	 * @param	id	int		 (optional)
 	 * @param	accessControl	KalturaAccessControl		 (optional)
-	 * @return	KalturaAccessControl.
-	 * @return	.
-	 * @return	.
 	 **/
 	update: function(id, accessControl){
 		var kparams = new Object();
@@ -43,7 +38,6 @@ var KalturaAccessControlService = {
 	/**
 	 * Delete Access Control Profile by id.
 	 * @param	id	int		 (optional)
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -55,7 +49,6 @@ var KalturaAccessControlService = {
 	 * List Access Control Profiles by filter and pager.
 	 * @param	filter	KalturaAccessControlFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaAccessControlListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

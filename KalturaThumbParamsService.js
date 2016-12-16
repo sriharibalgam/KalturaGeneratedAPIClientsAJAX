@@ -6,7 +6,6 @@ var KalturaThumbParamsService = {
 	/**
 	 * Add new Thumb Params.
 	 * @param	thumbParams	KalturaThumbParams		 (optional)
-	 * @return	KalturaThumbParams.
 	 **/
 	add: function(thumbParams){
 		var kparams = new Object();
@@ -17,7 +16,6 @@ var KalturaThumbParamsService = {
 	/**
 	 * Get Thumb Params by ID.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaThumbParams.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -29,7 +27,6 @@ var KalturaThumbParamsService = {
 	 * Update Thumb Params by ID.
 	 * @param	id	int		 (optional)
 	 * @param	thumbParams	KalturaThumbParams		 (optional)
-	 * @return	KalturaThumbParams.
 	 **/
 	update: function(id, thumbParams){
 		var kparams = new Object();
@@ -41,7 +38,6 @@ var KalturaThumbParamsService = {
 	/**
 	 * Delete Thumb Params by ID.
 	 * @param	id	int		 (optional)
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -53,7 +49,6 @@ var KalturaThumbParamsService = {
 	 * List Thumb Params by filter with paging support (By default - all system default params will be listed too).
 	 * @param	filter	KalturaThumbParamsFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaThumbParamsListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -71,7 +66,6 @@ var KalturaThumbParamsService = {
 	/**
 	 * Get Thumb Params by Conversion Profile ID.
 	 * @param	conversionProfileId	int		 (optional)
-	 * @return	array.
 	 **/
 	getByConversionProfileId: function(conversionProfileId){
 		var kparams = new Object();

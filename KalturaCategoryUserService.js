@@ -6,7 +6,6 @@ var KalturaCategoryUserService = {
 	/**
 	 * Add new CategoryUser.
 	 * @param	categoryUser	KalturaCategoryUser		 (optional)
-	 * @return	KalturaCategoryUser.
 	 **/
 	add: function(categoryUser){
 		var kparams = new Object();
@@ -18,7 +17,6 @@ var KalturaCategoryUserService = {
 	 * Get CategoryUser by id.
 	 * @param	categoryId	int		 (optional)
 	 * @param	userId	string		 (optional)
-	 * @return	KalturaCategoryUser.
 	 **/
 	get: function(categoryId, userId){
 		var kparams = new Object();
@@ -33,7 +31,6 @@ var KalturaCategoryUserService = {
 	 * @param	userId	string		 (optional)
 	 * @param	categoryUser	KalturaCategoryUser		 (optional)
 	 * @param	override	bool		- to override manual changes (optional, default: false)
-	 * @return	KalturaCategoryUser.
 	 **/
 	update: function(categoryId, userId, categoryUser, override){
 		if(!override)
@@ -50,7 +47,6 @@ var KalturaCategoryUserService = {
 	 * Delete a CategoryUser.
 	 * @param	categoryId	int		 (optional)
 	 * @param	userId	string		 (optional)
-	 * @return	.
 	 **/
 	deleteAction: function(categoryId, userId){
 		var kparams = new Object();
@@ -63,7 +59,6 @@ var KalturaCategoryUserService = {
 	 * activate CategoryUser.
 	 * @param	categoryId	int		 (optional)
 	 * @param	userId	string		 (optional)
-	 * @return	KalturaCategoryUser.
 	 **/
 	activate: function(categoryId, userId){
 		var kparams = new Object();
@@ -76,7 +71,6 @@ var KalturaCategoryUserService = {
 	 * reject CategoryUser.
 	 * @param	categoryId	int		 (optional)
 	 * @param	userId	string		 (optional)
-	 * @return	KalturaCategoryUser.
 	 **/
 	deactivate: function(categoryId, userId){
 		var kparams = new Object();
@@ -89,8 +83,6 @@ var KalturaCategoryUserService = {
 	 * List all categories.
 	 * @param	filter	KalturaCategoryUserFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaCategoryUserListResponse.
-	 * @return	.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -108,7 +100,6 @@ var KalturaCategoryUserService = {
 	/**
 	 * Copy all memeber from parent category.
 	 * @param	categoryId	int		 (optional)
-	 * @return	.
 	 **/
 	copyFromCategory: function(categoryId){
 		var kparams = new Object();
@@ -121,8 +112,6 @@ var KalturaCategoryUserService = {
 	 * @param	userId	string		 (optional)
 	 * @param	categoryId	int		 (optional)
 	 * @param	shouldUpdate	bool		 (optional, default: true)
-	 * @return	int.
-	 * @return	.
 	 **/
 	index: function(userId, categoryId, shouldUpdate){
 		if(!shouldUpdate)
@@ -139,7 +128,6 @@ var KalturaCategoryUserService = {
 	 * @param	fileData	file		 (optional)
 	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
 	 * @param	bulkUploadCategoryUserData	KalturaBulkUploadCategoryUserData		 (optional, default: null)
-	 * @return	KalturaBulkUpload.
 	 **/
 	addFromBulkUpload: function(fileData, bulkUploadData, bulkUploadCategoryUserData){
 		if(!bulkUploadData)

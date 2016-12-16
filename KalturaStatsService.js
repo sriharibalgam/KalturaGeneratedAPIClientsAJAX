@@ -27,7 +27,6 @@ var KalturaStatsService = {
  *		
  *		 KalturaStatsEvent $event.
 	 * @param	event	KalturaStatsEvent		 (optional)
-	 * @return	bool.
 	 **/
 	collect: function(event){
 		var kparams = new Object();
@@ -39,7 +38,6 @@ var KalturaStatsService = {
 	 * Will collect the kmcEvent sent form the KMC client
  *		 // this will actually be an empty function because all events will be sent using GET and will anyway be logged in the apache log.
 	 * @param	kmcEvent	KalturaStatsKmcEvent		 (optional)
-	 * @return	.
 	 **/
 	kmcCollect: function(kmcEvent){
 		var kparams = new Object();
@@ -50,7 +48,6 @@ var KalturaStatsService = {
 	/**
 	 * .
 	 * @param	kalturaCEError	KalturaCEError		 (optional)
-	 * @return	KalturaCEError.
 	 **/
 	reportKceError: function(kalturaCEError){
 		var kparams = new Object();
@@ -62,7 +59,6 @@ var KalturaStatsService = {
 	 * Use this action to report errors to the kaltura server..
 	 * @param	errorCode	string		 (optional)
 	 * @param	errorMessage	string		 (optional)
-	 * @return	.
 	 **/
 	reportError: function(errorCode, errorMessage){
 		var kparams = new Object();

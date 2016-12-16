@@ -7,7 +7,6 @@ var KalturaShortLinkService = {
 	 * List short link objects by filter and pager.
 	 * @param	filter	KalturaShortLinkFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaShortLinkListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -25,7 +24,6 @@ var KalturaShortLinkService = {
 	/**
 	 * Allows you to add a short link object.
 	 * @param	shortLink	KalturaShortLink		 (optional)
-	 * @return	KalturaShortLink.
 	 **/
 	add: function(shortLink){
 		var kparams = new Object();
@@ -36,8 +34,6 @@ var KalturaShortLinkService = {
 	/**
 	 * Retrieve an short link object by id.
 	 * @param	id	string		 (optional)
-	 * @return	KalturaShortLink.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -49,8 +45,6 @@ var KalturaShortLinkService = {
 	 * Update exisitng short link.
 	 * @param	id	string		 (optional)
 	 * @param	shortLink	KalturaShortLink		 (optional)
-	 * @return	KalturaShortLink.
-	 * @return	.
 	 **/
 	update: function(id, shortLink){
 		var kparams = new Object();
@@ -62,8 +56,6 @@ var KalturaShortLinkService = {
 	/**
 	 * Mark the short link as deleted.
 	 * @param	id	string		 (optional)
-	 * @return	KalturaShortLink.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();

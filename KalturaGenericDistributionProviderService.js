@@ -6,7 +6,6 @@ var KalturaGenericDistributionProviderService = {
 	/**
 	 * Add new Generic Distribution Provider.
 	 * @param	genericDistributionProvider	KalturaGenericDistributionProvider		 (optional)
-	 * @return	KalturaGenericDistributionProvider.
 	 **/
 	add: function(genericDistributionProvider){
 		var kparams = new Object();
@@ -17,8 +16,6 @@ var KalturaGenericDistributionProviderService = {
 	/**
 	 * Get Generic Distribution Provider by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaGenericDistributionProvider.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,8 +27,6 @@ var KalturaGenericDistributionProviderService = {
 	 * Update Generic Distribution Provider by id.
 	 * @param	id	int		 (optional)
 	 * @param	genericDistributionProvider	KalturaGenericDistributionProvider		 (optional)
-	 * @return	KalturaGenericDistributionProvider.
-	 * @return	.
 	 **/
 	update: function(id, genericDistributionProvider){
 		var kparams = new Object();
@@ -43,9 +38,6 @@ var KalturaGenericDistributionProviderService = {
 	/**
 	 * Delete Generic Distribution Provider by id.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -57,7 +49,6 @@ var KalturaGenericDistributionProviderService = {
 	 * List all distribution providers.
 	 * @param	filter	KalturaGenericDistributionProviderFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaGenericDistributionProviderListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

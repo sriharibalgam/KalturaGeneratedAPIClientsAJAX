@@ -6,7 +6,6 @@ var KalturaStorageProfileService = {
 	/**
 	 * Adds a storage profile to the Kaltura DB..
 	 * @param	storageProfile	KalturaStorageProfile		 (optional)
-	 * @return	KalturaStorageProfile.
 	 **/
 	add: function(storageProfile){
 		var kparams = new Object();
@@ -18,7 +17,6 @@ var KalturaStorageProfileService = {
 	 * .
 	 * @param	storageId	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaStorageProfileStatus)
-	 * @return	.
 	 **/
 	updateStatus: function(storageId, status){
 		var kparams = new Object();
@@ -30,7 +28,6 @@ var KalturaStorageProfileService = {
 	/**
 	 * Get storage profile by id.
 	 * @param	storageProfileId	int		 (optional)
-	 * @return	KalturaStorageProfile.
 	 **/
 	get: function(storageProfileId){
 		var kparams = new Object();
@@ -42,7 +39,6 @@ var KalturaStorageProfileService = {
 	 * Update storage profile by id.
 	 * @param	storageProfileId	int		 (optional)
 	 * @param	storageProfile	KalturaStorageProfile		Id (optional)
-	 * @return	KalturaStorageProfile.
 	 **/
 	update: function(storageProfileId, storageProfile){
 		var kparams = new Object();
@@ -55,7 +51,6 @@ var KalturaStorageProfileService = {
 	 * .
 	 * @param	filter	KalturaStorageProfileFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaStorageProfileListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

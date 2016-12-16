@@ -7,7 +7,6 @@ var KalturaMediaInfoService = {
 	 * List media info objects by filter and pager.
 	 * @param	filter	KalturaMediaInfoFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaMediaInfoListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

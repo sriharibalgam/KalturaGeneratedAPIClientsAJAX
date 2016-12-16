@@ -6,7 +6,6 @@ var KalturaResponseProfileService = {
 	/**
 	 * Add new response profile.
 	 * @param	addResponseProfile	KalturaResponseProfile		 (optional)
-	 * @return	KalturaResponseProfile.
 	 **/
 	add: function(addResponseProfile){
 		var kparams = new Object();
@@ -17,8 +16,6 @@ var KalturaResponseProfileService = {
 	/**
 	 * Get response profile by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaResponseProfile.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,8 +27,6 @@ var KalturaResponseProfileService = {
 	 * Update response profile by id.
 	 * @param	id	int		 (optional)
 	 * @param	updateResponseProfile	KalturaResponseProfile		 (optional)
-	 * @return	KalturaResponseProfile.
-	 * @return	.
 	 **/
 	update: function(id, updateResponseProfile){
 		var kparams = new Object();
@@ -44,8 +39,6 @@ var KalturaResponseProfileService = {
 	 * Update response profile status by id.
 	 * @param	id	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaResponseProfileStatus)
-	 * @return	KalturaResponseProfile.
-	 * @return	.
 	 **/
 	updateStatus: function(id, status){
 		var kparams = new Object();
@@ -57,8 +50,6 @@ var KalturaResponseProfileService = {
 	/**
 	 * Delete response profile by id.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -70,7 +61,6 @@ var KalturaResponseProfileService = {
 	 * List response profiles by filter and pager.
 	 * @param	filter	KalturaResponseProfileFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaResponseProfileListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -88,7 +78,6 @@ var KalturaResponseProfileService = {
 	/**
 	 * Recalculate response profile cached objects.
 	 * @param	options	KalturaResponseProfileCacheRecalculateOptions		 (optional)
-	 * @return	KalturaResponseProfileCacheRecalculateResults.
 	 **/
 	recalculate: function(options){
 		var kparams = new Object();
@@ -100,9 +89,6 @@ var KalturaResponseProfileService = {
 	 * Clone an existing response profile.
 	 * @param	id	int		 (optional)
 	 * @param	profile	KalturaResponseProfile		 (optional)
-	 * @return	KalturaResponseProfile.
-	 * @return	.
-	 * @return	.
 	 **/
 	cloneAction: function(id, profile){
 		var kparams = new Object();

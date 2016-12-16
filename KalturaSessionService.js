@@ -12,8 +12,6 @@ var KalturaSessionService = {
 	 * @param	partnerId	int		 (optional, default: null)
 	 * @param	expiry	int		KS expiry time in seconds (optional, default: 86400)
 	 * @param	privileges	string		 (optional, default: null)
-	 * @return	string.
-	 * @return	.
 	 **/
 	start: function(secret, userId, type, partnerId, expiry, privileges){
 		if(!userId)
@@ -38,7 +36,6 @@ var KalturaSessionService = {
 	
 	/**
 	 * End a session with the Kaltura server, making the current KS invalid..
-	 * @return	.
 	 **/
 	end: function(){
 		var kparams = new Object();
@@ -55,8 +52,6 @@ var KalturaSessionService = {
 	 * @param	partnerId	int		 (optional, default: null)
 	 * @param	expiry	int		KS expiry time in seconds (optional, default: 86400)
 	 * @param	privileges	string		 (optional, default: null)
-	 * @return	string.
-	 * @return	.
 	 **/
 	impersonate: function(secret, impersonatedPartnerId, userId, type, partnerId, expiry, privileges){
 		if(!userId)
@@ -88,8 +83,6 @@ var KalturaSessionService = {
 	 * @param	type	int		Type of the new KS (optional, enum: KalturaSessionType, default: null)
 	 * @param	expiry	int		Expiry time in seconds of the new KS (optional, default: null)
 	 * @param	privileges	string		Privileges of the new KS (optional, default: null)
-	 * @return	KalturaSessionInfo.
-	 * @return	.
 	 **/
 	impersonateByKs: function(session, type, expiry, privileges){
 		if(!type)
@@ -109,8 +102,6 @@ var KalturaSessionService = {
 	/**
 	 * Parse session key and return its info.
 	 * @param	session	string		The KS to be parsed, keep it empty to use current session. (optional, default: null)
-	 * @return	KalturaSessionInfo.
-	 * @return	.
 	 **/
 	get: function(session){
 		if(!session)
@@ -124,11 +115,6 @@ var KalturaSessionService = {
 	 * Start a session for Kaltura's flash widgets.
 	 * @param	widgetId	string		 (optional)
 	 * @param	expiry	int		 (optional, default: 86400)
-	 * @return	KalturaStartWidgetSessionResponse.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	startWidgetSession: function(widgetId, expiry){
 		if(!expiry)

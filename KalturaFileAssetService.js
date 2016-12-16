@@ -6,7 +6,6 @@ var KalturaFileAssetService = {
 	/**
 	 * Add new file asset.
 	 * @param	fileAsset	KalturaFileAsset		 (optional)
-	 * @return	KalturaFileAsset.
 	 **/
 	add: function(fileAsset){
 		var kparams = new Object();
@@ -17,8 +16,6 @@ var KalturaFileAssetService = {
 	/**
 	 * Get file asset by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaFileAsset.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,8 +27,6 @@ var KalturaFileAssetService = {
 	 * Update file asset by id.
 	 * @param	id	int		 (optional)
 	 * @param	fileAsset	KalturaFileAsset		 (optional)
-	 * @return	KalturaFileAsset.
-	 * @return	.
 	 **/
 	update: function(id, fileAsset){
 		var kparams = new Object();
@@ -43,8 +38,6 @@ var KalturaFileAssetService = {
 	/**
 	 * Delete file asset by id.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -56,11 +49,6 @@ var KalturaFileAssetService = {
 	 * Set content of file asset.
 	 * @param	id	string		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
-	 * @return	KalturaFileAsset.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	setContent: function(id, contentResource){
 		var kparams = new Object();
@@ -73,7 +61,6 @@ var KalturaFileAssetService = {
 	 * List file assets by filter and pager.
 	 * @param	filter	KalturaFileAssetFilter		 (optional)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaFileAssetListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!pager)

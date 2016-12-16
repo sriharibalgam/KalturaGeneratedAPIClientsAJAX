@@ -7,7 +7,6 @@ var KalturaTagService = {
 	 * .
 	 * @param	tagFilter	KalturaTagFilter		 (optional)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaTagListResponse.
 	 **/
 	search: function(tagFilter, pager){
 		if(!pager)
@@ -21,7 +20,6 @@ var KalturaTagService = {
 	
 	/**
 	 * Action goes over all tags with instanceCount==0 and checks whether they need to be removed from the DB. Returns number of removed tags..
-	 * @return	int.
 	 **/
 	deletePending: function(){
 		var kparams = new Object();
@@ -33,7 +31,6 @@ var KalturaTagService = {
 	 * @param	categoryId	int		 (optional)
 	 * @param	pcToDecrement	string		 (optional)
 	 * @param	pcToIncrement	string		 (optional)
-	 * @return	.
 	 **/
 	indexCategoryEntryTags: function(categoryId, pcToDecrement, pcToIncrement){
 		var kparams = new Object();

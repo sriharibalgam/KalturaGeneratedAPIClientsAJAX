@@ -6,7 +6,6 @@ var KalturaScheduleResourceService = {
 	/**
 	 * Allows you to add a new KalturaScheduleResource object.
 	 * @param	scheduleResource	KalturaScheduleResource		 (optional)
-	 * @return	KalturaScheduleResource.
 	 **/
 	add: function(scheduleResource){
 		var kparams = new Object();
@@ -17,8 +16,6 @@ var KalturaScheduleResourceService = {
 	/**
 	 * Retrieve a KalturaScheduleResource object by ID.
 	 * @param	scheduleResourceId	int		 (optional)
-	 * @return	KalturaScheduleResource.
-	 * @return	.
 	 **/
 	get: function(scheduleResourceId){
 		var kparams = new Object();
@@ -30,8 +27,6 @@ var KalturaScheduleResourceService = {
 	 * Update an existing KalturaScheduleResource object.
 	 * @param	scheduleResourceId	int		 (optional)
 	 * @param	scheduleResource	KalturaScheduleResource		Id (optional)
-	 * @return	KalturaScheduleResource.
-	 * @return	.
 	 **/
 	update: function(scheduleResourceId, scheduleResource){
 		var kparams = new Object();
@@ -43,8 +38,6 @@ var KalturaScheduleResourceService = {
 	/**
 	 * Mark the KalturaScheduleResource object as deleted.
 	 * @param	scheduleResourceId	int		 (optional)
-	 * @return	KalturaScheduleResource.
-	 * @return	.
 	 **/
 	deleteAction: function(scheduleResourceId){
 		var kparams = new Object();
@@ -56,7 +49,6 @@ var KalturaScheduleResourceService = {
 	 * List KalturaScheduleResource objects.
 	 * @param	filter	KalturaScheduleResourceFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaScheduleResourceListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -75,7 +67,6 @@ var KalturaScheduleResourceService = {
 	 * Add new bulk upload batch job.
 	 * @param	fileData	file		 (optional)
 	 * @param	bulkUploadData	KalturaBulkUploadCsvJobData		 (optional, default: null)
-	 * @return	KalturaBulkUpload.
 	 **/
 	addFromBulkUpload: function(fileData, bulkUploadData){
 		if(!bulkUploadData)

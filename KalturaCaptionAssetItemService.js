@@ -6,8 +6,6 @@ var KalturaCaptionAssetItemService = {
 	/**
 	 * Parse content of caption asset and index it.
 	 * @param	captionAssetId	string		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	parse: function(captionAssetId){
 		var kparams = new Object();
@@ -20,7 +18,6 @@ var KalturaCaptionAssetItemService = {
 	 * @param	entryFilter	KalturaBaseEntryFilter		 (optional, default: null)
 	 * @param	captionAssetItemFilter	KalturaCaptionAssetItemFilter		 (optional, default: null)
 	 * @param	captionAssetItemPager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaCaptionAssetItemListResponse.
 	 **/
 	search: function(entryFilter, captionAssetItemFilter, captionAssetItemPager){
 		if(!entryFilter)
@@ -44,7 +41,6 @@ var KalturaCaptionAssetItemService = {
 	 * @param	entryFilter	KalturaBaseEntryFilter		 (optional, default: null)
 	 * @param	captionAssetItemFilter	KalturaCaptionAssetItemFilter		 (optional, default: null)
 	 * @param	captionAssetItemPager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaBaseEntryListResponse.
 	 **/
 	searchEntries: function(entryFilter, captionAssetItemFilter, captionAssetItemPager){
 		if(!entryFilter)

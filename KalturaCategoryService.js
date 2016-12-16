@@ -6,7 +6,6 @@ var KalturaCategoryService = {
 	/**
 	 * Add new Category.
 	 * @param	category	KalturaCategory		 (optional)
-	 * @return	KalturaCategory.
 	 **/
 	add: function(category){
 		var kparams = new Object();
@@ -17,7 +16,6 @@ var KalturaCategoryService = {
 	/**
 	 * Get Category by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaCategory.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -29,7 +27,6 @@ var KalturaCategoryService = {
 	 * Update Category.
 	 * @param	id	int		 (optional)
 	 * @param	category	KalturaCategory		 (optional)
-	 * @return	KalturaCategory.
 	 **/
 	update: function(id, category){
 		var kparams = new Object();
@@ -42,7 +39,6 @@ var KalturaCategoryService = {
 	 * Delete a Category.
 	 * @param	id	int		 (optional)
 	 * @param	moveEntriesToParentCategory	int		 (optional, enum: KalturaNullableBoolean, default: 1)
-	 * @return	.
 	 **/
 	deleteAction: function(id, moveEntriesToParentCategory){
 		if(!moveEntriesToParentCategory)
@@ -57,7 +53,6 @@ var KalturaCategoryService = {
 	 * List all categories.
 	 * @param	filter	KalturaCategoryFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaCategoryListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -76,7 +71,6 @@ var KalturaCategoryService = {
 	 * Index Category by id.
 	 * @param	id	int		 (optional)
 	 * @param	shouldUpdate	bool		 (optional, default: true)
-	 * @return	int.
 	 **/
 	index: function(id, shouldUpdate){
 		if(!shouldUpdate)
@@ -91,7 +85,6 @@ var KalturaCategoryService = {
 	 * Move categories that belong to the same parent category to a target categroy - enabled only for ks with disable entitlement.
 	 * @param	categoryIds	string		 (optional)
 	 * @param	targetCategoryParentId	int		 (optional)
-	 * @return	KalturaCategoryListResponse.
 	 **/
 	move: function(categoryIds, targetCategoryParentId){
 		var kparams = new Object();
@@ -102,7 +95,6 @@ var KalturaCategoryService = {
 	
 	/**
 	 * Unlock categories.
-	 * @return	.
 	 **/
 	unlockCategories: function(){
 		var kparams = new Object();
@@ -114,7 +106,6 @@ var KalturaCategoryService = {
 	 * @param	fileData	file		 (optional)
 	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
 	 * @param	bulkUploadCategoryData	KalturaBulkUploadCategoryData		 (optional, default: null)
-	 * @return	KalturaBulkUpload.
 	 **/
 	addFromBulkUpload: function(fileData, bulkUploadData, bulkUploadCategoryData){
 		if(!bulkUploadData)

@@ -6,7 +6,6 @@ var KalturaAppTokenService = {
 	/**
 	 * Add new application authentication token.
 	 * @param	appToken	KalturaAppToken		 (optional)
-	 * @return	KalturaAppToken.
 	 **/
 	add: function(appToken){
 		var kparams = new Object();
@@ -17,8 +16,6 @@ var KalturaAppTokenService = {
 	/**
 	 * Get application authentication token by id.
 	 * @param	id	string		 (optional)
-	 * @return	KalturaAppToken.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,8 +27,6 @@ var KalturaAppTokenService = {
 	 * Update application authentication token by id.
 	 * @param	id	string		 (optional)
 	 * @param	appToken	KalturaAppToken		 (optional)
-	 * @return	KalturaAppToken.
-	 * @return	.
 	 **/
 	update: function(id, appToken){
 		var kparams = new Object();
@@ -43,8 +38,6 @@ var KalturaAppTokenService = {
 	/**
 	 * Delete application authentication token by id.
 	 * @param	id	string		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -56,7 +49,6 @@ var KalturaAppTokenService = {
 	 * List application authentication tokens by filter and pager.
 	 * @param	filter	KalturaAppTokenFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaAppTokenListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -78,8 +70,6 @@ var KalturaAppTokenService = {
 	 * @param	userId	string		session user id, will be ignored if a different user id already defined on the application token (optional, default: null)
 	 * @param	type	int		session type, will be ignored if a different session type already defined on the application token (optional, enum: KalturaSessionType, default: null)
 	 * @param	expiry	int		session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token (optional, default: null)
-	 * @return	KalturaSessionInfo.
-	 * @return	.
 	 **/
 	startSession: function(id, tokenHash, userId, type, expiry){
 		if(!userId)

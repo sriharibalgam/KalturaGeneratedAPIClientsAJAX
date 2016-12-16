@@ -6,8 +6,6 @@ var KalturaFlavorParamsOutputService = {
 	/**
 	 * Get flavor params output object by ID.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaFlavorParamsOutput.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -19,7 +17,6 @@ var KalturaFlavorParamsOutputService = {
 	 * List flavor params output objects by filter and pager.
 	 * @param	filter	KalturaFlavorParamsOutputFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaFlavorParamsOutputListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

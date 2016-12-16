@@ -6,7 +6,6 @@ var KalturaFlavorParamsService = {
 	/**
 	 * Add new Flavor Params.
 	 * @param	flavorParams	KalturaFlavorParams		 (optional)
-	 * @return	KalturaFlavorParams.
 	 **/
 	add: function(flavorParams){
 		var kparams = new Object();
@@ -17,7 +16,6 @@ var KalturaFlavorParamsService = {
 	/**
 	 * Get Flavor Params by ID.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaFlavorParams.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -29,7 +27,6 @@ var KalturaFlavorParamsService = {
 	 * Update Flavor Params by ID.
 	 * @param	id	int		 (optional)
 	 * @param	flavorParams	KalturaFlavorParams		 (optional)
-	 * @return	KalturaFlavorParams.
 	 **/
 	update: function(id, flavorParams){
 		var kparams = new Object();
@@ -41,7 +38,6 @@ var KalturaFlavorParamsService = {
 	/**
 	 * Delete Flavor Params by ID.
 	 * @param	id	int		 (optional)
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -53,7 +49,6 @@ var KalturaFlavorParamsService = {
 	 * List Flavor Params by filter with paging support (By default - all system default params will be listed too).
 	 * @param	filter	KalturaFlavorParamsFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaFlavorParamsListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -71,7 +66,6 @@ var KalturaFlavorParamsService = {
 	/**
 	 * Get Flavor Params by Conversion Profile ID.
 	 * @param	conversionProfileId	int		 (optional)
-	 * @return	array.
 	 **/
 	getByConversionProfileId: function(conversionProfileId){
 		var kparams = new Object();

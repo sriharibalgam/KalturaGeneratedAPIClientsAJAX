@@ -7,7 +7,6 @@ var KalturaDistributionProviderService = {
 	 * List all distribution providers.
 	 * @param	filter	KalturaDistributionProviderFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaDistributionProviderListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

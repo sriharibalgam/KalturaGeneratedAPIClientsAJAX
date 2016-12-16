@@ -8,8 +8,6 @@ var KalturaIntegrationService = {
 	 * @param	data	KalturaIntegrationJobData		 (optional)
 	 * @param	objectType	string		 (optional, enum: KalturaBatchJobObjectType)
 	 * @param	objectId	string		 (optional)
-	 * @return	int.
-	 * @return	.
 	 **/
 	dispatch: function(data, objectType, objectId){
 		var kparams = new Object();
@@ -22,7 +20,6 @@ var KalturaIntegrationService = {
 	/**
 	 * .
 	 * @param	id	int		integration job id (optional)
-	 * @return	.
 	 **/
 	notify: function(id){
 		var kparams = new Object();

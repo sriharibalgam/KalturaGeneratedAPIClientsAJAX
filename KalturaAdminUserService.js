@@ -9,14 +9,6 @@ var KalturaAdminUserService = {
 	 * @param	password	string		 (optional)
 	 * @param	newEmail	string		Optional, provide only when you want to update the email (optional)
 	 * @param	newPassword	string		 (optional)
-	 * @return	KalturaAdminUser.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	updatePassword: function(email, password, newEmail, newPassword){
 		if(!newEmail)
@@ -34,12 +26,6 @@ var KalturaAdminUserService = {
 	/**
 	 * Reset admin user password and send it to the users email address.
 	 * @param	email	string		 (optional)
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	resetPassword: function(email){
 		var kparams = new Object();
@@ -52,8 +38,6 @@ var KalturaAdminUserService = {
 	 * @param	email	string		 (optional)
 	 * @param	password	string		 (optional)
 	 * @param	partnerId	int		 (optional, default: null)
-	 * @return	string.
-	 * @return	.
 	 **/
 	login: function(email, password, partnerId){
 		if(!partnerId)
@@ -69,13 +53,6 @@ var KalturaAdminUserService = {
 	 * Set initial users password.
 	 * @param	hashKey	string		 (optional)
 	 * @param	newPassword	string		new password to set (optional)
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	setInitialPassword: function(hashKey, newPassword){
 		var kparams = new Object();

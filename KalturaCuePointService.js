@@ -6,7 +6,6 @@ var KalturaCuePointService = {
 	/**
 	 * Allows you to add an cue point object associated with an entry.
 	 * @param	cuePoint	KalturaCuePoint		 (optional)
-	 * @return	KalturaCuePoint.
 	 **/
 	add: function(cuePoint){
 		var kparams = new Object();
@@ -17,9 +16,6 @@ var KalturaCuePointService = {
 	/**
 	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions.
 	 * @param	fileData	file		 (optional)
-	 * @return	KalturaCuePointListResponse.
-	 * @return	.
-	 * @return	.
 	 **/
 	addFromBulk: function(fileData){
 		var kparams = new Object();
@@ -31,8 +27,6 @@ var KalturaCuePointService = {
 	/**
 	 * Retrieve an CuePoint object by id.
 	 * @param	id	string		 (optional)
-	 * @return	KalturaCuePoint.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -44,7 +38,6 @@ var KalturaCuePointService = {
 	 * List cue point objects by filter and pager.
 	 * @param	filter	KalturaCuePointFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaCuePointListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -62,7 +55,6 @@ var KalturaCuePointService = {
 	/**
 	 * count cue point objects by filter.
 	 * @param	filter	KalturaCuePointFilter		 (optional, default: null)
-	 * @return	int.
 	 **/
 	count: function(filter){
 		if(!filter)
@@ -77,8 +69,6 @@ var KalturaCuePointService = {
 	 * Update cue point by id.
 	 * @param	id	string		 (optional)
 	 * @param	cuePoint	KalturaCuePoint		 (optional)
-	 * @return	KalturaCuePoint.
-	 * @return	.
 	 **/
 	update: function(id, cuePoint){
 		var kparams = new Object();
@@ -90,8 +80,6 @@ var KalturaCuePointService = {
 	/**
 	 * delete cue point by id, and delete all children cue points.
 	 * @param	id	string		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -103,8 +91,6 @@ var KalturaCuePointService = {
 	 * Update cuePoint status by id.
 	 * @param	id	string		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaCuePointStatus)
-	 * @return	.
-	 * @return	.
 	 **/
 	updateStatus: function(id, status){
 		var kparams = new Object();
@@ -117,9 +103,6 @@ var KalturaCuePointService = {
 	 * Clone cuePoint with id to given entry.
 	 * @param	id	string		 (optional)
 	 * @param	entryId	string		 (optional)
-	 * @return	KalturaCuePoint.
-	 * @return	.
-	 * @return	.
 	 **/
 	cloneAction: function(id, entryId){
 		var kparams = new Object();

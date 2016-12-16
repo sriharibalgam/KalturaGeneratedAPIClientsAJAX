@@ -9,8 +9,6 @@ var KalturaPartnerService = {
 	 * @param	cmsPassword	string		 (optional)
 	 * @param	templatePartnerId	int		 (optional, default: null)
 	 * @param	silent	bool		 (optional, default: false)
-	 * @return	KalturaPartner.
-	 * @return	.
 	 **/
 	register: function(partner, cmsPassword, templatePartnerId, silent){
 		if(!cmsPassword)
@@ -31,8 +29,6 @@ var KalturaPartnerService = {
 	 * Update details and settings of an existing partner.
 	 * @param	partner	KalturaPartner		 (optional)
 	 * @param	allowEmpty	bool		 (optional, default: false)
-	 * @return	KalturaPartner.
-	 * @return	.
 	 **/
 	update: function(partner, allowEmpty){
 		if(!allowEmpty)
@@ -46,8 +42,6 @@ var KalturaPartnerService = {
 	/**
 	 * Retrieve partner object by Id.
 	 * @param	id	int		 (optional, default: null)
-	 * @return	KalturaPartner.
-	 * @return	.
 	 **/
 	get: function(id){
 		if(!id)
@@ -62,8 +56,6 @@ var KalturaPartnerService = {
 	 * @param	partnerId	int		 (optional)
 	 * @param	adminEmail	string		 (optional)
 	 * @param	cmsPassword	string		 (optional)
-	 * @return	KalturaPartner.
-	 * @return	.
 	 **/
 	getSecrets: function(partnerId, adminEmail, cmsPassword){
 		var kparams = new Object();
@@ -76,8 +68,6 @@ var KalturaPartnerService = {
 	/**
 	 * Retrieve all info attributed to the partner
  *		 This action expects no parameters. It returns information for the current KS partnerId..
-	 * @return	KalturaPartner.
-	 * @return	.
 	 **/
 	getInfo: function(){
 		var kparams = new Object();
@@ -92,8 +82,6 @@ var KalturaPartnerService = {
 	 * @param	year	int		 (optional)
 	 * @param	month	int		 (optional, default: 1)
 	 * @param	resolution	string		 (optional, enum: KalturaReportInterval, default: null)
-	 * @return	KalturaPartnerUsage.
-	 * @return	.
 	 **/
 	getUsage: function(year, month, resolution){
 		if(!year)
@@ -112,8 +100,6 @@ var KalturaPartnerService = {
 	/**
 	 * Get usage statistics for a partner
  *		 Calculation is done according to partner's package.
-	 * @return	KalturaPartnerStatistics.
-	 * @return	.
 	 **/
 	getStatistics: function(){
 		var kparams = new Object();
@@ -124,8 +110,6 @@ var KalturaPartnerService = {
 	 * Retrieve a list of partner objects which the current user is allowed to access..
 	 * @param	partnerFilter	KalturaPartnerFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaPartnerListResponse.
-	 * @return	.
 	 **/
 	listPartnersForUser: function(partnerFilter, pager){
 		if(!partnerFilter)
@@ -146,7 +130,6 @@ var KalturaPartnerService = {
  *		 This action is only partially implemented to support listing sub partners of a VAR partner..
 	 * @param	filter	KalturaPartnerFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaPartnerListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -163,8 +146,6 @@ var KalturaPartnerService = {
 	
 	/**
 	 * List partner's current processes' statuses.
-	 * @return	KalturaFeatureStatusListResponse.
-	 * @return	.
 	 **/
 	listFeatureStatus: function(){
 		var kparams = new Object();
@@ -174,7 +155,6 @@ var KalturaPartnerService = {
 	/**
 	 * Count partner's existing sub-publishers (count includes the partner itself)..
 	 * @param	filter	KalturaPartnerFilter		 (optional, default: null)
-	 * @return	int.
 	 **/
 	count: function(filter){
 		if(!filter)

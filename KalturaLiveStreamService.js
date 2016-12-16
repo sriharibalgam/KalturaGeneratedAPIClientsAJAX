@@ -8,8 +8,6 @@ var KalturaLiveStreamService = {
  *		 The entry will be queued for provision..
 	 * @param	liveStreamEntry	KalturaLiveStreamEntry		Live stream entry metadata (optional)
 	 * @param	sourceType	string		Live stream source type (optional, enum: KalturaSourceType, default: null)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
 	 **/
 	add: function(liveStreamEntry, sourceType){
 		if(!sourceType)
@@ -24,8 +22,6 @@ var KalturaLiveStreamService = {
 	 * Get live stream entry by ID..
 	 * @param	entryId	string		Live stream entry id (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
 	 **/
 	get: function(entryId, version){
 		if(!version)
@@ -43,9 +39,6 @@ var KalturaLiveStreamService = {
 	 * @param	hostname	string		Media server host name (optional, default: null)
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType, default: null)
 	 * @param	applicationName	string		the application to which entry is being broadcast (optional, default: null)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
-	 * @return	.
 	 **/
 	authenticate: function(entryId, token, hostname, mediaServerIndex, applicationName){
 		if(!hostname)
@@ -67,8 +60,6 @@ var KalturaLiveStreamService = {
 	 * Update live stream entry. Only the properties that were set will be updated..
 	 * @param	entryId	string		Live stream entry id to update (optional)
 	 * @param	liveStreamEntry	KalturaLiveStreamEntry		Live stream entry metadata to update (optional)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
 	 **/
 	update: function(entryId, liveStreamEntry){
 		var kparams = new Object();
@@ -80,8 +71,6 @@ var KalturaLiveStreamService = {
 	/**
 	 * Delete a live stream entry..
 	 * @param	entryId	string		Live stream entry id to delete (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(entryId){
 		var kparams = new Object();
@@ -93,7 +82,6 @@ var KalturaLiveStreamService = {
 	 * List live stream entries by filter with paging support..
 	 * @param	filter	KalturaLiveStreamEntryFilter		live stream entry filter (optional, default: null)
 	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
-	 * @return	KalturaLiveStreamListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -112,9 +100,6 @@ var KalturaLiveStreamService = {
 	 * Update live stream entry thumbnail using a raw jpeg file.
 	 * @param	entryId	string		live stream entry id (optional)
 	 * @param	fileData	file		Jpeg file data (optional)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
-	 * @return	.
 	 **/
 	updateOfflineThumbnailJpeg: function(entryId, fileData){
 		var kparams = new Object();
@@ -128,9 +113,6 @@ var KalturaLiveStreamService = {
 	 * Update entry thumbnail using url.
 	 * @param	entryId	string		live stream entry id (optional)
 	 * @param	url	string		file url (optional)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
-	 * @return	.
 	 **/
 	updateOfflineThumbnailFromUrl: function(entryId, url){
 		var kparams = new Object();
@@ -143,9 +125,6 @@ var KalturaLiveStreamService = {
 	 * Delivering the status of a live stream (on-air/offline) if it is possible.
 	 * @param	id	string		ID of the live stream (optional)
 	 * @param	protocol	string		protocol of the stream to test. (optional, enum: KalturaPlaybackProtocol)
-	 * @return	bool.
-	 * @return	.
-	 * @return	.
 	 **/
 	isLive: function(id, protocol){
 		var kparams = new Object();
@@ -160,8 +139,6 @@ var KalturaLiveStreamService = {
 	 * @param	protocol	string		 (optional, enum: KalturaPlaybackProtocol)
 	 * @param	url	string		 (optional, default: null)
 	 * @param	liveStreamConfiguration	KalturaLiveStreamConfiguration		 (optional, default: null)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
 	 **/
 	addLiveStreamPushPublishConfiguration: function(entryId, protocol, url, liveStreamConfiguration){
 		if(!url)
@@ -181,8 +158,6 @@ var KalturaLiveStreamService = {
 	 * Remove push publish configuration from entry.
 	 * @param	entryId	string		 (optional)
 	 * @param	protocol	string		 (optional, enum: KalturaPlaybackProtocol)
-	 * @return	KalturaLiveStreamEntry.
-	 * @return	.
 	 **/
 	removeLiveStreamPushPublishConfiguration: function(entryId, protocol){
 		var kparams = new Object();
@@ -194,8 +169,6 @@ var KalturaLiveStreamService = {
 	/**
 	 * Regenerate new secure token for liveStream.
 	 * @param	entryId	string		Live stream entry id to regenerate secure token for (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	regenerateStreamToken: function(entryId){
 		var kparams = new Object();
@@ -211,8 +184,6 @@ var KalturaLiveStreamService = {
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
 	 * @param	isLastChunk	bool		Is this the last recorded chunk in the current session (i.e. following a stream stop event) (optional, default: false)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
 	 **/
 	appendRecording: function(entryId, assetId, mediaServerIndex, resource, duration, isLastChunk){
 		if(!isLastChunk)
@@ -234,10 +205,6 @@ var KalturaLiveStreamService = {
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
 	 * @param	applicationName	string		the application to which entry is being broadcast (optional, default: null)
 	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus, default: 1)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	registerMediaServer: function(entryId, hostname, mediaServerIndex, applicationName, liveEntryStatus){
 		if(!applicationName)
@@ -258,10 +225,6 @@ var KalturaLiveStreamService = {
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	hostname	string		Media server host name (optional)
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	unregisterMediaServer: function(entryId, hostname, mediaServerIndex){
 		var kparams = new Object();
@@ -274,7 +237,6 @@ var KalturaLiveStreamService = {
 	/**
 	 * Validates all registered media servers.
 	 * @param	entryId	string		Live entry id (optional)
-	 * @return	.
 	 **/
 	validateRegisteredMediaServers: function(entryId){
 		var kparams = new Object();
@@ -289,8 +251,6 @@ var KalturaLiveStreamService = {
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
 	 * @param	recordedEntryId	string		Recorded entry Id (optional, default: null)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
 	 **/
 	setRecordedContent: function(entryId, mediaServerIndex, resource, duration, recordedEntryId){
 		if(!recordedEntryId)
@@ -309,10 +269,6 @@ var KalturaLiveStreamService = {
 	 * @param	entryId	string		Kaltura live-stream entry id (optional)
 	 * @param	interval	int		Events interval in seconds (optional)
 	 * @param	duration	int		Duration in seconds (optional)
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	createPeriodicSyncPoints: function(entryId, interval, duration){
 		var kparams = new Object();

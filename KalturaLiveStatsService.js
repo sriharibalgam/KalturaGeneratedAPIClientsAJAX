@@ -7,7 +7,6 @@ var KalturaLiveStatsService = {
 	 * Will write to the event log a single line representing the event
  *		 KalturaStatsEvent $event.
 	 * @param	event	KalturaLiveStatsEvent		 (optional)
-	 * @return	bool.
 	 **/
 	collect: function(event){
 		var kparams = new Object();

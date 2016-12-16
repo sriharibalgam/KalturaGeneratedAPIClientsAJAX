@@ -7,9 +7,6 @@ var KalturaPermissionItemService = {
 	 * Adds a new permission item object to the account.
  *		 This action is available only to Kaltura system administrators..
 	 * @param	permissionItem	KalturaPermissionItem		The new permission item (optional)
-	 * @return	KalturaPermissionItem.
-	 * @return	.
-	 * @return	.
 	 **/
 	add: function(permissionItem){
 		var kparams = new Object();
@@ -20,8 +17,6 @@ var KalturaPermissionItemService = {
 	/**
 	 * Retrieves a permission item object using its ID..
 	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
-	 * @return	KalturaPermissionItem.
-	 * @return	.
 	 **/
 	get: function(permissionItemId){
 		var kparams = new Object();
@@ -34,8 +29,6 @@ var KalturaPermissionItemService = {
  *		 This action is available only to Kaltura system administrators..
 	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
 	 * @param	permissionItem	KalturaPermissionItem		Id The permission item's unique identifier (optional)
-	 * @return	KalturaPermissionItem.
-	 * @return	.
 	 **/
 	update: function(permissionItemId, permissionItem){
 		var kparams = new Object();
@@ -48,8 +41,6 @@ var KalturaPermissionItemService = {
 	 * Deletes an existing permission item object.
  *		 This action is available only to Kaltura system administrators..
 	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
-	 * @return	KalturaPermissionItem.
-	 * @return	.
 	 **/
 	deleteAction: function(permissionItemId){
 		var kparams = new Object();
@@ -61,7 +52,6 @@ var KalturaPermissionItemService = {
 	 * Lists permission item objects that are associated with an account..
 	 * @param	filter	KalturaPermissionItemFilter		A filter used to exclude specific types of permission items (optional, default: null)
 	 * @param	pager	KalturaFilterPager		A limit for the number of records to display on a page (optional, default: null)
-	 * @return	KalturaPermissionItemListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

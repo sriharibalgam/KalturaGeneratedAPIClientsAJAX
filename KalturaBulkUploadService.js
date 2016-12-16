@@ -12,7 +12,6 @@ var KalturaBulkUploadService = {
 	 * @param	bulkUploadType	string		 (optional, enum: KalturaBulkUploadType, default: null)
 	 * @param	uploadedBy	string		 (optional, default: null)
 	 * @param	fileName	string		Friendly name of the file, used to be recognized later in the logs. (optional, default: null)
-	 * @return	KalturaBulkUpload.
 	 **/
 	add: function(conversionProfileId, csvFileData, bulkUploadType, uploadedBy, fileName){
 		if(!bulkUploadType)
@@ -34,7 +33,6 @@ var KalturaBulkUploadService = {
 	/**
 	 * Get bulk upload batch job by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaBulkUpload.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -45,7 +43,6 @@ var KalturaBulkUploadService = {
 	/**
 	 * List bulk upload batch jobs.
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaBulkUploadListResponse.
 	 **/
 	listAction: function(pager){
 		if(!pager)
@@ -59,7 +56,6 @@ var KalturaBulkUploadService = {
 	/**
 	 * Aborts the bulk upload and all its child jobs.
 	 * @param	id	int		job id (optional)
-	 * @return	KalturaBulkUpload.
 	 **/
 	abort: function(id){
 		var kparams = new Object();

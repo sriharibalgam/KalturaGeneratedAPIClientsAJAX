@@ -5,7 +5,6 @@
 var KalturaSystemService = {
 	/**
 	 * .
-	 * @return	bool.
 	 **/
 	ping: function(){
 		var kparams = new Object();
@@ -14,7 +13,6 @@ var KalturaSystemService = {
 	
 	/**
 	 * .
-	 * @return	bool.
 	 **/
 	pingDatabase: function(){
 		var kparams = new Object();
@@ -23,7 +21,6 @@ var KalturaSystemService = {
 	
 	/**
 	 * .
-	 * @return	int.
 	 **/
 	getTime: function(){
 		var kparams = new Object();
@@ -32,7 +29,6 @@ var KalturaSystemService = {
 	
 	/**
 	 * .
-	 * @return	string.
 	 **/
 	getVersion: function(){
 		var kparams = new Object();

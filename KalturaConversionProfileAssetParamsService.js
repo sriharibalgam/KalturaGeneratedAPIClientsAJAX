@@ -7,7 +7,6 @@ var KalturaConversionProfileAssetParamsService = {
 	 * Lists asset parmas of conversion profile by ID.
 	 * @param	filter	KalturaConversionProfileAssetParamsFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaConversionProfileAssetParamsListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -27,7 +26,6 @@ var KalturaConversionProfileAssetParamsService = {
 	 * @param	conversionProfileId	int		 (optional)
 	 * @param	assetParamsId	int		 (optional)
 	 * @param	conversionProfileAssetParams	KalturaConversionProfileAssetParams		 (optional)
-	 * @return	KalturaConversionProfileAssetParams.
 	 **/
 	update: function(conversionProfileId, assetParamsId, conversionProfileAssetParams){
 		var kparams = new Object();

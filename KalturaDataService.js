@@ -6,7 +6,6 @@ var KalturaDataService = {
 	/**
 	 * Adds a new data entry.
 	 * @param	dataEntry	KalturaDataEntry		Data entry (optional)
-	 * @return	KalturaDataEntry.
 	 **/
 	add: function(dataEntry){
 		var kparams = new Object();
@@ -18,8 +17,6 @@ var KalturaDataService = {
 	 * Get data entry by ID..
 	 * @param	entryId	string		Data entry id (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
-	 * @return	KalturaDataEntry.
-	 * @return	.
 	 **/
 	get: function(entryId, version){
 		if(!version)
@@ -34,8 +31,6 @@ var KalturaDataService = {
 	 * Update data entry. Only the properties that were set will be updated..
 	 * @param	entryId	string		Data entry id to update (optional)
 	 * @param	documentEntry	KalturaDataEntry		Data entry metadata to update (optional)
-	 * @return	KalturaDataEntry.
-	 * @return	.
 	 **/
 	update: function(entryId, documentEntry){
 		var kparams = new Object();
@@ -47,8 +42,6 @@ var KalturaDataService = {
 	/**
 	 * Delete a data entry..
 	 * @param	entryId	string		Data entry id to delete (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(entryId){
 		var kparams = new Object();
@@ -60,7 +53,6 @@ var KalturaDataService = {
 	 * List data entries by filter with paging support..
 	 * @param	filter	KalturaDataEntryFilter		Document entry filter (optional, default: null)
 	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
-	 * @return	KalturaDataListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

@@ -6,9 +6,6 @@ var KalturaLikeService = {
 	/**
 	 * .
 	 * @param	entryId	string		 (optional)
-	 * @return	bool.
-	 * @return	.
-	 * @return	.
 	 **/
 	like: function(entryId){
 		var kparams = new Object();
@@ -19,7 +16,6 @@ var KalturaLikeService = {
 	/**
 	 * .
 	 * @param	entryId	string		 (optional)
-	 * @return	bool.
 	 **/
 	unlike: function(entryId){
 		var kparams = new Object();
@@ -31,7 +27,6 @@ var KalturaLikeService = {
 	 * .
 	 * @param	entryId	string		 (optional)
 	 * @param	userId	string		 (optional, default: null)
-	 * @return	bool.
 	 **/
 	checkLikeExists: function(entryId, userId){
 		if(!userId)
@@ -46,7 +41,6 @@ var KalturaLikeService = {
 	 * .
 	 * @param	filter	KalturaLikeFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaLikeListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

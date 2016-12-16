@@ -6,7 +6,6 @@ var KalturaLiveChannelService = {
 	/**
 	 * Adds new live channel..
 	 * @param	liveChannel	KalturaLiveChannel		Live channel metadata (optional)
-	 * @return	KalturaLiveChannel.
 	 **/
 	add: function(liveChannel){
 		var kparams = new Object();
@@ -17,8 +16,6 @@ var KalturaLiveChannelService = {
 	/**
 	 * Get live channel by ID..
 	 * @param	id	string		Live channel id (optional)
-	 * @return	KalturaLiveChannel.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,8 +27,6 @@ var KalturaLiveChannelService = {
 	 * Update live channel. Only the properties that were set will be updated..
 	 * @param	id	string		Live channel id to update (optional)
 	 * @param	liveChannel	KalturaLiveChannel		Live channel metadata to update (optional)
-	 * @return	KalturaLiveChannel.
-	 * @return	.
 	 **/
 	update: function(id, liveChannel){
 		var kparams = new Object();
@@ -43,8 +38,6 @@ var KalturaLiveChannelService = {
 	/**
 	 * Delete a live channel..
 	 * @param	id	string		Live channel id to delete (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -56,7 +49,6 @@ var KalturaLiveChannelService = {
 	 * List live channels by filter with paging support..
 	 * @param	filter	KalturaLiveChannelFilter		live channel filter (optional, default: null)
 	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
-	 * @return	KalturaLiveChannelListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -74,8 +66,6 @@ var KalturaLiveChannelService = {
 	/**
 	 * Delivering the status of a live channel (on-air/offline).
 	 * @param	id	string		ID of the live channel (optional)
-	 * @return	bool.
-	 * @return	.
 	 **/
 	isLive: function(id){
 		var kparams = new Object();
@@ -91,8 +81,6 @@ var KalturaLiveChannelService = {
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
 	 * @param	isLastChunk	bool		Is this the last recorded chunk in the current session (i.e. following a stream stop event) (optional, default: false)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
 	 **/
 	appendRecording: function(entryId, assetId, mediaServerIndex, resource, duration, isLastChunk){
 		if(!isLastChunk)
@@ -114,10 +102,6 @@ var KalturaLiveChannelService = {
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
 	 * @param	applicationName	string		the application to which entry is being broadcast (optional, default: null)
 	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus, default: 1)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	registerMediaServer: function(entryId, hostname, mediaServerIndex, applicationName, liveEntryStatus){
 		if(!applicationName)
@@ -138,10 +122,6 @@ var KalturaLiveChannelService = {
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	hostname	string		Media server host name (optional)
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	unregisterMediaServer: function(entryId, hostname, mediaServerIndex){
 		var kparams = new Object();
@@ -154,7 +134,6 @@ var KalturaLiveChannelService = {
 	/**
 	 * Validates all registered media servers.
 	 * @param	entryId	string		Live entry id (optional)
-	 * @return	.
 	 **/
 	validateRegisteredMediaServers: function(entryId){
 		var kparams = new Object();
@@ -169,8 +148,6 @@ var KalturaLiveChannelService = {
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
 	 * @param	recordedEntryId	string		Recorded entry Id (optional, default: null)
-	 * @return	KalturaLiveEntry.
-	 * @return	.
 	 **/
 	setRecordedContent: function(entryId, mediaServerIndex, resource, duration, recordedEntryId){
 		if(!recordedEntryId)

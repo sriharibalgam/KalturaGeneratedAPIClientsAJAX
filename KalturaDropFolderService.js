@@ -6,11 +6,6 @@ var KalturaDropFolderService = {
 	/**
 	 * Allows you to add a new KalturaDropFolder object.
 	 * @param	dropFolder	KalturaDropFolder		 (optional)
-	 * @return	KalturaDropFolder.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	add: function(dropFolder){
 		var kparams = new Object();
@@ -21,8 +16,6 @@ var KalturaDropFolderService = {
 	/**
 	 * Retrieve a KalturaDropFolder object by ID.
 	 * @param	dropFolderId	int		 (optional)
-	 * @return	KalturaDropFolder.
-	 * @return	.
 	 **/
 	get: function(dropFolderId){
 		var kparams = new Object();
@@ -34,10 +27,6 @@ var KalturaDropFolderService = {
 	 * Update an existing KalturaDropFolder object.
 	 * @param	dropFolderId	int		 (optional)
 	 * @param	dropFolder	KalturaDropFolder		Id (optional)
-	 * @return	KalturaDropFolder.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	update: function(dropFolderId, dropFolder){
 		var kparams = new Object();
@@ -49,8 +38,6 @@ var KalturaDropFolderService = {
 	/**
 	 * Mark the KalturaDropFolder object as deleted.
 	 * @param	dropFolderId	int		 (optional)
-	 * @return	KalturaDropFolder.
-	 * @return	.
 	 **/
 	deleteAction: function(dropFolderId){
 		var kparams = new Object();
@@ -62,7 +49,6 @@ var KalturaDropFolderService = {
 	 * List KalturaDropFolder objects.
 	 * @param	filter	KalturaDropFolderFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaDropFolderListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

@@ -7,10 +7,6 @@ var KalturaQuizService = {
 	 * Allows to add a quiz to an entry.
 	 * @param	entryId	string		 (optional)
 	 * @param	quiz	KalturaQuiz		 (optional)
-	 * @return	KalturaQuiz.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	add: function(entryId, quiz){
 		var kparams = new Object();
@@ -23,10 +19,6 @@ var KalturaQuizService = {
 	 * Allows to update a quiz.
 	 * @param	entryId	string		 (optional)
 	 * @param	quiz	KalturaQuiz		 (optional)
-	 * @return	KalturaQuiz.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	update: function(entryId, quiz){
 		var kparams = new Object();
@@ -38,8 +30,6 @@ var KalturaQuizService = {
 	/**
 	 * Allows to get a quiz.
 	 * @param	entryId	string		 (optional)
-	 * @return	KalturaQuiz.
-	 * @return	.
 	 **/
 	get: function(entryId){
 		var kparams = new Object();
@@ -51,7 +41,6 @@ var KalturaQuizService = {
 	 * List quiz objects by filter and pager.
 	 * @param	filter	KalturaQuizFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaQuizListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -70,10 +59,6 @@ var KalturaQuizService = {
 	 * sends a with an api request for pdf from quiz object.
 	 * @param	entryId	string		 (optional)
 	 * @param	quizOutputType	int		 (optional, enum: KalturaQuizOutputType)
-	 * @return	string.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	getUrl: function(entryId, quizOutputType){
 		var kparams = new Object();

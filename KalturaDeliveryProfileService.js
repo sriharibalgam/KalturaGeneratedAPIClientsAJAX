@@ -6,7 +6,6 @@ var KalturaDeliveryProfileService = {
 	/**
 	 * Add new delivery..
 	 * @param	delivery	KalturaDeliveryProfile		 (optional)
-	 * @return	KalturaDeliveryProfile.
 	 **/
 	add: function(delivery){
 		var kparams = new Object();
@@ -18,7 +17,6 @@ var KalturaDeliveryProfileService = {
 	 * Update exisiting delivery.
 	 * @param	id	string		 (optional)
 	 * @param	delivery	KalturaDeliveryProfile		 (optional)
-	 * @return	KalturaDeliveryProfile.
 	 **/
 	update: function(id, delivery){
 		var kparams = new Object();
@@ -30,7 +28,6 @@ var KalturaDeliveryProfileService = {
 	/**
 	 * Get delivery by id.
 	 * @param	id	string		 (optional)
-	 * @return	KalturaDeliveryProfile.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -42,7 +39,6 @@ var KalturaDeliveryProfileService = {
 	 * Add delivery based on existing delivery.
  *		Must provide valid sourceDeliveryId.
 	 * @param	deliveryId	int		 (optional)
-	 * @return	KalturaDeliveryProfile.
 	 **/
 	cloneAction: function(deliveryId){
 		var kparams = new Object();
@@ -54,7 +50,6 @@ var KalturaDeliveryProfileService = {
 	 * Retrieve a list of available delivery depends on the filter given.
 	 * @param	filter	KalturaDeliveryProfileFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaDeliveryProfileListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

@@ -6,7 +6,6 @@ var KalturaUploadService = {
 	/**
 	 * .
 	 * @param	fileData	file		The file data (optional)
-	 * @return	string.
 	 **/
 	upload: function(fileData){
 		var kparams = new Object();
@@ -18,7 +17,6 @@ var KalturaUploadService = {
 	/**
 	 * .
 	 * @param	fileName	string		 (optional)
-	 * @return	KalturaUploadResponse.
 	 **/
 	getUploadedFileTokenByFileName: function(fileName){
 		var kparams = new Object();

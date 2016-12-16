@@ -6,9 +6,6 @@ var KalturaPermissionService = {
 	/**
 	 * Adds a new permission object to the account..
 	 * @param	permission	KalturaPermission		The new permission (optional)
-	 * @return	KalturaPermission.
-	 * @return	.
-	 * @return	.
 	 **/
 	add: function(permission){
 		var kparams = new Object();
@@ -19,8 +16,6 @@ var KalturaPermissionService = {
 	/**
 	 * Retrieves a permission object using its ID..
 	 * @param	permissionName	string		The name assigned to the permission (optional)
-	 * @return	KalturaPermission.
-	 * @return	.
 	 **/
 	get: function(permissionName){
 		var kparams = new Object();
@@ -32,8 +27,6 @@ var KalturaPermissionService = {
 	 * Updates an existing permission object..
 	 * @param	permissionName	string		The name assigned to the permission (optional)
 	 * @param	permission	KalturaPermission		Name The name assigned to the permission (optional)
-	 * @return	KalturaPermission.
-	 * @return	.
 	 **/
 	update: function(permissionName, permission){
 		var kparams = new Object();
@@ -45,8 +38,6 @@ var KalturaPermissionService = {
 	/**
 	 * Deletes an existing permission object..
 	 * @param	permissionName	string		The name assigned to the permission (optional)
-	 * @return	KalturaPermission.
-	 * @return	.
 	 **/
 	deleteAction: function(permissionName){
 		var kparams = new Object();
@@ -60,7 +51,6 @@ var KalturaPermissionService = {
  *		 Blocked permissions are listed unless you use a filter to exclude them..
 	 * @param	filter	KalturaPermissionFilter		A filter used to exclude specific types of permissions (optional, default: null)
 	 * @param	pager	KalturaFilterPager		A limit for the number of records to display on a page (optional, default: null)
-	 * @return	KalturaPermissionListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -77,7 +67,6 @@ var KalturaPermissionService = {
 	
 	/**
 	 * Retrieves a list of permissions that apply to the current KS..
-	 * @return	string.
 	 **/
 	getCurrentPermissions: function(){
 		var kparams = new Object();

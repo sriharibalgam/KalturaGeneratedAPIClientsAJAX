@@ -6,8 +6,6 @@ var KalturaDistributionProfileService = {
 	/**
 	 * Add new Distribution Profile.
 	 * @param	distributionProfile	KalturaDistributionProfile		 (optional)
-	 * @return	KalturaDistributionProfile.
-	 * @return	.
 	 **/
 	add: function(distributionProfile){
 		var kparams = new Object();
@@ -18,8 +16,6 @@ var KalturaDistributionProfileService = {
 	/**
 	 * Get Distribution Profile by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaDistributionProfile.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -31,8 +27,6 @@ var KalturaDistributionProfileService = {
 	 * Update Distribution Profile by id.
 	 * @param	id	int		 (optional)
 	 * @param	distributionProfile	KalturaDistributionProfile		 (optional)
-	 * @return	KalturaDistributionProfile.
-	 * @return	.
 	 **/
 	update: function(id, distributionProfile){
 		var kparams = new Object();
@@ -45,8 +39,6 @@ var KalturaDistributionProfileService = {
 	 * Update Distribution Profile status by id.
 	 * @param	id	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaDistributionProfileStatus)
-	 * @return	KalturaDistributionProfile.
-	 * @return	.
 	 **/
 	updateStatus: function(id, status){
 		var kparams = new Object();
@@ -58,8 +50,6 @@ var KalturaDistributionProfileService = {
 	/**
 	 * Delete Distribution Profile by id.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -71,7 +61,6 @@ var KalturaDistributionProfileService = {
 	 * List all distribution providers.
 	 * @param	filter	KalturaDistributionProfileFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaDistributionProfileListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -90,7 +79,6 @@ var KalturaDistributionProfileService = {
 	 * .
 	 * @param	filter	KalturaPartnerFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaDistributionProfileListResponse.
 	 **/
 	listByPartner: function(filter, pager){
 		if(!filter)

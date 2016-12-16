@@ -8,7 +8,6 @@ var KalturaPlaylistService = {
  *		 Note that all entries used in a playlist will become public and may appear in KalturaNetwork.
 	 * @param	playlist	KalturaPlaylist		 (optional)
 	 * @param	updateStats	bool		indicates that the playlist statistics attributes should be updated synchronously now (optional, default: false)
-	 * @return	KalturaPlaylist.
 	 **/
 	add: function(playlist, updateStats){
 		if(!updateStats)
@@ -23,9 +22,6 @@ var KalturaPlaylistService = {
 	 * Retrieve a playlist.
 	 * @param	id	string		 (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
-	 * @return	KalturaPlaylist.
-	 * @return	.
-	 * @return	.
 	 **/
 	get: function(id, version){
 		if(!version)
@@ -42,9 +38,6 @@ var KalturaPlaylistService = {
 	 * @param	id	string		 (optional)
 	 * @param	playlist	KalturaPlaylist		 (optional)
 	 * @param	updateStats	bool		 (optional, default: false)
-	 * @return	KalturaPlaylist.
-	 * @return	.
-	 * @return	.
 	 **/
 	update: function(id, playlist, updateStats){
 		if(!updateStats)
@@ -59,9 +52,6 @@ var KalturaPlaylistService = {
 	/**
 	 * Delete existing playlist.
 	 * @param	id	string		 (optional)
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -73,9 +63,6 @@ var KalturaPlaylistService = {
 	 * Clone an existing playlist.
 	 * @param	id	string		Id of the playlist to clone (optional)
 	 * @param	newPlaylist	KalturaPlaylist		Parameters defined here will override the ones in the cloned playlist (optional, default: null)
-	 * @return	KalturaPlaylist.
-	 * @return	.
-	 * @return	.
 	 **/
 	cloneAction: function(id, newPlaylist){
 		if(!newPlaylist)
@@ -91,7 +78,6 @@ var KalturaPlaylistService = {
 	 * List available playlists.
 	 * @param	filter	KalturaPlaylistFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaPlaylistListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -113,7 +99,6 @@ var KalturaPlaylistService = {
 	 * @param	playlistContext	KalturaContext		 (optional, default: null)
 	 * @param	filter	KalturaMediaEntryFilterForPlaylist		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	array.
 	 **/
 	execute: function(id, detailed, playlistContext, filter, pager){
 		if(!detailed)
@@ -142,7 +127,6 @@ var KalturaPlaylistService = {
 	 * @param	playlistContent	string		 (optional)
 	 * @param	detailed	string		 (optional)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	array.
 	 **/
 	executeFromContent: function(playlistType, playlistContent, detailed, pager){
 		if(!detailed)
@@ -164,7 +148,6 @@ var KalturaPlaylistService = {
 	 * @param	totalResults	int		 (optional)
 	 * @param	detailed	string		 (optional, default: 1)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	array.
 	 **/
 	executeFromFilters: function(filters, totalResults, detailed, pager){
 		if(!detailed)
@@ -184,7 +167,6 @@ var KalturaPlaylistService = {
 	 * Retrieve playlist statistics.
 	 * @param	playlistType	int		 (optional, enum: KalturaPlaylistType)
 	 * @param	playlistContent	string		 (optional)
-	 * @return	KalturaPlaylist.
 	 **/
 	getStatsFromContent: function(playlistType, playlistContent){
 		var kparams = new Object();

@@ -6,7 +6,6 @@ var KalturaUploadTokenService = {
 	/**
 	 * Adds new upload token to upload a file.
 	 * @param	uploadToken	KalturaUploadToken		 (optional, default: null)
-	 * @return	KalturaUploadToken.
 	 **/
 	add: function(uploadToken){
 		if(!uploadToken)
@@ -20,7 +19,6 @@ var KalturaUploadTokenService = {
 	/**
 	 * Get upload token by id.
 	 * @param	uploadTokenId	string		 (optional)
-	 * @return	KalturaUploadToken.
 	 **/
 	get: function(uploadTokenId){
 		var kparams = new Object();
@@ -43,7 +41,6 @@ var KalturaUploadTokenService = {
 	 * @param	resume	bool		 (optional, default: false)
 	 * @param	finalChunk	bool		 (optional, default: true)
 	 * @param	resumeAt	float		 (optional, default: -1)
-	 * @return	KalturaUploadToken.
 	 **/
 	upload: function(uploadTokenId, fileData, resume, finalChunk, resumeAt){
 		if(!resume)
@@ -65,7 +62,6 @@ var KalturaUploadTokenService = {
 	/**
 	 * Deletes the upload token by upload token id.
 	 * @param	uploadTokenId	string		 (optional)
-	 * @return	.
 	 **/
 	deleteAction: function(uploadTokenId){
 		var kparams = new Object();
@@ -78,7 +74,6 @@ var KalturaUploadTokenService = {
  *		 When using a user session the service will be restricted to users objects only..
 	 * @param	filter	KalturaUploadTokenFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaUploadTokenListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

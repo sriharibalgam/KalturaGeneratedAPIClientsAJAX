@@ -6,9 +6,6 @@ var KalturaDropFolderFileService = {
 	/**
 	 * Allows you to add a new KalturaDropFolderFile object.
 	 * @param	dropFolderFile	KalturaDropFolderFile		 (optional)
-	 * @return	KalturaDropFolderFile.
-	 * @return	.
-	 * @return	.
 	 **/
 	add: function(dropFolderFile){
 		var kparams = new Object();
@@ -19,8 +16,6 @@ var KalturaDropFolderFileService = {
 	/**
 	 * Retrieve a KalturaDropFolderFile object by ID.
 	 * @param	dropFolderFileId	int		 (optional)
-	 * @return	KalturaDropFolderFile.
-	 * @return	.
 	 **/
 	get: function(dropFolderFileId){
 		var kparams = new Object();
@@ -32,8 +27,6 @@ var KalturaDropFolderFileService = {
 	 * Update an existing KalturaDropFolderFile object.
 	 * @param	dropFolderFileId	int		 (optional)
 	 * @param	dropFolderFile	KalturaDropFolderFile		Id (optional)
-	 * @return	KalturaDropFolderFile.
-	 * @return	.
 	 **/
 	update: function(dropFolderFileId, dropFolderFile){
 		var kparams = new Object();
@@ -46,8 +39,6 @@ var KalturaDropFolderFileService = {
 	 * Update status of KalturaDropFolderFile.
 	 * @param	dropFolderFileId	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaDropFolderFileStatus)
-	 * @return	KalturaDropFolderFile.
-	 * @return	.
 	 **/
 	updateStatus: function(dropFolderFileId, status){
 		var kparams = new Object();
@@ -59,8 +50,6 @@ var KalturaDropFolderFileService = {
 	/**
 	 * Mark the KalturaDropFolderFile object as deleted.
 	 * @param	dropFolderFileId	int		 (optional)
-	 * @return	KalturaDropFolderFile.
-	 * @return	.
 	 **/
 	deleteAction: function(dropFolderFileId){
 		var kparams = new Object();
@@ -72,7 +61,6 @@ var KalturaDropFolderFileService = {
 	 * List KalturaDropFolderFile objects.
 	 * @param	filter	KalturaDropFolderFileFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaDropFolderFileListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -90,8 +78,6 @@ var KalturaDropFolderFileService = {
 	/**
 	 * Set the KalturaDropFolderFile status to ignore (KalturaDropFolderFileStatus::IGNORE).
 	 * @param	dropFolderFileId	int		 (optional)
-	 * @return	KalturaDropFolderFile.
-	 * @return	.
 	 **/
 	ignore: function(dropFolderFileId){
 		var kparams = new Object();

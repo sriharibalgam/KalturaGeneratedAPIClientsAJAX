@@ -6,7 +6,6 @@ var KalturaUserEntryService = {
 	/**
 	 * Adds a user_entry to the Kaltura DB..
 	 * @param	userEntry	KalturaUserEntry		 (optional)
-	 * @return	KalturaUserEntry.
 	 **/
 	add: function(userEntry){
 		var kparams = new Object();
@@ -18,7 +17,6 @@ var KalturaUserEntryService = {
 	 * .
 	 * @param	id	int		 (optional)
 	 * @param	userEntry	KalturaUserEntry		 (optional)
-	 * @return	.
 	 **/
 	update: function(id, userEntry){
 		var kparams = new Object();
@@ -30,7 +28,6 @@ var KalturaUserEntryService = {
 	/**
 	 * .
 	 * @param	id	int		 (optional)
-	 * @return	KalturaUserEntry.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -42,7 +39,6 @@ var KalturaUserEntryService = {
 	 * .
 	 * @param	filter	KalturaUserEntryFilter		 (optional)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaUserEntryListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!pager)
@@ -57,7 +53,6 @@ var KalturaUserEntryService = {
 	/**
 	 * .
 	 * @param	id	string		 (optional)
-	 * @return	KalturaUserEntry.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -68,7 +63,6 @@ var KalturaUserEntryService = {
 	/**
 	 * Submits the quiz so that it's status will be submitted and calculates the score for the quiz.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaQuizUserEntry.
 	 **/
 	submitQuiz: function(id){
 		var kparams = new Object();

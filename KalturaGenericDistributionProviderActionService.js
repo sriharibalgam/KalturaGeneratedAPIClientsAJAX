@@ -6,8 +6,6 @@ var KalturaGenericDistributionProviderActionService = {
 	/**
 	 * Add new Generic Distribution Provider Action.
 	 * @param	genericDistributionProviderAction	KalturaGenericDistributionProviderAction		 (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	add: function(genericDistributionProviderAction){
 		var kparams = new Object();
@@ -19,8 +17,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Add MRSS transform file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	xslData	string		XSL MRSS transformation data (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	addMrssTransform: function(id, xslData){
 		var kparams = new Object();
@@ -33,9 +29,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Add MRSS transform file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	xslFile	file		XSL MRSS transformation file (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
-	 * @return	.
 	 **/
 	addMrssTransformFromFile: function(id, xslFile){
 		var kparams = new Object();
@@ -49,8 +42,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Add MRSS validate file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	xsdData	string		XSD MRSS validatation data (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	addMrssValidate: function(id, xsdData){
 		var kparams = new Object();
@@ -63,9 +54,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Add MRSS validate file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	xsdFile	file		XSD MRSS validatation file (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
-	 * @return	.
 	 **/
 	addMrssValidateFromFile: function(id, xsdFile){
 		var kparams = new Object();
@@ -79,8 +67,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Add results transform file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	transformData	string		transformation data xsl, xPath or regex (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	addResultsTransform: function(id, transformData){
 		var kparams = new Object();
@@ -93,9 +79,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Add MRSS transform file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	transformFile	file		transformation file xsl, xPath or regex (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
-	 * @return	.
 	 **/
 	addResultsTransformFromFile: function(id, transformFile){
 		var kparams = new Object();
@@ -108,8 +91,6 @@ var KalturaGenericDistributionProviderActionService = {
 	/**
 	 * Get Generic Distribution Provider Action by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -121,8 +102,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Get Generic Distribution Provider Action by provider id.
 	 * @param	genericDistributionProviderId	int		 (optional)
 	 * @param	actionType	int		 (optional, enum: KalturaDistributionAction)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	getByProviderId: function(genericDistributionProviderId, actionType){
 		var kparams = new Object();
@@ -136,8 +115,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * @param	genericDistributionProviderId	int		 (optional)
 	 * @param	actionType	int		 (optional, enum: KalturaDistributionAction)
 	 * @param	genericDistributionProviderAction	KalturaGenericDistributionProviderAction		 (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	updateByProviderId: function(genericDistributionProviderId, actionType, genericDistributionProviderAction){
 		var kparams = new Object();
@@ -151,8 +128,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Update Generic Distribution Provider Action by id.
 	 * @param	id	int		 (optional)
 	 * @param	genericDistributionProviderAction	KalturaGenericDistributionProviderAction		 (optional)
-	 * @return	KalturaGenericDistributionProviderAction.
-	 * @return	.
 	 **/
 	update: function(id, genericDistributionProviderAction){
 		var kparams = new Object();
@@ -164,8 +139,6 @@ var KalturaGenericDistributionProviderActionService = {
 	/**
 	 * Delete Generic Distribution Provider Action by id.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -177,8 +150,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * Delete Generic Distribution Provider Action by provider id.
 	 * @param	genericDistributionProviderId	int		 (optional)
 	 * @param	actionType	int		 (optional, enum: KalturaDistributionAction)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteByProviderId: function(genericDistributionProviderId, actionType){
 		var kparams = new Object();
@@ -191,7 +162,6 @@ var KalturaGenericDistributionProviderActionService = {
 	 * List all distribution providers.
 	 * @param	filter	KalturaGenericDistributionProviderActionFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaGenericDistributionProviderActionListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

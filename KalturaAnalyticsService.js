@@ -7,7 +7,6 @@ var KalturaAnalyticsService = {
 	 * report query action allows to get a analytics data for specific query dimensions, metrics and filters..
 	 * @param	filter	KalturaAnalyticsFilter		the analytics query filter (optional)
 	 * @param	pager	KalturaFilterPager		the analytics query result pager (optional, default: null)
-	 * @return	KalturaReportResponse.
 	 **/
 	query: function(filter, pager){
 		if(!pager)

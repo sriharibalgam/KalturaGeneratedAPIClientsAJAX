@@ -6,7 +6,6 @@ var KalturaLiveChannelSegmentService = {
 	/**
 	 * Add new live channel segment.
 	 * @param	liveChannelSegment	KalturaLiveChannelSegment		 (optional)
-	 * @return	KalturaLiveChannelSegment.
 	 **/
 	add: function(liveChannelSegment){
 		var kparams = new Object();
@@ -17,8 +16,6 @@ var KalturaLiveChannelSegmentService = {
 	/**
 	 * Get live channel segment by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaLiveChannelSegment.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -30,8 +27,6 @@ var KalturaLiveChannelSegmentService = {
 	 * Update live channel segment by id.
 	 * @param	id	int		 (optional)
 	 * @param	liveChannelSegment	KalturaLiveChannelSegment		 (optional)
-	 * @return	KalturaLiveChannelSegment.
-	 * @return	.
 	 **/
 	update: function(id, liveChannelSegment){
 		var kparams = new Object();
@@ -43,8 +38,6 @@ var KalturaLiveChannelSegmentService = {
 	/**
 	 * Delete live channel segment by id.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -56,7 +49,6 @@ var KalturaLiveChannelSegmentService = {
 	 * List live channel segments by filter and pager.
 	 * @param	filter	KalturaLiveChannelSegmentFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaLiveChannelSegmentListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

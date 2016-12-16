@@ -6,8 +6,6 @@ var KalturaConversionProfileService = {
 	/**
 	 * Set Conversion Profile to be the partner default.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaConversionProfile.
-	 * @return	.
 	 **/
 	setAsDefault: function(id){
 		var kparams = new Object();
@@ -18,7 +16,6 @@ var KalturaConversionProfileService = {
 	/**
 	 * Get the partner's default conversion profile.
 	 * @param	type	string		 (optional, enum: KalturaConversionProfileType, default: null)
-	 * @return	KalturaConversionProfile.
 	 **/
 	getDefault: function(type){
 		if(!type)
@@ -31,8 +28,6 @@ var KalturaConversionProfileService = {
 	/**
 	 * Add new Conversion Profile.
 	 * @param	conversionProfile	KalturaConversionProfile		 (optional)
-	 * @return	KalturaConversionProfile.
-	 * @return	.
 	 **/
 	add: function(conversionProfile){
 		var kparams = new Object();
@@ -43,8 +38,6 @@ var KalturaConversionProfileService = {
 	/**
 	 * Get Conversion Profile by ID.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaConversionProfile.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -56,9 +49,6 @@ var KalturaConversionProfileService = {
 	 * Update Conversion Profile by ID.
 	 * @param	id	int		 (optional)
 	 * @param	conversionProfile	KalturaConversionProfile		 (optional)
-	 * @return	KalturaConversionProfile.
-	 * @return	.
-	 * @return	.
 	 **/
 	update: function(id, conversionProfile){
 		var kparams = new Object();
@@ -70,9 +60,6 @@ var KalturaConversionProfileService = {
 	/**
 	 * Delete Conversion Profile by ID.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -84,7 +71,6 @@ var KalturaConversionProfileService = {
 	 * List Conversion Profiles by filter with paging support.
 	 * @param	filter	KalturaConversionProfileFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaConversionProfileListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

@@ -8,7 +8,6 @@ var KalturaMetadataProfileService = {
 	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
 	 * @param	xsdData	string		XSD metadata definition (optional)
 	 * @param	viewsData	string		UI views definition (optional, default: null)
-	 * @return	KalturaMetadataProfile.
 	 **/
 	add: function(metadataProfile, xsdData, viewsData){
 		if(!viewsData)
@@ -25,8 +24,6 @@ var KalturaMetadataProfileService = {
 	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
 	 * @param	xsdFile	file		XSD metadata definition (optional)
 	 * @param	viewsFile	file		UI views definition (optional, default: null)
-	 * @return	KalturaMetadataProfile.
-	 * @return	.
 	 **/
 	addFromFile: function(metadataProfile, xsdFile, viewsFile){
 		if(!viewsFile)
@@ -42,8 +39,6 @@ var KalturaMetadataProfileService = {
 	/**
 	 * Retrieve a metadata profile object by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaMetadataProfile.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -57,11 +52,6 @@ var KalturaMetadataProfileService = {
 	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
 	 * @param	xsdData	string		XSD metadata definition (optional, default: null)
 	 * @param	viewsData	string		UI views definition (optional, default: null)
-	 * @return	KalturaMetadataProfile.
-	 * @return	.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	update: function(id, metadataProfile, xsdData, viewsData){
 		if(!xsdData)
@@ -80,7 +70,6 @@ var KalturaMetadataProfileService = {
 	 * List metadata profile objects by filter and pager.
 	 * @param	filter	KalturaMetadataProfileFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaMetadataProfileListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -98,7 +87,6 @@ var KalturaMetadataProfileService = {
 	/**
 	 * List metadata profile fields by metadata profile id.
 	 * @param	metadataProfileId	int		 (optional)
-	 * @return	KalturaMetadataProfileFieldListResponse.
 	 **/
 	listFields: function(metadataProfileId){
 		var kparams = new Object();
@@ -109,8 +97,6 @@ var KalturaMetadataProfileService = {
 	/**
 	 * Delete an existing metadata profile.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -122,10 +108,6 @@ var KalturaMetadataProfileService = {
 	 * Update an existing metadata object definition file.
 	 * @param	id	int		 (optional)
 	 * @param	toVersion	int		 (optional)
-	 * @return	KalturaMetadataProfile.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	revert: function(id, toVersion){
 		var kparams = new Object();
@@ -138,10 +120,6 @@ var KalturaMetadataProfileService = {
 	 * Update an existing metadata object definition file.
 	 * @param	id	int		 (optional)
 	 * @param	xsdFile	file		XSD metadata definition (optional)
-	 * @return	KalturaMetadataProfile.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	updateDefinitionFromFile: function(id, xsdFile){
 		var kparams = new Object();
@@ -155,9 +133,6 @@ var KalturaMetadataProfileService = {
 	 * Update an existing metadata object views file.
 	 * @param	id	int		 (optional)
 	 * @param	viewsFile	file		UI views file (optional)
-	 * @return	KalturaMetadataProfile.
-	 * @return	.
-	 * @return	.
 	 **/
 	updateViewsFromFile: function(id, viewsFile){
 		var kparams = new Object();
@@ -171,9 +146,6 @@ var KalturaMetadataProfileService = {
 	 * Update an existing metadata object xslt file.
 	 * @param	id	int		 (optional)
 	 * @param	xsltFile	file		XSLT file, will be executed on every metadata add/update (optional)
-	 * @return	KalturaMetadataProfile.
-	 * @return	.
-	 * @return	.
 	 **/
 	updateTransformationFromFile: function(id, xsltFile){
 		var kparams = new Object();

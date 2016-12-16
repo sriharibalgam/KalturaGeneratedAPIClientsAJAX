@@ -6,8 +6,6 @@ var KalturaThumbParamsOutputService = {
 	/**
 	 * Get thumb params output object by ID.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaThumbParamsOutput.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -19,7 +17,6 @@ var KalturaThumbParamsOutputService = {
 	 * List thumb params output objects by filter and pager.
 	 * @param	filter	KalturaThumbParamsOutputFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaThumbParamsOutputListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

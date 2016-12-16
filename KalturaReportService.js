@@ -9,7 +9,6 @@ var KalturaReportService = {
 	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
 	 * @param	dimension	string		 (optional, default: null)
 	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
-	 * @return	array.
 	 **/
 	getGraphs: function(reportType, reportInputFilter, dimension, objectIds){
 		if(!dimension)
@@ -29,7 +28,6 @@ var KalturaReportService = {
 	 * @param	reportType	string		 (optional, enum: KalturaReportType)
 	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
 	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
-	 * @return	KalturaReportTotal.
 	 **/
 	getTotal: function(reportType, reportInputFilter, objectIds){
 		if(!objectIds)
@@ -46,7 +44,6 @@ var KalturaReportService = {
 	 * @param	reportType	string		 (optional, enum: KalturaReportType)
 	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
 	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
-	 * @return	array.
 	 **/
 	getBaseTotal: function(reportType, reportInputFilter, objectIds){
 		if(!objectIds)
@@ -65,7 +62,6 @@ var KalturaReportService = {
 	 * @param	pager	KalturaFilterPager		 (optional)
 	 * @param	order	string		 (optional, default: null)
 	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
-	 * @return	KalturaReportTable.
 	 **/
 	getTable: function(reportType, reportInputFilter, pager, order, objectIds){
 		if(!order)
@@ -92,7 +88,6 @@ var KalturaReportService = {
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 * @param	order	string		 (optional, default: null)
 	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
-	 * @return	string.
 	 **/
 	getUrlForReportAsCsv: function(reportTitle, reportText, headers, reportType, reportInputFilter, dimension, pager, order, objectIds){
 		if(!dimension)
@@ -120,7 +115,6 @@ var KalturaReportService = {
 	/**
 	 * Will serve a requested report.
 	 * @param	id	string		- the requested id (optional)
-	 * @return	string.
 	 **/
 	serve: function(id){
 		var kparams = new Object();
@@ -132,7 +126,6 @@ var KalturaReportService = {
 	 * .
 	 * @param	id	int		 (optional)
 	 * @param	params	array		 (optional, default: null)
-	 * @return	KalturaReportResponse.
 	 **/
 	execute: function(id, params){
 		if(!params)

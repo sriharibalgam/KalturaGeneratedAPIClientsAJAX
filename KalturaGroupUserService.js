@@ -6,7 +6,6 @@ var KalturaGroupUserService = {
 	/**
 	 * Add new GroupUser.
 	 * @param	groupUser	KalturaGroupUser		 (optional)
-	 * @return	KalturaGroupUser.
 	 **/
 	add: function(groupUser){
 		var kparams = new Object();
@@ -18,7 +17,6 @@ var KalturaGroupUserService = {
 	 * delete by userId and groupId.
 	 * @param	userId	string		 (optional)
 	 * @param	groupId	string		 (optional)
-	 * @return	.
 	 **/
 	deleteAction: function(userId, groupId){
 		var kparams = new Object();
@@ -31,7 +29,6 @@ var KalturaGroupUserService = {
 	 * List all GroupUsers.
 	 * @param	filter	KalturaGroupUserFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaGroupUserListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)

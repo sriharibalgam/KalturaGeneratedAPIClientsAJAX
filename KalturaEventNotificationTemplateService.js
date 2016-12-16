@@ -6,7 +6,6 @@ var KalturaEventNotificationTemplateService = {
 	/**
 	 * This action allows for the creation of new backend event types in the system. This action requires access to the Kaltura server Admin Console. If you're looking to register to existing event types, please use the clone action instead..
 	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		 (optional)
-	 * @return	KalturaEventNotificationTemplate.
 	 **/
 	add: function(eventNotificationTemplate){
 		var kparams = new Object();
@@ -18,10 +17,6 @@ var KalturaEventNotificationTemplateService = {
 	 * This action allows registering to various backend event. Use this action to create notifications that will react to events such as new video was uploaded or metadata field was updated. To see the list of available event types, call the listTemplates action..
 	 * @param	id	int		source template to clone (optional)
 	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		overwrite configuration object (optional, default: null)
-	 * @return	KalturaEventNotificationTemplate.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	cloneAction: function(id, eventNotificationTemplate){
 		if(!eventNotificationTemplate)
@@ -36,8 +31,6 @@ var KalturaEventNotificationTemplateService = {
 	/**
 	 * Retrieve an event notification template object by id.
 	 * @param	id	int		 (optional)
-	 * @return	KalturaEventNotificationTemplate.
-	 * @return	.
 	 **/
 	get: function(id){
 		var kparams = new Object();
@@ -49,8 +42,6 @@ var KalturaEventNotificationTemplateService = {
 	 * Update an existing event notification template object.
 	 * @param	id	int		 (optional)
 	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		 (optional)
-	 * @return	KalturaEventNotificationTemplate.
-	 * @return	.
 	 **/
 	update: function(id, eventNotificationTemplate){
 		var kparams = new Object();
@@ -63,8 +54,6 @@ var KalturaEventNotificationTemplateService = {
 	 * Update event notification template status by id.
 	 * @param	id	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaEventNotificationTemplateStatus)
-	 * @return	KalturaEventNotificationTemplate.
-	 * @return	.
 	 **/
 	updateStatus: function(id, status){
 		var kparams = new Object();
@@ -76,8 +65,6 @@ var KalturaEventNotificationTemplateService = {
 	/**
 	 * Delete an event notification template object.
 	 * @param	id	int		 (optional)
-	 * @return	.
-	 * @return	.
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
@@ -89,7 +76,6 @@ var KalturaEventNotificationTemplateService = {
 	 * list event notification template objects.
 	 * @param	filter	KalturaEventNotificationTemplateFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaEventNotificationTemplateListResponse.
 	 **/
 	listAction: function(filter, pager){
 		if(!filter)
@@ -108,7 +94,6 @@ var KalturaEventNotificationTemplateService = {
 	 * .
 	 * @param	filter	KalturaPartnerFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaEventNotificationTemplateListResponse.
 	 **/
 	listByPartner: function(filter, pager){
 		if(!filter)
@@ -127,10 +112,6 @@ var KalturaEventNotificationTemplateService = {
 	 * Dispatch event notification object by id.
 	 * @param	id	int		 (optional)
 	 * @param	scope	KalturaEventNotificationScope		 (optional)
-	 * @return	int.
-	 * @return	.
-	 * @return	.
-	 * @return	.
 	 **/
 	dispatch: function(id, scope){
 		var kparams = new Object();
@@ -143,7 +124,6 @@ var KalturaEventNotificationTemplateService = {
 	 * Action lists the template partner event notification templates..
 	 * @param	filter	KalturaEventNotificationTemplateFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaEventNotificationTemplateListResponse.
 	 **/
 	listTemplates: function(filter, pager){
 		if(!filter)

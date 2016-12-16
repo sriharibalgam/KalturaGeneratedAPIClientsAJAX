@@ -8,8 +8,6 @@ var KalturaVarConsoleService = {
 	 * @param	partnerFilter	KalturaPartnerFilter		 (optional, default: null)
 	 * @param	usageFilter	KalturaReportInputFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 * @return	KalturaPartnerUsageListResponse.
-	 * @return	.
 	 **/
 	getPartnerUsage: function(partnerFilter, usageFilter, pager){
 		if(!partnerFilter)
@@ -32,8 +30,6 @@ var KalturaVarConsoleService = {
 	 * Function to change a sub-publisher's status.
 	 * @param	id	int		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaPartnerStatus)
-	 * @return	.
-	 * @return	.
 	 **/
 	updateStatus: function(id, status){
 		var kparams = new Object();
