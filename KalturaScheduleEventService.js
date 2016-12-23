@@ -74,6 +74,18 @@ var KalturaScheduleEventService = {
 	},
 	
 	/**
+	 * List conflicting events for resourcesIds by event's dates.
+	 * @param	resourceIds	string		 (optional)
+	 * @param	scheduleEvent	KalturaScheduleEvent		 (optional)
+	 **/
+	getConflicts: function(resourceIds, scheduleEvent){
+		var kparams = new Object();
+		kparams.resourceIds = resourceIds;
+		kparams.scheduleEvent = scheduleEvent;
+		return new KalturaRequestBuilder("schedule_scheduleevent", "getConflicts", kparams);
+	},
+	
+	/**
 	 * Add new bulk upload batch job.
 	 * @param	fileData	file		 (optional)
 	 * @param	bulkUploadData	KalturaBulkUploadICalJobData		 (optional, default: null)
