@@ -143,7 +143,7 @@ KalturaClientBase.prototype.setConfig = function(config){
  * return a new multi-request builder
  */
 KalturaClientBase.prototype.startMultiRequest = function(){
-	return new KalturaMultiRequestBuilder(this);
+	return new KalturaMultiRequestBuilder();
 };
 
 /**
@@ -576,7 +576,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-01-05');
+	this.setClientTag('ajax:17-01-06');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
