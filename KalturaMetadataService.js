@@ -20,23 +20,6 @@ var KalturaMetadataService = {
 	},
 	
 	/**
-	 * Allows you to add a metadata object and metadata file associated with Kaltura object.
-	 * @param	metadataProfileId	int		 (optional)
-	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
-	 * @param	objectId	string		 (optional)
-	 * @param	xmlFile	file		XML metadata (optional)
-	 **/
-	addFromFile: function(metadataProfileId, objectType, objectId, xmlFile){
-		var kparams = new Object();
-		kparams.metadataProfileId = metadataProfileId;
-		kparams.objectType = objectType;
-		kparams.objectId = objectId;
-		kfiles = new Object();
-		kfiles.xmlFile = xmlFile;
-		return new KalturaRequestBuilder("metadata_metadata", "addFromFile", kparams, kfiles);
-	},
-	
-	/**
 	 * Allows you to add a metadata xml data from remote URL.
 	 * @param	metadataProfileId	int		 (optional)
 	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
@@ -98,21 +81,6 @@ var KalturaMetadataService = {
 	},
 	
 	/**
-	 * Update an existing metadata object with new XML file.
-	 * @param	id	int		 (optional)
-	 * @param	xmlFile	file		XML metadata (optional, default: null)
-	 **/
-	updateFromFile: function(id, xmlFile){
-		if(!xmlFile)
-			xmlFile = null;
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xmlFile = xmlFile;
-		return new KalturaRequestBuilder("metadata_metadata", "updateFromFile", kparams, kfiles);
-	},
-	
-	/**
 	 * List metadata objects by filter and pager.
 	 * @param	filter	KalturaMetadataFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
@@ -165,18 +133,5 @@ var KalturaMetadataService = {
 		kparams.id = id;
 		kparams.shouldUpdate = shouldUpdate;
 		return new KalturaRequestBuilder("metadata_metadata", "index", kparams);
-	},
-	
-	/**
-	 * Action transforms current metadata object XML using a provided XSL..
-	 * @param	id	int		 (optional)
-	 * @param	xslFile	file		 (optional)
-	 **/
-	updateFromXSL: function(id, xslFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xslFile = xslFile;
-		return new KalturaRequestBuilder("metadata_metadata", "updateFromXSL", kparams, kfiles);
 	}
 }

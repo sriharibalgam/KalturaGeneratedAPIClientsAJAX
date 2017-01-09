@@ -20,23 +20,6 @@ var KalturaMetadataProfileService = {
 	},
 	
 	/**
-	 * Allows you to add a metadata profile object and metadata profile file associated with Kaltura object type.
-	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
-	 * @param	xsdFile	file		XSD metadata definition (optional)
-	 * @param	viewsFile	file		UI views definition (optional, default: null)
-	 **/
-	addFromFile: function(metadataProfile, xsdFile, viewsFile){
-		if(!viewsFile)
-			viewsFile = null;
-		var kparams = new Object();
-		kparams.metadataProfile = metadataProfile;
-		kfiles = new Object();
-		kfiles.xsdFile = xsdFile;
-		kfiles.viewsFile = viewsFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "addFromFile", kparams, kfiles);
-	},
-	
-	/**
 	 * Retrieve a metadata profile object by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -114,44 +97,5 @@ var KalturaMetadataProfileService = {
 		kparams.id = id;
 		kparams.toVersion = toVersion;
 		return new KalturaRequestBuilder("metadata_metadataprofile", "revert", kparams);
-	},
-	
-	/**
-	 * Update an existing metadata object definition file.
-	 * @param	id	int		 (optional)
-	 * @param	xsdFile	file		XSD metadata definition (optional)
-	 **/
-	updateDefinitionFromFile: function(id, xsdFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xsdFile = xsdFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "updateDefinitionFromFile", kparams, kfiles);
-	},
-	
-	/**
-	 * Update an existing metadata object views file.
-	 * @param	id	int		 (optional)
-	 * @param	viewsFile	file		UI views file (optional)
-	 **/
-	updateViewsFromFile: function(id, viewsFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.viewsFile = viewsFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "updateViewsFromFile", kparams, kfiles);
-	},
-	
-	/**
-	 * Update an existing metadata object xslt file.
-	 * @param	id	int		 (optional)
-	 * @param	xsltFile	file		XSLT file, will be executed on every metadata add/update (optional)
-	 **/
-	updateTransformationFromFile: function(id, xsltFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xsltFile = xsltFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "updateTransformationFromFile", kparams, kfiles);
 	}
 }

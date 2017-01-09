@@ -281,17 +281,6 @@ var KalturaMediaService = {
 	},
 	
 	/**
-	 * Upload a media file to Kaltura, then the file can be used to create a media entry..
-	 * @param	fileData	file		The file data (optional)
-	 **/
-	upload: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("media", "upload", kparams, kfiles);
-	},
-	
-	/**
 	 * Update media entry thumbnail by a specified time offset (In seconds)
  *		 If flavor params id not specified, source flavor will be used by default.
 	 * @param	entryId	string		Media entry id (optional)
@@ -325,19 +314,6 @@ var KalturaMediaService = {
 		kparams.timeOffset = timeOffset;
 		kparams.flavorParamsId = flavorParamsId;
 		return new KalturaRequestBuilder("media", "updateThumbnailFromSourceEntry", kparams);
-	},
-	
-	/**
-	 * Update media entry thumbnail using a raw jpeg file.
-	 * @param	entryId	string		Media entry id (optional)
-	 * @param	fileData	file		Jpeg file data (optional)
-	 **/
-	updateThumbnailJpeg: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("media", "updateThumbnailJpeg", kparams, kfiles);
 	},
 	
 	/**
@@ -419,28 +395,5 @@ var KalturaMediaService = {
 		kparams.entryId = entryId;
 		kparams.rank = rank;
 		return new KalturaRequestBuilder("media", "anonymousRank", kparams);
-	},
-	
-	/**
-	 * Add new bulk upload batch job
- *		 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
- *		 If no conversion profile was specified, partner's default will be used.
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
-	 * @param	bulkUploadEntryData	KalturaBulkUploadEntryData		 (optional, default: null)
-	 **/
-	bulkUploadAdd: function(fileData, bulkUploadData, bulkUploadEntryData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		if(!bulkUploadEntryData)
-			bulkUploadEntryData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		if (bulkUploadEntryData != null)
-			kparams.bulkUploadEntryData = bulkUploadEntryData;
-		return new KalturaRequestBuilder("media", "bulkUploadAdd", kparams, kfiles);
 	}
 }

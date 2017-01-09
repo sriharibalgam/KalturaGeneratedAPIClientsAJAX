@@ -471,30 +471,6 @@ var KalturaBaseEntryService = {
 	},
 	
 	/**
-	 * Upload a file to Kaltura, that can be used to create an entry..
-	 * @param	fileData	file		The file data (optional)
-	 **/
-	upload: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("baseentry", "upload", kparams, kfiles);
-	},
-	
-	/**
-	 * Update entry thumbnail using a raw jpeg file..
-	 * @param	entryId	string		Media entry id (optional)
-	 * @param	fileData	file		Jpeg file data (optional)
-	 **/
-	updateThumbnailJpeg: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("baseentry", "updateThumbnailJpeg", kparams, kfiles);
-	},
-	
-	/**
 	 * Update entry thumbnail using url..
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	url	string		file url (optional)
@@ -646,33 +622,6 @@ var KalturaBaseEntryService = {
  *Class definition for the Kaltura service: bulkUpload.
  **/
 var KalturaBulkUploadService = {
-	/**
-	 * Add new bulk upload batch job
- *		 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
- *		 If no conversion profile was specified, partner's default will be used.
-	 * @param	conversionProfileId	int		Convertion profile id to use for converting the current bulk (-1 to use partner's default) (optional)
-	 * @param	csvFileData	file		bulk upload file (optional)
-	 * @param	bulkUploadType	string		 (optional, enum: KalturaBulkUploadType, default: null)
-	 * @param	uploadedBy	string		 (optional, default: null)
-	 * @param	fileName	string		Friendly name of the file, used to be recognized later in the logs. (optional, default: null)
-	 **/
-	add: function(conversionProfileId, csvFileData, bulkUploadType, uploadedBy, fileName){
-		if(!bulkUploadType)
-			bulkUploadType = null;
-		if(!uploadedBy)
-			uploadedBy = null;
-		if(!fileName)
-			fileName = null;
-		var kparams = new Object();
-		kparams.conversionProfileId = conversionProfileId;
-		kfiles = new Object();
-		kfiles.csvFileData = csvFileData;
-		kparams.bulkUploadType = bulkUploadType;
-		kparams.uploadedBy = uploadedBy;
-		kparams.fileName = fileName;
-		return new KalturaRequestBuilder("bulkupload", "add", kparams, kfiles);
-	},
-	
 	/**
 	 * Get bulk upload batch job by id.
 	 * @param	id	int		 (optional)
@@ -919,27 +868,6 @@ var KalturaCategoryService = {
 	unlockCategories: function(){
 		var kparams = new Object();
 		return new KalturaRequestBuilder("category", "unlockCategories", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
-	 * @param	bulkUploadCategoryData	KalturaBulkUploadCategoryData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData, bulkUploadCategoryData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		if(!bulkUploadCategoryData)
-			bulkUploadCategoryData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		if (bulkUploadCategoryData != null)
-			kparams.bulkUploadCategoryData = bulkUploadCategoryData;
-		return new KalturaRequestBuilder("category", "addFromBulkUpload", kparams, kfiles);
 	}
 }
 
@@ -1065,27 +993,6 @@ var KalturaCategoryUserService = {
 		kparams.categoryId = categoryId;
 		kparams.shouldUpdate = shouldUpdate;
 		return new KalturaRequestBuilder("categoryuser", "index", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
-	 * @param	bulkUploadCategoryUserData	KalturaBulkUploadCategoryUserData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData, bulkUploadCategoryUserData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		if(!bulkUploadCategoryUserData)
-			bulkUploadCategoryUserData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		if (bulkUploadCategoryUserData != null)
-			kparams.bulkUploadCategoryUserData = bulkUploadCategoryUserData;
-		return new KalturaRequestBuilder("categoryuser", "addFromBulkUpload", kparams, kfiles);
 	}
 }
 
@@ -2346,19 +2253,6 @@ var KalturaLiveStreamService = {
 	},
 	
 	/**
-	 * Update live stream entry thumbnail using a raw jpeg file.
-	 * @param	entryId	string		live stream entry id (optional)
-	 * @param	fileData	file		Jpeg file data (optional)
-	 **/
-	updateOfflineThumbnailJpeg: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("livestream", "updateOfflineThumbnailJpeg", kparams, kfiles);
-	},
-	
-	/**
 	 * Update entry thumbnail using url.
 	 * @param	entryId	string		live stream entry id (optional)
 	 * @param	url	string		file url (optional)
@@ -2833,17 +2727,6 @@ var KalturaMediaService = {
 	},
 	
 	/**
-	 * Upload a media file to Kaltura, then the file can be used to create a media entry..
-	 * @param	fileData	file		The file data (optional)
-	 **/
-	upload: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("media", "upload", kparams, kfiles);
-	},
-	
-	/**
 	 * Update media entry thumbnail by a specified time offset (In seconds)
  *		 If flavor params id not specified, source flavor will be used by default.
 	 * @param	entryId	string		Media entry id (optional)
@@ -2877,19 +2760,6 @@ var KalturaMediaService = {
 		kparams.timeOffset = timeOffset;
 		kparams.flavorParamsId = flavorParamsId;
 		return new KalturaRequestBuilder("media", "updateThumbnailFromSourceEntry", kparams);
-	},
-	
-	/**
-	 * Update media entry thumbnail using a raw jpeg file.
-	 * @param	entryId	string		Media entry id (optional)
-	 * @param	fileData	file		Jpeg file data (optional)
-	 **/
-	updateThumbnailJpeg: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("media", "updateThumbnailJpeg", kparams, kfiles);
 	},
 	
 	/**
@@ -2971,29 +2841,6 @@ var KalturaMediaService = {
 		kparams.entryId = entryId;
 		kparams.rank = rank;
 		return new KalturaRequestBuilder("media", "anonymousRank", kparams);
-	},
-	
-	/**
-	 * Add new bulk upload batch job
- *		 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
- *		 If no conversion profile was specified, partner's default will be used.
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
-	 * @param	bulkUploadEntryData	KalturaBulkUploadEntryData		 (optional, default: null)
-	 **/
-	bulkUploadAdd: function(fileData, bulkUploadData, bulkUploadEntryData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		if(!bulkUploadEntryData)
-			bulkUploadEntryData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		if (bulkUploadEntryData != null)
-			kparams.bulkUploadEntryData = bulkUploadEntryData;
-		return new KalturaRequestBuilder("media", "bulkUploadAdd", kparams, kfiles);
 	}
 }
 
@@ -4573,19 +4420,6 @@ var KalturaThumbAssetService = {
 	
 	/**
 	 * .
-	 * @param	entryId	string		 (optional)
-	 * @param	fileData	file		 (optional)
-	 **/
-	addFromImage: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("thumbasset", "addFromImage", kparams, kfiles);
-	},
-	
-	/**
-	 * .
 	 * @param	thumbAssetId	string		 (optional)
 	 **/
 	deleteAction: function(thumbAssetId){
@@ -4851,17 +4685,6 @@ var KalturaUiConfService = {
 var KalturaUploadService = {
 	/**
 	 * .
-	 * @param	fileData	file		The file data (optional)
-	 **/
-	upload: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("upload", "upload", kparams, kfiles);
-	},
-	
-	/**
-	 * .
 	 * @param	fileName	string		 (optional)
 	 **/
 	getUploadedFileTokenByFileName: function(fileName){
@@ -4896,39 +4719,6 @@ var KalturaUploadTokenService = {
 		var kparams = new Object();
 		kparams.uploadTokenId = uploadTokenId;
 		return new KalturaRequestBuilder("uploadtoken", "get", kparams);
-	},
-	
-	/**
-	 * Upload a file using the upload token id, returns an error on failure (an exception will be thrown when using one of the Kaltura clients)
- *		 Chunks can be uploaded in parallel and they will be appended according to their resumeAt position.
- *		 A parallel upload session should have three stages:
- *		 1. A single upload with resume=false and finalChunk=false
- *		 2. Parallel upload requests each with resume=true,finalChunk=false and the expected resumetAt position.
- *		 If a chunk fails to upload it can be re-uploaded.
- *		 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded 
- *		 with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
- *		 has been returned (indicating not all of the chunks were appended yet) the final request can be retried..
-	 * @param	uploadTokenId	string		 (optional)
-	 * @param	fileData	file		 (optional)
-	 * @param	resume	bool		 (optional, default: false)
-	 * @param	finalChunk	bool		 (optional, default: true)
-	 * @param	resumeAt	float		 (optional, default: -1)
-	 **/
-	upload: function(uploadTokenId, fileData, resume, finalChunk, resumeAt){
-		if(!resume)
-			resume = false;
-		if(!finalChunk)
-			finalChunk = true;
-		if(!resumeAt)
-			resumeAt = -1;
-		var kparams = new Object();
-		kparams.uploadTokenId = uploadTokenId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		kparams.resume = resume;
-		kparams.finalChunk = finalChunk;
-		kparams.resumeAt = resumeAt;
-		return new KalturaRequestBuilder("uploadtoken", "upload", kparams, kfiles);
 	},
 	
 	/**
@@ -5349,27 +5139,6 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * .
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
-	 * @param	bulkUploadUserData	KalturaBulkUploadUserData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData, bulkUploadUserData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		if(!bulkUploadUserData)
-			bulkUploadUserData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		if (bulkUploadUserData != null)
-			kparams.bulkUploadUserData = bulkUploadUserData;
-		return new KalturaRequestBuilder("user", "addFromBulkUpload", kparams, kfiles);
-	},
-	
-	/**
 	 * Action which checks whther user login.
 	 * @param	filter	KalturaUserLoginDataFilter		 (optional)
 	 **/
@@ -5468,23 +5237,6 @@ var KalturaMetadataService = {
 	},
 	
 	/**
-	 * Allows you to add a metadata object and metadata file associated with Kaltura object.
-	 * @param	metadataProfileId	int		 (optional)
-	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
-	 * @param	objectId	string		 (optional)
-	 * @param	xmlFile	file		XML metadata (optional)
-	 **/
-	addFromFile: function(metadataProfileId, objectType, objectId, xmlFile){
-		var kparams = new Object();
-		kparams.metadataProfileId = metadataProfileId;
-		kparams.objectType = objectType;
-		kparams.objectId = objectId;
-		kfiles = new Object();
-		kfiles.xmlFile = xmlFile;
-		return new KalturaRequestBuilder("metadata_metadata", "addFromFile", kparams, kfiles);
-	},
-	
-	/**
 	 * Allows you to add a metadata xml data from remote URL.
 	 * @param	metadataProfileId	int		 (optional)
 	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
@@ -5546,21 +5298,6 @@ var KalturaMetadataService = {
 	},
 	
 	/**
-	 * Update an existing metadata object with new XML file.
-	 * @param	id	int		 (optional)
-	 * @param	xmlFile	file		XML metadata (optional, default: null)
-	 **/
-	updateFromFile: function(id, xmlFile){
-		if(!xmlFile)
-			xmlFile = null;
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xmlFile = xmlFile;
-		return new KalturaRequestBuilder("metadata_metadata", "updateFromFile", kparams, kfiles);
-	},
-	
-	/**
 	 * List metadata objects by filter and pager.
 	 * @param	filter	KalturaMetadataFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
@@ -5613,19 +5350,6 @@ var KalturaMetadataService = {
 		kparams.id = id;
 		kparams.shouldUpdate = shouldUpdate;
 		return new KalturaRequestBuilder("metadata_metadata", "index", kparams);
-	},
-	
-	/**
-	 * Action transforms current metadata object XML using a provided XSL..
-	 * @param	id	int		 (optional)
-	 * @param	xslFile	file		 (optional)
-	 **/
-	updateFromXSL: function(id, xslFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xslFile = xslFile;
-		return new KalturaRequestBuilder("metadata_metadata", "updateFromXSL", kparams, kfiles);
 	}
 }
 
@@ -5647,23 +5371,6 @@ var KalturaMetadataProfileService = {
 		kparams.xsdData = xsdData;
 		kparams.viewsData = viewsData;
 		return new KalturaRequestBuilder("metadata_metadataprofile", "add", kparams);
-	},
-	
-	/**
-	 * Allows you to add a metadata profile object and metadata profile file associated with Kaltura object type.
-	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
-	 * @param	xsdFile	file		XSD metadata definition (optional)
-	 * @param	viewsFile	file		UI views definition (optional, default: null)
-	 **/
-	addFromFile: function(metadataProfile, xsdFile, viewsFile){
-		if(!viewsFile)
-			viewsFile = null;
-		var kparams = new Object();
-		kparams.metadataProfile = metadataProfile;
-		kfiles = new Object();
-		kfiles.xsdFile = xsdFile;
-		kfiles.viewsFile = viewsFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "addFromFile", kparams, kfiles);
 	},
 	
 	/**
@@ -5744,45 +5451,6 @@ var KalturaMetadataProfileService = {
 		kparams.id = id;
 		kparams.toVersion = toVersion;
 		return new KalturaRequestBuilder("metadata_metadataprofile", "revert", kparams);
-	},
-	
-	/**
-	 * Update an existing metadata object definition file.
-	 * @param	id	int		 (optional)
-	 * @param	xsdFile	file		XSD metadata definition (optional)
-	 **/
-	updateDefinitionFromFile: function(id, xsdFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xsdFile = xsdFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "updateDefinitionFromFile", kparams, kfiles);
-	},
-	
-	/**
-	 * Update an existing metadata object views file.
-	 * @param	id	int		 (optional)
-	 * @param	viewsFile	file		UI views file (optional)
-	 **/
-	updateViewsFromFile: function(id, viewsFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.viewsFile = viewsFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "updateViewsFromFile", kparams, kfiles);
-	},
-	
-	/**
-	 * Update an existing metadata object xslt file.
-	 * @param	id	int		 (optional)
-	 * @param	xsltFile	file		XSLT file, will be executed on every metadata add/update (optional)
-	 **/
-	updateTransformationFromFile: function(id, xsltFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xsltFile = xsltFile;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "updateTransformationFromFile", kparams, kfiles);
 	}
 }
 
@@ -5906,17 +5574,6 @@ var KalturaDocumentsService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("document_documents", "list", kparams);
-	},
-	
-	/**
-	 * Upload a document file to Kaltura, then the file can be used to create a document entry..
-	 * @param	fileData	file		The file data (optional)
-	 **/
-	upload: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("document_documents", "upload", kparams, kfiles);
 	},
 	
 	/**
@@ -6385,19 +6042,6 @@ var KalturaGenericDistributionProviderActionService = {
 	},
 	
 	/**
-	 * Add MRSS transform file to generic distribution provider action.
-	 * @param	id	int		the id of the generic distribution provider action (optional)
-	 * @param	xslFile	file		XSL MRSS transformation file (optional)
-	 **/
-	addMrssTransformFromFile: function(id, xslFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xslFile = xslFile;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addMrssTransformFromFile", kparams, kfiles);
-	},
-	
-	/**
 	 * Add MRSS validate file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	xsdData	string		XSD MRSS validatation data (optional)
@@ -6410,19 +6054,6 @@ var KalturaGenericDistributionProviderActionService = {
 	},
 	
 	/**
-	 * Add MRSS validate file to generic distribution provider action.
-	 * @param	id	int		the id of the generic distribution provider action (optional)
-	 * @param	xsdFile	file		XSD MRSS validatation file (optional)
-	 **/
-	addMrssValidateFromFile: function(id, xsdFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.xsdFile = xsdFile;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addMrssValidateFromFile", kparams, kfiles);
-	},
-	
-	/**
 	 * Add results transform file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	transformData	string		transformation data xsl, xPath or regex (optional)
@@ -6432,19 +6063,6 @@ var KalturaGenericDistributionProviderActionService = {
 		kparams.id = id;
 		kparams.transformData = transformData;
 		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addResultsTransform", kparams);
-	},
-	
-	/**
-	 * Add MRSS transform file to generic distribution provider action.
-	 * @param	id	int		the id of the generic distribution provider action (optional)
-	 * @param	transformFile	file		transformation file xsl, xPath or regex (optional)
-	 **/
-	addResultsTransformFromFile: function(id, transformFile){
-		var kparams = new Object();
-		kparams.id = id;
-		kfiles = new Object();
-		kfiles.transformFile = transformFile;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addResultsTransformFromFile", kparams, kfiles);
 	},
 	
 	/**
@@ -6548,17 +6166,6 @@ var KalturaCuePointService = {
 		var kparams = new Object();
 		kparams.cuePoint = cuePoint;
 		return new KalturaRequestBuilder("cuepoint_cuepoint", "add", kparams);
-	},
-	
-	/**
-	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions.
-	 * @param	fileData	file		 (optional)
-	 **/
-	addFromBulk: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("cuepoint_cuepoint", "addFromBulk", kparams, kfiles);
 	},
 	
 	/**
@@ -6691,17 +6298,6 @@ var KalturaAnnotationService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("annotation_annotation", "list", kparams);
-	},
-	
-	/**
-	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions.
-	 * @param	fileData	file		 (optional)
-	 **/
-	addFromBulk: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("annotation_annotation", "addFromBulk", kparams, kfiles);
 	},
 	
 	/**
@@ -7874,22 +7470,6 @@ var KalturaScheduleEventService = {
 		kparams.resourceIds = resourceIds;
 		kparams.scheduleEvent = scheduleEvent;
 		return new KalturaRequestBuilder("schedule_scheduleevent", "getConflicts", kparams);
-	},
-	
-	/**
-	 * Add new bulk upload batch job.
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadICalJobData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		return new KalturaRequestBuilder("schedule_scheduleevent", "addFromBulkUpload", kparams, kfiles);
 	}
 }
 
@@ -7955,22 +7535,6 @@ var KalturaScheduleResourceService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("schedule_scheduleresource", "list", kparams);
-	},
-	
-	/**
-	 * Add new bulk upload batch job.
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadCsvJobData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		return new KalturaRequestBuilder("schedule_scheduleresource", "addFromBulkUpload", kparams, kfiles);
 	}
 }
 
@@ -8500,6 +8064,7 @@ KalturaMultiRequestBuilder.prototype.completion = function(callback){
 
 KalturaMultiRequestBuilder.prototype.add = function(requestBuilder){
 	this.requests.push(requestBuilder);
+	return this;
 };
 
 KalturaMultiRequestBuilder.prototype.getUrl = function(client){

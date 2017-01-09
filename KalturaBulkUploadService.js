@@ -4,33 +4,6 @@
  **/
 var KalturaBulkUploadService = {
 	/**
-	 * Add new bulk upload batch job
- *		 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
- *		 If no conversion profile was specified, partner's default will be used.
-	 * @param	conversionProfileId	int		Convertion profile id to use for converting the current bulk (-1 to use partner's default) (optional)
-	 * @param	csvFileData	file		bulk upload file (optional)
-	 * @param	bulkUploadType	string		 (optional, enum: KalturaBulkUploadType, default: null)
-	 * @param	uploadedBy	string		 (optional, default: null)
-	 * @param	fileName	string		Friendly name of the file, used to be recognized later in the logs. (optional, default: null)
-	 **/
-	add: function(conversionProfileId, csvFileData, bulkUploadType, uploadedBy, fileName){
-		if(!bulkUploadType)
-			bulkUploadType = null;
-		if(!uploadedBy)
-			uploadedBy = null;
-		if(!fileName)
-			fileName = null;
-		var kparams = new Object();
-		kparams.conversionProfileId = conversionProfileId;
-		kfiles = new Object();
-		kfiles.csvFileData = csvFileData;
-		kparams.bulkUploadType = bulkUploadType;
-		kparams.uploadedBy = uploadedBy;
-		kparams.fileName = fileName;
-		return new KalturaRequestBuilder("bulkupload", "add", kparams, kfiles);
-	},
-	
-	/**
 	 * Get bulk upload batch job by id.
 	 * @param	id	int		 (optional)
 	 **/

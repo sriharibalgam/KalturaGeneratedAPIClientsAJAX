@@ -14,17 +14,6 @@ var KalturaCuePointService = {
 	},
 	
 	/**
-	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions.
-	 * @param	fileData	file		 (optional)
-	 **/
-	addFromBulk: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("cuepoint_cuepoint", "addFromBulk", kparams, kfiles);
-	},
-	
-	/**
 	 * Retrieve an CuePoint object by id.
 	 * @param	id	string		 (optional)
 	 **/

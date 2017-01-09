@@ -122,17 +122,6 @@ var KalturaDocumentsService = {
 	},
 	
 	/**
-	 * Upload a document file to Kaltura, then the file can be used to create a document entry..
-	 * @param	fileData	file		The file data (optional)
-	 **/
-	upload: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("document_documents", "upload", kparams, kfiles);
-	},
-	
-	/**
 	 * This will queue a batch job for converting the document file to swf
  *		 Returns the URL where the new swf will be available.
 	 * @param	entryId	string		 (optional)

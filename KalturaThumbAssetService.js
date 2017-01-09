@@ -140,19 +140,6 @@ var KalturaThumbAssetService = {
 	
 	/**
 	 * .
-	 * @param	entryId	string		 (optional)
-	 * @param	fileData	file		 (optional)
-	 **/
-	addFromImage: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("thumbasset", "addFromImage", kparams, kfiles);
-	},
-	
-	/**
-	 * .
 	 * @param	thumbAssetId	string		 (optional)
 	 **/
 	deleteAction: function(thumbAssetId){

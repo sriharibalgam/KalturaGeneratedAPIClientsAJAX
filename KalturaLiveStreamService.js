@@ -97,19 +97,6 @@ var KalturaLiveStreamService = {
 	},
 	
 	/**
-	 * Update live stream entry thumbnail using a raw jpeg file.
-	 * @param	entryId	string		live stream entry id (optional)
-	 * @param	fileData	file		Jpeg file data (optional)
-	 **/
-	updateOfflineThumbnailJpeg: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("livestream", "updateOfflineThumbnailJpeg", kparams, kfiles);
-	},
-	
-	/**
 	 * Update entry thumbnail using url.
 	 * @param	entryId	string		live stream entry id (optional)
 	 * @param	url	string		file url (optional)

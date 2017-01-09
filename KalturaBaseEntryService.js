@@ -169,30 +169,6 @@ var KalturaBaseEntryService = {
 	},
 	
 	/**
-	 * Upload a file to Kaltura, that can be used to create an entry..
-	 * @param	fileData	file		The file data (optional)
-	 **/
-	upload: function(fileData){
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("baseentry", "upload", kparams, kfiles);
-	},
-	
-	/**
-	 * Update entry thumbnail using a raw jpeg file..
-	 * @param	entryId	string		Media entry id (optional)
-	 * @param	fileData	file		Jpeg file data (optional)
-	 **/
-	updateThumbnailJpeg: function(entryId, fileData){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		return new KalturaRequestBuilder("baseentry", "updateThumbnailJpeg", kparams, kfiles);
-	},
-	
-	/**
 	 * Update entry thumbnail using url..
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	url	string		file url (optional)

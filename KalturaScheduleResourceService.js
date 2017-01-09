@@ -61,21 +61,5 @@ var KalturaScheduleResourceService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("schedule_scheduleresource", "list", kparams);
-	},
-	
-	/**
-	 * Add new bulk upload batch job.
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadCsvJobData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		return new KalturaRequestBuilder("schedule_scheduleresource", "addFromBulkUpload", kparams, kfiles);
 	}
 }

@@ -83,21 +83,5 @@ var KalturaScheduleEventService = {
 		kparams.resourceIds = resourceIds;
 		kparams.scheduleEvent = scheduleEvent;
 		return new KalturaRequestBuilder("schedule_scheduleevent", "getConflicts", kparams);
-	},
-	
-	/**
-	 * Add new bulk upload batch job.
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadICalJobData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		return new KalturaRequestBuilder("schedule_scheduleevent", "addFromBulkUpload", kparams, kfiles);
 	}
 }

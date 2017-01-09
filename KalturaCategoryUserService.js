@@ -121,26 +121,5 @@ var KalturaCategoryUserService = {
 		kparams.categoryId = categoryId;
 		kparams.shouldUpdate = shouldUpdate;
 		return new KalturaRequestBuilder("categoryuser", "index", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	fileData	file		 (optional)
-	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
-	 * @param	bulkUploadCategoryUserData	KalturaBulkUploadCategoryUserData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(fileData, bulkUploadData, bulkUploadCategoryUserData){
-		if(!bulkUploadData)
-			bulkUploadData = null;
-		if(!bulkUploadCategoryUserData)
-			bulkUploadCategoryUserData = null;
-		var kparams = new Object();
-		kfiles = new Object();
-		kfiles.fileData = fileData;
-		if (bulkUploadData != null)
-			kparams.bulkUploadData = bulkUploadData;
-		if (bulkUploadCategoryUserData != null)
-			kparams.bulkUploadCategoryUserData = bulkUploadCategoryUserData;
-		return new KalturaRequestBuilder("categoryuser", "addFromBulkUpload", kparams, kfiles);
 	}
 }
