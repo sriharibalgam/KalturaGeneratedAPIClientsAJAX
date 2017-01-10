@@ -23,3 +23,5 @@ and the minified services files that you need.
 
 https://github.com/kaltura/clients-generator/
 code is under sources/ajax
+
+[![Build Status](https://travis-ci.org/kaltura/KalturaGeneratedAPIClientsAJAX.svg?branch=master)](https://travis-ci.org/kaltura/KalturaGeneratedAPIClientsAJAX)
