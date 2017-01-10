@@ -5,7 +5,7 @@ before_script:
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
     - sleep 3
-script: cd test && npm install && ./node_modules/.bin/karma start --browsers Firefox --single-run
+script: cd test && npm install && ./node_modules/.bin/karma start --browsers PhantomJS --single-run
 notifications:
   email:
     recipients:
