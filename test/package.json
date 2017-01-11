@@ -13,11 +13,9 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-ie-launcher": "^1.0.0",
-    "karma-phantomjs-launcher": "*",
     "karma-jasmine": "^1.1.0",
     "karma-safari-launcher": "^1.0.0",
-    "requirejs": "^2.3.2",
-    "phantomjs-prebuilt": "*"
+    "requirejs": "^2.3.2"
   },
   "scripts": {
     "test": "karma start"
