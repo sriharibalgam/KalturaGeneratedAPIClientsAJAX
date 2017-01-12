@@ -7462,7 +7462,7 @@ var KalturaScheduleEventService = {
 	
 	/**
 	 * List conflicting events for resourcesIds by event's dates.
-	 * @param	resourceIds	string		 (optional)
+	 * @param	resourceIds	string		comma separated (optional)
 	 * @param	scheduleEvent	KalturaScheduleEvent		 (optional)
 	 **/
 	getConflicts: function(resourceIds, scheduleEvent){
@@ -8305,7 +8305,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-01-11');
+	this.setClientTag('ajax:17-01-12');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
