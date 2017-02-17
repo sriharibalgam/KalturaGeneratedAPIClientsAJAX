@@ -14,6 +14,16 @@ var KalturaThumbParamsService = {
 	},
 	
 	/**
+	 * Delete Thumb Params by ID.
+	 * @param	id	int		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("thumbparams", "delete", kparams);
+	},
+	
+	/**
 	 * Get Thumb Params by ID.
 	 * @param	id	int		 (optional)
 	 **/
@@ -24,25 +34,13 @@ var KalturaThumbParamsService = {
 	},
 	
 	/**
-	 * Update Thumb Params by ID.
-	 * @param	id	int		 (optional)
-	 * @param	thumbParams	KalturaThumbParams		 (optional)
+	 * Get Thumb Params by Conversion Profile ID.
+	 * @param	conversionProfileId	int		 (optional)
 	 **/
-	update: function(id, thumbParams){
+	getByConversionProfileId: function(conversionProfileId){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.thumbParams = thumbParams;
-		return new KalturaRequestBuilder("thumbparams", "update", kparams);
-	},
-	
-	/**
-	 * Delete Thumb Params by ID.
-	 * @param	id	int		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("thumbparams", "delete", kparams);
+		kparams.conversionProfileId = conversionProfileId;
+		return new KalturaRequestBuilder("thumbparams", "getByConversionProfileId", kparams);
 	},
 	
 	/**
@@ -64,12 +62,14 @@ var KalturaThumbParamsService = {
 	},
 	
 	/**
-	 * Get Thumb Params by Conversion Profile ID.
-	 * @param	conversionProfileId	int		 (optional)
+	 * Update Thumb Params by ID.
+	 * @param	id	int		 (optional)
+	 * @param	thumbParams	KalturaThumbParams		 (optional)
 	 **/
-	getByConversionProfileId: function(conversionProfileId){
+	update: function(id, thumbParams){
 		var kparams = new Object();
-		kparams.conversionProfileId = conversionProfileId;
-		return new KalturaRequestBuilder("thumbparams", "getByConversionProfileId", kparams);
+		kparams.id = id;
+		kparams.thumbParams = thumbParams;
+		return new KalturaRequestBuilder("thumbparams", "update", kparams);
 	}
 }

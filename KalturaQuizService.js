@@ -16,18 +16,6 @@ var KalturaQuizService = {
 	},
 	
 	/**
-	 * Allows to update a quiz.
-	 * @param	entryId	string		 (optional)
-	 * @param	quiz	KalturaQuiz		 (optional)
-	 **/
-	update: function(entryId, quiz){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.quiz = quiz;
-		return new KalturaRequestBuilder("quiz_quiz", "update", kparams);
-	},
-	
-	/**
 	 * Allows to get a quiz.
 	 * @param	entryId	string		 (optional)
 	 **/
@@ -35,6 +23,18 @@ var KalturaQuizService = {
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		return new KalturaRequestBuilder("quiz_quiz", "get", kparams);
+	},
+	
+	/**
+	 * sends a with an api request for pdf from quiz object.
+	 * @param	entryId	string		 (optional)
+	 * @param	quizOutputType	int		 (optional, enum: KalturaQuizOutputType)
+	 **/
+	getUrl: function(entryId, quizOutputType){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.quizOutputType = quizOutputType;
+		return new KalturaRequestBuilder("quiz_quiz", "getUrl", kparams);
 	},
 	
 	/**
@@ -56,14 +56,14 @@ var KalturaQuizService = {
 	},
 	
 	/**
-	 * sends a with an api request for pdf from quiz object.
+	 * Allows to update a quiz.
 	 * @param	entryId	string		 (optional)
-	 * @param	quizOutputType	int		 (optional, enum: KalturaQuizOutputType)
+	 * @param	quiz	KalturaQuiz		 (optional)
 	 **/
-	getUrl: function(entryId, quizOutputType){
+	update: function(entryId, quiz){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		kparams.quizOutputType = quizOutputType;
-		return new KalturaRequestBuilder("quiz_quiz", "getUrl", kparams);
+		kparams.quiz = quiz;
+		return new KalturaRequestBuilder("quiz_quiz", "update", kparams);
 	}
 }

@@ -19,47 +19,6 @@ var KalturaPlaylistService = {
 	},
 	
 	/**
-	 * Retrieve a playlist.
-	 * @param	id	string		 (optional)
-	 * @param	version	int		Desired version of the data (optional, default: -1)
-	 **/
-	get: function(id, version){
-		if(!version)
-			version = -1;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.version = version;
-		return new KalturaRequestBuilder("playlist", "get", kparams);
-	},
-	
-	/**
-	 * Update existing playlist
- *		 Note - you cannot change playlist type. updated playlist must be of the same type..
-	 * @param	id	string		 (optional)
-	 * @param	playlist	KalturaPlaylist		 (optional)
-	 * @param	updateStats	bool		 (optional, default: false)
-	 **/
-	update: function(id, playlist, updateStats){
-		if(!updateStats)
-			updateStats = false;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.playlist = playlist;
-		kparams.updateStats = updateStats;
-		return new KalturaRequestBuilder("playlist", "update", kparams);
-	},
-	
-	/**
-	 * Delete existing playlist.
-	 * @param	id	string		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("playlist", "delete", kparams);
-	},
-	
-	/**
 	 * Clone an existing playlist.
 	 * @param	id	string		Id of the playlist to clone (optional)
 	 * @param	newPlaylist	KalturaPlaylist		Parameters defined here will override the ones in the cloned playlist (optional, default: null)
@@ -75,21 +34,13 @@ var KalturaPlaylistService = {
 	},
 	
 	/**
-	 * List available playlists.
-	 * @param	filter	KalturaPlaylistFilter		 (optional, default: null)
-	 * @param	pager	KalturaFilterPager		 (optional, default: null)
+	 * Delete existing playlist.
+	 * @param	id	string		 (optional)
 	 **/
-	listAction: function(filter, pager){
-		if(!filter)
-			filter = null;
-		if(!pager)
-			pager = null;
+	deleteAction: function(id){
 		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("playlist", "list", kparams);
+		kparams.id = id;
+		return new KalturaRequestBuilder("playlist", "delete", kparams);
 	},
 	
 	/**
@@ -164,6 +115,20 @@ var KalturaPlaylistService = {
 	},
 	
 	/**
+	 * Retrieve a playlist.
+	 * @param	id	string		 (optional)
+	 * @param	version	int		Desired version of the data (optional, default: -1)
+	 **/
+	get: function(id, version){
+		if(!version)
+			version = -1;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.version = version;
+		return new KalturaRequestBuilder("playlist", "get", kparams);
+	},
+	
+	/**
 	 * Retrieve playlist statistics.
 	 * @param	playlistType	int		 (optional, enum: KalturaPlaylistType)
 	 * @param	playlistContent	string		 (optional)
@@ -173,5 +138,40 @@ var KalturaPlaylistService = {
 		kparams.playlistType = playlistType;
 		kparams.playlistContent = playlistContent;
 		return new KalturaRequestBuilder("playlist", "getStatsFromContent", kparams);
+	},
+	
+	/**
+	 * List available playlists.
+	 * @param	filter	KalturaPlaylistFilter		 (optional, default: null)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
+	 **/
+	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
+		var kparams = new Object();
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("playlist", "list", kparams);
+	},
+	
+	/**
+	 * Update existing playlist
+ *		 Note - you cannot change playlist type. updated playlist must be of the same type..
+	 * @param	id	string		 (optional)
+	 * @param	playlist	KalturaPlaylist		 (optional)
+	 * @param	updateStats	bool		 (optional, default: false)
+	 **/
+	update: function(id, playlist, updateStats){
+		if(!updateStats)
+			updateStats = false;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.playlist = playlist;
+		kparams.updateStats = updateStats;
+		return new KalturaRequestBuilder("playlist", "update", kparams);
 	}
 }

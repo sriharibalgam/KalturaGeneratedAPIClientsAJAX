@@ -14,28 +14,6 @@ var KalturaScheduleResourceService = {
 	},
 	
 	/**
-	 * Retrieve a KalturaScheduleResource object by ID.
-	 * @param	scheduleResourceId	int		 (optional)
-	 **/
-	get: function(scheduleResourceId){
-		var kparams = new Object();
-		kparams.scheduleResourceId = scheduleResourceId;
-		return new KalturaRequestBuilder("schedule_scheduleresource", "get", kparams);
-	},
-	
-	/**
-	 * Update an existing KalturaScheduleResource object.
-	 * @param	scheduleResourceId	int		 (optional)
-	 * @param	scheduleResource	KalturaScheduleResource		Id (optional)
-	 **/
-	update: function(scheduleResourceId, scheduleResource){
-		var kparams = new Object();
-		kparams.scheduleResourceId = scheduleResourceId;
-		kparams.scheduleResource = scheduleResource;
-		return new KalturaRequestBuilder("schedule_scheduleresource", "update", kparams);
-	},
-	
-	/**
 	 * Mark the KalturaScheduleResource object as deleted.
 	 * @param	scheduleResourceId	int		 (optional)
 	 **/
@@ -43,6 +21,16 @@ var KalturaScheduleResourceService = {
 		var kparams = new Object();
 		kparams.scheduleResourceId = scheduleResourceId;
 		return new KalturaRequestBuilder("schedule_scheduleresource", "delete", kparams);
+	},
+	
+	/**
+	 * Retrieve a KalturaScheduleResource object by ID.
+	 * @param	scheduleResourceId	int		 (optional)
+	 **/
+	get: function(scheduleResourceId){
+		var kparams = new Object();
+		kparams.scheduleResourceId = scheduleResourceId;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "get", kparams);
 	},
 	
 	/**
@@ -61,5 +49,17 @@ var KalturaScheduleResourceService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("schedule_scheduleresource", "list", kparams);
+	},
+	
+	/**
+	 * Update an existing KalturaScheduleResource object.
+	 * @param	scheduleResourceId	int		 (optional)
+	 * @param	scheduleResource	KalturaScheduleResource		Id (optional)
+	 **/
+	update: function(scheduleResourceId, scheduleResource){
+		var kparams = new Object();
+		kparams.scheduleResourceId = scheduleResourceId;
+		kparams.scheduleResource = scheduleResource;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "update", kparams);
 	}
 }

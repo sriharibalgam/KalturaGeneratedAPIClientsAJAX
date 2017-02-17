@@ -16,27 +16,33 @@ var KalturaAttachmentAssetService = {
 	},
 	
 	/**
-	 * Update content of attachment asset.
-	 * @param	id	string		 (optional)
-	 * @param	contentResource	KalturaContentResource		 (optional)
+	 * .
+	 * @param	attachmentAssetId	string		 (optional)
 	 **/
-	setContent: function(id, contentResource){
+	deleteAction: function(attachmentAssetId){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.contentResource = contentResource;
-		return new KalturaRequestBuilder("attachment_attachmentasset", "setContent", kparams);
+		kparams.attachmentAssetId = attachmentAssetId;
+		return new KalturaRequestBuilder("attachment_attachmentasset", "delete", kparams);
 	},
 	
 	/**
-	 * Update attachment asset.
-	 * @param	id	string		 (optional)
-	 * @param	attachmentAsset	KalturaAttachmentAsset		 (optional)
+	 * .
+	 * @param	attachmentAssetId	string		 (optional)
 	 **/
-	update: function(id, attachmentAsset){
+	get: function(attachmentAssetId){
+		var kparams = new Object();
+		kparams.attachmentAssetId = attachmentAssetId;
+		return new KalturaRequestBuilder("attachment_attachmentasset", "get", kparams);
+	},
+	
+	/**
+	 * Get remote storage existing paths for the asset.
+	 * @param	id	string		 (optional)
+	 **/
+	getRemotePaths: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		kparams.attachmentAsset = attachmentAsset;
-		return new KalturaRequestBuilder("attachment_attachmentasset", "update", kparams);
+		return new KalturaRequestBuilder("attachment_attachmentasset", "getRemotePaths", kparams);
 	},
 	
 	/**
@@ -51,26 +57,6 @@ var KalturaAttachmentAssetService = {
 		kparams.id = id;
 		kparams.storageId = storageId;
 		return new KalturaRequestBuilder("attachment_attachmentasset", "getUrl", kparams);
-	},
-	
-	/**
-	 * Get remote storage existing paths for the asset.
-	 * @param	id	string		 (optional)
-	 **/
-	getRemotePaths: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("attachment_attachmentasset", "getRemotePaths", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	attachmentAssetId	string		 (optional)
-	 **/
-	get: function(attachmentAssetId){
-		var kparams = new Object();
-		kparams.attachmentAssetId = attachmentAssetId;
-		return new KalturaRequestBuilder("attachment_attachmentasset", "get", kparams);
 	},
 	
 	/**
@@ -92,12 +78,26 @@ var KalturaAttachmentAssetService = {
 	},
 	
 	/**
-	 * .
-	 * @param	attachmentAssetId	string		 (optional)
+	 * Update content of attachment asset.
+	 * @param	id	string		 (optional)
+	 * @param	contentResource	KalturaContentResource		 (optional)
 	 **/
-	deleteAction: function(attachmentAssetId){
+	setContent: function(id, contentResource){
 		var kparams = new Object();
-		kparams.attachmentAssetId = attachmentAssetId;
-		return new KalturaRequestBuilder("attachment_attachmentasset", "delete", kparams);
+		kparams.id = id;
+		kparams.contentResource = contentResource;
+		return new KalturaRequestBuilder("attachment_attachmentasset", "setContent", kparams);
+	},
+	
+	/**
+	 * Update attachment asset.
+	 * @param	id	string		 (optional)
+	 * @param	attachmentAsset	KalturaAttachmentAsset		 (optional)
+	 **/
+	update: function(id, attachmentAsset){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.attachmentAsset = attachmentAsset;
+		return new KalturaRequestBuilder("attachment_attachmentasset", "update", kparams);
 	}
 }

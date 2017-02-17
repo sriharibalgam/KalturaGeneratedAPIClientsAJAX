@@ -14,40 +14,6 @@ var KalturaDistributionProfileService = {
 	},
 	
 	/**
-	 * Get Distribution Profile by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "get", kparams);
-	},
-	
-	/**
-	 * Update Distribution Profile by id.
-	 * @param	id	int		 (optional)
-	 * @param	distributionProfile	KalturaDistributionProfile		 (optional)
-	 **/
-	update: function(id, distributionProfile){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.distributionProfile = distributionProfile;
-		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "update", kparams);
-	},
-	
-	/**
-	 * Update Distribution Profile status by id.
-	 * @param	id	int		 (optional)
-	 * @param	status	int		 (optional, enum: KalturaDistributionProfileStatus)
-	 **/
-	updateStatus: function(id, status){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.status = status;
-		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "updateStatus", kparams);
-	},
-	
-	/**
 	 * Delete Distribution Profile by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -55,6 +21,16 @@ var KalturaDistributionProfileService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "delete", kparams);
+	},
+	
+	/**
+	 * Get Distribution Profile by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "get", kparams);
 	},
 	
 	/**
@@ -91,5 +67,29 @@ var KalturaDistributionProfileService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "listByPartner", kparams);
+	},
+	
+	/**
+	 * Update Distribution Profile by id.
+	 * @param	id	int		 (optional)
+	 * @param	distributionProfile	KalturaDistributionProfile		 (optional)
+	 **/
+	update: function(id, distributionProfile){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.distributionProfile = distributionProfile;
+		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "update", kparams);
+	},
+	
+	/**
+	 * Update Distribution Profile status by id.
+	 * @param	id	int		 (optional)
+	 * @param	status	int		 (optional, enum: KalturaDistributionProfileStatus)
+	 **/
+	updateStatus: function(id, status){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.status = status;
+		return new KalturaRequestBuilder("contentdistribution_distributionprofile", "updateStatus", kparams);
 	}
 }

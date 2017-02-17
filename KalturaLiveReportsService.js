@@ -5,6 +5,18 @@
 var KalturaLiveReportsService = {
 	/**
 	 * .
+	 * @param	reportType	int		 (optional, enum: KalturaLiveReportExportType)
+	 * @param	params	KalturaLiveReportExportParams		 (optional)
+	 **/
+	exportToCsv: function(reportType, params){
+		var kparams = new Object();
+		kparams.reportType = reportType;
+		kparams.params = params;
+		return new KalturaRequestBuilder("livereports", "exportToCsv", kparams);
+	},
+	
+	/**
+	 * .
 	 * @param	reportType	string		 (optional, enum: KalturaLiveReportType)
 	 * @param	filter	KalturaLiveReportInputFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
@@ -41,18 +53,6 @@ var KalturaLiveReportsService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("livereports", "getReport", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	reportType	int		 (optional, enum: KalturaLiveReportExportType)
-	 * @param	params	KalturaLiveReportExportParams		 (optional)
-	 **/
-	exportToCsv: function(reportType, params){
-		var kparams = new Object();
-		kparams.reportType = reportType;
-		kparams.params = params;
-		return new KalturaRequestBuilder("livereports", "exportToCsv", kparams);
 	},
 	
 	/**

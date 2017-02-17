@@ -14,18 +14,6 @@ var KalturaStorageProfileService = {
 	},
 	
 	/**
-	 * .
-	 * @param	storageId	int		 (optional)
-	 * @param	status	int		 (optional, enum: KalturaStorageProfileStatus)
-	 **/
-	updateStatus: function(storageId, status){
-		var kparams = new Object();
-		kparams.storageId = storageId;
-		kparams.status = status;
-		return new KalturaRequestBuilder("storageprofile", "updateStatus", kparams);
-	},
-	
-	/**
 	 * Get storage profile by id.
 	 * @param	storageProfileId	int		 (optional)
 	 **/
@@ -33,18 +21,6 @@ var KalturaStorageProfileService = {
 		var kparams = new Object();
 		kparams.storageProfileId = storageProfileId;
 		return new KalturaRequestBuilder("storageprofile", "get", kparams);
-	},
-	
-	/**
-	 * Update storage profile by id.
-	 * @param	storageProfileId	int		 (optional)
-	 * @param	storageProfile	KalturaStorageProfile		Id (optional)
-	 **/
-	update: function(storageProfileId, storageProfile){
-		var kparams = new Object();
-		kparams.storageProfileId = storageProfileId;
-		kparams.storageProfile = storageProfile;
-		return new KalturaRequestBuilder("storageprofile", "update", kparams);
 	},
 	
 	/**
@@ -63,5 +39,29 @@ var KalturaStorageProfileService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("storageprofile", "list", kparams);
+	},
+	
+	/**
+	 * Update storage profile by id.
+	 * @param	storageProfileId	int		 (optional)
+	 * @param	storageProfile	KalturaStorageProfile		Id (optional)
+	 **/
+	update: function(storageProfileId, storageProfile){
+		var kparams = new Object();
+		kparams.storageProfileId = storageProfileId;
+		kparams.storageProfile = storageProfile;
+		return new KalturaRequestBuilder("storageprofile", "update", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	storageId	int		 (optional)
+	 * @param	status	int		 (optional, enum: KalturaStorageProfileStatus)
+	 **/
+	updateStatus: function(storageId, status){
+		var kparams = new Object();
+		kparams.storageId = storageId;
+		kparams.status = status;
+		return new KalturaRequestBuilder("storageprofile", "updateStatus", kparams);
 	}
 }

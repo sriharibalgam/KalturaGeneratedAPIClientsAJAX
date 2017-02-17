@@ -29,40 +29,6 @@ var KalturaEventNotificationTemplateService = {
 	},
 	
 	/**
-	 * Retrieve an event notification template object by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "get", kparams);
-	},
-	
-	/**
-	 * Update an existing event notification template object.
-	 * @param	id	int		 (optional)
-	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		 (optional)
-	 **/
-	update: function(id, eventNotificationTemplate){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.eventNotificationTemplate = eventNotificationTemplate;
-		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "update", kparams);
-	},
-	
-	/**
-	 * Update event notification template status by id.
-	 * @param	id	int		 (optional)
-	 * @param	status	int		 (optional, enum: KalturaEventNotificationTemplateStatus)
-	 **/
-	updateStatus: function(id, status){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.status = status;
-		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "updateStatus", kparams);
-	},
-	
-	/**
 	 * Delete an event notification template object.
 	 * @param	id	int		 (optional)
 	 **/
@@ -70,6 +36,28 @@ var KalturaEventNotificationTemplateService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "delete", kparams);
+	},
+	
+	/**
+	 * Dispatch event notification object by id.
+	 * @param	id	int		 (optional)
+	 * @param	scope	KalturaEventNotificationScope		 (optional)
+	 **/
+	dispatch: function(id, scope){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.scope = scope;
+		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "dispatch", kparams);
+	},
+	
+	/**
+	 * Retrieve an event notification template object by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "get", kparams);
 	},
 	
 	/**
@@ -109,18 +97,6 @@ var KalturaEventNotificationTemplateService = {
 	},
 	
 	/**
-	 * Dispatch event notification object by id.
-	 * @param	id	int		 (optional)
-	 * @param	scope	KalturaEventNotificationScope		 (optional)
-	 **/
-	dispatch: function(id, scope){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.scope = scope;
-		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "dispatch", kparams);
-	},
-	
-	/**
 	 * Action lists the template partner event notification templates..
 	 * @param	filter	KalturaEventNotificationTemplateFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
@@ -136,5 +112,29 @@ var KalturaEventNotificationTemplateService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "listTemplates", kparams);
+	},
+	
+	/**
+	 * Update an existing event notification template object.
+	 * @param	id	int		 (optional)
+	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		 (optional)
+	 **/
+	update: function(id, eventNotificationTemplate){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.eventNotificationTemplate = eventNotificationTemplate;
+		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "update", kparams);
+	},
+	
+	/**
+	 * Update event notification template status by id.
+	 * @param	id	int		 (optional)
+	 * @param	status	int		 (optional, enum: KalturaEventNotificationTemplateStatus)
+	 **/
+	updateStatus: function(id, status){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.status = status;
+		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "updateStatus", kparams);
 	}
 }

@@ -14,28 +14,6 @@ var KalturaLiveChannelSegmentService = {
 	},
 	
 	/**
-	 * Get live channel segment by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("livechannelsegment", "get", kparams);
-	},
-	
-	/**
-	 * Update live channel segment by id.
-	 * @param	id	int		 (optional)
-	 * @param	liveChannelSegment	KalturaLiveChannelSegment		 (optional)
-	 **/
-	update: function(id, liveChannelSegment){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.liveChannelSegment = liveChannelSegment;
-		return new KalturaRequestBuilder("livechannelsegment", "update", kparams);
-	},
-	
-	/**
 	 * Delete live channel segment by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -43,6 +21,16 @@ var KalturaLiveChannelSegmentService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("livechannelsegment", "delete", kparams);
+	},
+	
+	/**
+	 * Get live channel segment by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("livechannelsegment", "get", kparams);
 	},
 	
 	/**
@@ -61,5 +49,17 @@ var KalturaLiveChannelSegmentService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("livechannelsegment", "list", kparams);
+	},
+	
+	/**
+	 * Update live channel segment by id.
+	 * @param	id	int		 (optional)
+	 * @param	liveChannelSegment	KalturaLiveChannelSegment		 (optional)
+	 **/
+	update: function(id, liveChannelSegment){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.liveChannelSegment = liveChannelSegment;
+		return new KalturaRequestBuilder("livechannelsegment", "update", kparams);
 	}
 }

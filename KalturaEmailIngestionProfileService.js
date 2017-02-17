@@ -14,48 +14,6 @@ var KalturaEmailIngestionProfileService = {
 	},
 	
 	/**
-	 * Retrieve a EmailIngestionProfile by email address.
-	 * @param	emailAddress	string		 (optional)
-	 **/
-	getByEmailAddress: function(emailAddress){
-		var kparams = new Object();
-		kparams.emailAddress = emailAddress;
-		return new KalturaRequestBuilder("emailingestionprofile", "getByEmailAddress", kparams);
-	},
-	
-	/**
-	 * Retrieve a EmailIngestionProfile by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("emailingestionprofile", "get", kparams);
-	},
-	
-	/**
-	 * Update an existing EmailIngestionProfile.
-	 * @param	id	int		 (optional)
-	 * @param	EmailIP	KalturaEmailIngestionProfile		 (optional)
-	 **/
-	update: function(id, EmailIP){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.EmailIP = EmailIP;
-		return new KalturaRequestBuilder("emailingestionprofile", "update", kparams);
-	},
-	
-	/**
-	 * Delete an existing EmailIngestionProfile.
-	 * @param	id	int		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("emailingestionprofile", "delete", kparams);
-	},
-	
-	/**
 	 * add KalturaMediaEntry from email ingestion.
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
 	 * @param	uploadTokenId	string		Upload token id (optional)
@@ -71,5 +29,47 @@ var KalturaEmailIngestionProfileService = {
 		kparams.fromAddress = fromAddress;
 		kparams.emailMsgId = emailMsgId;
 		return new KalturaRequestBuilder("emailingestionprofile", "addMediaEntry", kparams);
+	},
+	
+	/**
+	 * Delete an existing EmailIngestionProfile.
+	 * @param	id	int		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("emailingestionprofile", "delete", kparams);
+	},
+	
+	/**
+	 * Retrieve a EmailIngestionProfile by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("emailingestionprofile", "get", kparams);
+	},
+	
+	/**
+	 * Retrieve a EmailIngestionProfile by email address.
+	 * @param	emailAddress	string		 (optional)
+	 **/
+	getByEmailAddress: function(emailAddress){
+		var kparams = new Object();
+		kparams.emailAddress = emailAddress;
+		return new KalturaRequestBuilder("emailingestionprofile", "getByEmailAddress", kparams);
+	},
+	
+	/**
+	 * Update an existing EmailIngestionProfile.
+	 * @param	id	int		 (optional)
+	 * @param	EmailIP	KalturaEmailIngestionProfile		 (optional)
+	 **/
+	update: function(id, EmailIP){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.EmailIP = EmailIP;
+		return new KalturaRequestBuilder("emailingestionprofile", "update", kparams);
 	}
 }

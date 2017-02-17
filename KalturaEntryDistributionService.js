@@ -14,38 +14,6 @@ var KalturaEntryDistributionService = {
 	},
 	
 	/**
-	 * Get Entry Distribution by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "get", kparams);
-	},
-	
-	/**
-	 * Validates Entry Distribution by id for submission.
-	 * @param	id	int		 (optional)
-	 **/
-	validate: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "validate", kparams);
-	},
-	
-	/**
-	 * Update Entry Distribution by id.
-	 * @param	id	int		 (optional)
-	 * @param	entryDistribution	KalturaEntryDistribution		 (optional)
-	 **/
-	update: function(id, entryDistribution){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.entryDistribution = entryDistribution;
-		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "update", kparams);
-	},
-	
-	/**
 	 * Delete Entry Distribution by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -53,6 +21,16 @@ var KalturaEntryDistributionService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "delete", kparams);
+	},
+	
+	/**
+	 * Get Entry Distribution by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "get", kparams);
 	},
 	
 	/**
@@ -74,6 +52,16 @@ var KalturaEntryDistributionService = {
 	},
 	
 	/**
+	 * Retries last submit action.
+	 * @param	id	int		 (optional)
+	 **/
+	retrySubmit: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "retrySubmit", kparams);
+	},
+	
+	/**
 	 * Submits Entry Distribution to the remote destination.
 	 * @param	id	int		 (optional)
 	 * @param	submitWhenReady	bool		 (optional, default: false)
@@ -88,13 +76,13 @@ var KalturaEntryDistributionService = {
 	},
 	
 	/**
-	 * Submits Entry Distribution changes to the remote destination.
+	 * Deletes Entry Distribution from the remote destination.
 	 * @param	id	int		 (optional)
 	 **/
-	submitUpdate: function(id){
+	submitDelete: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "submitUpdate", kparams);
+		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "submitDelete", kparams);
 	},
 	
 	/**
@@ -108,22 +96,34 @@ var KalturaEntryDistributionService = {
 	},
 	
 	/**
-	 * Deletes Entry Distribution from the remote destination.
+	 * Submits Entry Distribution changes to the remote destination.
 	 * @param	id	int		 (optional)
 	 **/
-	submitDelete: function(id){
+	submitUpdate: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "submitDelete", kparams);
+		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "submitUpdate", kparams);
 	},
 	
 	/**
-	 * Retries last submit action.
+	 * Update Entry Distribution by id.
 	 * @param	id	int		 (optional)
+	 * @param	entryDistribution	KalturaEntryDistribution		 (optional)
 	 **/
-	retrySubmit: function(id){
+	update: function(id, entryDistribution){
 		var kparams = new Object();
 		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "retrySubmit", kparams);
+		kparams.entryDistribution = entryDistribution;
+		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "update", kparams);
+	},
+	
+	/**
+	 * Validates Entry Distribution by id for submission.
+	 * @param	id	int		 (optional)
+	 **/
+	validate: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("contentdistribution_entrydistribution", "validate", kparams);
 	}
 }

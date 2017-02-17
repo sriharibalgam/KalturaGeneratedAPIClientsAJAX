@@ -21,22 +21,6 @@ var KalturaMetadataService = {
 	
 	/**
 	 * Allows you to add a metadata xml data from remote URL.
-	 * @param	metadataProfileId	int		 (optional)
-	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
-	 * @param	objectId	string		 (optional)
-	 * @param	url	string		XML metadata remote url (optional)
-	 **/
-	addFromUrl: function(metadataProfileId, objectType, objectId, url){
-		var kparams = new Object();
-		kparams.metadataProfileId = metadataProfileId;
-		kparams.objectType = objectType;
-		kparams.objectId = objectId;
-		kparams.url = url;
-		return new KalturaRequestBuilder("metadata_metadata", "addFromUrl", kparams);
-	},
-	
-	/**
-	 * Allows you to add a metadata xml data from remote URL.
  *		 Enables different permissions than addFromUrl action..
 	 * @param	metadataProfileId	int		 (optional)
 	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
@@ -53,6 +37,32 @@ var KalturaMetadataService = {
 	},
 	
 	/**
+	 * Allows you to add a metadata xml data from remote URL.
+	 * @param	metadataProfileId	int		 (optional)
+	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
+	 * @param	objectId	string		 (optional)
+	 * @param	url	string		XML metadata remote url (optional)
+	 **/
+	addFromUrl: function(metadataProfileId, objectType, objectId, url){
+		var kparams = new Object();
+		kparams.metadataProfileId = metadataProfileId;
+		kparams.objectType = objectType;
+		kparams.objectId = objectId;
+		kparams.url = url;
+		return new KalturaRequestBuilder("metadata_metadata", "addFromUrl", kparams);
+	},
+	
+	/**
+	 * Delete an existing metadata.
+	 * @param	id	int		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("metadata_metadata", "delete", kparams);
+	},
+	
+	/**
 	 * Retrieve a metadata object by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -63,21 +73,30 @@ var KalturaMetadataService = {
 	},
 	
 	/**
-	 * Update an existing metadata object with new XML content.
+	 * Index metadata by id, will also index the related object.
+	 * @param	id	string		 (optional)
+	 * @param	shouldUpdate	bool		 (optional)
+	 **/
+	index: function(id, shouldUpdate){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.shouldUpdate = shouldUpdate;
+		return new KalturaRequestBuilder("metadata_metadata", "index", kparams);
+	},
+	
+	/**
+	 * Mark existing metadata as invalid
+ *		 Used by batch metadata transform.
 	 * @param	id	int		 (optional)
-	 * @param	xmlData	string		XML metadata (optional, default: null)
 	 * @param	version	int		Enable update only if the metadata object version did not change by other process (optional, default: null)
 	 **/
-	update: function(id, xmlData, version){
-		if(!xmlData)
-			xmlData = null;
+	invalidate: function(id, version){
 		if(!version)
 			version = null;
 		var kparams = new Object();
 		kparams.id = id;
-		kparams.xmlData = xmlData;
 		kparams.version = version;
-		return new KalturaRequestBuilder("metadata_metadata", "update", kparams);
+		return new KalturaRequestBuilder("metadata_metadata", "invalidate", kparams);
 	},
 	
 	/**
@@ -99,39 +118,20 @@ var KalturaMetadataService = {
 	},
 	
 	/**
-	 * Delete an existing metadata.
+	 * Update an existing metadata object with new XML content.
 	 * @param	id	int		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("metadata_metadata", "delete", kparams);
-	},
-	
-	/**
-	 * Mark existing metadata as invalid
- *		 Used by batch metadata transform.
-	 * @param	id	int		 (optional)
+	 * @param	xmlData	string		XML metadata (optional, default: null)
 	 * @param	version	int		Enable update only if the metadata object version did not change by other process (optional, default: null)
 	 **/
-	invalidate: function(id, version){
+	update: function(id, xmlData, version){
+		if(!xmlData)
+			xmlData = null;
 		if(!version)
 			version = null;
 		var kparams = new Object();
 		kparams.id = id;
+		kparams.xmlData = xmlData;
 		kparams.version = version;
-		return new KalturaRequestBuilder("metadata_metadata", "invalidate", kparams);
-	},
-	
-	/**
-	 * Index metadata by id, will also index the related object.
-	 * @param	id	string		 (optional)
-	 * @param	shouldUpdate	bool		 (optional)
-	 **/
-	index: function(id, shouldUpdate){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.shouldUpdate = shouldUpdate;
-		return new KalturaRequestBuilder("metadata_metadata", "index", kparams);
+		return new KalturaRequestBuilder("metadata_metadata", "update", kparams);
 	}
 }

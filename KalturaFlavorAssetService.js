@@ -16,27 +16,51 @@ var KalturaFlavorAssetService = {
 	},
 	
 	/**
-	 * Update flavor asset.
-	 * @param	id	string		 (optional)
-	 * @param	flavorAsset	KalturaFlavorAsset		 (optional)
+	 * Add and convert new Flavor Asset for Entry with specific Flavor Params.
+	 * @param	entryId	string		 (optional)
+	 * @param	flavorParamsId	int		 (optional)
+	 * @param	priority	int		 (optional)
 	 **/
-	update: function(id, flavorAsset){
+	convert: function(entryId, flavorParamsId, priority){
+		if(!priority)
+			priority = 0;
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.flavorAsset = flavorAsset;
-		return new KalturaRequestBuilder("flavorasset", "update", kparams);
+		kparams.entryId = entryId;
+		kparams.flavorParamsId = flavorParamsId;
+		kparams.priority = priority;
+		return new KalturaRequestBuilder("flavorasset", "convert", kparams);
 	},
 	
 	/**
-	 * Update content of flavor asset.
+	 * Delete Flavor Asset by ID.
 	 * @param	id	string		 (optional)
-	 * @param	contentResource	KalturaContentResource		 (optional)
 	 **/
-	setContent: function(id, contentResource){
+	deleteAction: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		kparams.contentResource = contentResource;
-		return new KalturaRequestBuilder("flavorasset", "setContent", kparams);
+		return new KalturaRequestBuilder("flavorasset", "delete", kparams);
+	},
+	
+	/**
+	 * delete all local file syncs for this asset.
+	 * @param	assetId	string		 (optional)
+	 **/
+	deleteLocalContent: function(assetId){
+		var kparams = new Object();
+		kparams.assetId = assetId;
+		return new KalturaRequestBuilder("flavorasset", "deleteLocalContent", kparams);
+	},
+	
+	/**
+	 * manually export an asset.
+	 * @param	assetId	string		 (optional)
+	 * @param	storageProfileId	int		 (optional)
+	 **/
+	exportAction: function(assetId, storageProfileId){
+		var kparams = new Object();
+		kparams.assetId = assetId;
+		kparams.storageProfileId = storageProfileId;
+		return new KalturaRequestBuilder("flavorasset", "export", kparams);
 	},
 	
 	/**
@@ -57,103 +81,6 @@ var KalturaFlavorAssetService = {
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		return new KalturaRequestBuilder("flavorasset", "getByEntryId", kparams);
-	},
-	
-	/**
-	 * List Flavor Assets by filter and pager.
-	 * @param	filter	KalturaAssetFilter		 (optional, default: null)
-	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 **/
-	listAction: function(filter, pager){
-		if(!filter)
-			filter = null;
-		if(!pager)
-			pager = null;
-		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("flavorasset", "list", kparams);
-	},
-	
-	/**
-	 * Get web playable Flavor Assets for Entry.
-	 * @param	entryId	string		 (optional)
-	 **/
-	getWebPlayableByEntryId: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("flavorasset", "getWebPlayableByEntryId", kparams);
-	},
-	
-	/**
-	 * Add and convert new Flavor Asset for Entry with specific Flavor Params.
-	 * @param	entryId	string		 (optional)
-	 * @param	flavorParamsId	int		 (optional)
-	 * @param	priority	int		 (optional)
-	 **/
-	convert: function(entryId, flavorParamsId, priority){
-		if(!priority)
-			priority = 0;
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.flavorParamsId = flavorParamsId;
-		kparams.priority = priority;
-		return new KalturaRequestBuilder("flavorasset", "convert", kparams);
-	},
-	
-	/**
-	 * Reconvert Flavor Asset by ID.
-	 * @param	id	string		Flavor Asset ID (optional)
-	 **/
-	reconvert: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("flavorasset", "reconvert", kparams);
-	},
-	
-	/**
-	 * Delete Flavor Asset by ID.
-	 * @param	id	string		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("flavorasset", "delete", kparams);
-	},
-	
-	/**
-	 * Get download URL for the asset.
-	 * @param	id	string		 (optional)
-	 * @param	storageId	int		 (optional, default: null)
-	 * @param	forceProxy	bool		 (optional, default: false)
-	 * @param	options	KalturaFlavorAssetUrlOptions		 (optional, default: null)
-	 **/
-	getUrl: function(id, storageId, forceProxy, options){
-		if(!storageId)
-			storageId = null;
-		if(!forceProxy)
-			forceProxy = false;
-		if(!options)
-			options = null;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.storageId = storageId;
-		kparams.forceProxy = forceProxy;
-		if (options != null)
-			kparams.options = options;
-		return new KalturaRequestBuilder("flavorasset", "getUrl", kparams);
-	},
-	
-	/**
-	 * Get remote storage existing paths for the asset.
-	 * @param	id	string		 (optional)
-	 **/
-	getRemotePaths: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("flavorasset", "getRemotePaths", kparams);
 	},
 	
 	/**
@@ -181,35 +108,74 @@ var KalturaFlavorAssetService = {
 	},
 	
 	/**
-	 * manually export an asset.
-	 * @param	assetId	string		 (optional)
-	 * @param	storageProfileId	int		 (optional)
+	 * Get remote storage existing paths for the asset.
+	 * @param	id	string		 (optional)
 	 **/
-	exportAction: function(assetId, storageProfileId){
+	getRemotePaths: function(id){
 		var kparams = new Object();
-		kparams.assetId = assetId;
-		kparams.storageProfileId = storageProfileId;
-		return new KalturaRequestBuilder("flavorasset", "export", kparams);
+		kparams.id = id;
+		return new KalturaRequestBuilder("flavorasset", "getRemotePaths", kparams);
 	},
 	
 	/**
-	 * Set a given flavor as the original flavor.
-	 * @param	assetId	string		 (optional)
+	 * Get download URL for the asset.
+	 * @param	id	string		 (optional)
+	 * @param	storageId	int		 (optional, default: null)
+	 * @param	forceProxy	bool		 (optional, default: false)
+	 * @param	options	KalturaFlavorAssetUrlOptions		 (optional, default: null)
 	 **/
-	setAsSource: function(assetId){
+	getUrl: function(id, storageId, forceProxy, options){
+		if(!storageId)
+			storageId = null;
+		if(!forceProxy)
+			forceProxy = false;
+		if(!options)
+			options = null;
 		var kparams = new Object();
-		kparams.assetId = assetId;
-		return new KalturaRequestBuilder("flavorasset", "setAsSource", kparams);
+		kparams.id = id;
+		kparams.storageId = storageId;
+		kparams.forceProxy = forceProxy;
+		if (options != null)
+			kparams.options = options;
+		return new KalturaRequestBuilder("flavorasset", "getUrl", kparams);
 	},
 	
 	/**
-	 * delete all local file syncs for this asset.
-	 * @param	assetId	string		 (optional)
+	 * Get web playable Flavor Assets for Entry.
+	 * @param	entryId	string		 (optional)
 	 **/
-	deleteLocalContent: function(assetId){
+	getWebPlayableByEntryId: function(entryId){
 		var kparams = new Object();
-		kparams.assetId = assetId;
-		return new KalturaRequestBuilder("flavorasset", "deleteLocalContent", kparams);
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("flavorasset", "getWebPlayableByEntryId", kparams);
+	},
+	
+	/**
+	 * List Flavor Assets by filter and pager.
+	 * @param	filter	KalturaAssetFilter		 (optional, default: null)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
+	 **/
+	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
+		var kparams = new Object();
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("flavorasset", "list", kparams);
+	},
+	
+	/**
+	 * Reconvert Flavor Asset by ID.
+	 * @param	id	string		Flavor Asset ID (optional)
+	 **/
+	reconvert: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("flavorasset", "reconvert", kparams);
 	},
 	
 	/**
@@ -228,5 +194,39 @@ var KalturaFlavorAssetService = {
 		kparams.ffprobeJson = ffprobeJson;
 		kparams.duration = duration;
 		return new KalturaRequestBuilder("flavorasset", "serveAdStitchCmd", kparams);
+	},
+	
+	/**
+	 * Set a given flavor as the original flavor.
+	 * @param	assetId	string		 (optional)
+	 **/
+	setAsSource: function(assetId){
+		var kparams = new Object();
+		kparams.assetId = assetId;
+		return new KalturaRequestBuilder("flavorasset", "setAsSource", kparams);
+	},
+	
+	/**
+	 * Update content of flavor asset.
+	 * @param	id	string		 (optional)
+	 * @param	contentResource	KalturaContentResource		 (optional)
+	 **/
+	setContent: function(id, contentResource){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.contentResource = contentResource;
+		return new KalturaRequestBuilder("flavorasset", "setContent", kparams);
+	},
+	
+	/**
+	 * Update flavor asset.
+	 * @param	id	string		 (optional)
+	 * @param	flavorAsset	KalturaFlavorAsset		 (optional)
+	 **/
+	update: function(id, flavorAsset){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.flavorAsset = flavorAsset;
+		return new KalturaRequestBuilder("flavorasset", "update", kparams);
 	}
 }

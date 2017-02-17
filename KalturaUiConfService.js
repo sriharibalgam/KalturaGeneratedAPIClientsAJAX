@@ -14,25 +14,13 @@ var KalturaUiConfService = {
 	},
 	
 	/**
-	 * Update an existing UIConf.
-	 * @param	id	int		 (optional)
-	 * @param	uiConf	KalturaUiConf		 (optional)
-	 **/
-	update: function(id, uiConf){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.uiConf = uiConf;
-		return new KalturaRequestBuilder("uiconf", "update", kparams);
-	},
-	
-	/**
-	 * Retrieve a UIConf by id.
+	 * Clone an existing UIConf.
 	 * @param	id	int		 (optional)
 	 **/
-	get: function(id){
+	cloneAction: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		return new KalturaRequestBuilder("uiconf", "get", kparams);
+		return new KalturaRequestBuilder("uiconf", "clone", kparams);
 	},
 	
 	/**
@@ -46,31 +34,21 @@ var KalturaUiConfService = {
 	},
 	
 	/**
-	 * Clone an existing UIConf.
+	 * Retrieve a UIConf by id.
 	 * @param	id	int		 (optional)
 	 **/
-	cloneAction: function(id){
+	get: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		return new KalturaRequestBuilder("uiconf", "clone", kparams);
+		return new KalturaRequestBuilder("uiconf", "get", kparams);
 	},
 	
 	/**
-	 * retrieve a list of available template UIConfs.
-	 * @param	filter	KalturaUiConfFilter		 (optional, default: null)
-	 * @param	pager	KalturaFilterPager		 (optional, default: null)
+	 * Retrieve a list of all available versions by object type.
 	 **/
-	listTemplates: function(filter, pager){
-		if(!filter)
-			filter = null;
-		if(!pager)
-			pager = null;
+	getAvailableTypes: function(){
 		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("uiconf", "listTemplates", kparams);
+		return new KalturaRequestBuilder("uiconf", "getAvailableTypes", kparams);
 	},
 	
 	/**
@@ -92,10 +70,32 @@ var KalturaUiConfService = {
 	},
 	
 	/**
-	 * Retrieve a list of all available versions by object type.
+	 * retrieve a list of available template UIConfs.
+	 * @param	filter	KalturaUiConfFilter		 (optional, default: null)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 **/
-	getAvailableTypes: function(){
+	listTemplates: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
 		var kparams = new Object();
-		return new KalturaRequestBuilder("uiconf", "getAvailableTypes", kparams);
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("uiconf", "listTemplates", kparams);
+	},
+	
+	/**
+	 * Update an existing UIConf.
+	 * @param	id	int		 (optional)
+	 * @param	uiConf	KalturaUiConf		 (optional)
+	 **/
+	update: function(id, uiConf){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.uiConf = uiConf;
+		return new KalturaRequestBuilder("uiconf", "update", kparams);
 	}
 }

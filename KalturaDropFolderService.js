@@ -14,28 +14,6 @@ var KalturaDropFolderService = {
 	},
 	
 	/**
-	 * Retrieve a KalturaDropFolder object by ID.
-	 * @param	dropFolderId	int		 (optional)
-	 **/
-	get: function(dropFolderId){
-		var kparams = new Object();
-		kparams.dropFolderId = dropFolderId;
-		return new KalturaRequestBuilder("dropfolder_dropfolder", "get", kparams);
-	},
-	
-	/**
-	 * Update an existing KalturaDropFolder object.
-	 * @param	dropFolderId	int		 (optional)
-	 * @param	dropFolder	KalturaDropFolder		Id (optional)
-	 **/
-	update: function(dropFolderId, dropFolder){
-		var kparams = new Object();
-		kparams.dropFolderId = dropFolderId;
-		kparams.dropFolder = dropFolder;
-		return new KalturaRequestBuilder("dropfolder_dropfolder", "update", kparams);
-	},
-	
-	/**
 	 * Mark the KalturaDropFolder object as deleted.
 	 * @param	dropFolderId	int		 (optional)
 	 **/
@@ -43,6 +21,16 @@ var KalturaDropFolderService = {
 		var kparams = new Object();
 		kparams.dropFolderId = dropFolderId;
 		return new KalturaRequestBuilder("dropfolder_dropfolder", "delete", kparams);
+	},
+	
+	/**
+	 * Retrieve a KalturaDropFolder object by ID.
+	 * @param	dropFolderId	int		 (optional)
+	 **/
+	get: function(dropFolderId){
+		var kparams = new Object();
+		kparams.dropFolderId = dropFolderId;
+		return new KalturaRequestBuilder("dropfolder_dropfolder", "get", kparams);
 	},
 	
 	/**
@@ -61,5 +49,17 @@ var KalturaDropFolderService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("dropfolder_dropfolder", "list", kparams);
+	},
+	
+	/**
+	 * Update an existing KalturaDropFolder object.
+	 * @param	dropFolderId	int		 (optional)
+	 * @param	dropFolder	KalturaDropFolder		Id (optional)
+	 **/
+	update: function(dropFolderId, dropFolder){
+		var kparams = new Object();
+		kparams.dropFolderId = dropFolderId;
+		kparams.dropFolder = dropFolder;
+		return new KalturaRequestBuilder("dropfolder_dropfolder", "update", kparams);
 	}
 }

@@ -14,6 +14,16 @@ var KalturaPermissionService = {
 	},
 	
 	/**
+	 * Deletes an existing permission object..
+	 * @param	permissionName	string		The name assigned to the permission (optional)
+	 **/
+	deleteAction: function(permissionName){
+		var kparams = new Object();
+		kparams.permissionName = permissionName;
+		return new KalturaRequestBuilder("permission", "delete", kparams);
+	},
+	
+	/**
 	 * Retrieves a permission object using its ID..
 	 * @param	permissionName	string		The name assigned to the permission (optional)
 	 **/
@@ -24,25 +34,11 @@ var KalturaPermissionService = {
 	},
 	
 	/**
-	 * Updates an existing permission object..
-	 * @param	permissionName	string		The name assigned to the permission (optional)
-	 * @param	permission	KalturaPermission		Name The name assigned to the permission (optional)
+	 * Retrieves a list of permissions that apply to the current KS..
 	 **/
-	update: function(permissionName, permission){
+	getCurrentPermissions: function(){
 		var kparams = new Object();
-		kparams.permissionName = permissionName;
-		kparams.permission = permission;
-		return new KalturaRequestBuilder("permission", "update", kparams);
-	},
-	
-	/**
-	 * Deletes an existing permission object..
-	 * @param	permissionName	string		The name assigned to the permission (optional)
-	 **/
-	deleteAction: function(permissionName){
-		var kparams = new Object();
-		kparams.permissionName = permissionName;
-		return new KalturaRequestBuilder("permission", "delete", kparams);
+		return new KalturaRequestBuilder("permission", "getCurrentPermissions", kparams);
 	},
 	
 	/**
@@ -66,10 +62,14 @@ var KalturaPermissionService = {
 	},
 	
 	/**
-	 * Retrieves a list of permissions that apply to the current KS..
+	 * Updates an existing permission object..
+	 * @param	permissionName	string		The name assigned to the permission (optional)
+	 * @param	permission	KalturaPermission		Name The name assigned to the permission (optional)
 	 **/
-	getCurrentPermissions: function(){
+	update: function(permissionName, permission){
 		var kparams = new Object();
-		return new KalturaRequestBuilder("permission", "getCurrentPermissions", kparams);
+		kparams.permissionName = permissionName;
+		kparams.permission = permission;
+		return new KalturaRequestBuilder("permission", "update", kparams);
 	}
 }

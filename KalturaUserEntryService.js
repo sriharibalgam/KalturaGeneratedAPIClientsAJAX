@@ -16,23 +16,21 @@ var KalturaUserEntryService = {
 	/**
 	 * .
 	 * @param	id	int		 (optional)
-	 * @param	userEntry	KalturaUserEntry		 (optional)
-	 **/
-	update: function(id, userEntry){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.userEntry = userEntry;
-		return new KalturaRequestBuilder("userentry", "update", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	id	int		 (optional)
 	 **/
 	deleteAction: function(id){
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("userentry", "delete", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	id	string		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("userentry", "get", kparams);
 	},
 	
 	/**
@@ -51,16 +49,6 @@ var KalturaUserEntryService = {
 	},
 	
 	/**
-	 * .
-	 * @param	id	string		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("userentry", "get", kparams);
-	},
-	
-	/**
 	 * Submits the quiz so that it's status will be submitted and calculates the score for the quiz.
 	 * @param	id	int		 (optional)
 	 **/
@@ -68,5 +56,17 @@ var KalturaUserEntryService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("userentry", "submitQuiz", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	id	int		 (optional)
+	 * @param	userEntry	KalturaUserEntry		 (optional)
+	 **/
+	update: function(id, userEntry){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.userEntry = userEntry;
+		return new KalturaRequestBuilder("userentry", "update", kparams);
 	}
 }

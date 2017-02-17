@@ -46,62 +46,6 @@ var KalturaMediaService = {
 	},
 	
 	/**
-	 * Adds new media entry by importing an HTTP or FTP URL.
- *		 The entry will be queued for import and then for conversion..
-	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
-	 * @param	url	string		An HTTP or FTP URL (optional)
-	 **/
-	addFromUrl: function(mediaEntry, url){
-		var kparams = new Object();
-		kparams.mediaEntry = mediaEntry;
-		kparams.url = url;
-		return new KalturaRequestBuilder("media", "addFromUrl", kparams);
-	},
-	
-	/**
-	 * Adds new media entry by importing the media file from a search provider.
- *		 This action should be used with the search service result..
-	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional, default: null)
-	 * @param	searchResult	KalturaSearchResult		Result object from search service (optional, default: null)
-	 **/
-	addFromSearchResult: function(mediaEntry, searchResult){
-		if(!mediaEntry)
-			mediaEntry = null;
-		if(!searchResult)
-			searchResult = null;
-		var kparams = new Object();
-		if (mediaEntry != null)
-			kparams.mediaEntry = mediaEntry;
-		if (searchResult != null)
-			kparams.searchResult = searchResult;
-		return new KalturaRequestBuilder("media", "addFromSearchResult", kparams);
-	},
-	
-	/**
-	 * Add new entry after the specific media file was uploaded and the upload token id exists.
-	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
-	 * @param	uploadTokenId	string		Upload token id (optional)
-	 **/
-	addFromUploadedFile: function(mediaEntry, uploadTokenId){
-		var kparams = new Object();
-		kparams.mediaEntry = mediaEntry;
-		kparams.uploadTokenId = uploadTokenId;
-		return new KalturaRequestBuilder("media", "addFromUploadedFile", kparams);
-	},
-	
-	/**
-	 * Add new entry after the file was recored on the server and the token id exists.
-	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
-	 * @param	webcamTokenId	string		Token id for the recored webcam file (optional)
-	 **/
-	addFromRecordedWebcam: function(mediaEntry, webcamTokenId){
-		var kparams = new Object();
-		kparams.mediaEntry = mediaEntry;
-		kparams.webcamTokenId = webcamTokenId;
-		return new KalturaRequestBuilder("media", "addFromRecordedWebcam", kparams);
-	},
-	
-	/**
 	 * Copy entry into new entry.
 	 * @param	sourceEntryId	string		Media entry id to copy from (optional)
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional, default: null)
@@ -136,6 +80,104 @@ var KalturaMediaService = {
 	},
 	
 	/**
+	 * Add new entry after the file was recored on the server and the token id exists.
+	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
+	 * @param	webcamTokenId	string		Token id for the recored webcam file (optional)
+	 **/
+	addFromRecordedWebcam: function(mediaEntry, webcamTokenId){
+		var kparams = new Object();
+		kparams.mediaEntry = mediaEntry;
+		kparams.webcamTokenId = webcamTokenId;
+		return new KalturaRequestBuilder("media", "addFromRecordedWebcam", kparams);
+	},
+	
+	/**
+	 * Adds new media entry by importing the media file from a search provider.
+ *		 This action should be used with the search service result..
+	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional, default: null)
+	 * @param	searchResult	KalturaSearchResult		Result object from search service (optional, default: null)
+	 **/
+	addFromSearchResult: function(mediaEntry, searchResult){
+		if(!mediaEntry)
+			mediaEntry = null;
+		if(!searchResult)
+			searchResult = null;
+		var kparams = new Object();
+		if (mediaEntry != null)
+			kparams.mediaEntry = mediaEntry;
+		if (searchResult != null)
+			kparams.searchResult = searchResult;
+		return new KalturaRequestBuilder("media", "addFromSearchResult", kparams);
+	},
+	
+	/**
+	 * Add new entry after the specific media file was uploaded and the upload token id exists.
+	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
+	 * @param	uploadTokenId	string		Upload token id (optional)
+	 **/
+	addFromUploadedFile: function(mediaEntry, uploadTokenId){
+		var kparams = new Object();
+		kparams.mediaEntry = mediaEntry;
+		kparams.uploadTokenId = uploadTokenId;
+		return new KalturaRequestBuilder("media", "addFromUploadedFile", kparams);
+	},
+	
+	/**
+	 * Adds new media entry by importing an HTTP or FTP URL.
+ *		 The entry will be queued for import and then for conversion..
+	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata (optional)
+	 * @param	url	string		An HTTP or FTP URL (optional)
+	 **/
+	addFromUrl: function(mediaEntry, url){
+		var kparams = new Object();
+		kparams.mediaEntry = mediaEntry;
+		kparams.url = url;
+		return new KalturaRequestBuilder("media", "addFromUrl", kparams);
+	},
+	
+	/**
+	 * Anonymously rank a media entry, no validation is done on duplicate rankings.
+	 * @param	entryId	string		 (optional)
+	 * @param	rank	int		 (optional)
+	 **/
+	anonymousRank: function(entryId, rank){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.rank = rank;
+		return new KalturaRequestBuilder("media", "anonymousRank", kparams);
+	},
+	
+	/**
+	 * Approve the media entry and mark the pending flags (if any) as moderated (this will make the entry playable).
+	 * @param	entryId	string		 (optional)
+	 **/
+	approve: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("media", "approve", kparams);
+	},
+	
+	/**
+	 * Approves media replacement.
+	 * @param	entryId	string		Media entry id to replace (optional)
+	 **/
+	approveReplace: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("media", "approveReplace", kparams);
+	},
+	
+	/**
+	 * Cancels media replacement.
+	 * @param	entryId	string		Media entry id to cancel (optional)
+	 **/
+	cancelReplace: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("media", "cancelReplace", kparams);
+	},
+	
+	/**
 	 * Convert entry.
 	 * @param	entryId	string		Media entry id (optional)
 	 * @param	conversionProfileId	int		 (optional, default: null)
@@ -151,6 +193,39 @@ var KalturaMediaService = {
 		kparams.conversionProfileId = conversionProfileId;
 		kparams.dynamicConversionAttributes = dynamicConversionAttributes;
 		return new KalturaRequestBuilder("media", "convert", kparams);
+	},
+	
+	/**
+	 * Count media entries by filter..
+	 * @param	filter	KalturaMediaEntryFilter		Media entry filter (optional, default: null)
+	 **/
+	count: function(filter){
+		if(!filter)
+			filter = null;
+		var kparams = new Object();
+		if (filter != null)
+			kparams.filter = filter;
+		return new KalturaRequestBuilder("media", "count", kparams);
+	},
+	
+	/**
+	 * Delete a media entry..
+	 * @param	entryId	string		Media entry id to delete (optional)
+	 **/
+	deleteAction: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("media", "delete", kparams);
+	},
+	
+	/**
+	 * Flag inappropriate media entry for moderation.
+	 * @param	moderationFlag	KalturaModerationFlag		 (optional)
+	 **/
+	flag: function(moderationFlag){
+		var kparams = new Object();
+		kparams.moderationFlag = moderationFlag;
+		return new KalturaRequestBuilder("media", "flag", kparams);
 	},
 	
 	/**
@@ -187,6 +262,61 @@ var KalturaMediaService = {
 	},
 	
 	/**
+	 * List media entries by filter with paging support..
+	 * @param	filter	KalturaMediaEntryFilter		Media entry filter (optional, default: null)
+	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
+	 **/
+	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
+		var kparams = new Object();
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("media", "list", kparams);
+	},
+	
+	/**
+	 * List all pending flags for the media entry.
+	 * @param	entryId	string		 (optional)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
+	 **/
+	listFlags: function(entryId, pager){
+		if(!pager)
+			pager = null;
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("media", "listFlags", kparams);
+	},
+	
+	/**
+	 * Reject the media entry and mark the pending flags (if any) as moderated (this will make the entry non playable).
+	 * @param	entryId	string		 (optional)
+	 **/
+	reject: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("media", "reject", kparams);
+	},
+	
+	/**
+	 * Request a new conversion job, this can be used to convert the media entry to a different format.
+	 * @param	entryId	string		Media entry id (optional)
+	 * @param	fileFormat	string		Format to convert (optional)
+	 **/
+	requestConversion: function(entryId, fileFormat){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.fileFormat = fileFormat;
+		return new KalturaRequestBuilder("media", "requestConversion", kparams);
+	},
+	
+	/**
 	 * Update media entry. Only the properties that were set will be updated..
 	 * @param	entryId	string		Media entry id to update (optional)
 	 * @param	mediaEntry	KalturaMediaEntry		Media entry metadata to update (optional)
@@ -217,67 +347,6 @@ var KalturaMediaService = {
 		if (advancedOptions != null)
 			kparams.advancedOptions = advancedOptions;
 		return new KalturaRequestBuilder("media", "updateContent", kparams);
-	},
-	
-	/**
-	 * Delete a media entry..
-	 * @param	entryId	string		Media entry id to delete (optional)
-	 **/
-	deleteAction: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("media", "delete", kparams);
-	},
-	
-	/**
-	 * Approves media replacement.
-	 * @param	entryId	string		Media entry id to replace (optional)
-	 **/
-	approveReplace: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("media", "approveReplace", kparams);
-	},
-	
-	/**
-	 * Cancels media replacement.
-	 * @param	entryId	string		Media entry id to cancel (optional)
-	 **/
-	cancelReplace: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("media", "cancelReplace", kparams);
-	},
-	
-	/**
-	 * List media entries by filter with paging support..
-	 * @param	filter	KalturaMediaEntryFilter		Media entry filter (optional, default: null)
-	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
-	 **/
-	listAction: function(filter, pager){
-		if(!filter)
-			filter = null;
-		if(!pager)
-			pager = null;
-		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("media", "list", kparams);
-	},
-	
-	/**
-	 * Count media entries by filter..
-	 * @param	filter	KalturaMediaEntryFilter		Media entry filter (optional, default: null)
-	 **/
-	count: function(filter){
-		if(!filter)
-			filter = null;
-		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		return new KalturaRequestBuilder("media", "count", kparams);
 	},
 	
 	/**
@@ -326,74 +395,5 @@ var KalturaMediaService = {
 		kparams.entryId = entryId;
 		kparams.url = url;
 		return new KalturaRequestBuilder("media", "updateThumbnailFromUrl", kparams);
-	},
-	
-	/**
-	 * Request a new conversion job, this can be used to convert the media entry to a different format.
-	 * @param	entryId	string		Media entry id (optional)
-	 * @param	fileFormat	string		Format to convert (optional)
-	 **/
-	requestConversion: function(entryId, fileFormat){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.fileFormat = fileFormat;
-		return new KalturaRequestBuilder("media", "requestConversion", kparams);
-	},
-	
-	/**
-	 * Flag inappropriate media entry for moderation.
-	 * @param	moderationFlag	KalturaModerationFlag		 (optional)
-	 **/
-	flag: function(moderationFlag){
-		var kparams = new Object();
-		kparams.moderationFlag = moderationFlag;
-		return new KalturaRequestBuilder("media", "flag", kparams);
-	},
-	
-	/**
-	 * Reject the media entry and mark the pending flags (if any) as moderated (this will make the entry non playable).
-	 * @param	entryId	string		 (optional)
-	 **/
-	reject: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("media", "reject", kparams);
-	},
-	
-	/**
-	 * Approve the media entry and mark the pending flags (if any) as moderated (this will make the entry playable).
-	 * @param	entryId	string		 (optional)
-	 **/
-	approve: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("media", "approve", kparams);
-	},
-	
-	/**
-	 * List all pending flags for the media entry.
-	 * @param	entryId	string		 (optional)
-	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 **/
-	listFlags: function(entryId, pager){
-		if(!pager)
-			pager = null;
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("media", "listFlags", kparams);
-	},
-	
-	/**
-	 * Anonymously rank a media entry, no validation is done on duplicate rankings.
-	 * @param	entryId	string		 (optional)
-	 * @param	rank	int		 (optional)
-	 **/
-	anonymousRank: function(entryId, rank){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.rank = rank;
-		return new KalturaRequestBuilder("media", "anonymousRank", kparams);
 	}
 }

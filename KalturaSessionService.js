@@ -4,42 +4,23 @@
  **/
 var KalturaSessionService = {
 	/**
-	 * Start a session with Kaltura's server.
- *		 The result KS is the session key that you should pass to all services that requires a ticket..
-	 * @param	secret	string		Remember to provide the correct secret according to the sessionType you want (optional)
-	 * @param	userId	string		 (optional)
-	 * @param	type	int		Regular session or Admin session (optional, enum: KalturaSessionType)
-	 * @param	partnerId	int		 (optional, default: null)
-	 * @param	expiry	int		KS expiry time in seconds (optional, default: 86400)
-	 * @param	privileges	string		 (optional, default: null)
-	 **/
-	start: function(secret, userId, type, partnerId, expiry, privileges){
-		if(!userId)
-			userId = "";
-		if(!type)
-			type = 0;
-		if(!partnerId)
-			partnerId = null;
-		if(!expiry)
-			expiry = 86400;
-		if(!privileges)
-			privileges = null;
-		var kparams = new Object();
-		kparams.secret = secret;
-		kparams.userId = userId;
-		kparams.type = type;
-		kparams.partnerId = partnerId;
-		kparams.expiry = expiry;
-		kparams.privileges = privileges;
-		return new KalturaRequestBuilder("session", "start", kparams);
-	},
-	
-	/**
 	 * End a session with the Kaltura server, making the current KS invalid..
 	 **/
 	end: function(){
 		var kparams = new Object();
 		return new KalturaRequestBuilder("session", "end", kparams);
+	},
+	
+	/**
+	 * Parse session key and return its info.
+	 * @param	session	string		The KS to be parsed, keep it empty to use current session. (optional, default: null)
+	 **/
+	get: function(session){
+		if(!session)
+			session = null;
+		var kparams = new Object();
+		kparams.session = session;
+		return new KalturaRequestBuilder("session", "get", kparams);
 	},
 	
 	/**
@@ -100,15 +81,34 @@ var KalturaSessionService = {
 	},
 	
 	/**
-	 * Parse session key and return its info.
-	 * @param	session	string		The KS to be parsed, keep it empty to use current session. (optional, default: null)
+	 * Start a session with Kaltura's server.
+ *		 The result KS is the session key that you should pass to all services that requires a ticket..
+	 * @param	secret	string		Remember to provide the correct secret according to the sessionType you want (optional)
+	 * @param	userId	string		 (optional)
+	 * @param	type	int		Regular session or Admin session (optional, enum: KalturaSessionType)
+	 * @param	partnerId	int		 (optional, default: null)
+	 * @param	expiry	int		KS expiry time in seconds (optional, default: 86400)
+	 * @param	privileges	string		 (optional, default: null)
 	 **/
-	get: function(session){
-		if(!session)
-			session = null;
+	start: function(secret, userId, type, partnerId, expiry, privileges){
+		if(!userId)
+			userId = "";
+		if(!type)
+			type = 0;
+		if(!partnerId)
+			partnerId = null;
+		if(!expiry)
+			expiry = 86400;
+		if(!privileges)
+			privileges = null;
 		var kparams = new Object();
-		kparams.session = session;
-		return new KalturaRequestBuilder("session", "get", kparams);
+		kparams.secret = secret;
+		kparams.userId = userId;
+		kparams.type = type;
+		kparams.partnerId = partnerId;
+		kparams.expiry = expiry;
+		kparams.privileges = privileges;
+		return new KalturaRequestBuilder("session", "start", kparams);
 	},
 	
 	/**

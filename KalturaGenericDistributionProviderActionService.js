@@ -50,54 +50,6 @@ var KalturaGenericDistributionProviderActionService = {
 	},
 	
 	/**
-	 * Get Generic Distribution Provider Action by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "get", kparams);
-	},
-	
-	/**
-	 * Get Generic Distribution Provider Action by provider id.
-	 * @param	genericDistributionProviderId	int		 (optional)
-	 * @param	actionType	int		 (optional, enum: KalturaDistributionAction)
-	 **/
-	getByProviderId: function(genericDistributionProviderId, actionType){
-		var kparams = new Object();
-		kparams.genericDistributionProviderId = genericDistributionProviderId;
-		kparams.actionType = actionType;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "getByProviderId", kparams);
-	},
-	
-	/**
-	 * Update Generic Distribution Provider Action by provider id.
-	 * @param	genericDistributionProviderId	int		 (optional)
-	 * @param	actionType	int		 (optional, enum: KalturaDistributionAction)
-	 * @param	genericDistributionProviderAction	KalturaGenericDistributionProviderAction		 (optional)
-	 **/
-	updateByProviderId: function(genericDistributionProviderId, actionType, genericDistributionProviderAction){
-		var kparams = new Object();
-		kparams.genericDistributionProviderId = genericDistributionProviderId;
-		kparams.actionType = actionType;
-		kparams.genericDistributionProviderAction = genericDistributionProviderAction;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "updateByProviderId", kparams);
-	},
-	
-	/**
-	 * Update Generic Distribution Provider Action by id.
-	 * @param	id	int		 (optional)
-	 * @param	genericDistributionProviderAction	KalturaGenericDistributionProviderAction		 (optional)
-	 **/
-	update: function(id, genericDistributionProviderAction){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.genericDistributionProviderAction = genericDistributionProviderAction;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "update", kparams);
-	},
-	
-	/**
 	 * Delete Generic Distribution Provider Action by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -120,6 +72,28 @@ var KalturaGenericDistributionProviderActionService = {
 	},
 	
 	/**
+	 * Get Generic Distribution Provider Action by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "get", kparams);
+	},
+	
+	/**
+	 * Get Generic Distribution Provider Action by provider id.
+	 * @param	genericDistributionProviderId	int		 (optional)
+	 * @param	actionType	int		 (optional, enum: KalturaDistributionAction)
+	 **/
+	getByProviderId: function(genericDistributionProviderId, actionType){
+		var kparams = new Object();
+		kparams.genericDistributionProviderId = genericDistributionProviderId;
+		kparams.actionType = actionType;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "getByProviderId", kparams);
+	},
+	
+	/**
 	 * List all distribution providers.
 	 * @param	filter	KalturaGenericDistributionProviderActionFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
@@ -135,5 +109,31 @@ var KalturaGenericDistributionProviderActionService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "list", kparams);
+	},
+	
+	/**
+	 * Update Generic Distribution Provider Action by id.
+	 * @param	id	int		 (optional)
+	 * @param	genericDistributionProviderAction	KalturaGenericDistributionProviderAction		 (optional)
+	 **/
+	update: function(id, genericDistributionProviderAction){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.genericDistributionProviderAction = genericDistributionProviderAction;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "update", kparams);
+	},
+	
+	/**
+	 * Update Generic Distribution Provider Action by provider id.
+	 * @param	genericDistributionProviderId	int		 (optional)
+	 * @param	actionType	int		 (optional, enum: KalturaDistributionAction)
+	 * @param	genericDistributionProviderAction	KalturaGenericDistributionProviderAction		 (optional)
+	 **/
+	updateByProviderId: function(genericDistributionProviderId, actionType, genericDistributionProviderAction){
+		var kparams = new Object();
+		kparams.genericDistributionProviderId = genericDistributionProviderId;
+		kparams.actionType = actionType;
+		kparams.genericDistributionProviderAction = genericDistributionProviderAction;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "updateByProviderId", kparams);
 	}
 }

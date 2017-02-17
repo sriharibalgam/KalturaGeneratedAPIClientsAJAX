@@ -14,15 +14,14 @@ var KalturaDeliveryProfileService = {
 	},
 	
 	/**
-	 * Update exisiting delivery.
-	 * @param	id	string		 (optional)
-	 * @param	delivery	KalturaDeliveryProfile		 (optional)
+	 * Add delivery based on existing delivery.
+ *		Must provide valid sourceDeliveryId.
+	 * @param	deliveryId	int		 (optional)
 	 **/
-	update: function(id, delivery){
+	cloneAction: function(deliveryId){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.delivery = delivery;
-		return new KalturaRequestBuilder("deliveryprofile", "update", kparams);
+		kparams.deliveryId = deliveryId;
+		return new KalturaRequestBuilder("deliveryprofile", "clone", kparams);
 	},
 	
 	/**
@@ -33,17 +32,6 @@ var KalturaDeliveryProfileService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("deliveryprofile", "get", kparams);
-	},
-	
-	/**
-	 * Add delivery based on existing delivery.
- *		Must provide valid sourceDeliveryId.
-	 * @param	deliveryId	int		 (optional)
-	 **/
-	cloneAction: function(deliveryId){
-		var kparams = new Object();
-		kparams.deliveryId = deliveryId;
-		return new KalturaRequestBuilder("deliveryprofile", "clone", kparams);
 	},
 	
 	/**
@@ -62,5 +50,17 @@ var KalturaDeliveryProfileService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("deliveryprofile", "list", kparams);
+	},
+	
+	/**
+	 * Update exisiting delivery.
+	 * @param	id	string		 (optional)
+	 * @param	delivery	KalturaDeliveryProfile		 (optional)
+	 **/
+	update: function(id, delivery){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.delivery = delivery;
+		return new KalturaRequestBuilder("deliveryprofile", "update", kparams);
 	}
 }

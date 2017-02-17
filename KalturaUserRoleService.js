@@ -14,25 +14,13 @@ var KalturaUserRoleService = {
 	},
 	
 	/**
-	 * Retrieves a user role object using its ID..
+	 * Creates a new user role object that is a duplicate of an existing role..
 	 * @param	userRoleId	int		The user role's unique identifier (optional)
 	 **/
-	get: function(userRoleId){
+	cloneAction: function(userRoleId){
 		var kparams = new Object();
 		kparams.userRoleId = userRoleId;
-		return new KalturaRequestBuilder("userrole", "get", kparams);
-	},
-	
-	/**
-	 * Updates an existing user role object..
-	 * @param	userRoleId	int		The user role's unique identifier (optional)
-	 * @param	userRole	KalturaUserRole		Id The user role's unique identifier (optional)
-	 **/
-	update: function(userRoleId, userRole){
-		var kparams = new Object();
-		kparams.userRoleId = userRoleId;
-		kparams.userRole = userRole;
-		return new KalturaRequestBuilder("userrole", "update", kparams);
+		return new KalturaRequestBuilder("userrole", "clone", kparams);
 	},
 	
 	/**
@@ -43,6 +31,16 @@ var KalturaUserRoleService = {
 		var kparams = new Object();
 		kparams.userRoleId = userRoleId;
 		return new KalturaRequestBuilder("userrole", "delete", kparams);
+	},
+	
+	/**
+	 * Retrieves a user role object using its ID..
+	 * @param	userRoleId	int		The user role's unique identifier (optional)
+	 **/
+	get: function(userRoleId){
+		var kparams = new Object();
+		kparams.userRoleId = userRoleId;
+		return new KalturaRequestBuilder("userrole", "get", kparams);
 	},
 	
 	/**
@@ -66,12 +64,14 @@ var KalturaUserRoleService = {
 	},
 	
 	/**
-	 * Creates a new user role object that is a duplicate of an existing role..
+	 * Updates an existing user role object..
 	 * @param	userRoleId	int		The user role's unique identifier (optional)
+	 * @param	userRole	KalturaUserRole		Id The user role's unique identifier (optional)
 	 **/
-	cloneAction: function(userRoleId){
+	update: function(userRoleId, userRole){
 		var kparams = new Object();
 		kparams.userRoleId = userRoleId;
-		return new KalturaRequestBuilder("userrole", "clone", kparams);
+		kparams.userRole = userRole;
+		return new KalturaRequestBuilder("userrole", "update", kparams);
 	}
 }

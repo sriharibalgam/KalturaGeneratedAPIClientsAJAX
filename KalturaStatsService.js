@@ -46,16 +46,6 @@ var KalturaStatsService = {
 	},
 	
 	/**
-	 * .
-	 * @param	kalturaCEError	KalturaCEError		 (optional)
-	 **/
-	reportKceError: function(kalturaCEError){
-		var kparams = new Object();
-		kparams.kalturaCEError = kalturaCEError;
-		return new KalturaRequestBuilder("stats", "reportKceError", kparams);
-	},
-	
-	/**
 	 * Use this action to report errors to the kaltura server..
 	 * @param	errorCode	string		 (optional)
 	 * @param	errorMessage	string		 (optional)
@@ -65,5 +55,15 @@ var KalturaStatsService = {
 		kparams.errorCode = errorCode;
 		kparams.errorMessage = errorMessage;
 		return new KalturaRequestBuilder("stats", "reportError", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	kalturaCEError	KalturaCEError		 (optional)
+	 **/
+	reportKceError: function(kalturaCEError){
+		var kparams = new Object();
+		kparams.kalturaCEError = kalturaCEError;
+		return new KalturaRequestBuilder("stats", "reportKceError", kparams);
 	}
 }

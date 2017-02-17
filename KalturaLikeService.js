@@ -6,26 +6,6 @@ var KalturaLikeService = {
 	/**
 	 * .
 	 * @param	entryId	string		 (optional)
-	 **/
-	like: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("like_like", "like", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	entryId	string		 (optional)
-	 **/
-	unlike: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("like_like", "unlike", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	entryId	string		 (optional)
 	 * @param	userId	string		 (optional, default: null)
 	 **/
 	checkLikeExists: function(entryId, userId){
@@ -35,6 +15,16 @@ var KalturaLikeService = {
 		kparams.entryId = entryId;
 		kparams.userId = userId;
 		return new KalturaRequestBuilder("like_like", "checkLikeExists", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	entryId	string		 (optional)
+	 **/
+	like: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("like_like", "like", kparams);
 	},
 	
 	/**
@@ -53,5 +43,15 @@ var KalturaLikeService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("like_like", "list", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	entryId	string		 (optional)
+	 **/
+	unlike: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("like_like", "unlike", kparams);
 	}
 }

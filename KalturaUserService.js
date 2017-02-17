@@ -15,16 +15,56 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * Updates an existing user object.
- *		 You can also use this action to update the userId..
-	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
-	 * @param	user	KalturaUser		Id The user's unique identifier in the partner's system (optional)
+	 * Action which checks whther user login.
+	 * @param	filter	KalturaUserLoginDataFilter		 (optional)
 	 **/
-	update: function(userId, user){
+	checkLoginDataExists: function(filter){
+		var kparams = new Object();
+		kparams.filter = filter;
+		return new KalturaRequestBuilder("user", "checkLoginDataExists", kparams);
+	},
+	
+	/**
+	 * Deletes a user from a partner account..
+	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
+	 **/
+	deleteAction: function(userId){
 		var kparams = new Object();
 		kparams.userId = userId;
-		kparams.user = user;
-		return new KalturaRequestBuilder("user", "update", kparams);
+		return new KalturaRequestBuilder("user", "delete", kparams);
+	},
+	
+	/**
+	 * Disables a user's ability to log into a partner account using an email address and a password.
+ *		 You may use either a userId or a loginId parameter for this action..
+	 * @param	userId	string		The user's unique identifier in the partner's system (optional, default: null)
+	 * @param	loginId	string		The user's email address that identifies the user for login (optional, default: null)
+	 **/
+	disableLogin: function(userId, loginId){
+		if(!userId)
+			userId = null;
+		if(!loginId)
+			loginId = null;
+		var kparams = new Object();
+		kparams.userId = userId;
+		kparams.loginId = loginId;
+		return new KalturaRequestBuilder("user", "disableLogin", kparams);
+	},
+	
+	/**
+	 * Enables a user to log into a partner account using an email address and a password.
+	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
+	 * @param	loginId	string		The user's email address that identifies the user for login (optional)
+	 * @param	password	string		The user's password (optional, default: null)
+	 **/
+	enableLogin: function(userId, loginId, password){
+		if(!password)
+			password = null;
+		var kparams = new Object();
+		kparams.userId = userId;
+		kparams.loginId = loginId;
+		kparams.password = password;
+		return new KalturaRequestBuilder("user", "enableLogin", kparams);
 	},
 	
 	/**
@@ -51,13 +91,17 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * Deletes a user from a partner account..
-	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
+	 * Index an entry by id..
+	 * @param	id	string		 (optional)
+	 * @param	shouldUpdate	bool		 (optional, default: true)
 	 **/
-	deleteAction: function(userId){
+	index: function(id, shouldUpdate){
+		if(!shouldUpdate)
+			shouldUpdate = true;
 		var kparams = new Object();
-		kparams.userId = userId;
-		return new KalturaRequestBuilder("user", "delete", kparams);
+		kparams.id = id;
+		kparams.shouldUpdate = shouldUpdate;
+		return new KalturaRequestBuilder("user", "index", kparams);
 	},
 	
 	/**
@@ -78,16 +122,6 @@ var KalturaUserService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("user", "list", kparams);
-	},
-	
-	/**
-	 * Notifies that a user is banned from an account..
-	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
-	 **/
-	notifyBan: function(userId){
-		var kparams = new Object();
-		kparams.userId = userId;
-		return new KalturaRequestBuilder("user", "notifyBan", kparams);
 	},
 	
 	/**
@@ -141,31 +175,13 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * Updates a user's login data: email, password, name..
-	 * @param	oldLoginId	string		The user's current email address that identified the user for login (optional)
-	 * @param	password	string		The user's current email address that identified the user for login (optional)
-	 * @param	newLoginId	string		Optional, The user's email address that will identify the user for login (optional)
-	 * @param	newPassword	string		Optional, The user's new password (optional)
-	 * @param	newFirstName	string		Optional, The user's new first name (optional, default: null)
-	 * @param	newLastName	string		Optional, The user's new last name (optional, default: null)
+	 * Notifies that a user is banned from an account..
+	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
 	 **/
-	updateLoginData: function(oldLoginId, password, newLoginId, newPassword, newFirstName, newLastName){
-		if(!newLoginId)
-			newLoginId = "";
-		if(!newPassword)
-			newPassword = "";
-		if(!newFirstName)
-			newFirstName = null;
-		if(!newLastName)
-			newLastName = null;
+	notifyBan: function(userId){
 		var kparams = new Object();
-		kparams.oldLoginId = oldLoginId;
-		kparams.password = password;
-		kparams.newLoginId = newLoginId;
-		kparams.newPassword = newPassword;
-		kparams.newFirstName = newFirstName;
-		kparams.newLastName = newLastName;
-		return new KalturaRequestBuilder("user", "updateLoginData", kparams);
+		kparams.userId = userId;
+		return new KalturaRequestBuilder("user", "notifyBan", kparams);
 	},
 	
 	/**
@@ -191,59 +207,43 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * Enables a user to log into a partner account using an email address and a password.
+	 * Updates an existing user object.
+ *		 You can also use this action to update the userId..
 	 * @param	userId	string		The user's unique identifier in the partner's system (optional)
-	 * @param	loginId	string		The user's email address that identifies the user for login (optional)
-	 * @param	password	string		The user's password (optional, default: null)
+	 * @param	user	KalturaUser		Id The user's unique identifier in the partner's system (optional)
 	 **/
-	enableLogin: function(userId, loginId, password){
-		if(!password)
-			password = null;
+	update: function(userId, user){
 		var kparams = new Object();
 		kparams.userId = userId;
-		kparams.loginId = loginId;
+		kparams.user = user;
+		return new KalturaRequestBuilder("user", "update", kparams);
+	},
+	
+	/**
+	 * Updates a user's login data: email, password, name..
+	 * @param	oldLoginId	string		The user's current email address that identified the user for login (optional)
+	 * @param	password	string		The user's current email address that identified the user for login (optional)
+	 * @param	newLoginId	string		Optional, The user's email address that will identify the user for login (optional)
+	 * @param	newPassword	string		Optional, The user's new password (optional)
+	 * @param	newFirstName	string		Optional, The user's new first name (optional, default: null)
+	 * @param	newLastName	string		Optional, The user's new last name (optional, default: null)
+	 **/
+	updateLoginData: function(oldLoginId, password, newLoginId, newPassword, newFirstName, newLastName){
+		if(!newLoginId)
+			newLoginId = "";
+		if(!newPassword)
+			newPassword = "";
+		if(!newFirstName)
+			newFirstName = null;
+		if(!newLastName)
+			newLastName = null;
+		var kparams = new Object();
+		kparams.oldLoginId = oldLoginId;
 		kparams.password = password;
-		return new KalturaRequestBuilder("user", "enableLogin", kparams);
-	},
-	
-	/**
-	 * Disables a user's ability to log into a partner account using an email address and a password.
- *		 You may use either a userId or a loginId parameter for this action..
-	 * @param	userId	string		The user's unique identifier in the partner's system (optional, default: null)
-	 * @param	loginId	string		The user's email address that identifies the user for login (optional, default: null)
-	 **/
-	disableLogin: function(userId, loginId){
-		if(!userId)
-			userId = null;
-		if(!loginId)
-			loginId = null;
-		var kparams = new Object();
-		kparams.userId = userId;
-		kparams.loginId = loginId;
-		return new KalturaRequestBuilder("user", "disableLogin", kparams);
-	},
-	
-	/**
-	 * Index an entry by id..
-	 * @param	id	string		 (optional)
-	 * @param	shouldUpdate	bool		 (optional, default: true)
-	 **/
-	index: function(id, shouldUpdate){
-		if(!shouldUpdate)
-			shouldUpdate = true;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.shouldUpdate = shouldUpdate;
-		return new KalturaRequestBuilder("user", "index", kparams);
-	},
-	
-	/**
-	 * Action which checks whther user login.
-	 * @param	filter	KalturaUserLoginDataFilter		 (optional)
-	 **/
-	checkLoginDataExists: function(filter){
-		var kparams = new Object();
-		kparams.filter = filter;
-		return new KalturaRequestBuilder("user", "checkLoginDataExists", kparams);
+		kparams.newLoginId = newLoginId;
+		kparams.newPassword = newPassword;
+		kparams.newFirstName = newFirstName;
+		kparams.newLastName = newLastName;
+		return new KalturaRequestBuilder("user", "updateLoginData", kparams);
 	}
 }

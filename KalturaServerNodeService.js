@@ -14,28 +14,6 @@ var KalturaServerNodeService = {
 	},
 	
 	/**
-	 * Get server node by id.
-	 * @param	serverNodeId	int		 (optional)
-	 **/
-	get: function(serverNodeId){
-		var kparams = new Object();
-		kparams.serverNodeId = serverNodeId;
-		return new KalturaRequestBuilder("servernode", "get", kparams);
-	},
-	
-	/**
-	 * Update server node by id.
-	 * @param	serverNodeId	int		 (optional)
-	 * @param	serverNode	KalturaServerNode		Id (optional)
-	 **/
-	update: function(serverNodeId, serverNode){
-		var kparams = new Object();
-		kparams.serverNodeId = serverNodeId;
-		kparams.serverNode = serverNode;
-		return new KalturaRequestBuilder("servernode", "update", kparams);
-	},
-	
-	/**
 	 * delete server node by id.
 	 * @param	serverNodeId	string		 (optional)
 	 **/
@@ -63,6 +41,16 @@ var KalturaServerNodeService = {
 		var kparams = new Object();
 		kparams.serverNodeId = serverNodeId;
 		return new KalturaRequestBuilder("servernode", "enable", kparams);
+	},
+	
+	/**
+	 * Get server node by id.
+	 * @param	serverNodeId	int		 (optional)
+	 **/
+	get: function(serverNodeId){
+		var kparams = new Object();
+		kparams.serverNodeId = serverNodeId;
+		return new KalturaRequestBuilder("servernode", "get", kparams);
 	},
 	
 	/**
@@ -96,5 +84,17 @@ var KalturaServerNodeService = {
 		if (serverNode != null)
 			kparams.serverNode = serverNode;
 		return new KalturaRequestBuilder("servernode", "reportStatus", kparams);
+	},
+	
+	/**
+	 * Update server node by id.
+	 * @param	serverNodeId	int		 (optional)
+	 * @param	serverNode	KalturaServerNode		Id (optional)
+	 **/
+	update: function(serverNodeId, serverNode){
+		var kparams = new Object();
+		kparams.serverNodeId = serverNodeId;
+		kparams.serverNode = serverNode;
+		return new KalturaRequestBuilder("servernode", "update", kparams);
 	}
 }

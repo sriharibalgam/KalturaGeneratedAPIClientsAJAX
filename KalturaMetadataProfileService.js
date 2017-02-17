@@ -20,6 +20,16 @@ var KalturaMetadataProfileService = {
 	},
 	
 	/**
+	 * Delete an existing metadata profile.
+	 * @param	id	int		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("metadata_metadataprofile", "delete", kparams);
+	},
+	
+	/**
 	 * Retrieve a metadata profile object by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -27,26 +37,6 @@ var KalturaMetadataProfileService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("metadata_metadataprofile", "get", kparams);
-	},
-	
-	/**
-	 * Update an existing metadata object.
-	 * @param	id	int		 (optional)
-	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
-	 * @param	xsdData	string		XSD metadata definition (optional, default: null)
-	 * @param	viewsData	string		UI views definition (optional, default: null)
-	 **/
-	update: function(id, metadataProfile, xsdData, viewsData){
-		if(!xsdData)
-			xsdData = null;
-		if(!viewsData)
-			viewsData = null;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.metadataProfile = metadataProfile;
-		kparams.xsdData = xsdData;
-		kparams.viewsData = viewsData;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "update", kparams);
 	},
 	
 	/**
@@ -78,16 +68,6 @@ var KalturaMetadataProfileService = {
 	},
 	
 	/**
-	 * Delete an existing metadata profile.
-	 * @param	id	int		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("metadata_metadataprofile", "delete", kparams);
-	},
-	
-	/**
 	 * Update an existing metadata object definition file.
 	 * @param	id	int		 (optional)
 	 * @param	toVersion	int		 (optional)
@@ -97,5 +77,25 @@ var KalturaMetadataProfileService = {
 		kparams.id = id;
 		kparams.toVersion = toVersion;
 		return new KalturaRequestBuilder("metadata_metadataprofile", "revert", kparams);
+	},
+	
+	/**
+	 * Update an existing metadata object.
+	 * @param	id	int		 (optional)
+	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
+	 * @param	xsdData	string		XSD metadata definition (optional, default: null)
+	 * @param	viewsData	string		UI views definition (optional, default: null)
+	 **/
+	update: function(id, metadataProfile, xsdData, viewsData){
+		if(!xsdData)
+			xsdData = null;
+		if(!viewsData)
+			viewsData = null;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.metadataProfile = metadataProfile;
+		kparams.xsdData = xsdData;
+		kparams.viewsData = viewsData;
+		return new KalturaRequestBuilder("metadata_metadataprofile", "update", kparams);
 	}
 }

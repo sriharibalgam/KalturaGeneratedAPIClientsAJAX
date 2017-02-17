@@ -15,15 +15,14 @@ var KalturaWidgetService = {
 	},
 	
 	/**
-	 * Update exisiting widget.
-	 * @param	id	string		 (optional)
+	 * Add widget based on existing widget.
+ *		 Must provide valid sourceWidgetId.
 	 * @param	widget	KalturaWidget		 (optional)
 	 **/
-	update: function(id, widget){
+	cloneAction: function(widget){
 		var kparams = new Object();
-		kparams.id = id;
 		kparams.widget = widget;
-		return new KalturaRequestBuilder("widget", "update", kparams);
+		return new KalturaRequestBuilder("widget", "clone", kparams);
 	},
 	
 	/**
@@ -34,17 +33,6 @@ var KalturaWidgetService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("widget", "get", kparams);
-	},
-	
-	/**
-	 * Add widget based on existing widget.
- *		 Must provide valid sourceWidgetId.
-	 * @param	widget	KalturaWidget		 (optional)
-	 **/
-	cloneAction: function(widget){
-		var kparams = new Object();
-		kparams.widget = widget;
-		return new KalturaRequestBuilder("widget", "clone", kparams);
 	},
 	
 	/**
@@ -63,5 +51,17 @@ var KalturaWidgetService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("widget", "list", kparams);
+	},
+	
+	/**
+	 * Update exisiting widget.
+	 * @param	id	string		 (optional)
+	 * @param	widget	KalturaWidget		 (optional)
+	 **/
+	update: function(id, widget){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.widget = widget;
+		return new KalturaRequestBuilder("widget", "update", kparams);
 	}
 }

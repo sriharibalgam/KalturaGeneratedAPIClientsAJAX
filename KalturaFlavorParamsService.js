@@ -14,6 +14,16 @@ var KalturaFlavorParamsService = {
 	},
 	
 	/**
+	 * Delete Flavor Params by ID.
+	 * @param	id	int		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("flavorparams", "delete", kparams);
+	},
+	
+	/**
 	 * Get Flavor Params by ID.
 	 * @param	id	int		 (optional)
 	 **/
@@ -24,25 +34,13 @@ var KalturaFlavorParamsService = {
 	},
 	
 	/**
-	 * Update Flavor Params by ID.
-	 * @param	id	int		 (optional)
-	 * @param	flavorParams	KalturaFlavorParams		 (optional)
+	 * Get Flavor Params by Conversion Profile ID.
+	 * @param	conversionProfileId	int		 (optional)
 	 **/
-	update: function(id, flavorParams){
+	getByConversionProfileId: function(conversionProfileId){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.flavorParams = flavorParams;
-		return new KalturaRequestBuilder("flavorparams", "update", kparams);
-	},
-	
-	/**
-	 * Delete Flavor Params by ID.
-	 * @param	id	int		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("flavorparams", "delete", kparams);
+		kparams.conversionProfileId = conversionProfileId;
+		return new KalturaRequestBuilder("flavorparams", "getByConversionProfileId", kparams);
 	},
 	
 	/**
@@ -64,12 +62,14 @@ var KalturaFlavorParamsService = {
 	},
 	
 	/**
-	 * Get Flavor Params by Conversion Profile ID.
-	 * @param	conversionProfileId	int		 (optional)
+	 * Update Flavor Params by ID.
+	 * @param	id	int		 (optional)
+	 * @param	flavorParams	KalturaFlavorParams		 (optional)
 	 **/
-	getByConversionProfileId: function(conversionProfileId){
+	update: function(id, flavorParams){
 		var kparams = new Object();
-		kparams.conversionProfileId = conversionProfileId;
-		return new KalturaRequestBuilder("flavorparams", "getByConversionProfileId", kparams);
+		kparams.id = id;
+		kparams.flavorParams = flavorParams;
+		return new KalturaRequestBuilder("flavorparams", "update", kparams);
 	}
 }

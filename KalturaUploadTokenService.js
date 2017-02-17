@@ -17,16 +17,6 @@ var KalturaUploadTokenService = {
 	},
 	
 	/**
-	 * Get upload token by id.
-	 * @param	uploadTokenId	string		 (optional)
-	 **/
-	get: function(uploadTokenId){
-		var kparams = new Object();
-		kparams.uploadTokenId = uploadTokenId;
-		return new KalturaRequestBuilder("uploadtoken", "get", kparams);
-	},
-	
-	/**
 	 * Deletes the upload token by upload token id.
 	 * @param	uploadTokenId	string		 (optional)
 	 **/
@@ -34,6 +24,16 @@ var KalturaUploadTokenService = {
 		var kparams = new Object();
 		kparams.uploadTokenId = uploadTokenId;
 		return new KalturaRequestBuilder("uploadtoken", "delete", kparams);
+	},
+	
+	/**
+	 * Get upload token by id.
+	 * @param	uploadTokenId	string		 (optional)
+	 **/
+	get: function(uploadTokenId){
+		var kparams = new Object();
+		kparams.uploadTokenId = uploadTokenId;
+		return new KalturaRequestBuilder("uploadtoken", "get", kparams);
 	},
 	
 	/**

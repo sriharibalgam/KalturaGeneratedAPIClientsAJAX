@@ -14,6 +14,16 @@ var KalturaSyndicationFeedService = {
 	},
 	
 	/**
+	 * Delete Syndication Feed by ID.
+	 * @param	id	string		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("syndicationfeed", "delete", kparams);
+	},
+	
+	/**
 	 * Get Syndication Feed by ID.
 	 * @param	id	string		 (optional)
 	 **/
@@ -24,25 +34,13 @@ var KalturaSyndicationFeedService = {
 	},
 	
 	/**
-	 * Update Syndication Feed by ID.
-	 * @param	id	string		 (optional)
-	 * @param	syndicationFeed	KalturaBaseSyndicationFeed		 (optional)
+	 * get entry count for a syndication feed.
+	 * @param	feedId	string		 (optional)
 	 **/
-	update: function(id, syndicationFeed){
+	getEntryCount: function(feedId){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.syndicationFeed = syndicationFeed;
-		return new KalturaRequestBuilder("syndicationfeed", "update", kparams);
-	},
-	
-	/**
-	 * Delete Syndication Feed by ID.
-	 * @param	id	string		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("syndicationfeed", "delete", kparams);
+		kparams.feedId = feedId;
+		return new KalturaRequestBuilder("syndicationfeed", "getEntryCount", kparams);
 	},
 	
 	/**
@@ -64,16 +62,6 @@ var KalturaSyndicationFeedService = {
 	},
 	
 	/**
-	 * get entry count for a syndication feed.
-	 * @param	feedId	string		 (optional)
-	 **/
-	getEntryCount: function(feedId){
-		var kparams = new Object();
-		kparams.feedId = feedId;
-		return new KalturaRequestBuilder("syndicationfeed", "getEntryCount", kparams);
-	},
-	
-	/**
 	 * request conversion for all entries that doesnt have the required flavor param
  *		 returns a comma-separated ids of conversion jobs.
 	 * @param	feedId	string		 (optional)
@@ -82,5 +70,17 @@ var KalturaSyndicationFeedService = {
 		var kparams = new Object();
 		kparams.feedId = feedId;
 		return new KalturaRequestBuilder("syndicationfeed", "requestConversion", kparams);
+	},
+	
+	/**
+	 * Update Syndication Feed by ID.
+	 * @param	id	string		 (optional)
+	 * @param	syndicationFeed	KalturaBaseSyndicationFeed		 (optional)
+	 **/
+	update: function(id, syndicationFeed){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.syndicationFeed = syndicationFeed;
+		return new KalturaRequestBuilder("syndicationfeed", "update", kparams);
 	}
 }

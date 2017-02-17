@@ -14,28 +14,6 @@ var KalturaAccessControlProfileService = {
 	},
 	
 	/**
-	 * Get access control profile by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("accesscontrolprofile", "get", kparams);
-	},
-	
-	/**
-	 * Update access control profile by id.
-	 * @param	id	int		 (optional)
-	 * @param	accessControlProfile	KalturaAccessControlProfile		 (optional)
-	 **/
-	update: function(id, accessControlProfile){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.accessControlProfile = accessControlProfile;
-		return new KalturaRequestBuilder("accesscontrolprofile", "update", kparams);
-	},
-	
-	/**
 	 * Delete access control profile by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -43,6 +21,16 @@ var KalturaAccessControlProfileService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("accesscontrolprofile", "delete", kparams);
+	},
+	
+	/**
+	 * Get access control profile by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("accesscontrolprofile", "get", kparams);
 	},
 	
 	/**
@@ -61,5 +49,17 @@ var KalturaAccessControlProfileService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("accesscontrolprofile", "list", kparams);
+	},
+	
+	/**
+	 * Update access control profile by id.
+	 * @param	id	int		 (optional)
+	 * @param	accessControlProfile	KalturaAccessControlProfile		 (optional)
+	 **/
+	update: function(id, accessControlProfile){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.accessControlProfile = accessControlProfile;
+		return new KalturaRequestBuilder("accesscontrolprofile", "update", kparams);
 	}
 }

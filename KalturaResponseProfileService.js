@@ -14,37 +14,15 @@ var KalturaResponseProfileService = {
 	},
 	
 	/**
-	 * Get response profile by id.
+	 * Clone an existing response profile.
 	 * @param	id	int		 (optional)
+	 * @param	profile	KalturaResponseProfile		 (optional)
 	 **/
-	get: function(id){
+	cloneAction: function(id, profile){
 		var kparams = new Object();
 		kparams.id = id;
-		return new KalturaRequestBuilder("responseprofile", "get", kparams);
-	},
-	
-	/**
-	 * Update response profile by id.
-	 * @param	id	int		 (optional)
-	 * @param	updateResponseProfile	KalturaResponseProfile		 (optional)
-	 **/
-	update: function(id, updateResponseProfile){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.updateResponseProfile = updateResponseProfile;
-		return new KalturaRequestBuilder("responseprofile", "update", kparams);
-	},
-	
-	/**
-	 * Update response profile status by id.
-	 * @param	id	int		 (optional)
-	 * @param	status	int		 (optional, enum: KalturaResponseProfileStatus)
-	 **/
-	updateStatus: function(id, status){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.status = status;
-		return new KalturaRequestBuilder("responseprofile", "updateStatus", kparams);
+		kparams.profile = profile;
+		return new KalturaRequestBuilder("responseprofile", "clone", kparams);
 	},
 	
 	/**
@@ -55,6 +33,16 @@ var KalturaResponseProfileService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("responseprofile", "delete", kparams);
+	},
+	
+	/**
+	 * Get response profile by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("responseprofile", "get", kparams);
 	},
 	
 	/**
@@ -86,14 +74,26 @@ var KalturaResponseProfileService = {
 	},
 	
 	/**
-	 * Clone an existing response profile.
+	 * Update response profile by id.
 	 * @param	id	int		 (optional)
-	 * @param	profile	KalturaResponseProfile		 (optional)
+	 * @param	updateResponseProfile	KalturaResponseProfile		 (optional)
 	 **/
-	cloneAction: function(id, profile){
+	update: function(id, updateResponseProfile){
 		var kparams = new Object();
 		kparams.id = id;
-		kparams.profile = profile;
-		return new KalturaRequestBuilder("responseprofile", "clone", kparams);
+		kparams.updateResponseProfile = updateResponseProfile;
+		return new KalturaRequestBuilder("responseprofile", "update", kparams);
+	},
+	
+	/**
+	 * Update response profile status by id.
+	 * @param	id	int		 (optional)
+	 * @param	status	int		 (optional, enum: KalturaResponseProfileStatus)
+	 **/
+	updateStatus: function(id, status){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.status = status;
+		return new KalturaRequestBuilder("responseprofile", "updateStatus", kparams);
 	}
 }

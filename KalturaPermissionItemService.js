@@ -15,29 +15,6 @@ var KalturaPermissionItemService = {
 	},
 	
 	/**
-	 * Retrieves a permission item object using its ID..
-	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
-	 **/
-	get: function(permissionItemId){
-		var kparams = new Object();
-		kparams.permissionItemId = permissionItemId;
-		return new KalturaRequestBuilder("permissionitem", "get", kparams);
-	},
-	
-	/**
-	 * Updates an existing permission item object.
- *		 This action is available only to Kaltura system administrators..
-	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
-	 * @param	permissionItem	KalturaPermissionItem		Id The permission item's unique identifier (optional)
-	 **/
-	update: function(permissionItemId, permissionItem){
-		var kparams = new Object();
-		kparams.permissionItemId = permissionItemId;
-		kparams.permissionItem = permissionItem;
-		return new KalturaRequestBuilder("permissionitem", "update", kparams);
-	},
-	
-	/**
 	 * Deletes an existing permission item object.
  *		 This action is available only to Kaltura system administrators..
 	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
@@ -46,6 +23,16 @@ var KalturaPermissionItemService = {
 		var kparams = new Object();
 		kparams.permissionItemId = permissionItemId;
 		return new KalturaRequestBuilder("permissionitem", "delete", kparams);
+	},
+	
+	/**
+	 * Retrieves a permission item object using its ID..
+	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
+	 **/
+	get: function(permissionItemId){
+		var kparams = new Object();
+		kparams.permissionItemId = permissionItemId;
+		return new KalturaRequestBuilder("permissionitem", "get", kparams);
 	},
 	
 	/**
@@ -64,5 +51,18 @@ var KalturaPermissionItemService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("permissionitem", "list", kparams);
+	},
+	
+	/**
+	 * Updates an existing permission item object.
+ *		 This action is available only to Kaltura system administrators..
+	 * @param	permissionItemId	int		The permission item's unique identifier (optional)
+	 * @param	permissionItem	KalturaPermissionItem		Id The permission item's unique identifier (optional)
+	 **/
+	update: function(permissionItemId, permissionItem){
+		var kparams = new Object();
+		kparams.permissionItemId = permissionItemId;
+		kparams.permissionItem = permissionItem;
+		return new KalturaRequestBuilder("permissionitem", "update", kparams);
 	}
 }

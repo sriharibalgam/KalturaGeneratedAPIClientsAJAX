@@ -14,28 +14,6 @@ var KalturaGenericDistributionProviderService = {
 	},
 	
 	/**
-	 * Get Generic Distribution Provider by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovider", "get", kparams);
-	},
-	
-	/**
-	 * Update Generic Distribution Provider by id.
-	 * @param	id	int		 (optional)
-	 * @param	genericDistributionProvider	KalturaGenericDistributionProvider		 (optional)
-	 **/
-	update: function(id, genericDistributionProvider){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.genericDistributionProvider = genericDistributionProvider;
-		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovider", "update", kparams);
-	},
-	
-	/**
 	 * Delete Generic Distribution Provider by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -43,6 +21,16 @@ var KalturaGenericDistributionProviderService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovider", "delete", kparams);
+	},
+	
+	/**
+	 * Get Generic Distribution Provider by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovider", "get", kparams);
 	},
 	
 	/**
@@ -61,5 +49,17 @@ var KalturaGenericDistributionProviderService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovider", "list", kparams);
+	},
+	
+	/**
+	 * Update Generic Distribution Provider by id.
+	 * @param	id	int		 (optional)
+	 * @param	genericDistributionProvider	KalturaGenericDistributionProvider		 (optional)
+	 **/
+	update: function(id, genericDistributionProvider){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.genericDistributionProvider = genericDistributionProvider;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovider", "update", kparams);
 	}
 }

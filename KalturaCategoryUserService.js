@@ -4,6 +4,18 @@
  **/
 var KalturaCategoryUserService = {
 	/**
+	 * activate CategoryUser.
+	 * @param	categoryId	int		 (optional)
+	 * @param	userId	string		 (optional)
+	 **/
+	activate: function(categoryId, userId){
+		var kparams = new Object();
+		kparams.categoryId = categoryId;
+		kparams.userId = userId;
+		return new KalturaRequestBuilder("categoryuser", "activate", kparams);
+	},
+	
+	/**
 	 * Add new CategoryUser.
 	 * @param	categoryUser	KalturaCategoryUser		 (optional)
 	 **/
@@ -14,33 +26,25 @@ var KalturaCategoryUserService = {
 	},
 	
 	/**
-	 * Get CategoryUser by id.
+	 * Copy all memeber from parent category.
 	 * @param	categoryId	int		 (optional)
-	 * @param	userId	string		 (optional)
 	 **/
-	get: function(categoryId, userId){
+	copyFromCategory: function(categoryId){
 		var kparams = new Object();
 		kparams.categoryId = categoryId;
-		kparams.userId = userId;
-		return new KalturaRequestBuilder("categoryuser", "get", kparams);
+		return new KalturaRequestBuilder("categoryuser", "copyFromCategory", kparams);
 	},
 	
 	/**
-	 * Update CategoryUser by id.
+	 * reject CategoryUser.
 	 * @param	categoryId	int		 (optional)
 	 * @param	userId	string		 (optional)
-	 * @param	categoryUser	KalturaCategoryUser		 (optional)
-	 * @param	override	bool		- to override manual changes (optional, default: false)
 	 **/
-	update: function(categoryId, userId, categoryUser, override){
-		if(!override)
-			override = false;
+	deactivate: function(categoryId, userId){
 		var kparams = new Object();
 		kparams.categoryId = categoryId;
 		kparams.userId = userId;
-		kparams.categoryUser = categoryUser;
-		kparams.override = override;
-		return new KalturaRequestBuilder("categoryuser", "update", kparams);
+		return new KalturaRequestBuilder("categoryuser", "deactivate", kparams);
 	},
 	
 	/**
@@ -56,27 +60,31 @@ var KalturaCategoryUserService = {
 	},
 	
 	/**
-	 * activate CategoryUser.
+	 * Get CategoryUser by id.
 	 * @param	categoryId	int		 (optional)
 	 * @param	userId	string		 (optional)
 	 **/
-	activate: function(categoryId, userId){
+	get: function(categoryId, userId){
 		var kparams = new Object();
 		kparams.categoryId = categoryId;
 		kparams.userId = userId;
-		return new KalturaRequestBuilder("categoryuser", "activate", kparams);
+		return new KalturaRequestBuilder("categoryuser", "get", kparams);
 	},
 	
 	/**
-	 * reject CategoryUser.
-	 * @param	categoryId	int		 (optional)
+	 * Index CategoryUser by userid and category id.
 	 * @param	userId	string		 (optional)
+	 * @param	categoryId	int		 (optional)
+	 * @param	shouldUpdate	bool		 (optional, default: true)
 	 **/
-	deactivate: function(categoryId, userId){
+	index: function(userId, categoryId, shouldUpdate){
+		if(!shouldUpdate)
+			shouldUpdate = true;
 		var kparams = new Object();
-		kparams.categoryId = categoryId;
 		kparams.userId = userId;
-		return new KalturaRequestBuilder("categoryuser", "deactivate", kparams);
+		kparams.categoryId = categoryId;
+		kparams.shouldUpdate = shouldUpdate;
+		return new KalturaRequestBuilder("categoryuser", "index", kparams);
 	},
 	
 	/**
@@ -98,28 +106,20 @@ var KalturaCategoryUserService = {
 	},
 	
 	/**
-	 * Copy all memeber from parent category.
+	 * Update CategoryUser by id.
 	 * @param	categoryId	int		 (optional)
-	 **/
-	copyFromCategory: function(categoryId){
-		var kparams = new Object();
-		kparams.categoryId = categoryId;
-		return new KalturaRequestBuilder("categoryuser", "copyFromCategory", kparams);
-	},
-	
-	/**
-	 * Index CategoryUser by userid and category id.
 	 * @param	userId	string		 (optional)
-	 * @param	categoryId	int		 (optional)
-	 * @param	shouldUpdate	bool		 (optional, default: true)
+	 * @param	categoryUser	KalturaCategoryUser		 (optional)
+	 * @param	override	bool		- to override manual changes (optional, default: false)
 	 **/
-	index: function(userId, categoryId, shouldUpdate){
-		if(!shouldUpdate)
-			shouldUpdate = true;
+	update: function(categoryId, userId, categoryUser, override){
+		if(!override)
+			override = false;
 		var kparams = new Object();
-		kparams.userId = userId;
 		kparams.categoryId = categoryId;
-		kparams.shouldUpdate = shouldUpdate;
-		return new KalturaRequestBuilder("categoryuser", "index", kparams);
+		kparams.userId = userId;
+		kparams.categoryUser = categoryUser;
+		kparams.override = override;
+		return new KalturaRequestBuilder("categoryuser", "update", kparams);
 	}
 }

@@ -4,6 +4,16 @@
  **/
 var KalturaBulkService = {
 	/**
+	 * Aborts the bulk upload and all its child jobs.
+	 * @param	id	int		job id (optional)
+	 **/
+	abort: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("bulkupload_bulk", "abort", kparams);
+	},
+	
+	/**
 	 * Get bulk upload batch job by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -29,15 +39,5 @@ var KalturaBulkService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("bulkupload_bulk", "list", kparams);
-	},
-	
-	/**
-	 * Aborts the bulk upload and all its child jobs.
-	 * @param	id	int		job id (optional)
-	 **/
-	abort: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("bulkupload_bulk", "abort", kparams);
 	}
 }

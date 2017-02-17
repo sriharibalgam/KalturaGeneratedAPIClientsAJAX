@@ -46,6 +46,87 @@ var KalturaBaseEntryService = {
 	},
 	
 	/**
+	 * Anonymously rank an entry, no validation is done on duplicate rankings..
+	 * @param	entryId	string		 (optional)
+	 * @param	rank	int		 (optional)
+	 **/
+	anonymousRank: function(entryId, rank){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.rank = rank;
+		return new KalturaRequestBuilder("baseentry", "anonymousRank", kparams);
+	},
+	
+	/**
+	 * Approve the entry and mark the pending flags (if any) as moderated (this will make the entry playable)..
+	 * @param	entryId	string		 (optional)
+	 **/
+	approve: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("baseentry", "approve", kparams);
+	},
+	
+	/**
+	 * Clone an entry with optional attributes to apply to the clone.
+	 * @param	entryId	string		Id of entry to clone (optional)
+	 * @param	cloneOptions	array		 (optional, default: null)
+	 **/
+	cloneAction: function(entryId, cloneOptions){
+		if(!cloneOptions)
+			cloneOptions = null;
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.cloneOptions = cloneOptions;
+		return new KalturaRequestBuilder("baseentry", "clone", kparams);
+	},
+	
+	/**
+	 * Count base entries by filter..
+	 * @param	filter	KalturaBaseEntryFilter		Entry filter (optional, default: null)
+	 **/
+	count: function(filter){
+		if(!filter)
+			filter = null;
+		var kparams = new Object();
+		if (filter != null)
+			kparams.filter = filter;
+		return new KalturaRequestBuilder("baseentry", "count", kparams);
+	},
+	
+	/**
+	 * Delete an entry..
+	 * @param	entryId	string		Entry id to delete (optional)
+	 **/
+	deleteAction: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("baseentry", "delete", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	entryId	string		 (optional)
+	 * @param	storageProfileId	int		 (optional)
+	 **/
+	exportAction: function(entryId, storageProfileId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.storageProfileId = storageProfileId;
+		return new KalturaRequestBuilder("baseentry", "export", kparams);
+	},
+	
+	/**
+	 * Flag inappropriate entry for moderation..
+	 * @param	moderationFlag	KalturaModerationFlag		 (optional)
+	 **/
+	flag: function(moderationFlag){
+		var kparams = new Object();
+		kparams.moderationFlag = moderationFlag;
+		return new KalturaRequestBuilder("baseentry", "flag", kparams);
+	},
+	
+	/**
 	 * Get base entry by ID..
 	 * @param	entryId	string		Entry id (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
@@ -60,49 +141,6 @@ var KalturaBaseEntryService = {
 	},
 	
 	/**
-	 * Get remote storage existing paths for the asset..
-	 * @param	entryId	string		 (optional)
-	 **/
-	getRemotePaths: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("baseentry", "getRemotePaths", kparams);
-	},
-	
-	/**
-	 * Update base entry. Only the properties that were set will be updated..
-	 * @param	entryId	string		Entry id to update (optional)
-	 * @param	baseEntry	KalturaBaseEntry		Base entry metadata to update (optional)
-	 **/
-	update: function(entryId, baseEntry){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.baseEntry = baseEntry;
-		return new KalturaRequestBuilder("baseentry", "update", kparams);
-	},
-	
-	/**
-	 * Update the content resource associated with the entry..
-	 * @param	entryId	string		Entry id to update (optional)
-	 * @param	resource	KalturaResource		Resource to be used to replace entry content (optional)
-	 * @param	conversionProfileId	int		The conversion profile id to be used on the entry (optional, default: null)
-	 * @param	advancedOptions	KalturaEntryReplacementOptions		Additional update content options (optional, default: null)
-	 **/
-	updateContent: function(entryId, resource, conversionProfileId, advancedOptions){
-		if(!conversionProfileId)
-			conversionProfileId = null;
-		if(!advancedOptions)
-			advancedOptions = null;
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.resource = resource;
-		kparams.conversionProfileId = conversionProfileId;
-		if (advancedOptions != null)
-			kparams.advancedOptions = advancedOptions;
-		return new KalturaRequestBuilder("baseentry", "updateContent", kparams);
-	},
-	
-	/**
 	 * Get an array of KalturaBaseEntry objects by a comma-separated list of ids..
 	 * @param	entryIds	string		Comma separated string of entry ids (optional)
 	 **/
@@ -113,13 +151,51 @@ var KalturaBaseEntryService = {
 	},
 	
 	/**
-	 * Delete an entry..
-	 * @param	entryId	string		Entry id to delete (optional)
+	 * This action delivers entry-related data, based on the user's context: access control, restriction, playback format and storage information..
+	 * @param	entryId	string		 (optional)
+	 * @param	contextDataParams	KalturaEntryContextDataParams		 (optional)
 	 **/
-	deleteAction: function(entryId){
+	getContextData: function(entryId, contextDataParams){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("baseentry", "delete", kparams);
+		kparams.contextDataParams = contextDataParams;
+		return new KalturaRequestBuilder("baseentry", "getContextData", kparams);
+	},
+	
+	/**
+	 * This action delivers all data relevant for player.
+	 * @param	entryId	string		 (optional)
+	 * @param	contextDataParams	KalturaPlaybackContextOptions		 (optional)
+	 **/
+	getPlaybackContext: function(entryId, contextDataParams){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.contextDataParams = contextDataParams;
+		return new KalturaRequestBuilder("baseentry", "getPlaybackContext", kparams);
+	},
+	
+	/**
+	 * Get remote storage existing paths for the asset..
+	 * @param	entryId	string		 (optional)
+	 **/
+	getRemotePaths: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("baseentry", "getRemotePaths", kparams);
+	},
+	
+	/**
+	 * Index an entry by id..
+	 * @param	id	string		 (optional)
+	 * @param	shouldUpdate	bool		 (optional, default: true)
+	 **/
+	index: function(id, shouldUpdate){
+		if(!shouldUpdate)
+			shouldUpdate = true;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.shouldUpdate = shouldUpdate;
+		return new KalturaRequestBuilder("baseentry", "index", kparams);
 	},
 	
 	/**
@@ -156,28 +232,61 @@ var KalturaBaseEntryService = {
 	},
 	
 	/**
-	 * Count base entries by filter..
-	 * @param	filter	KalturaBaseEntryFilter		Entry filter (optional, default: null)
+	 * List all pending flags for the entry..
+	 * @param	entryId	string		 (optional)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 **/
-	count: function(filter){
-		if(!filter)
-			filter = null;
+	listFlags: function(entryId, pager){
+		if(!pager)
+			pager = null;
 		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		return new KalturaRequestBuilder("baseentry", "count", kparams);
+		kparams.entryId = entryId;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("baseentry", "listFlags", kparams);
 	},
 	
 	/**
-	 * Update entry thumbnail using url..
-	 * @param	entryId	string		Media entry id (optional)
-	 * @param	url	string		file url (optional)
+	 * Reject the entry and mark the pending flags (if any) as moderated (this will make the entry non-playable)..
+	 * @param	entryId	string		 (optional)
 	 **/
-	updateThumbnailFromUrl: function(entryId, url){
+	reject: function(entryId){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		kparams.url = url;
-		return new KalturaRequestBuilder("baseentry", "updateThumbnailFromUrl", kparams);
+		return new KalturaRequestBuilder("baseentry", "reject", kparams);
+	},
+	
+	/**
+	 * Update base entry. Only the properties that were set will be updated..
+	 * @param	entryId	string		Entry id to update (optional)
+	 * @param	baseEntry	KalturaBaseEntry		Base entry metadata to update (optional)
+	 **/
+	update: function(entryId, baseEntry){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.baseEntry = baseEntry;
+		return new KalturaRequestBuilder("baseentry", "update", kparams);
+	},
+	
+	/**
+	 * Update the content resource associated with the entry..
+	 * @param	entryId	string		Entry id to update (optional)
+	 * @param	resource	KalturaResource		Resource to be used to replace entry content (optional)
+	 * @param	conversionProfileId	int		The conversion profile id to be used on the entry (optional, default: null)
+	 * @param	advancedOptions	KalturaEntryReplacementOptions		Additional update content options (optional, default: null)
+	 **/
+	updateContent: function(entryId, resource, conversionProfileId, advancedOptions){
+		if(!conversionProfileId)
+			conversionProfileId = null;
+		if(!advancedOptions)
+			advancedOptions = null;
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.resource = resource;
+		kparams.conversionProfileId = conversionProfileId;
+		if (advancedOptions != null)
+			kparams.advancedOptions = advancedOptions;
+		return new KalturaRequestBuilder("baseentry", "updateContent", kparams);
 	},
 	
 	/**
@@ -195,123 +304,14 @@ var KalturaBaseEntryService = {
 	},
 	
 	/**
-	 * Flag inappropriate entry for moderation..
-	 * @param	moderationFlag	KalturaModerationFlag		 (optional)
+	 * Update entry thumbnail using url..
+	 * @param	entryId	string		Media entry id (optional)
+	 * @param	url	string		file url (optional)
 	 **/
-	flag: function(moderationFlag){
-		var kparams = new Object();
-		kparams.moderationFlag = moderationFlag;
-		return new KalturaRequestBuilder("baseentry", "flag", kparams);
-	},
-	
-	/**
-	 * Reject the entry and mark the pending flags (if any) as moderated (this will make the entry non-playable)..
-	 * @param	entryId	string		 (optional)
-	 **/
-	reject: function(entryId){
+	updateThumbnailFromUrl: function(entryId, url){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("baseentry", "reject", kparams);
-	},
-	
-	/**
-	 * Approve the entry and mark the pending flags (if any) as moderated (this will make the entry playable)..
-	 * @param	entryId	string		 (optional)
-	 **/
-	approve: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("baseentry", "approve", kparams);
-	},
-	
-	/**
-	 * List all pending flags for the entry..
-	 * @param	entryId	string		 (optional)
-	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 **/
-	listFlags: function(entryId, pager){
-		if(!pager)
-			pager = null;
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("baseentry", "listFlags", kparams);
-	},
-	
-	/**
-	 * Anonymously rank an entry, no validation is done on duplicate rankings..
-	 * @param	entryId	string		 (optional)
-	 * @param	rank	int		 (optional)
-	 **/
-	anonymousRank: function(entryId, rank){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.rank = rank;
-		return new KalturaRequestBuilder("baseentry", "anonymousRank", kparams);
-	},
-	
-	/**
-	 * This action delivers entry-related data, based on the user's context: access control, restriction, playback format and storage information..
-	 * @param	entryId	string		 (optional)
-	 * @param	contextDataParams	KalturaEntryContextDataParams		 (optional)
-	 **/
-	getContextData: function(entryId, contextDataParams){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.contextDataParams = contextDataParams;
-		return new KalturaRequestBuilder("baseentry", "getContextData", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	entryId	string		 (optional)
-	 * @param	storageProfileId	int		 (optional)
-	 **/
-	exportAction: function(entryId, storageProfileId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.storageProfileId = storageProfileId;
-		return new KalturaRequestBuilder("baseentry", "export", kparams);
-	},
-	
-	/**
-	 * Index an entry by id..
-	 * @param	id	string		 (optional)
-	 * @param	shouldUpdate	bool		 (optional, default: true)
-	 **/
-	index: function(id, shouldUpdate){
-		if(!shouldUpdate)
-			shouldUpdate = true;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.shouldUpdate = shouldUpdate;
-		return new KalturaRequestBuilder("baseentry", "index", kparams);
-	},
-	
-	/**
-	 * Clone an entry with optional attributes to apply to the clone.
-	 * @param	entryId	string		Id of entry to clone (optional)
-	 * @param	cloneOptions	array		 (optional, default: null)
-	 **/
-	cloneAction: function(entryId, cloneOptions){
-		if(!cloneOptions)
-			cloneOptions = null;
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.cloneOptions = cloneOptions;
-		return new KalturaRequestBuilder("baseentry", "clone", kparams);
-	},
-	
-	/**
-	 * This action delivers all data relevant for player.
-	 * @param	entryId	string		 (optional)
-	 * @param	contextDataParams	KalturaPlaybackContextOptions		 (optional)
-	 **/
-	getPlaybackContext: function(entryId, contextDataParams){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.contextDataParams = contextDataParams;
-		return new KalturaRequestBuilder("baseentry", "getPlaybackContext", kparams);
+		kparams.url = url;
+		return new KalturaRequestBuilder("baseentry", "updateThumbnailFromUrl", kparams);
 	}
 }

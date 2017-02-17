@@ -16,27 +16,33 @@ var KalturaCaptionAssetService = {
 	},
 	
 	/**
-	 * Update content of caption asset.
-	 * @param	id	string		 (optional)
-	 * @param	contentResource	KalturaContentResource		 (optional)
+	 * .
+	 * @param	captionAssetId	string		 (optional)
 	 **/
-	setContent: function(id, contentResource){
+	deleteAction: function(captionAssetId){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.contentResource = contentResource;
-		return new KalturaRequestBuilder("caption_captionasset", "setContent", kparams);
+		kparams.captionAssetId = captionAssetId;
+		return new KalturaRequestBuilder("caption_captionasset", "delete", kparams);
 	},
 	
 	/**
-	 * Update caption asset.
-	 * @param	id	string		 (optional)
-	 * @param	captionAsset	KalturaCaptionAsset		 (optional)
+	 * .
+	 * @param	captionAssetId	string		 (optional)
 	 **/
-	update: function(id, captionAsset){
+	get: function(captionAssetId){
+		var kparams = new Object();
+		kparams.captionAssetId = captionAssetId;
+		return new KalturaRequestBuilder("caption_captionasset", "get", kparams);
+	},
+	
+	/**
+	 * Get remote storage existing paths for the asset.
+	 * @param	id	string		 (optional)
+	 **/
+	getRemotePaths: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		kparams.captionAsset = captionAsset;
-		return new KalturaRequestBuilder("caption_captionasset", "update", kparams);
+		return new KalturaRequestBuilder("caption_captionasset", "getRemotePaths", kparams);
 	},
 	
 	/**
@@ -51,36 +57,6 @@ var KalturaCaptionAssetService = {
 		kparams.id = id;
 		kparams.storageId = storageId;
 		return new KalturaRequestBuilder("caption_captionasset", "getUrl", kparams);
-	},
-	
-	/**
-	 * Get remote storage existing paths for the asset.
-	 * @param	id	string		 (optional)
-	 **/
-	getRemotePaths: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("caption_captionasset", "getRemotePaths", kparams);
-	},
-	
-	/**
-	 * Markss the caption as default and removes that mark from all other caption assets of the entry..
-	 * @param	captionAssetId	string		 (optional)
-	 **/
-	setAsDefault: function(captionAssetId){
-		var kparams = new Object();
-		kparams.captionAssetId = captionAssetId;
-		return new KalturaRequestBuilder("caption_captionasset", "setAsDefault", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	captionAssetId	string		 (optional)
-	 **/
-	get: function(captionAssetId){
-		var kparams = new Object();
-		kparams.captionAssetId = captionAssetId;
-		return new KalturaRequestBuilder("caption_captionasset", "get", kparams);
 	},
 	
 	/**
@@ -102,12 +78,36 @@ var KalturaCaptionAssetService = {
 	},
 	
 	/**
-	 * .
+	 * Markss the caption as default and removes that mark from all other caption assets of the entry..
 	 * @param	captionAssetId	string		 (optional)
 	 **/
-	deleteAction: function(captionAssetId){
+	setAsDefault: function(captionAssetId){
 		var kparams = new Object();
 		kparams.captionAssetId = captionAssetId;
-		return new KalturaRequestBuilder("caption_captionasset", "delete", kparams);
+		return new KalturaRequestBuilder("caption_captionasset", "setAsDefault", kparams);
+	},
+	
+	/**
+	 * Update content of caption asset.
+	 * @param	id	string		 (optional)
+	 * @param	contentResource	KalturaContentResource		 (optional)
+	 **/
+	setContent: function(id, contentResource){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.contentResource = contentResource;
+		return new KalturaRequestBuilder("caption_captionasset", "setContent", kparams);
+	},
+	
+	/**
+	 * Update caption asset.
+	 * @param	id	string		 (optional)
+	 * @param	captionAsset	KalturaCaptionAsset		 (optional)
+	 **/
+	update: function(id, captionAsset){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.captionAsset = captionAsset;
+		return new KalturaRequestBuilder("caption_captionasset", "update", kparams);
 	}
 }

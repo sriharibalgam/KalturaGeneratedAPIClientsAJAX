@@ -4,6 +4,18 @@
  **/
 var KalturaCategoryEntryService = {
 	/**
+	 * activate CategoryEntry when it is pending moderation.
+	 * @param	entryId	string		 (optional)
+	 * @param	categoryId	int		 (optional)
+	 **/
+	activate: function(entryId, categoryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.categoryId = categoryId;
+		return new KalturaRequestBuilder("categoryentry", "activate", kparams);
+	},
+	
+	/**
 	 * Add new CategoryEntry.
 	 * @param	categoryEntry	KalturaCategoryEntry		 (optional)
 	 **/
@@ -11,6 +23,21 @@ var KalturaCategoryEntryService = {
 		var kparams = new Object();
 		kparams.categoryEntry = categoryEntry;
 		return new KalturaRequestBuilder("categoryentry", "add", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	bulkUploadData	KalturaBulkServiceData		 (optional)
+	 * @param	bulkUploadCategoryEntryData	KalturaBulkUploadCategoryEntryData		 (optional, default: null)
+	 **/
+	addFromBulkUpload: function(bulkUploadData, bulkUploadCategoryEntryData){
+		if(!bulkUploadCategoryEntryData)
+			bulkUploadCategoryEntryData = null;
+		var kparams = new Object();
+		kparams.bulkUploadData = bulkUploadData;
+		if (bulkUploadCategoryEntryData != null)
+			kparams.bulkUploadCategoryEntryData = bulkUploadCategoryEntryData;
+		return new KalturaRequestBuilder("categoryentry", "addFromBulkUpload", kparams);
 	},
 	
 	/**
@@ -23,24 +50,6 @@ var KalturaCategoryEntryService = {
 		kparams.entryId = entryId;
 		kparams.categoryId = categoryId;
 		return new KalturaRequestBuilder("categoryentry", "delete", kparams);
-	},
-	
-	/**
-	 * List all categoryEntry.
-	 * @param	filter	KalturaCategoryEntryFilter		 (optional, default: null)
-	 * @param	pager	KalturaFilterPager		 (optional, default: null)
-	 **/
-	listAction: function(filter, pager){
-		if(!filter)
-			filter = null;
-		if(!pager)
-			pager = null;
-		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("categoryentry", "list", kparams);
 	},
 	
 	/**
@@ -60,15 +69,21 @@ var KalturaCategoryEntryService = {
 	},
 	
 	/**
-	 * activate CategoryEntry when it is pending moderation.
-	 * @param	entryId	string		 (optional)
-	 * @param	categoryId	int		 (optional)
+	 * List all categoryEntry.
+	 * @param	filter	KalturaCategoryEntryFilter		 (optional, default: null)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 **/
-	activate: function(entryId, categoryId){
+	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
 		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.categoryId = categoryId;
-		return new KalturaRequestBuilder("categoryentry", "activate", kparams);
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("categoryentry", "list", kparams);
 	},
 	
 	/**
@@ -93,20 +108,5 @@ var KalturaCategoryEntryService = {
 		kparams.entryId = entryId;
 		kparams.categoryId = categoryId;
 		return new KalturaRequestBuilder("categoryentry", "syncPrivacyContext", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	bulkUploadData	KalturaBulkServiceData		 (optional)
-	 * @param	bulkUploadCategoryEntryData	KalturaBulkUploadCategoryEntryData		 (optional, default: null)
-	 **/
-	addFromBulkUpload: function(bulkUploadData, bulkUploadCategoryEntryData){
-		if(!bulkUploadCategoryEntryData)
-			bulkUploadCategoryEntryData = null;
-		var kparams = new Object();
-		kparams.bulkUploadData = bulkUploadData;
-		if (bulkUploadCategoryEntryData != null)
-			kparams.bulkUploadCategoryEntryData = bulkUploadCategoryEntryData;
-		return new KalturaRequestBuilder("categoryentry", "addFromBulkUpload", kparams);
 	}
 }

@@ -5,14 +5,12 @@
 var KalturaEntryServerNodeService = {
 	/**
 	 * .
-	 * @param	id	int		 (optional)
-	 * @param	entryServerNode	KalturaEntryServerNode		 (optional)
+	 * @param	id	string		 (optional)
 	 **/
-	update: function(id, entryServerNode){
+	get: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		kparams.entryServerNode = entryServerNode;
-		return new KalturaRequestBuilder("entryservernode", "update", kparams);
+		return new KalturaRequestBuilder("entryservernode", "get", kparams);
 	},
 	
 	/**
@@ -35,12 +33,14 @@ var KalturaEntryServerNodeService = {
 	
 	/**
 	 * .
-	 * @param	id	string		 (optional)
+	 * @param	id	int		 (optional)
+	 * @param	entryServerNode	KalturaEntryServerNode		 (optional)
 	 **/
-	get: function(id){
+	update: function(id, entryServerNode){
 		var kparams = new Object();
 		kparams.id = id;
-		return new KalturaRequestBuilder("entryservernode", "get", kparams);
+		kparams.entryServerNode = entryServerNode;
+		return new KalturaRequestBuilder("entryservernode", "update", kparams);
 	},
 	
 	/**

@@ -4,18 +4,6 @@
  **/
 var KalturaDocumentsService = {
 	/**
-	 * Add new document entry after the specific document file was uploaded and the upload token id exists.
-	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata (optional)
-	 * @param	uploadTokenId	string		Upload token id (optional)
-	 **/
-	addFromUploadedFile: function(documentEntry, uploadTokenId){
-		var kparams = new Object();
-		kparams.documentEntry = documentEntry;
-		kparams.uploadTokenId = uploadTokenId;
-		return new KalturaRequestBuilder("document_documents", "addFromUploadedFile", kparams);
-	},
-	
-	/**
 	 * Copy entry into new entry.
 	 * @param	sourceEntryId	string		Document entry id to copy from (optional)
 	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata (optional, default: null)
@@ -50,6 +38,38 @@ var KalturaDocumentsService = {
 	},
 	
 	/**
+	 * Add new document entry after the specific document file was uploaded and the upload token id exists.
+	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata (optional)
+	 * @param	uploadTokenId	string		Upload token id (optional)
+	 **/
+	addFromUploadedFile: function(documentEntry, uploadTokenId){
+		var kparams = new Object();
+		kparams.documentEntry = documentEntry;
+		kparams.uploadTokenId = uploadTokenId;
+		return new KalturaRequestBuilder("document_documents", "addFromUploadedFile", kparams);
+	},
+	
+	/**
+	 * Approves document replacement.
+	 * @param	entryId	string		document entry id to replace (optional)
+	 **/
+	approveReplace: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("document_documents", "approveReplace", kparams);
+	},
+	
+	/**
+	 * Cancels document replacement.
+	 * @param	entryId	string		Document entry id to cancel (optional)
+	 **/
+	cancelReplace: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("document_documents", "cancelReplace", kparams);
+	},
+	
+	/**
 	 * Convert entry.
 	 * @param	entryId	string		Document entry id (optional)
 	 * @param	conversionProfileId	int		 (optional, default: null)
@@ -68,6 +88,27 @@ var KalturaDocumentsService = {
 	},
 	
 	/**
+	 * This will queue a batch job for converting the document file to swf
+ *		 Returns the URL where the new swf will be available.
+	 * @param	entryId	string		 (optional)
+	 **/
+	convertPptToSwf: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("document_documents", "convertPptToSwf", kparams);
+	},
+	
+	/**
+	 * Delete a document entry..
+	 * @param	entryId	string		Document entry id to delete (optional)
+	 **/
+	deleteAction: function(entryId){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("document_documents", "delete", kparams);
+	},
+	
+	/**
 	 * Get document entry by ID..
 	 * @param	entryId	string		Document entry id (optional)
 	 * @param	version	int		Desired version of the data (optional, default: -1)
@@ -79,28 +120,6 @@ var KalturaDocumentsService = {
 		kparams.entryId = entryId;
 		kparams.version = version;
 		return new KalturaRequestBuilder("document_documents", "get", kparams);
-	},
-	
-	/**
-	 * Update document entry. Only the properties that were set will be updated..
-	 * @param	entryId	string		Document entry id to update (optional)
-	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata to update (optional)
-	 **/
-	update: function(entryId, documentEntry){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.documentEntry = documentEntry;
-		return new KalturaRequestBuilder("document_documents", "update", kparams);
-	},
-	
-	/**
-	 * Delete a document entry..
-	 * @param	entryId	string		Document entry id to delete (optional)
-	 **/
-	deleteAction: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("document_documents", "delete", kparams);
 	},
 	
 	/**
@@ -122,14 +141,15 @@ var KalturaDocumentsService = {
 	},
 	
 	/**
-	 * This will queue a batch job for converting the document file to swf
- *		 Returns the URL where the new swf will be available.
-	 * @param	entryId	string		 (optional)
+	 * Update document entry. Only the properties that were set will be updated..
+	 * @param	entryId	string		Document entry id to update (optional)
+	 * @param	documentEntry	KalturaDocumentEntry		Document entry metadata to update (optional)
 	 **/
-	convertPptToSwf: function(entryId){
+	update: function(entryId, documentEntry){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("document_documents", "convertPptToSwf", kparams);
+		kparams.documentEntry = documentEntry;
+		return new KalturaRequestBuilder("document_documents", "update", kparams);
 	},
 	
 	/**
@@ -146,25 +166,5 @@ var KalturaDocumentsService = {
 		kparams.resource = resource;
 		kparams.conversionProfileId = conversionProfileId;
 		return new KalturaRequestBuilder("document_documents", "updateContent", kparams);
-	},
-	
-	/**
-	 * Approves document replacement.
-	 * @param	entryId	string		document entry id to replace (optional)
-	 **/
-	approveReplace: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("document_documents", "approveReplace", kparams);
-	},
-	
-	/**
-	 * Cancels document replacement.
-	 * @param	entryId	string		Document entry id to cancel (optional)
-	 **/
-	cancelReplace: function(entryId){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("document_documents", "cancelReplace", kparams);
 	}
 }

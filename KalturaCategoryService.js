@@ -14,28 +14,6 @@ var KalturaCategoryService = {
 	},
 	
 	/**
-	 * Get Category by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("category", "get", kparams);
-	},
-	
-	/**
-	 * Update Category.
-	 * @param	id	int		 (optional)
-	 * @param	category	KalturaCategory		 (optional)
-	 **/
-	update: function(id, category){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.category = category;
-		return new KalturaRequestBuilder("category", "update", kparams);
-	},
-	
-	/**
 	 * Delete a Category.
 	 * @param	id	int		 (optional)
 	 * @param	moveEntriesToParentCategory	int		 (optional, enum: KalturaNullableBoolean, default: 1)
@@ -47,6 +25,30 @@ var KalturaCategoryService = {
 		kparams.id = id;
 		kparams.moveEntriesToParentCategory = moveEntriesToParentCategory;
 		return new KalturaRequestBuilder("category", "delete", kparams);
+	},
+	
+	/**
+	 * Get Category by id.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("category", "get", kparams);
+	},
+	
+	/**
+	 * Index Category by id.
+	 * @param	id	int		 (optional)
+	 * @param	shouldUpdate	bool		 (optional, default: true)
+	 **/
+	index: function(id, shouldUpdate){
+		if(!shouldUpdate)
+			shouldUpdate = true;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.shouldUpdate = shouldUpdate;
+		return new KalturaRequestBuilder("category", "index", kparams);
 	},
 	
 	/**
@@ -68,20 +70,6 @@ var KalturaCategoryService = {
 	},
 	
 	/**
-	 * Index Category by id.
-	 * @param	id	int		 (optional)
-	 * @param	shouldUpdate	bool		 (optional, default: true)
-	 **/
-	index: function(id, shouldUpdate){
-		if(!shouldUpdate)
-			shouldUpdate = true;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.shouldUpdate = shouldUpdate;
-		return new KalturaRequestBuilder("category", "index", kparams);
-	},
-	
-	/**
 	 * Move categories that belong to the same parent category to a target categroy - enabled only for ks with disable entitlement.
 	 * @param	categoryIds	string		 (optional)
 	 * @param	targetCategoryParentId	int		 (optional)
@@ -99,5 +87,17 @@ var KalturaCategoryService = {
 	unlockCategories: function(){
 		var kparams = new Object();
 		return new KalturaRequestBuilder("category", "unlockCategories", kparams);
+	},
+	
+	/**
+	 * Update Category.
+	 * @param	id	int		 (optional)
+	 * @param	category	KalturaCategory		 (optional)
+	 **/
+	update: function(id, category){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.category = category;
+		return new KalturaRequestBuilder("category", "update", kparams);
 	}
 }

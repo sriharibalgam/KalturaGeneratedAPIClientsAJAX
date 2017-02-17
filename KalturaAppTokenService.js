@@ -14,28 +14,6 @@ var KalturaAppTokenService = {
 	},
 	
 	/**
-	 * Get application authentication token by id.
-	 * @param	id	string		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("apptoken", "get", kparams);
-	},
-	
-	/**
-	 * Update application authentication token by id.
-	 * @param	id	string		 (optional)
-	 * @param	appToken	KalturaAppToken		 (optional)
-	 **/
-	update: function(id, appToken){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.appToken = appToken;
-		return new KalturaRequestBuilder("apptoken", "update", kparams);
-	},
-	
-	/**
 	 * Delete application authentication token by id.
 	 * @param	id	string		 (optional)
 	 **/
@@ -43,6 +21,16 @@ var KalturaAppTokenService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("apptoken", "delete", kparams);
+	},
+	
+	/**
+	 * Get application authentication token by id.
+	 * @param	id	string		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("apptoken", "get", kparams);
 	},
 	
 	/**
@@ -85,5 +73,17 @@ var KalturaAppTokenService = {
 		kparams.type = type;
 		kparams.expiry = expiry;
 		return new KalturaRequestBuilder("apptoken", "startSession", kparams);
+	},
+	
+	/**
+	 * Update application authentication token by id.
+	 * @param	id	string		 (optional)
+	 * @param	appToken	KalturaAppToken		 (optional)
+	 **/
+	update: function(id, appToken){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.appToken = appToken;
+		return new KalturaRequestBuilder("apptoken", "update", kparams);
 	}
 }

@@ -14,25 +14,13 @@ var KalturaScheduleEventService = {
 	},
 	
 	/**
-	 * Retrieve a KalturaScheduleEvent object by ID.
+	 * Mark the KalturaScheduleEvent object as cancelled.
 	 * @param	scheduleEventId	int		 (optional)
 	 **/
-	get: function(scheduleEventId){
+	cancel: function(scheduleEventId){
 		var kparams = new Object();
 		kparams.scheduleEventId = scheduleEventId;
-		return new KalturaRequestBuilder("schedule_scheduleevent", "get", kparams);
-	},
-	
-	/**
-	 * Update an existing KalturaScheduleEvent object.
-	 * @param	scheduleEventId	int		 (optional)
-	 * @param	scheduleEvent	KalturaScheduleEvent		Id (optional)
-	 **/
-	update: function(scheduleEventId, scheduleEvent){
-		var kparams = new Object();
-		kparams.scheduleEventId = scheduleEventId;
-		kparams.scheduleEvent = scheduleEvent;
-		return new KalturaRequestBuilder("schedule_scheduleevent", "update", kparams);
+		return new KalturaRequestBuilder("schedule_scheduleevent", "cancel", kparams);
 	},
 	
 	/**
@@ -46,13 +34,25 @@ var KalturaScheduleEventService = {
 	},
 	
 	/**
-	 * Mark the KalturaScheduleEvent object as cancelled.
+	 * Retrieve a KalturaScheduleEvent object by ID.
 	 * @param	scheduleEventId	int		 (optional)
 	 **/
-	cancel: function(scheduleEventId){
+	get: function(scheduleEventId){
 		var kparams = new Object();
 		kparams.scheduleEventId = scheduleEventId;
-		return new KalturaRequestBuilder("schedule_scheduleevent", "cancel", kparams);
+		return new KalturaRequestBuilder("schedule_scheduleevent", "get", kparams);
+	},
+	
+	/**
+	 * List conflicting events for resourcesIds by event's dates.
+	 * @param	resourceIds	string		comma separated (optional)
+	 * @param	scheduleEvent	KalturaScheduleEvent		 (optional)
+	 **/
+	getConflicts: function(resourceIds, scheduleEvent){
+		var kparams = new Object();
+		kparams.resourceIds = resourceIds;
+		kparams.scheduleEvent = scheduleEvent;
+		return new KalturaRequestBuilder("schedule_scheduleevent", "getConflicts", kparams);
 	},
 	
 	/**
@@ -74,14 +74,14 @@ var KalturaScheduleEventService = {
 	},
 	
 	/**
-	 * List conflicting events for resourcesIds by event's dates.
-	 * @param	resourceIds	string		comma separated (optional)
-	 * @param	scheduleEvent	KalturaScheduleEvent		 (optional)
+	 * Update an existing KalturaScheduleEvent object.
+	 * @param	scheduleEventId	int		 (optional)
+	 * @param	scheduleEvent	KalturaScheduleEvent		Id (optional)
 	 **/
-	getConflicts: function(resourceIds, scheduleEvent){
+	update: function(scheduleEventId, scheduleEvent){
 		var kparams = new Object();
-		kparams.resourceIds = resourceIds;
+		kparams.scheduleEventId = scheduleEventId;
 		kparams.scheduleEvent = scheduleEvent;
-		return new KalturaRequestBuilder("schedule_scheduleevent", "getConflicts", kparams);
+		return new KalturaRequestBuilder("schedule_scheduleevent", "update", kparams);
 	}
 }

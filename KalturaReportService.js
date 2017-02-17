@@ -4,6 +4,36 @@
  **/
 var KalturaReportService = {
 	/**
+	 * .
+	 * @param	id	int		 (optional)
+	 * @param	params	array		 (optional, default: null)
+	 **/
+	execute: function(id, params){
+		if(!params)
+			params = null;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.params = params;
+		return new KalturaRequestBuilder("report", "execute", kparams);
+	},
+	
+	/**
+	 * report getBaseTotal action allows to get a the total base for storage reports.
+	 * @param	reportType	string		 (optional, enum: KalturaReportType)
+	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
+	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
+	 **/
+	getBaseTotal: function(reportType, reportInputFilter, objectIds){
+		if(!objectIds)
+			objectIds = null;
+		var kparams = new Object();
+		kparams.reportType = reportType;
+		kparams.reportInputFilter = reportInputFilter;
+		kparams.objectIds = objectIds;
+		return new KalturaRequestBuilder("report", "getBaseTotal", kparams);
+	},
+	
+	/**
 	 * report getGraphs action allows to get a graph data for a specific report..
 	 * @param	reportType	string		 (optional, enum: KalturaReportType)
 	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
@@ -21,38 +51,6 @@ var KalturaReportService = {
 		kparams.dimension = dimension;
 		kparams.objectIds = objectIds;
 		return new KalturaRequestBuilder("report", "getGraphs", kparams);
-	},
-	
-	/**
-	 * report getTotal action allows to get a graph data for a specific report..
-	 * @param	reportType	string		 (optional, enum: KalturaReportType)
-	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
-	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
-	 **/
-	getTotal: function(reportType, reportInputFilter, objectIds){
-		if(!objectIds)
-			objectIds = null;
-		var kparams = new Object();
-		kparams.reportType = reportType;
-		kparams.reportInputFilter = reportInputFilter;
-		kparams.objectIds = objectIds;
-		return new KalturaRequestBuilder("report", "getTotal", kparams);
-	},
-	
-	/**
-	 * report getBaseTotal action allows to get a the total base for storage reports.
-	 * @param	reportType	string		 (optional, enum: KalturaReportType)
-	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
-	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
-	 **/
-	getBaseTotal: function(reportType, reportInputFilter, objectIds){
-		if(!objectIds)
-			objectIds = null;
-		var kparams = new Object();
-		kparams.reportType = reportType;
-		kparams.reportInputFilter = reportInputFilter;
-		kparams.objectIds = objectIds;
-		return new KalturaRequestBuilder("report", "getBaseTotal", kparams);
 	},
 	
 	/**
@@ -75,6 +73,22 @@ var KalturaReportService = {
 		kparams.order = order;
 		kparams.objectIds = objectIds;
 		return new KalturaRequestBuilder("report", "getTable", kparams);
+	},
+	
+	/**
+	 * report getTotal action allows to get a graph data for a specific report..
+	 * @param	reportType	string		 (optional, enum: KalturaReportType)
+	 * @param	reportInputFilter	KalturaReportInputFilter		 (optional)
+	 * @param	objectIds	string		- one ID or more (separated by ',') of specific objects to query (optional, default: null)
+	 **/
+	getTotal: function(reportType, reportInputFilter, objectIds){
+		if(!objectIds)
+			objectIds = null;
+		var kparams = new Object();
+		kparams.reportType = reportType;
+		kparams.reportInputFilter = reportInputFilter;
+		kparams.objectIds = objectIds;
+		return new KalturaRequestBuilder("report", "getTotal", kparams);
 	},
 	
 	/**
@@ -120,19 +134,5 @@ var KalturaReportService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("report", "serve", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	id	int		 (optional)
-	 * @param	params	array		 (optional, default: null)
-	 **/
-	execute: function(id, params){
-		if(!params)
-			params = null;
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.params = params;
-		return new KalturaRequestBuilder("report", "execute", kparams);
 	}
 }

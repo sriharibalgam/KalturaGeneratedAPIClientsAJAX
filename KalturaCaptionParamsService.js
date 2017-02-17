@@ -14,28 +14,6 @@ var KalturaCaptionParamsService = {
 	},
 	
 	/**
-	 * Get Caption Params by ID.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("caption_captionparams", "get", kparams);
-	},
-	
-	/**
-	 * Update Caption Params by ID.
-	 * @param	id	int		 (optional)
-	 * @param	captionParams	KalturaCaptionParams		 (optional)
-	 **/
-	update: function(id, captionParams){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.captionParams = captionParams;
-		return new KalturaRequestBuilder("caption_captionparams", "update", kparams);
-	},
-	
-	/**
 	 * Delete Caption Params by ID.
 	 * @param	id	int		 (optional)
 	 **/
@@ -43,6 +21,16 @@ var KalturaCaptionParamsService = {
 		var kparams = new Object();
 		kparams.id = id;
 		return new KalturaRequestBuilder("caption_captionparams", "delete", kparams);
+	},
+	
+	/**
+	 * Get Caption Params by ID.
+	 * @param	id	int		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("caption_captionparams", "get", kparams);
 	},
 	
 	/**
@@ -61,5 +49,17 @@ var KalturaCaptionParamsService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("caption_captionparams", "list", kparams);
+	},
+	
+	/**
+	 * Update Caption Params by ID.
+	 * @param	id	int		 (optional)
+	 * @param	captionParams	KalturaCaptionParams		 (optional)
+	 **/
+	update: function(id, captionParams){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.captionParams = captionParams;
+		return new KalturaRequestBuilder("caption_captionparams", "update", kparams);
 	}
 }

@@ -14,6 +14,16 @@ var KalturaScheduledTaskProfileService = {
 	},
 	
 	/**
+	 * Delete a scheduled task profile.
+	 * @param	id	int		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("scheduledtask_scheduledtaskprofile", "delete", kparams);
+	},
+	
+	/**
 	 * Retrieve a scheduled task profile by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -24,25 +34,13 @@ var KalturaScheduledTaskProfileService = {
 	},
 	
 	/**
-	 * Update an existing scheduled task profile.
-	 * @param	id	int		 (optional)
-	 * @param	scheduledTaskProfile	KalturaScheduledTaskProfile		 (optional)
+	 * .
+	 * @param	requestId	int		 (optional)
 	 **/
-	update: function(id, scheduledTaskProfile){
+	getDryRunResults: function(requestId){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.scheduledTaskProfile = scheduledTaskProfile;
-		return new KalturaRequestBuilder("scheduledtask_scheduledtaskprofile", "update", kparams);
-	},
-	
-	/**
-	 * Delete a scheduled task profile.
-	 * @param	id	int		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("scheduledtask_scheduledtaskprofile", "delete", kparams);
+		kparams.requestId = requestId;
+		return new KalturaRequestBuilder("scheduledtask_scheduledtaskprofile", "getDryRunResults", kparams);
 	},
 	
 	/**
@@ -78,12 +76,14 @@ var KalturaScheduledTaskProfileService = {
 	},
 	
 	/**
-	 * .
-	 * @param	requestId	int		 (optional)
+	 * Update an existing scheduled task profile.
+	 * @param	id	int		 (optional)
+	 * @param	scheduledTaskProfile	KalturaScheduledTaskProfile		 (optional)
 	 **/
-	getDryRunResults: function(requestId){
+	update: function(id, scheduledTaskProfile){
 		var kparams = new Object();
-		kparams.requestId = requestId;
-		return new KalturaRequestBuilder("scheduledtask_scheduledtaskprofile", "getDryRunResults", kparams);
+		kparams.id = id;
+		kparams.scheduledTaskProfile = scheduledTaskProfile;
+		return new KalturaRequestBuilder("scheduledtask_scheduledtaskprofile", "update", kparams);
 	}
 }

@@ -14,32 +14,6 @@ var KalturaScheduleEventResourceService = {
 	},
 	
 	/**
-	 * Retrieve a KalturaScheduleEventResource object by ID.
-	 * @param	scheduleEventId	int		 (optional)
-	 * @param	scheduleResourceId	int		 (optional)
-	 **/
-	get: function(scheduleEventId, scheduleResourceId){
-		var kparams = new Object();
-		kparams.scheduleEventId = scheduleEventId;
-		kparams.scheduleResourceId = scheduleResourceId;
-		return new KalturaRequestBuilder("schedule_scheduleeventresource", "get", kparams);
-	},
-	
-	/**
-	 * Update an existing KalturaScheduleEventResource object.
-	 * @param	scheduleEventId	int		 (optional)
-	 * @param	scheduleResourceId	int		 (optional)
-	 * @param	scheduleEventResource	KalturaScheduleEventResource		 (optional)
-	 **/
-	update: function(scheduleEventId, scheduleResourceId, scheduleEventResource){
-		var kparams = new Object();
-		kparams.scheduleEventId = scheduleEventId;
-		kparams.scheduleResourceId = scheduleResourceId;
-		kparams.scheduleEventResource = scheduleEventResource;
-		return new KalturaRequestBuilder("schedule_scheduleeventresource", "update", kparams);
-	},
-	
-	/**
 	 * Mark the KalturaScheduleEventResource object as deleted.
 	 * @param	scheduleEventId	int		 (optional)
 	 * @param	scheduleResourceId	int		 (optional)
@@ -49,6 +23,18 @@ var KalturaScheduleEventResourceService = {
 		kparams.scheduleEventId = scheduleEventId;
 		kparams.scheduleResourceId = scheduleResourceId;
 		return new KalturaRequestBuilder("schedule_scheduleeventresource", "delete", kparams);
+	},
+	
+	/**
+	 * Retrieve a KalturaScheduleEventResource object by ID.
+	 * @param	scheduleEventId	int		 (optional)
+	 * @param	scheduleResourceId	int		 (optional)
+	 **/
+	get: function(scheduleEventId, scheduleResourceId){
+		var kparams = new Object();
+		kparams.scheduleEventId = scheduleEventId;
+		kparams.scheduleResourceId = scheduleResourceId;
+		return new KalturaRequestBuilder("schedule_scheduleeventresource", "get", kparams);
 	},
 	
 	/**
@@ -67,5 +53,19 @@ var KalturaScheduleEventResourceService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("schedule_scheduleeventresource", "list", kparams);
+	},
+	
+	/**
+	 * Update an existing KalturaScheduleEventResource object.
+	 * @param	scheduleEventId	int		 (optional)
+	 * @param	scheduleResourceId	int		 (optional)
+	 * @param	scheduleEventResource	KalturaScheduleEventResource		 (optional)
+	 **/
+	update: function(scheduleEventId, scheduleResourceId, scheduleEventResource){
+		var kparams = new Object();
+		kparams.scheduleEventId = scheduleEventId;
+		kparams.scheduleResourceId = scheduleResourceId;
+		kparams.scheduleEventResource = scheduleEventResource;
+		return new KalturaRequestBuilder("schedule_scheduleeventresource", "update", kparams);
 	}
 }

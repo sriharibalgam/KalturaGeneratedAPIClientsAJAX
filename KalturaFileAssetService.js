@@ -14,28 +14,6 @@ var KalturaFileAssetService = {
 	},
 	
 	/**
-	 * Get file asset by id.
-	 * @param	id	int		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("fileasset", "get", kparams);
-	},
-	
-	/**
-	 * Update file asset by id.
-	 * @param	id	int		 (optional)
-	 * @param	fileAsset	KalturaFileAsset		 (optional)
-	 **/
-	update: function(id, fileAsset){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.fileAsset = fileAsset;
-		return new KalturaRequestBuilder("fileasset", "update", kparams);
-	},
-	
-	/**
 	 * Delete file asset by id.
 	 * @param	id	int		 (optional)
 	 **/
@@ -46,15 +24,13 @@ var KalturaFileAssetService = {
 	},
 	
 	/**
-	 * Set content of file asset.
-	 * @param	id	string		 (optional)
-	 * @param	contentResource	KalturaContentResource		 (optional)
+	 * Get file asset by id.
+	 * @param	id	int		 (optional)
 	 **/
-	setContent: function(id, contentResource){
+	get: function(id){
 		var kparams = new Object();
 		kparams.id = id;
-		kparams.contentResource = contentResource;
-		return new KalturaRequestBuilder("fileasset", "setContent", kparams);
+		return new KalturaRequestBuilder("fileasset", "get", kparams);
 	},
 	
 	/**
@@ -70,5 +46,29 @@ var KalturaFileAssetService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("fileasset", "list", kparams);
+	},
+	
+	/**
+	 * Set content of file asset.
+	 * @param	id	string		 (optional)
+	 * @param	contentResource	KalturaContentResource		 (optional)
+	 **/
+	setContent: function(id, contentResource){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.contentResource = contentResource;
+		return new KalturaRequestBuilder("fileasset", "setContent", kparams);
+	},
+	
+	/**
+	 * Update file asset by id.
+	 * @param	id	int		 (optional)
+	 * @param	fileAsset	KalturaFileAsset		 (optional)
+	 **/
+	update: function(id, fileAsset){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.fileAsset = fileAsset;
+		return new KalturaRequestBuilder("fileasset", "update", kparams);
 	}
 }

@@ -16,50 +16,37 @@ var KalturaThumbAssetService = {
 	},
 	
 	/**
-	 * Update content of thumbnail asset.
-	 * @param	id	string		 (optional)
-	 * @param	contentResource	KalturaContentResource		 (optional)
+	 * .
+	 * @param	entryId	string		 (optional)
+	 * @param	url	string		 (optional)
 	 **/
-	setContent: function(id, contentResource){
+	addFromUrl: function(entryId, url){
 		var kparams = new Object();
-		kparams.id = id;
-		kparams.contentResource = contentResource;
-		return new KalturaRequestBuilder("thumbasset", "setContent", kparams);
-	},
-	
-	/**
-	 * Update thumbnail asset.
-	 * @param	id	string		 (optional)
-	 * @param	thumbAsset	KalturaThumbAsset		 (optional)
-	 **/
-	update: function(id, thumbAsset){
-		var kparams = new Object();
-		kparams.id = id;
-		kparams.thumbAsset = thumbAsset;
-		return new KalturaRequestBuilder("thumbasset", "update", kparams);
-	},
-	
-	/**
-	 * Tags the thumbnail as DEFAULT_THUMB and removes that tag from all other thumbnail assets of the entry.
- *		 Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync..
-	 * @param	thumbAssetId	string		 (optional)
-	 **/
-	setAsDefault: function(thumbAssetId){
-		var kparams = new Object();
-		kparams.thumbAssetId = thumbAssetId;
-		return new KalturaRequestBuilder("thumbasset", "setAsDefault", kparams);
+		kparams.entryId = entryId;
+		kparams.url = url;
+		return new KalturaRequestBuilder("thumbasset", "addFromUrl", kparams);
 	},
 	
 	/**
 	 * .
-	 * @param	entryId	string		 (optional)
-	 * @param	destThumbParamsId	int		indicate the id of the ThumbParams to be generate this thumbnail by (optional)
+	 * @param	thumbAssetId	string		 (optional)
 	 **/
-	generateByEntryId: function(entryId, destThumbParamsId){
+	deleteAction: function(thumbAssetId){
 		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.destThumbParamsId = destThumbParamsId;
-		return new KalturaRequestBuilder("thumbasset", "generateByEntryId", kparams);
+		kparams.thumbAssetId = thumbAssetId;
+		return new KalturaRequestBuilder("thumbasset", "delete", kparams);
+	},
+	
+	/**
+	 * manually export an asset.
+	 * @param	assetId	string		 (optional)
+	 * @param	storageProfileId	int		 (optional)
+	 **/
+	exportAction: function(assetId, storageProfileId){
+		var kparams = new Object();
+		kparams.assetId = assetId;
+		kparams.storageProfileId = storageProfileId;
+		return new KalturaRequestBuilder("thumbasset", "export", kparams);
 	},
 	
 	/**
@@ -80,12 +67,14 @@ var KalturaThumbAssetService = {
 	
 	/**
 	 * .
-	 * @param	thumbAssetId	string		 (optional)
+	 * @param	entryId	string		 (optional)
+	 * @param	destThumbParamsId	int		indicate the id of the ThumbParams to be generate this thumbnail by (optional)
 	 **/
-	regenerate: function(thumbAssetId){
+	generateByEntryId: function(entryId, destThumbParamsId){
 		var kparams = new Object();
-		kparams.thumbAssetId = thumbAssetId;
-		return new KalturaRequestBuilder("thumbasset", "regenerate", kparams);
+		kparams.entryId = entryId;
+		kparams.destThumbParamsId = destThumbParamsId;
+		return new KalturaRequestBuilder("thumbasset", "generateByEntryId", kparams);
 	},
 	
 	/**
@@ -109,43 +98,13 @@ var KalturaThumbAssetService = {
 	},
 	
 	/**
-	 * List Thumbnail Assets by filter and pager.
-	 * @param	filter	KalturaAssetFilter		 (optional, default: null)
-	 * @param	pager	KalturaFilterPager		 (optional, default: null)
+	 * Get remote storage existing paths for the asset.
+	 * @param	id	string		 (optional)
 	 **/
-	listAction: function(filter, pager){
-		if(!filter)
-			filter = null;
-		if(!pager)
-			pager = null;
+	getRemotePaths: function(id){
 		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("thumbasset", "list", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	entryId	string		 (optional)
-	 * @param	url	string		 (optional)
-	 **/
-	addFromUrl: function(entryId, url){
-		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.url = url;
-		return new KalturaRequestBuilder("thumbasset", "addFromUrl", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	thumbAssetId	string		 (optional)
-	 **/
-	deleteAction: function(thumbAssetId){
-		var kparams = new Object();
-		kparams.thumbAssetId = thumbAssetId;
-		return new KalturaRequestBuilder("thumbasset", "delete", kparams);
+		kparams.id = id;
+		return new KalturaRequestBuilder("thumbasset", "getRemotePaths", kparams);
 	},
 	
 	/**
@@ -168,24 +127,65 @@ var KalturaThumbAssetService = {
 	},
 	
 	/**
-	 * Get remote storage existing paths for the asset.
-	 * @param	id	string		 (optional)
+	 * List Thumbnail Assets by filter and pager.
+	 * @param	filter	KalturaAssetFilter		 (optional, default: null)
+	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 **/
-	getRemotePaths: function(id){
+	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
 		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("thumbasset", "getRemotePaths", kparams);
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("thumbasset", "list", kparams);
 	},
 	
 	/**
-	 * manually export an asset.
-	 * @param	assetId	string		 (optional)
-	 * @param	storageProfileId	int		 (optional)
+	 * .
+	 * @param	thumbAssetId	string		 (optional)
 	 **/
-	exportAction: function(assetId, storageProfileId){
+	regenerate: function(thumbAssetId){
 		var kparams = new Object();
-		kparams.assetId = assetId;
-		kparams.storageProfileId = storageProfileId;
-		return new KalturaRequestBuilder("thumbasset", "export", kparams);
+		kparams.thumbAssetId = thumbAssetId;
+		return new KalturaRequestBuilder("thumbasset", "regenerate", kparams);
+	},
+	
+	/**
+	 * Tags the thumbnail as DEFAULT_THUMB and removes that tag from all other thumbnail assets of the entry.
+ *		 Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync..
+	 * @param	thumbAssetId	string		 (optional)
+	 **/
+	setAsDefault: function(thumbAssetId){
+		var kparams = new Object();
+		kparams.thumbAssetId = thumbAssetId;
+		return new KalturaRequestBuilder("thumbasset", "setAsDefault", kparams);
+	},
+	
+	/**
+	 * Update content of thumbnail asset.
+	 * @param	id	string		 (optional)
+	 * @param	contentResource	KalturaContentResource		 (optional)
+	 **/
+	setContent: function(id, contentResource){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.contentResource = contentResource;
+		return new KalturaRequestBuilder("thumbasset", "setContent", kparams);
+	},
+	
+	/**
+	 * Update thumbnail asset.
+	 * @param	id	string		 (optional)
+	 * @param	thumbAsset	KalturaThumbAsset		 (optional)
+	 **/
+	update: function(id, thumbAsset){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.thumbAsset = thumbAsset;
+		return new KalturaRequestBuilder("thumbasset", "update", kparams);
 	}
 }

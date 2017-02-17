@@ -15,58 +15,37 @@ var KalturaMixingService = {
 	},
 	
 	/**
-	 * Get mix entry by id..
-	 * @param	entryId	string		Mix entry id (optional)
-	 * @param	version	int		Desired version of the data (optional, default: -1)
+	 * Anonymously rank a mix entry, no validation is done on duplicate rankings.
+	 * @param	entryId	string		 (optional)
+	 * @param	rank	int		 (optional)
 	 **/
-	get: function(entryId, version){
-		if(!version)
-			version = -1;
+	anonymousRank: function(entryId, rank){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		kparams.version = version;
-		return new KalturaRequestBuilder("mixing", "get", kparams);
+		kparams.rank = rank;
+		return new KalturaRequestBuilder("mixing", "anonymousRank", kparams);
 	},
 	
 	/**
-	 * Update mix entry. Only the properties that were set will be updated..
-	 * @param	entryId	string		Mix entry id to update (optional)
-	 * @param	mixEntry	KalturaMixEntry		Mix entry metadata to update (optional)
+	 * Appends a media entry to a the end of the mix timeline, this will save the mix timeline as a new version..
+	 * @param	mixEntryId	string		Mix entry to append to its timeline (optional)
+	 * @param	mediaEntryId	string		Media entry to append to the timeline (optional)
 	 **/
-	update: function(entryId, mixEntry){
+	appendMediaEntry: function(mixEntryId, mediaEntryId){
 		var kparams = new Object();
-		kparams.entryId = entryId;
-		kparams.mixEntry = mixEntry;
-		return new KalturaRequestBuilder("mixing", "update", kparams);
+		kparams.mixEntryId = mixEntryId;
+		kparams.mediaEntryId = mediaEntryId;
+		return new KalturaRequestBuilder("mixing", "appendMediaEntry", kparams);
 	},
 	
 	/**
-	 * Delete a mix entry..
-	 * @param	entryId	string		Mix entry id to delete (optional)
+	 * Clones an existing mix..
+	 * @param	entryId	string		Mix entry id to clone (optional)
 	 **/
-	deleteAction: function(entryId){
+	cloneAction: function(entryId){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("mixing", "delete", kparams);
-	},
-	
-	/**
-	 * List entries by filter with paging support.
- *		 Return parameter is an array of mix entries..
-	 * @param	filter	KalturaMixEntryFilter		Mix entry filter (optional, default: null)
-	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
-	 **/
-	listAction: function(filter, pager){
-		if(!filter)
-			filter = null;
-		if(!pager)
-			pager = null;
-		var kparams = new Object();
-		if (filter != null)
-			kparams.filter = filter;
-		if (pager != null)
-			kparams.pager = pager;
-		return new KalturaRequestBuilder("mixing", "list", kparams);
+		return new KalturaRequestBuilder("mixing", "clone", kparams);
 	},
 	
 	/**
@@ -83,25 +62,27 @@ var KalturaMixingService = {
 	},
 	
 	/**
-	 * Clones an existing mix..
-	 * @param	entryId	string		Mix entry id to clone (optional)
+	 * Delete a mix entry..
+	 * @param	entryId	string		Mix entry id to delete (optional)
 	 **/
-	cloneAction: function(entryId){
+	deleteAction: function(entryId){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		return new KalturaRequestBuilder("mixing", "clone", kparams);
+		return new KalturaRequestBuilder("mixing", "delete", kparams);
 	},
 	
 	/**
-	 * Appends a media entry to a the end of the mix timeline, this will save the mix timeline as a new version..
-	 * @param	mixEntryId	string		Mix entry to append to its timeline (optional)
-	 * @param	mediaEntryId	string		Media entry to append to the timeline (optional)
+	 * Get mix entry by id..
+	 * @param	entryId	string		Mix entry id (optional)
+	 * @param	version	int		Desired version of the data (optional, default: -1)
 	 **/
-	appendMediaEntry: function(mixEntryId, mediaEntryId){
+	get: function(entryId, version){
+		if(!version)
+			version = -1;
 		var kparams = new Object();
-		kparams.mixEntryId = mixEntryId;
-		kparams.mediaEntryId = mediaEntryId;
-		return new KalturaRequestBuilder("mixing", "appendMediaEntry", kparams);
+		kparams.entryId = entryId;
+		kparams.version = version;
+		return new KalturaRequestBuilder("mixing", "get", kparams);
 	},
 	
 	/**
@@ -129,14 +110,33 @@ var KalturaMixingService = {
 	},
 	
 	/**
-	 * Anonymously rank a mix entry, no validation is done on duplicate rankings.
-	 * @param	entryId	string		 (optional)
-	 * @param	rank	int		 (optional)
+	 * List entries by filter with paging support.
+ *		 Return parameter is an array of mix entries..
+	 * @param	filter	KalturaMixEntryFilter		Mix entry filter (optional, default: null)
+	 * @param	pager	KalturaFilterPager		Pager (optional, default: null)
 	 **/
-	anonymousRank: function(entryId, rank){
+	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
+		if(!pager)
+			pager = null;
+		var kparams = new Object();
+		if (filter != null)
+			kparams.filter = filter;
+		if (pager != null)
+			kparams.pager = pager;
+		return new KalturaRequestBuilder("mixing", "list", kparams);
+	},
+	
+	/**
+	 * Update mix entry. Only the properties that were set will be updated..
+	 * @param	entryId	string		Mix entry id to update (optional)
+	 * @param	mixEntry	KalturaMixEntry		Mix entry metadata to update (optional)
+	 **/
+	update: function(entryId, mixEntry){
 		var kparams = new Object();
 		kparams.entryId = entryId;
-		kparams.rank = rank;
-		return new KalturaRequestBuilder("mixing", "anonymousRank", kparams);
+		kparams.mixEntry = mixEntry;
+		return new KalturaRequestBuilder("mixing", "update", kparams);
 	}
 }

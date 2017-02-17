@@ -4,6 +4,36 @@
  **/
 var KalturaShortLinkService = {
 	/**
+	 * Allows you to add a short link object.
+	 * @param	shortLink	KalturaShortLink		 (optional)
+	 **/
+	add: function(shortLink){
+		var kparams = new Object();
+		kparams.shortLink = shortLink;
+		return new KalturaRequestBuilder("shortlink_shortlink", "add", kparams);
+	},
+	
+	/**
+	 * Mark the short link as deleted.
+	 * @param	id	string		 (optional)
+	 **/
+	deleteAction: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("shortlink_shortlink", "delete", kparams);
+	},
+	
+	/**
+	 * Retrieve an short link object by id.
+	 * @param	id	string		 (optional)
+	 **/
+	get: function(id){
+		var kparams = new Object();
+		kparams.id = id;
+		return new KalturaRequestBuilder("shortlink_shortlink", "get", kparams);
+	},
+	
+	/**
 	 * List short link objects by filter and pager.
 	 * @param	filter	KalturaShortLinkFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
@@ -22,26 +52,6 @@ var KalturaShortLinkService = {
 	},
 	
 	/**
-	 * Allows you to add a short link object.
-	 * @param	shortLink	KalturaShortLink		 (optional)
-	 **/
-	add: function(shortLink){
-		var kparams = new Object();
-		kparams.shortLink = shortLink;
-		return new KalturaRequestBuilder("shortlink_shortlink", "add", kparams);
-	},
-	
-	/**
-	 * Retrieve an short link object by id.
-	 * @param	id	string		 (optional)
-	 **/
-	get: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("shortlink_shortlink", "get", kparams);
-	},
-	
-	/**
 	 * Update exisitng short link.
 	 * @param	id	string		 (optional)
 	 * @param	shortLink	KalturaShortLink		 (optional)
@@ -51,15 +61,5 @@ var KalturaShortLinkService = {
 		kparams.id = id;
 		kparams.shortLink = shortLink;
 		return new KalturaRequestBuilder("shortlink_shortlink", "update", kparams);
-	},
-	
-	/**
-	 * Mark the short link as deleted.
-	 * @param	id	string		 (optional)
-	 **/
-	deleteAction: function(id){
-		var kparams = new Object();
-		kparams.id = id;
-		return new KalturaRequestBuilder("shortlink_shortlink", "delete", kparams);
 	}
 }
