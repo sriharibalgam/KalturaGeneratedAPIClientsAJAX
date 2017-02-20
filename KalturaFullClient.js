@@ -6560,6 +6560,26 @@ var KalturaDropFolderService = {
 	},
 	
 	/**
+	 * freeExclusive KalturaDropFolder object.
+	 * @param	dropFolderId	int		 (optional)
+	 * @param	status	int		 (optional)
+	 * @param	errorCode	string		 (optional, default: null)
+	 * @param	errorDescription	string		 (optional, default: null)
+	 **/
+	freeExclusiveDropFolder: function(dropFolderId, status, errorCode, errorDescription){
+		if(!errorCode)
+			errorCode = null;
+		if(!errorDescription)
+			errorDescription = null;
+		var kparams = new Object();
+		kparams.dropFolderId = dropFolderId;
+		kparams.status = status;
+		kparams.errorCode = errorCode;
+		kparams.errorDescription = errorDescription;
+		return new KalturaRequestBuilder("dropfolder_dropfolder", "freeExclusiveDropFolder", kparams);
+	},
+	
+	/**
 	 * Retrieve a KalturaDropFolder object by ID.
 	 * @param	dropFolderId	int		 (optional)
 	 **/
@@ -6567,6 +6587,18 @@ var KalturaDropFolderService = {
 		var kparams = new Object();
 		kparams.dropFolderId = dropFolderId;
 		return new KalturaRequestBuilder("dropfolder_dropfolder", "get", kparams);
+	},
+	
+	/**
+	 * getExclusive KalturaDropFolder object.
+	 * @param	tag	string		 (optional)
+	 * @param	maxTime	int		 (optional)
+	 **/
+	getExclusiveDropFolder: function(tag, maxTime){
+		var kparams = new Object();
+		kparams.tag = tag;
+		kparams.maxTime = maxTime;
+		return new KalturaRequestBuilder("dropfolder_dropfolder", "getExclusiveDropFolder", kparams);
 	},
 	
 	/**
@@ -8305,7 +8337,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-02-19');
+	this.setClientTag('ajax:17-02-20');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
