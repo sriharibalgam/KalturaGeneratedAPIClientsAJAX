@@ -204,16 +204,20 @@ var KalturaLiveStreamService = {
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
 	 * @param	duration	float		in seconds (optional)
 	 * @param	recordedEntryId	string		Recorded entry Id (optional, default: null)
+	 * @param	flavorParamsId	int		Recorded entry Id (optional, default: null)
 	 **/
-	setRecordedContent: function(entryId, mediaServerIndex, resource, duration, recordedEntryId){
+	setRecordedContent: function(entryId, mediaServerIndex, resource, duration, recordedEntryId, flavorParamsId){
 		if(!recordedEntryId)
 			recordedEntryId = null;
+		if(!flavorParamsId)
+			flavorParamsId = null;
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		kparams.mediaServerIndex = mediaServerIndex;
 		kparams.resource = resource;
 		kparams.duration = duration;
 		kparams.recordedEntryId = recordedEntryId;
+		kparams.flavorParamsId = flavorParamsId;
 		return new KalturaRequestBuilder("livestream", "setRecordedContent", kparams);
 	},
 	

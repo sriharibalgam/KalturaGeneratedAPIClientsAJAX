@@ -15,6 +15,16 @@ var KalturaUserEntryService = {
 	
 	/**
 	 * .
+	 * @param	filter	KalturaUserEntryFilter		 (optional)
+	 **/
+	bulkDelete: function(filter){
+		var kparams = new Object();
+		kparams.filter = filter;
+		return new KalturaRequestBuilder("userentry", "bulkDelete", kparams);
+	},
+	
+	/**
+	 * .
 	 * @param	id	int		 (optional)
 	 **/
 	deleteAction: function(id){
