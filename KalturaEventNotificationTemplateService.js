@@ -115,32 +115,6 @@ var KalturaEventNotificationTemplateService = {
 	},
 	
 	/**
-	 * Register to a queue from which event messages will be provided according to given template. Queue will be created if not already exists.
-	 * @param	notificationTemplateSystemName	string		Existing push notification template system name (optional)
-	 * @param	pushNotificationParams	KalturaPushNotificationParams		 (optional)
-	 **/
-	register: function(notificationTemplateSystemName, pushNotificationParams){
-		var kparams = new Object();
-		kparams.notificationTemplateSystemName = notificationTemplateSystemName;
-		kparams.pushNotificationParams = pushNotificationParams;
-		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "register", kparams);
-	},
-	
-	/**
-	 * Clear queue messages.
-	 * @param	notificationTemplateSystemName	string		Existing push notification template system name (optional)
-	 * @param	pushNotificationParams	KalturaPushNotificationParams		 (optional)
-	 * @param	command	string		Command to be sent to push server (optional, enum: KalturaPushNotificationCommandType)
-	 **/
-	sendCommand: function(notificationTemplateSystemName, pushNotificationParams, command){
-		var kparams = new Object();
-		kparams.notificationTemplateSystemName = notificationTemplateSystemName;
-		kparams.pushNotificationParams = pushNotificationParams;
-		kparams.command = command;
-		return new KalturaRequestBuilder("eventnotification_eventnotificationtemplate", "sendCommand", kparams);
-	},
-	
-	/**
 	 * Update an existing event notification template object.
 	 * @param	id	int		 (optional)
 	 * @param	eventNotificationTemplate	KalturaEventNotificationTemplate		 (optional)
