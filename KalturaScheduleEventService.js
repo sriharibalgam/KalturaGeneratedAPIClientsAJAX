@@ -47,11 +47,15 @@ var KalturaScheduleEventService = {
 	 * List conflicting events for resourcesIds by event's dates.
 	 * @param	resourceIds	string		comma separated (optional)
 	 * @param	scheduleEvent	KalturaScheduleEvent		 (optional)
+	 * @param	scheduleEventIdToIgnore	string		 (optional, default: null)
 	 **/
-	getConflicts: function(resourceIds, scheduleEvent){
+	getConflicts: function(resourceIds, scheduleEvent, scheduleEventIdToIgnore){
+		if(!scheduleEventIdToIgnore)
+			scheduleEventIdToIgnore = null;
 		var kparams = new Object();
 		kparams.resourceIds = resourceIds;
 		kparams.scheduleEvent = scheduleEvent;
+		kparams.scheduleEventIdToIgnore = scheduleEventIdToIgnore;
 		return new KalturaRequestBuilder("schedule_scheduleevent", "getConflicts", kparams);
 	},
 	
