@@ -19,7 +19,7 @@ var KalturaPollService = {
 	 * Get Votes Action.
 	 * @param	pollId	string		 (optional)
 	 * @param	answerIds	string		 (optional)
-	 * @param	otherDCVotes	string		 (optional, default: null)
+	 * @param	otherDCVotes	string		json (optional, default: null)
 	 **/
 	getVotes: function(pollId, answerIds, otherDCVotes){
 		if(!otherDCVotes)

@@ -7801,7 +7801,7 @@ var KalturaPollService = {
 	 * Get Votes Action.
 	 * @param	pollId	string		 (optional)
 	 * @param	answerIds	string		 (optional)
-	 * @param	otherDCVotes	string		 (optional, default: null)
+	 * @param	otherDCVotes	string		json (optional, default: null)
 	 **/
 	getVotes: function(pollId, answerIds, otherDCVotes){
 		if(!otherDCVotes)
@@ -8406,7 +8406,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-05-28');
+	this.setClientTag('ajax:17-05-29');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
