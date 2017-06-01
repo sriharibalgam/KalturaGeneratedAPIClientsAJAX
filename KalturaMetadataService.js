@@ -37,6 +37,23 @@ var KalturaMetadataService = {
 	},
 	
 	/**
+	 * Allows you to add a metadata object and metadata file associated with Kaltura object.
+	 * @param	metadataProfileId	int		 (optional)
+	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
+	 * @param	objectId	string		 (optional)
+	 * @param	xmlFile	HTMLElement		XML metadata (optional)
+	 **/
+	addFromFile: function(metadataProfileId, objectType, objectId, xmlFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.metadataProfileId = metadataProfileId;
+		kparams.objectType = objectType;
+		kparams.objectId = objectId;
+		kfiles.xmlFile = xmlFile;
+		return new KalturaRequestBuilder("metadata_metadata", "addFromFile", kparams, kfiles);
+	},
+	
+	/**
 	 * Allows you to add a metadata xml data from remote URL.
 	 * @param	metadataProfileId	int		 (optional)
 	 * @param	objectType	string		 (optional, enum: KalturaMetadataObjectType)
@@ -133,5 +150,33 @@ var KalturaMetadataService = {
 		kparams.xmlData = xmlData;
 		kparams.version = version;
 		return new KalturaRequestBuilder("metadata_metadata", "update", kparams);
+	},
+	
+	/**
+	 * Update an existing metadata object with new XML file.
+	 * @param	id	int		 (optional)
+	 * @param	xmlFile	HTMLElement		XML metadata (optional, default: null)
+	 **/
+	updateFromFile: function(id, xmlFile){
+		if(!xmlFile)
+			xmlFile = null;
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.xmlFile = xmlFile;
+		return new KalturaRequestBuilder("metadata_metadata", "updateFromFile", kparams, kfiles);
+	},
+	
+	/**
+	 * Action transforms current metadata object XML using a provided XSL..
+	 * @param	id	int		 (optional)
+	 * @param	xslFile	HTMLElement		 (optional)
+	 **/
+	updateFromXSL: function(id, xslFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.xslFile = xslFile;
+		return new KalturaRequestBuilder("metadata_metadata", "updateFromXSL", kparams, kfiles);
 	}
 }

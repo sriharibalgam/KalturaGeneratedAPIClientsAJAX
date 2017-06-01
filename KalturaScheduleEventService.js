@@ -14,6 +14,22 @@ var KalturaScheduleEventService = {
 	},
 	
 	/**
+	 * Add new bulk upload batch job.
+	 * @param	fileData	HTMLElement		 (optional)
+	 * @param	bulkUploadData	KalturaBulkUploadICalJobData		 (optional, default: null)
+	 **/
+	addFromBulkUpload: function(fileData, bulkUploadData){
+		if(!bulkUploadData)
+			bulkUploadData = null;
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		if (bulkUploadData != null)
+			kparams.bulkUploadData = bulkUploadData;
+		return new KalturaRequestBuilder("schedule_scheduleevent", "addFromBulkUpload", kparams, kfiles);
+	},
+	
+	/**
 	 * Mark the KalturaScheduleEvent object as cancelled.
 	 * @param	scheduleEventId	int		 (optional)
 	 **/

@@ -168,6 +168,29 @@ var KalturaMediaService = {
 	},
 	
 	/**
+	 * Add new bulk upload batch job
+ *		 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
+ *		 If no conversion profile was specified, partner's default will be used.
+	 * @param	fileData	HTMLElement		 (optional)
+	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
+	 * @param	bulkUploadEntryData	KalturaBulkUploadEntryData		 (optional, default: null)
+	 **/
+	bulkUploadAdd: function(fileData, bulkUploadData, bulkUploadEntryData){
+		if(!bulkUploadData)
+			bulkUploadData = null;
+		if(!bulkUploadEntryData)
+			bulkUploadEntryData = null;
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		if (bulkUploadData != null)
+			kparams.bulkUploadData = bulkUploadData;
+		if (bulkUploadEntryData != null)
+			kparams.bulkUploadEntryData = bulkUploadEntryData;
+		return new KalturaRequestBuilder("media", "bulkUploadAdd", kparams, kfiles);
+	},
+	
+	/**
 	 * Cancels media replacement.
 	 * @param	entryId	string		Media entry id to cancel (optional)
 	 **/
@@ -395,5 +418,29 @@ var KalturaMediaService = {
 		kparams.entryId = entryId;
 		kparams.url = url;
 		return new KalturaRequestBuilder("media", "updateThumbnailFromUrl", kparams);
+	},
+	
+	/**
+	 * Update media entry thumbnail using a raw jpeg file.
+	 * @param	entryId	string		Media entry id (optional)
+	 * @param	fileData	HTMLElement		Jpeg file data (optional)
+	 **/
+	updateThumbnailJpeg: function(entryId, fileData){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.entryId = entryId;
+		kfiles.fileData = fileData;
+		return new KalturaRequestBuilder("media", "updateThumbnailJpeg", kparams, kfiles);
+	},
+	
+	/**
+	 * Upload a media file to Kaltura, then the file can be used to create a media entry..
+	 * @param	fileData	HTMLElement		The file data (optional)
+	 **/
+	upload: function(fileData){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		return new KalturaRequestBuilder("media", "upload", kparams, kfiles);
 	}
 }

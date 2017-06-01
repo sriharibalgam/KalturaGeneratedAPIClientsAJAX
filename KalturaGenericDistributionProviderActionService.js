@@ -26,6 +26,19 @@ var KalturaGenericDistributionProviderActionService = {
 	},
 	
 	/**
+	 * Add MRSS transform file to generic distribution provider action.
+	 * @param	id	int		the id of the generic distribution provider action (optional)
+	 * @param	xslFile	HTMLElement		XSL MRSS transformation file (optional)
+	 **/
+	addMrssTransformFromFile: function(id, xslFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.xslFile = xslFile;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addMrssTransformFromFile", kparams, kfiles);
+	},
+	
+	/**
 	 * Add MRSS validate file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	xsdData	string		XSD MRSS validatation data (optional)
@@ -38,6 +51,19 @@ var KalturaGenericDistributionProviderActionService = {
 	},
 	
 	/**
+	 * Add MRSS validate file to generic distribution provider action.
+	 * @param	id	int		the id of the generic distribution provider action (optional)
+	 * @param	xsdFile	HTMLElement		XSD MRSS validatation file (optional)
+	 **/
+	addMrssValidateFromFile: function(id, xsdFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.xsdFile = xsdFile;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addMrssValidateFromFile", kparams, kfiles);
+	},
+	
+	/**
 	 * Add results transform file to generic distribution provider action.
 	 * @param	id	int		the id of the generic distribution provider action (optional)
 	 * @param	transformData	string		transformation data xsl, xPath or regex (optional)
@@ -47,6 +73,19 @@ var KalturaGenericDistributionProviderActionService = {
 		kparams.id = id;
 		kparams.transformData = transformData;
 		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addResultsTransform", kparams);
+	},
+	
+	/**
+	 * Add MRSS transform file to generic distribution provider action.
+	 * @param	id	int		the id of the generic distribution provider action (optional)
+	 * @param	transformFile	HTMLElement		transformation file xsl, xPath or regex (optional)
+	 **/
+	addResultsTransformFromFile: function(id, transformFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.transformFile = transformFile;
+		return new KalturaRequestBuilder("contentdistribution_genericdistributionprovideraction", "addResultsTransformFromFile", kparams, kfiles);
 	},
 	
 	/**

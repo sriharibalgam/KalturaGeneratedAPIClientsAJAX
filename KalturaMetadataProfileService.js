@@ -20,6 +20,23 @@ var KalturaMetadataProfileService = {
 	},
 	
 	/**
+	 * Allows you to add a metadata profile object and metadata profile file associated with Kaltura object type.
+	 * @param	metadataProfile	KalturaMetadataProfile		 (optional)
+	 * @param	xsdFile	HTMLElement		XSD metadata definition (optional)
+	 * @param	viewsFile	HTMLElement		UI views definition (optional, default: null)
+	 **/
+	addFromFile: function(metadataProfile, xsdFile, viewsFile){
+		if(!viewsFile)
+			viewsFile = null;
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.metadataProfile = metadataProfile;
+		kfiles.xsdFile = xsdFile;
+		kfiles.viewsFile = viewsFile;
+		return new KalturaRequestBuilder("metadata_metadataprofile", "addFromFile", kparams, kfiles);
+	},
+	
+	/**
 	 * Delete an existing metadata profile.
 	 * @param	id	int		 (optional)
 	 **/
@@ -97,5 +114,44 @@ var KalturaMetadataProfileService = {
 		kparams.xsdData = xsdData;
 		kparams.viewsData = viewsData;
 		return new KalturaRequestBuilder("metadata_metadataprofile", "update", kparams);
+	},
+	
+	/**
+	 * Update an existing metadata object definition file.
+	 * @param	id	int		 (optional)
+	 * @param	xsdFile	HTMLElement		XSD metadata definition (optional)
+	 **/
+	updateDefinitionFromFile: function(id, xsdFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.xsdFile = xsdFile;
+		return new KalturaRequestBuilder("metadata_metadataprofile", "updateDefinitionFromFile", kparams, kfiles);
+	},
+	
+	/**
+	 * Update an existing metadata object xslt file.
+	 * @param	id	int		 (optional)
+	 * @param	xsltFile	HTMLElement		XSLT file, will be executed on every metadata add/update (optional)
+	 **/
+	updateTransformationFromFile: function(id, xsltFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.xsltFile = xsltFile;
+		return new KalturaRequestBuilder("metadata_metadataprofile", "updateTransformationFromFile", kparams, kfiles);
+	},
+	
+	/**
+	 * Update an existing metadata object views file.
+	 * @param	id	int		 (optional)
+	 * @param	viewsFile	HTMLElement		UI views file (optional)
+	 **/
+	updateViewsFromFile: function(id, viewsFile){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.id = id;
+		kfiles.viewsFile = viewsFile;
+		return new KalturaRequestBuilder("metadata_metadataprofile", "updateViewsFromFile", kparams, kfiles);
 	}
 }

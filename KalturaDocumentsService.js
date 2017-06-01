@@ -166,5 +166,16 @@ var KalturaDocumentsService = {
 		kparams.resource = resource;
 		kparams.conversionProfileId = conversionProfileId;
 		return new KalturaRequestBuilder("document_documents", "updateContent", kparams);
+	},
+	
+	/**
+	 * Upload a document file to Kaltura, then the file can be used to create a document entry..
+	 * @param	fileData	HTMLElement		The file data (optional)
+	 **/
+	upload: function(fileData){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		return new KalturaRequestBuilder("document_documents", "upload", kparams, kfiles);
 	}
 }

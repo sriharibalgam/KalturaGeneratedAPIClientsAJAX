@@ -14,6 +14,17 @@ var KalturaAnnotationService = {
 	},
 	
 	/**
+	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions.
+	 * @param	fileData	HTMLElement		 (optional)
+	 **/
+	addFromBulk: function(fileData){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		return new KalturaRequestBuilder("annotation_annotation", "addFromBulk", kparams, kfiles);
+	},
+	
+	/**
 	 * Clone cuePoint with id to given entry.
 	 * @param	id	string		 (optional)
 	 * @param	entryId	string		 (optional)

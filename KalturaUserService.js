@@ -15,6 +15,27 @@ var KalturaUserService = {
 	},
 	
 	/**
+	 * .
+	 * @param	fileData	HTMLElement		 (optional)
+	 * @param	bulkUploadData	KalturaBulkUploadJobData		 (optional, default: null)
+	 * @param	bulkUploadUserData	KalturaBulkUploadUserData		 (optional, default: null)
+	 **/
+	addFromBulkUpload: function(fileData, bulkUploadData, bulkUploadUserData){
+		if(!bulkUploadData)
+			bulkUploadData = null;
+		if(!bulkUploadUserData)
+			bulkUploadUserData = null;
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		if (bulkUploadData != null)
+			kparams.bulkUploadData = bulkUploadData;
+		if (bulkUploadUserData != null)
+			kparams.bulkUploadUserData = bulkUploadUserData;
+		return new KalturaRequestBuilder("user", "addFromBulkUpload", kparams, kfiles);
+	},
+	
+	/**
 	 * Action which checks whther user login.
 	 * @param	filter	KalturaUserLoginDataFilter		 (optional)
 	 **/

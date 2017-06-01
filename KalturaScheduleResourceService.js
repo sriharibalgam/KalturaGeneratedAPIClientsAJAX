@@ -14,6 +14,22 @@ var KalturaScheduleResourceService = {
 	},
 	
 	/**
+	 * Add new bulk upload batch job.
+	 * @param	fileData	HTMLElement		 (optional)
+	 * @param	bulkUploadData	KalturaBulkUploadCsvJobData		 (optional, default: null)
+	 **/
+	addFromBulkUpload: function(fileData, bulkUploadData){
+		if(!bulkUploadData)
+			bulkUploadData = null;
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		if (bulkUploadData != null)
+			kparams.bulkUploadData = bulkUploadData;
+		return new KalturaRequestBuilder("schedule_scheduleresource", "addFromBulkUpload", kparams, kfiles);
+	},
+	
+	/**
 	 * Mark the KalturaScheduleResource object as deleted.
 	 * @param	scheduleResourceId	int		 (optional)
 	 **/

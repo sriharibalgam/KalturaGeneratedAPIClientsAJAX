@@ -53,5 +53,38 @@ var KalturaUploadTokenService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("uploadtoken", "list", kparams);
+	},
+	
+	/**
+	 * Upload a file using the upload token id, returns an error on failure (an exception will be thrown when using one of the Kaltura clients)
+ *		 Chunks can be uploaded in parallel and they will be appended according to their resumeAt position.
+ *		 A parallel upload session should have three stages:
+ *		 1. A single upload with resume=false and finalChunk=false
+ *		 2. Parallel upload requests each with resume=true,finalChunk=false and the expected resumetAt position.
+ *		 If a chunk fails to upload it can be re-uploaded.
+ *		 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded 
+ *		 with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
+ *		 has been returned (indicating not all of the chunks were appended yet) the final request can be retried..
+	 * @param	uploadTokenId	string		 (optional)
+	 * @param	fileData	HTMLElement		 (optional)
+	 * @param	resume	bool		 (optional, default: false)
+	 * @param	finalChunk	bool		 (optional, default: true)
+	 * @param	resumeAt	float		 (optional, default: -1)
+	 **/
+	upload: function(uploadTokenId, fileData, resume, finalChunk, resumeAt){
+		if(!resume)
+			resume = false;
+		if(!finalChunk)
+			finalChunk = true;
+		if(!resumeAt)
+			resumeAt = -1;
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.uploadTokenId = uploadTokenId;
+		kfiles.fileData = fileData;
+		kparams.resume = resume;
+		kparams.finalChunk = finalChunk;
+		kparams.resumeAt = resumeAt;
+		return new KalturaRequestBuilder("uploadtoken", "upload", kparams, kfiles);
 	}
 }

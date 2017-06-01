@@ -313,5 +313,29 @@ var KalturaBaseEntryService = {
 		kparams.entryId = entryId;
 		kparams.url = url;
 		return new KalturaRequestBuilder("baseentry", "updateThumbnailFromUrl", kparams);
+	},
+	
+	/**
+	 * Update entry thumbnail using a raw jpeg file..
+	 * @param	entryId	string		Media entry id (optional)
+	 * @param	fileData	HTMLElement		Jpeg file data (optional)
+	 **/
+	updateThumbnailJpeg: function(entryId, fileData){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kparams.entryId = entryId;
+		kfiles.fileData = fileData;
+		return new KalturaRequestBuilder("baseentry", "updateThumbnailJpeg", kparams, kfiles);
+	},
+	
+	/**
+	 * Upload a file to Kaltura, that can be used to create an entry..
+	 * @param	fileData	HTMLElement		The file data (optional)
+	 **/
+	upload: function(fileData){
+		var kparams = new Object();
+		var kfiles = new Object();
+		kfiles.fileData = fileData;
+		return new KalturaRequestBuilder("baseentry", "upload", kparams, kfiles);
 	}
 }
