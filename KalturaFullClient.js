@@ -8234,6 +8234,18 @@ var KalturaPollService = {
 	},
 	
 	/**
+	 * Vote Action.
+	 * @param	pollId	string		 (optional)
+	 * @param	userId	string		 (optional)
+	 **/
+	getVote: function(pollId, userId){
+		var kparams = new Object();
+		kparams.pollId = pollId;
+		kparams.userId = userId;
+		return new KalturaRequestBuilder("poll_poll", "getVote", kparams);
+	},
+	
+	/**
 	 * Get Votes Action.
 	 * @param	pollId	string		 (optional)
 	 * @param	answerIds	string		 (optional)
@@ -8862,7 +8874,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-06-07');
+	this.setClientTag('ajax:17-06-08');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);

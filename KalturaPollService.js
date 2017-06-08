@@ -16,6 +16,18 @@ var KalturaPollService = {
 	},
 	
 	/**
+	 * Vote Action.
+	 * @param	pollId	string		 (optional)
+	 * @param	userId	string		 (optional)
+	 **/
+	getVote: function(pollId, userId){
+		var kparams = new Object();
+		kparams.pollId = pollId;
+		kparams.userId = userId;
+		return new KalturaRequestBuilder("poll_poll", "getVote", kparams);
+	},
+	
+	/**
 	 * Get Votes Action.
 	 * @param	pollId	string		 (optional)
 	 * @param	answerIds	string		 (optional)
