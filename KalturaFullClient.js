@@ -4228,6 +4228,16 @@ var KalturaStatsService = {
 	},
 	
 	/**
+	 * Use this action to report device capabilities to the kaltura server..
+	 * @param	data	string		 (optional)
+	 **/
+	reportDeviceCapabilities: function(data){
+		var kparams = new Object();
+		kparams.data = data;
+		return new KalturaRequestBuilder("stats", "reportDeviceCapabilities", kparams);
+	},
+	
+	/**
 	 * Use this action to report errors to the kaltura server..
 	 * @param	errorCode	string		 (optional)
 	 * @param	errorMessage	string		 (optional)
@@ -8874,7 +8884,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-06-20');
+	this.setClientTag('ajax:17-06-21');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);

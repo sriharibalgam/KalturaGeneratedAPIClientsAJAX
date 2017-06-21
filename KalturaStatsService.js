@@ -46,6 +46,16 @@ var KalturaStatsService = {
 	},
 	
 	/**
+	 * Use this action to report device capabilities to the kaltura server..
+	 * @param	data	string		 (optional)
+	 **/
+	reportDeviceCapabilities: function(data){
+		var kparams = new Object();
+		kparams.data = data;
+		return new KalturaRequestBuilder("stats", "reportDeviceCapabilities", kparams);
+	},
+	
+	/**
 	 * Use this action to report errors to the kaltura server..
 	 * @param	errorCode	string		 (optional)
 	 * @param	errorMessage	string		 (optional)
