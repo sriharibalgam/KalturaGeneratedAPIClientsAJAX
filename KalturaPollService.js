@@ -44,6 +44,18 @@ var KalturaPollService = {
 	},
 	
 	/**
+	 * Get resetVotes Action.
+	 * @param	pollId	string		 (optional)
+	 * @param	answerIds	string		 (optional)
+	 **/
+	resetVotes: function(pollId, answerIds){
+		var kparams = new Object();
+		kparams.pollId = pollId;
+		kparams.answerIds = answerIds;
+		return new KalturaRequestBuilder("poll_poll", "resetVotes", kparams);
+	},
+	
+	/**
 	 * Vote Action.
 	 * @param	pollId	string		 (optional)
 	 * @param	userId	string		 (optional)
