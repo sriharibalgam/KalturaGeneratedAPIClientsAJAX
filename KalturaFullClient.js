@@ -8259,27 +8259,21 @@ var KalturaPollService = {
 	 * Get Votes Action.
 	 * @param	pollId	string		 (optional)
 	 * @param	answerIds	string		 (optional)
-	 * @param	otherDCVotes	string		json (optional, default: null)
 	 **/
-	getVotes: function(pollId, answerIds, otherDCVotes){
-		if(!otherDCVotes)
-			otherDCVotes = null;
+	getVotes: function(pollId, answerIds){
 		var kparams = new Object();
 		kparams.pollId = pollId;
 		kparams.answerIds = answerIds;
-		kparams.otherDCVotes = otherDCVotes;
 		return new KalturaRequestBuilder("poll_poll", "getVotes", kparams);
 	},
 	
 	/**
 	 * Get resetVotes Action.
 	 * @param	pollId	string		 (optional)
-	 * @param	answerIds	string		 (optional)
 	 **/
-	resetVotes: function(pollId, answerIds){
+	resetVotes: function(pollId){
 		var kparams = new Object();
 		kparams.pollId = pollId;
-		kparams.answerIds = answerIds;
 		return new KalturaRequestBuilder("poll_poll", "resetVotes", kparams);
 	},
 	
@@ -8896,7 +8890,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-06-28');
+	this.setClientTag('ajax:17-06-29');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
