@@ -597,8 +597,8 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-07-04');
-	this.setApiVersion('3.3.0');
+	this.setClientTag('ajax:17-07-05');
+	this.setApiVersion('3.6.287.20330');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
 /**
@@ -654,6 +654,42 @@ KalturaClient.prototype.setPartnerId = function(partnerId){
  */
 KalturaClient.prototype.getPartnerId = function(){
 	return this.requestData.partnerId;
+};
+
+/**
+ * Impersonated user id
+ * 
+ * @param int $userId
+ */
+KalturaClient.prototype.setUserId = function(userId){
+	this.requestData.userId = userId;
+};
+
+/**
+ * Impersonated user id
+ * 
+ * @return int
+ */
+KalturaClient.prototype.getUserId = function(){
+	return this.requestData.userId;
+};
+
+/**
+ * Content language
+ * 
+ * @param int $language
+ */
+KalturaClient.prototype.setLanguage = function(language){
+	this.requestData.language = language;
+};
+
+/**
+ * Content language
+ * 
+ * @return int
+ */
+KalturaClient.prototype.getLanguage = function(){
+	return this.requestData.language;
 };
 
 /**
@@ -739,6 +775,42 @@ KalturaRequestBuilder.prototype.getPartnerId = function(){
 };
 
 /**
+ * Impersonated user id
+ * 
+ * @param int $userId
+ */
+KalturaRequestBuilder.prototype.setUserId = function(userId){
+	this.requestData.userId = userId;
+};
+
+/**
+ * Impersonated user id
+ * 
+ * @return int
+ */
+KalturaRequestBuilder.prototype.getUserId = function(){
+	return this.requestData.userId;
+};
+
+/**
+ * Content language
+ * 
+ * @param int $language
+ */
+KalturaRequestBuilder.prototype.setLanguage = function(language){
+	this.requestData.language = language;
+};
+
+/**
+ * Content language
+ * 
+ * @return int
+ */
+KalturaRequestBuilder.prototype.getLanguage = function(){
+	return this.requestData.language;
+};
+
+/**
  * Kaltura API session
  * 
  * @param string $ks
@@ -772,23 +844,5 @@ KalturaRequestBuilder.prototype.setSessionId = function(sessionId){
  */
 KalturaRequestBuilder.prototype.getSessionId = function(){
 	return this.requestData.ks;
-};
-
-/**
- * Response profile - this attribute will be automatically unset after every API call.
- * 
- * @param KalturaBaseResponseProfile $responseProfile
- */
-KalturaRequestBuilder.prototype.setResponseProfile = function(responseProfile){
-	this.requestData.responseProfile = responseProfile;
-};
-
-/**
- * Response profile - this attribute will be automatically unset after every API call.
- * 
- * @return KalturaBaseResponseProfile
- */
-KalturaRequestBuilder.prototype.getResponseProfile = function(){
-	return this.requestData.responseProfile;
 };
 
