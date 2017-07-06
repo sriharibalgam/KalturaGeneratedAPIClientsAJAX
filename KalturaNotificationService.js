@@ -4,14 +4,32 @@
  **/
 var KalturaNotificationService = {
 	/**
-	 * Return the notifications for a specific entry id and type.
-	 * @param	entryId	string		 (optional)
-	 * @param	type	int		 (optional, enum: KalturaNotificationType)
+	 * TBD.
 	 **/
-	getClientNotification: function(entryId, type){
+	initiateCleanup: function(){
 		var kparams = new Object();
-		kparams.entryId = entryId;
+		return new KalturaRequestBuilder("notification", "initiateCleanup", kparams);
+	},
+	
+	/**
+	 * TBD.
+	 * @param	identifier	string		In case type is "announcement", identifier should be the announcement ID. In case type is "system", identifier should be "login" (the login topic) (optional)
+	 * @param	type	string		"announcement" - TV-Series topic, "system" - login topic (optional, enum: KalturaNotificationType)
+	 **/
+	register: function(identifier, type){
+		var kparams = new Object();
+		kparams.identifier = identifier;
 		kparams.type = type;
-		return new KalturaRequestBuilder("notification", "getClientNotification", kparams);
+		return new KalturaRequestBuilder("notification", "register", kparams);
+	},
+	
+	/**
+	 * Registers the device push token to the push service.
+	 * @param	pushToken	string		The device-application pair authentication for push delivery (optional)
+	 **/
+	setDevicePushToken: function(pushToken){
+		var kparams = new Object();
+		kparams.pushToken = pushToken;
+		return new KalturaRequestBuilder("notification", "setDevicePushToken", kparams);
 	}
 }
