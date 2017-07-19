@@ -14,6 +14,18 @@ var KalturaDataService = {
 	},
 	
 	/**
+	 * Update the dataContent of data entry using a resource.
+	 * @param	entryId	string		 (optional)
+	 * @param	resource	KalturaGenericDataCenterContentResource		 (optional)
+	 **/
+	addContent: function(entryId, resource){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.resource = resource;
+		return new KalturaRequestBuilder("data", "addContent", kparams);
+	},
+	
+	/**
 	 * Delete a data entry..
 	 * @param	entryId	string		Data entry id to delete (optional)
 	 **/
