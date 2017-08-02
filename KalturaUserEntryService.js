@@ -45,14 +45,17 @@ var KalturaUserEntryService = {
 	
 	/**
 	 * .
-	 * @param	filter	KalturaUserEntryFilter		 (optional)
+	 * @param	filter	KalturaUserEntryFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 **/
 	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
 		if(!pager)
 			pager = null;
 		var kparams = new Object();
-		kparams.filter = filter;
+		if (filter != null)
+			kparams.filter = filter;
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("userentry", "list", kparams);

@@ -5037,14 +5037,17 @@ var KalturaUserEntryService = {
 	
 	/**
 	 * .
-	 * @param	filter	KalturaUserEntryFilter		 (optional)
+	 * @param	filter	KalturaUserEntryFilter		 (optional, default: null)
 	 * @param	pager	KalturaFilterPager		 (optional, default: null)
 	 **/
 	listAction: function(filter, pager){
+		if(!filter)
+			filter = null;
 		if(!pager)
 			pager = null;
 		var kparams = new Object();
-		kparams.filter = filter;
+		if (filter != null)
+			kparams.filter = filter;
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("userentry", "list", kparams);
@@ -8902,7 +8905,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-08-01');
+	this.setClientTag('ajax:17-08-02');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
