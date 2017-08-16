@@ -100,6 +100,20 @@ var KalturaLiveStreamService = {
 	},
 	
 	/**
+	 * .
+	 * @param	entryId	string		Live entry id (optional)
+	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
+	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus)
+	 **/
+	createRecordedEntry: function(entryId, mediaServerIndex, liveEntryStatus){
+		var kparams = new Object();
+		kparams.entryId = entryId;
+		kparams.mediaServerIndex = mediaServerIndex;
+		kparams.liveEntryStatus = liveEntryStatus;
+		return new KalturaRequestBuilder("livestream", "createRecordedEntry", kparams);
+	},
+	
+	/**
 	 * Delete a live stream entry..
 	 * @param	entryId	string		Live stream entry id to delete (optional)
 	 **/
@@ -170,18 +184,22 @@ var KalturaLiveStreamService = {
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
 	 * @param	applicationName	string		the application to which entry is being broadcast (optional, default: null)
 	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus, default: 1)
+	 * @param	shouldCreateRecordedEntry	bool		 (optional, default: true)
 	 **/
-	registerMediaServer: function(entryId, hostname, mediaServerIndex, applicationName, liveEntryStatus){
+	registerMediaServer: function(entryId, hostname, mediaServerIndex, applicationName, liveEntryStatus, shouldCreateRecordedEntry){
 		if(!applicationName)
 			applicationName = null;
 		if(!liveEntryStatus)
 			liveEntryStatus = 1;
+		if(!shouldCreateRecordedEntry)
+			shouldCreateRecordedEntry = true;
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		kparams.hostname = hostname;
 		kparams.mediaServerIndex = mediaServerIndex;
 		kparams.applicationName = applicationName;
 		kparams.liveEntryStatus = liveEntryStatus;
+		kparams.shouldCreateRecordedEntry = shouldCreateRecordedEntry;
 		return new KalturaRequestBuilder("livestream", "registerMediaServer", kparams);
 	},
 	
