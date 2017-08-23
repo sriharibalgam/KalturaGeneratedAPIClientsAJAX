@@ -7045,18 +7045,16 @@ var KalturaDropFolderService = {
 	/**
 	 * freeExclusive KalturaDropFolder object.
 	 * @param	dropFolderId	int		 (optional)
-	 * @param	status	int		 (optional)
 	 * @param	errorCode	string		 (optional, default: null)
 	 * @param	errorDescription	string		 (optional, default: null)
 	 **/
-	freeExclusiveDropFolder: function(dropFolderId, status, errorCode, errorDescription){
+	freeExclusiveDropFolder: function(dropFolderId, errorCode, errorDescription){
 		if(!errorCode)
 			errorCode = null;
 		if(!errorDescription)
 			errorDescription = null;
 		var kparams = new Object();
 		kparams.dropFolderId = dropFolderId;
-		kparams.status = status;
 		kparams.errorCode = errorCode;
 		kparams.errorDescription = errorDescription;
 		return new KalturaRequestBuilder("dropfolder_dropfolder", "freeExclusiveDropFolder", kparams);
@@ -8941,7 +8939,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-08-22');
+	this.setClientTag('ajax:17-08-23');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
