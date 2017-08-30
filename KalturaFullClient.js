@@ -1541,7 +1541,7 @@ var KalturaFileAssetService = {
 	
 	/**
 	 * Set content of file asset.
-	 * @param	id	string		 (optional)
+	 * @param	id	int		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
 	 **/
 	setContent: function(id, contentResource){
@@ -8939,7 +8939,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-08-28');
+	this.setClientTag('ajax:17-08-30');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);

@@ -50,7 +50,7 @@ var KalturaFileAssetService = {
 	
 	/**
 	 * Set content of file asset.
-	 * @param	id	string		 (optional)
+	 * @param	id	int		 (optional)
 	 * @param	contentResource	KalturaContentResource		 (optional)
 	 **/
 	setContent: function(id, contentResource){
