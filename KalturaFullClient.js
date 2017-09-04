@@ -7383,6 +7383,26 @@ var KalturaCaptionParamsService = {
  **/
 var KalturaCaptionAssetItemService = {
 	/**
+	 * List caption asset items by filter and pager.
+	 * @param	captionAssetId	string		 (optional)
+	 * @param	captionAssetItemFilter	KalturaCaptionAssetItemFilter		 (optional, default: null)
+	 * @param	captionAssetItemPager	KalturaFilterPager		 (optional, default: null)
+	 **/
+	listAction: function(captionAssetId, captionAssetItemFilter, captionAssetItemPager){
+		if(!captionAssetItemFilter)
+			captionAssetItemFilter = null;
+		if(!captionAssetItemPager)
+			captionAssetItemPager = null;
+		var kparams = new Object();
+		kparams.captionAssetId = captionAssetId;
+		if (captionAssetItemFilter != null)
+			kparams.captionAssetItemFilter = captionAssetItemFilter;
+		if (captionAssetItemPager != null)
+			kparams.captionAssetItemPager = captionAssetItemPager;
+		return new KalturaRequestBuilder("captionsearch_captionassetitem", "list", kparams);
+	},
+	
+	/**
 	 * Parse content of caption asset and index it.
 	 * @param	captionAssetId	string		 (optional)
 	 **/
@@ -8939,7 +8959,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-09-03');
+	this.setClientTag('ajax:17-09-04');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);

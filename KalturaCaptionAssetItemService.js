@@ -4,6 +4,26 @@
  **/
 var KalturaCaptionAssetItemService = {
 	/**
+	 * List caption asset items by filter and pager.
+	 * @param	captionAssetId	string		 (optional)
+	 * @param	captionAssetItemFilter	KalturaCaptionAssetItemFilter		 (optional, default: null)
+	 * @param	captionAssetItemPager	KalturaFilterPager		 (optional, default: null)
+	 **/
+	listAction: function(captionAssetId, captionAssetItemFilter, captionAssetItemPager){
+		if(!captionAssetItemFilter)
+			captionAssetItemFilter = null;
+		if(!captionAssetItemPager)
+			captionAssetItemPager = null;
+		var kparams = new Object();
+		kparams.captionAssetId = captionAssetId;
+		if (captionAssetItemFilter != null)
+			kparams.captionAssetItemFilter = captionAssetItemFilter;
+		if (captionAssetItemPager != null)
+			kparams.captionAssetItemPager = captionAssetItemPager;
+		return new KalturaRequestBuilder("captionsearch_captionassetitem", "list", kparams);
+	},
+	
+	/**
 	 * Parse content of caption asset and index it.
 	 * @param	captionAssetId	string		 (optional)
 	 **/
