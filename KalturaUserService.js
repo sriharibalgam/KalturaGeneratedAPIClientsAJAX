@@ -168,6 +168,16 @@ var KalturaUserService = {
 	},
 	
 	/**
+	 * Loges a user to the destination account as long the ks user id exists in the desc acount and the loginData id match for both accounts.
+	 * @param	requestedPartnerId	int		 (optional)
+	 **/
+	loginByKs: function(requestedPartnerId){
+		var kparams = new Object();
+		kparams.requestedPartnerId = requestedPartnerId;
+		return new KalturaRequestBuilder("user", "loginByKs", kparams);
+	},
+	
+	/**
 	 * Logs a user into a partner account with a user login ID and a user password..
 	 * @param	loginId	string		The user's email address that identifies the user for login (optional)
 	 * @param	password	string		The user's password (optional)
