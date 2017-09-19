@@ -71,17 +71,13 @@ var KalturaBaseEntryService = {
 	 * Clone an entry with optional attributes to apply to the clone.
 	 * @param	entryId	string		Id of entry to clone (optional)
 	 * @param	cloneOptions	array		 (optional, default: null)
-	 * @param	setSourceAsRootEntryId	bool		should we set the original entryId as the rootEntryId of the new entry (optional, default: false)
 	 **/
-	cloneAction: function(entryId, cloneOptions, setSourceAsRootEntryId){
+	cloneAction: function(entryId, cloneOptions){
 		if(!cloneOptions)
 			cloneOptions = null;
-		if(!setSourceAsRootEntryId)
-			setSourceAsRootEntryId = false;
 		var kparams = new Object();
 		kparams.entryId = entryId;
 		kparams.cloneOptions = cloneOptions;
-		kparams.setSourceAsRootEntryId = setSourceAsRootEntryId;
 		return new KalturaRequestBuilder("baseentry", "clone", kparams);
 	},
 	
