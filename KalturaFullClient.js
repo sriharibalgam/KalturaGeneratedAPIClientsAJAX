@@ -2051,7 +2051,7 @@ var KalturaLiveChannelService = {
 	},
 	
 	/**
-	 * .
+	 * Create recorded entry id if it doesn't exist and make sure it happens on the DC that the live entry was created on..
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
 	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus)
@@ -2139,7 +2139,7 @@ var KalturaLiveChannelService = {
 	},
 	
 	/**
-	 * Sey recorded video to live entry.
+	 * Set recorded video to live entry.
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
@@ -2383,7 +2383,7 @@ var KalturaLiveStreamService = {
 	},
 	
 	/**
-	 * .
+	 * Create recorded entry id if it doesn't exist and make sure it happens on the DC that the live entry was created on..
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
 	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus)
@@ -2499,7 +2499,7 @@ var KalturaLiveStreamService = {
 	},
 	
 	/**
-	 * Sey recorded video to live entry.
+	 * Set recorded video to live entry.
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
@@ -9398,7 +9398,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-10-23');
+	this.setClientTag('ajax:17-10-24');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);

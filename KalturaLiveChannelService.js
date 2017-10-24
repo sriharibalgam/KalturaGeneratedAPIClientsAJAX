@@ -36,7 +36,7 @@ var KalturaLiveChannelService = {
 	},
 	
 	/**
-	 * .
+	 * Create recorded entry id if it doesn't exist and make sure it happens on the DC that the live entry was created on..
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	mediaServerIndex	string		Media server index primary / secondary (optional, enum: KalturaEntryServerNodeType)
 	 * @param	liveEntryStatus	int		the status KalturaEntryServerNodeStatus::PLAYABLE | KalturaEntryServerNodeStatus::BROADCASTING (optional, enum: KalturaEntryServerNodeStatus)
@@ -124,7 +124,7 @@ var KalturaLiveChannelService = {
 	},
 	
 	/**
-	 * Sey recorded video to live entry.
+	 * Set recorded video to live entry.
 	 * @param	entryId	string		Live entry id (optional)
 	 * @param	mediaServerIndex	string		 (optional, enum: KalturaEntryServerNodeType)
 	 * @param	resource	KalturaDataCenterContentResource		 (optional)
