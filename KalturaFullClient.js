@@ -7286,7 +7286,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchParams		 (optional)
+	 * @param	searchParams	KalturaESearchObject		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchCategory: function(searchParams, pager){
@@ -7301,7 +7301,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchParams		 (optional)
+	 * @param	searchParams	KalturaESearchObject		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchEntry: function(searchParams, pager){
@@ -7316,7 +7316,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchParams		 (optional)
+	 * @param	searchParams	KalturaESearchObject		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchUser: function(searchParams, pager){
@@ -9398,7 +9398,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-10-31');
+	this.setClientTag('ajax:17-11-01');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
