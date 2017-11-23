@@ -15,7 +15,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchObject		 (optional)
+	 * @param	searchParams	KalturaESearchParams		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchCategory: function(searchParams, pager){
@@ -30,7 +30,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchObject		 (optional)
+	 * @param	searchParams	KalturaESearchParams		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchEntry: function(searchParams, pager){
@@ -45,7 +45,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchObject		 (optional)
+	 * @param	searchParams	KalturaESearchParams		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchUser: function(searchParams, pager){
