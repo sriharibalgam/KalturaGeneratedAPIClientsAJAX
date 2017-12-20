@@ -7276,17 +7276,7 @@ var KalturaDropFolderFileService = {
 var KalturaESearchService = {
 	/**
 	 * .
-	 * @param	searchItem	KalturaESearchItem		 (optional)
-	 **/
-	getAllowedSearchTypes: function(searchItem){
-		var kparams = new Object();
-		kparams.searchItem = searchItem;
-		return new KalturaRequestBuilder("elasticsearch_esearch", "getAllowedSearchTypes", kparams);
-	},
-	
-	/**
-	 * .
-	 * @param	searchParams	KalturaESearchParams		 (optional)
+	 * @param	searchParams	KalturaESearchCategoryParams		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchCategory: function(searchParams, pager){
@@ -7301,7 +7291,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchParams		 (optional)
+	 * @param	searchParams	KalturaESearchEntryParams		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchEntry: function(searchParams, pager){
@@ -7316,7 +7306,7 @@ var KalturaESearchService = {
 	
 	/**
 	 * .
-	 * @param	searchParams	KalturaESearchParams		 (optional)
+	 * @param	searchParams	KalturaESearchUserParams		 (optional)
 	 * @param	pager	KalturaPager		 (optional, default: null)
 	 **/
 	searchUser: function(searchParams, pager){
@@ -9398,7 +9388,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:17-12-19');
+	this.setClientTag('ajax:17-12-20');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
