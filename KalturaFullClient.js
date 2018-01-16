@@ -4075,6 +4075,16 @@ var KalturaServerNodeService = {
 	},
 	
 	/**
+	 * Mark server node offline.
+	 * @param	serverNodeId	string		 (optional)
+	 **/
+	markOffline: function(serverNodeId){
+		var kparams = new Object();
+		kparams.serverNodeId = serverNodeId;
+		return new KalturaRequestBuilder("servernode", "markOffline", kparams);
+	},
+	
+	/**
 	 * Update server node status.
 	 * @param	hostName	string		 (optional)
 	 * @param	serverNode	KalturaServerNode		 (optional, default: null)
@@ -9388,7 +9398,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:18-01-15');
+	this.setClientTag('ajax:18-01-16');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
