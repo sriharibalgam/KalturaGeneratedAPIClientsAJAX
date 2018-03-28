@@ -5290,17 +5290,20 @@ var KalturaUserService = {
 	
 	/**
 	 * add batch job that sends an email with a link to download an updated CSV that contains list of users.
-	 * @param	filter	KalturaUserFilter		A filter used to exclude specific types of users (optional)
+	 * @param	filter	KalturaUserFilter		A filter used to exclude specific types of users (optional, default: null)
 	 * @param	metadataProfileId	int		 (optional, default: null)
 	 * @param	additionalFields	array		 (optional, default: null)
 	 **/
 	exportToCsv: function(filter, metadataProfileId, additionalFields){
+		if(!filter)
+			filter = null;
 		if(!metadataProfileId)
 			metadataProfileId = null;
 		if(!additionalFields)
 			additionalFields = null;
 		var kparams = new Object();
-		kparams.filter = filter;
+		if (filter != null)
+			kparams.filter = filter;
 		kparams.metadataProfileId = metadataProfileId;
 		kparams.additionalFields = additionalFields;
 		return new KalturaRequestBuilder("user", "exportToCsv", kparams);
@@ -9426,7 +9429,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:18-03-27');
+	this.setClientTag('ajax:18-03-28');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
