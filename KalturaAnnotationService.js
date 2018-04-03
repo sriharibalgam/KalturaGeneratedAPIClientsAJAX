@@ -100,6 +100,22 @@ var KalturaAnnotationService = {
 	},
 	
 	/**
+	 * .
+	 * @param	id	string		 (optional)
+	 * @param	startTime	int		 (optional)
+	 * @param	endTime	int		 (optional, default: null)
+	 **/
+	updateCuePointsTimes: function(id, startTime, endTime){
+		if(!endTime)
+			endTime = null;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.startTime = startTime;
+		kparams.endTime = endTime;
+		return new KalturaRequestBuilder("annotation_annotation", "updateCuePointsTimes", kparams);
+	},
+	
+	/**
 	 * Update cuePoint status by id.
 	 * @param	id	string		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaCuePointStatus)

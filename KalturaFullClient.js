@@ -5678,6 +5678,22 @@ var KalturaAnnotationService = {
 	},
 	
 	/**
+	 * .
+	 * @param	id	string		 (optional)
+	 * @param	startTime	int		 (optional)
+	 * @param	endTime	int		 (optional, default: null)
+	 **/
+	updateCuePointsTimes: function(id, startTime, endTime){
+		if(!endTime)
+			endTime = null;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.startTime = startTime;
+		kparams.endTime = endTime;
+		return new KalturaRequestBuilder("annotation_annotation", "updateCuePointsTimes", kparams);
+	},
+	
+	/**
 	 * Update cuePoint status by id.
 	 * @param	id	string		 (optional)
 	 * @param	status	int		 (optional, enum: KalturaCuePointStatus)
@@ -6772,6 +6788,22 @@ var KalturaCuePointService = {
 		kparams.id = id;
 		kparams.cuePoint = cuePoint;
 		return new KalturaRequestBuilder("cuepoint_cuepoint", "update", kparams);
+	},
+	
+	/**
+	 * .
+	 * @param	id	string		 (optional)
+	 * @param	startTime	int		 (optional)
+	 * @param	endTime	int		 (optional, default: null)
+	 **/
+	updateCuePointsTimes: function(id, startTime, endTime){
+		if(!endTime)
+			endTime = null;
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.startTime = startTime;
+		kparams.endTime = endTime;
+		return new KalturaRequestBuilder("cuepoint_cuepoint", "updateCuePointsTimes", kparams);
 	},
 	
 	/**
@@ -9429,7 +9461,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:18-04-02');
+	this.setClientTag('ajax:18-04-03');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
