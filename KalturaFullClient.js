@@ -1480,6 +1480,18 @@ var KalturaEntryServerNodeService = {
 	},
 	
 	/**
+	 * .
+	 * @param	id	string		 (optional)
+	 * @param	status	int		 (optional, enum: KalturaEntryServerNodeStatus)
+	 **/
+	updateStatus: function(id, status){
+		var kparams = new Object();
+		kparams.id = id;
+		kparams.status = status;
+		return new KalturaRequestBuilder("entryservernode", "updateStatus", kparams);
+	},
+	
+	/**
 	 * Validates server node still registered on entry.
 	 * @param	id	int		entry server node id (optional)
 	 **/
@@ -9461,7 +9473,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:18-04-29');
+	this.setClientTag('ajax:18-04-30');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
