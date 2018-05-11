@@ -41,5 +41,17 @@ var KalturaGroupUserService = {
 		if (pager != null)
 			kparams.pager = pager;
 		return new KalturaRequestBuilder("groupuser", "list", kparams);
+	},
+	
+	/**
+	 * sync by userId and groupIds.
+	 * @param	userId	string		 (optional)
+	 * @param	groupIds	string		 (optional)
+	 **/
+	sync: function(userId, groupIds){
+		var kparams = new Object();
+		kparams.userId = userId;
+		kparams.groupIds = groupIds;
+		return new KalturaRequestBuilder("groupuser", "sync", kparams);
 	}
 }
