@@ -5313,7 +5313,7 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * add batch job that sends an email with a link to download an updated CSV that contains list of users.
+	 * Creates a batch job that sends an email with a link to download a CSV containing a list of users.
 	 * @param	filter	KalturaUserFilter		A filter used to exclude specific types of users (optional, default: null)
 	 * @param	metadataProfileId	int		 (optional, default: null)
 	 * @param	additionalFields	array		 (optional, default: null)
@@ -5413,7 +5413,7 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * Loges a user to the destination account as long the ks user id exists in the desc acount and the loginData id match for both accounts.
+	 * Logs a user to the destination account provided the KS' user ID is associated with the destination account and the loginData ID matches.
 	 * @param	requestedPartnerId	int		 (optional)
 	 **/
 	loginByKs: function(requestedPartnerId){
@@ -5471,7 +5471,7 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * Will serve a requested csv.
+	 * Will serve a requested CSV.
 	 * @param	id	string		- the requested file id (optional)
 	 **/
 	serveCsv: function(id){
@@ -5481,7 +5481,7 @@ var KalturaUserService = {
 	},
 	
 	/**
-	 * Set initial users password.
+	 * Set initial user password.
 	 * @param	hashKey	string		The hash key used to identify the user (retrieved by email) (optional)
 	 * @param	newPassword	string		The new password to set for the user (optional)
 	 **/
@@ -9485,7 +9485,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:18-05-17');
+	this.setClientTag('ajax:18-05-18');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
