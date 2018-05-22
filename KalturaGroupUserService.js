@@ -47,11 +47,19 @@ var KalturaGroupUserService = {
 	 * sync by userId and groupIds.
 	 * @param	userId	string		 (optional)
 	 * @param	groupIds	string		 (optional)
+	 * @param	removeFromExistingGroups	bool		 (optional, default: true)
+	 * @param	createNewGroups	bool		 (optional, default: true)
 	 **/
-	sync: function(userId, groupIds){
+	sync: function(userId, groupIds, removeFromExistingGroups, createNewGroups){
+		if(!removeFromExistingGroups)
+			removeFromExistingGroups = true;
+		if(!createNewGroups)
+			createNewGroups = true;
 		var kparams = new Object();
 		kparams.userId = userId;
 		kparams.groupIds = groupIds;
+		kparams.removeFromExistingGroups = removeFromExistingGroups;
+		kparams.createNewGroups = createNewGroups;
 		return new KalturaRequestBuilder("groupuser", "sync", kparams);
 	}
 }
