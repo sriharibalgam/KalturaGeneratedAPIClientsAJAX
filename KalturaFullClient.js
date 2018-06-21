@@ -227,7 +227,7 @@ var KalturaAppTokenService = {
 	},
 	
 	/**
-	 * Delete application authentication token by id.
+	 * Delete application authentication token by ID.
 	 * @param	id	string		 (optional)
 	 **/
 	deleteAction: function(id){
@@ -237,7 +237,7 @@ var KalturaAppTokenService = {
 	},
 	
 	/**
-	 * Get application authentication token by id.
+	 * Get application authentication token by ID.
 	 * @param	id	string		 (optional)
 	 **/
 	get: function(id){
@@ -265,12 +265,12 @@ var KalturaAppTokenService = {
 	},
 	
 	/**
-	 * Starts a new KS (kaltura Session) based on application authentication token id.
-	 * @param	id	string		application token id (optional)
-	 * @param	tokenHash	string		hashed token, built of sha1 on current KS concatenated with the application token (optional)
-	 * @param	userId	string		session user id, will be ignored if a different user id already defined on the application token (optional, default: null)
-	 * @param	type	int		session type, will be ignored if a different session type already defined on the application token (optional, enum: KalturaSessionType, default: null)
-	 * @param	expiry	int		session expiry (in seconds), could be overwritten by shorter expiry of the application token and the session-expiry that defined on the application token (optional, default: null)
+	 * Starts a new KS (kaltura Session) based on an application authentication token ID.
+	 * @param	id	string		application token ID (optional)
+	 * @param	tokenHash	string		a hash [MD5, SHA1, SHA256 and SHA512 are supported] of the current KS concatenated with the application token (optional)
+	 * @param	userId	string		session user ID, will be ignored if a different user ID already defined on the application token (optional, default: null)
+	 * @param	type	int		session type, will be ignored if a different session type is already defined on the application token (optional, enum: KalturaSessionType, default: null)
+	 * @param	expiry	int		session expiry (in seconds), could be overridden by shorter expiry of the application token (optional, default: null)
 	 **/
 	startSession: function(id, tokenHash, userId, type, expiry){
 		if(!userId)
@@ -289,7 +289,7 @@ var KalturaAppTokenService = {
 	},
 	
 	/**
-	 * Update application authentication token by id.
+	 * Update application authentication token by ID.
 	 * @param	id	string		 (optional)
 	 * @param	appToken	KalturaAppToken		 (optional)
 	 **/
@@ -9493,7 +9493,7 @@ var MD5 = function (string) {
  */
 function KalturaClient(config){
 	this.init(config);
-	this.setClientTag('ajax:18-06-20');
+	this.setClientTag('ajax:18-06-21');
 	this.setApiVersion('3.3.0');
 }
 KalturaClient.inheritsFrom (KalturaClientBase);
